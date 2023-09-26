@@ -4,6 +4,8 @@ services:
   db:
     image: mariadb:10.6.15
     container_name: spichka_website_db
+    ports:
+      - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
     restart: always
@@ -27,7 +29,6 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress
     working_dir: /var/www/html
     volumes:
-      - ./wp-content:/var/www/html/wp-content
-      - ./themes/kava-child:/var/www/html/wp-content/themes/kava-child
+      - ./themes/spichka:/var/www/html/wp-content/themes/spichka
 volumes:
   db_data:
