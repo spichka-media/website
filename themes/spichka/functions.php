@@ -1,6 +1,6 @@
 <?php
 /**
- * spichka functions and definitions
+ * Spichka functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *

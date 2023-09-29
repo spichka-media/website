@@ -1,6 +1,6 @@
 <?php
 /**
- * spichka Theme Customizer
+ * Spichka Theme Customizer
  *
  * @package spichka
  */
