@@ -45,33 +45,29 @@ export default async (app) => {
    * @see {@link https://bud.js.org/extensions/sage/theme.json}
    * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
    */
-  app.wpjson
-    .setSettings({
-      color: {
-        custom: false,
-        customDuotone: false,
-        customGradient: false,
-        defaultDuotone: false,
-        defaultGradients: false,
-        defaultPalette: false,
-        duotone: [],
-      },
-      custom: {
-        spacing: {},
-        typography: {
-          'font-size': {},
-          'line-height': {},
-        },
-      },
-      spacing: {
-        padding: true,
-        units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-      },
+  app.wpjson.setSettings({
+    color: {
+      custom: false,
+      customDuotone: false,
+      customGradient: false,
+      defaultDuotone: false,
+      defaultGradients: false,
+      defaultPalette: false,
+      duotone: [],
+    },
+    custom: {
+      spacing: {},
       typography: {
-        customFontSize: false,
+        'font-size': {},
+        'line-height': {},
       },
-    })
-    .useTailwindColors()
-    .useTailwindFontFamily()
-    .useTailwindFontSize();
+    },
+    spacing: {
+      padding: true,
+      units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+    },
+    typography: {
+      customFontSize: false,
+    },
+  });
 };
