@@ -16,7 +16,7 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app', '@styles/app'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
-    .assets(['images']);
+    .assets(['images', 'fonts']);
 
   /**
    * Set public path
@@ -33,8 +33,8 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.watch}
    */
   app
-    .setUrl('http://localhost:8000')
-    .setProxyUrl('http://local.test')
+    .setUrl('http://localhost:8001')
+    .setProxyUrl('http://localhost:8000')
     .watch(['resources/views', 'app']);
 
   /**
