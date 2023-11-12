@@ -1,5 +1,5 @@
 <article>
-  <div class="container">
+  <div class="container max-width-720">
     <div class="row">
       <div class="col-sm-6">
         @php(the_post_thumbnail('medium'))
@@ -10,19 +10,34 @@
         </h1>
 
         <div>
-          @php(the_author())
-          @php(the_category())
-          @php(the_date())
+          <div>
+            {{ _e('Author') }}:
+            {!! do_shortcode('[publishpress_authors_box layout="inline" post_id="' . $post->ID . '"]') !!}
+          </div>
+
+          <div>
+            {{ _e('Categories') }}:
+            @php(the_category(', '))
+          </div>
+
+          <div>
+            @php(the_date())
+          </div>
         </div>
-        <div>
-          {!! do_shortcode('[ez-toc]') !!}
-        </div>
+      </div>
+
+      <div class="col-xs-12">
+        {!! do_shortcode('[ez-toc]') !!}
+      </div>
+
+      <div class="col-xs-12">
+        @php(the_content())
+
+        @php(do_shortcode('[mistape format="text"]'))
       </div>
     </div>
 
 
-    <div class="row">
-      @php(the_content())
-    </div>
+
   </div>
 </article>

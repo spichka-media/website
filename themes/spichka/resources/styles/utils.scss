@@ -1,0 +1,17 @@
+// Carousel
+
+.swiper-connect.strech-cards {
+  .swiper-wrapper {
+    align-items: stretch;
+  }
+  .swiper-slide {
+    > * {
+      height: 100%;
+    }
+    height: unset;
+  }
+}
+
+.max-width-720 {
+  max-width: 720px;
+}

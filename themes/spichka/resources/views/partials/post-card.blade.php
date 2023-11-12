@@ -4,6 +4,6 @@
   </a>
 
   <a href="{!! $url !!}">
-    <h3>{{ $title }}</h3>
+    <h3>{!! $title !!}</h3>
   </a>
 </div>

@@ -1,26 +1,59 @@
 import domReady from '@roots/sage/client/dom-ready';
 import 'bootstrap'; // TODO: Later leave only needed modules
 
-import Glide from '@glidejs/glide';
+import Swiper from 'swiper';
 
+// import masonry from 'masonry-layout'; // eslint-disable-line
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  const sliders = document.querySelectorAll('.glide');
+  const sliders = document.querySelectorAll('.swiper');
   const conf = {
-    type: 'carousel',
-    startAt: 0,
-    perView: 6,
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 5,
+    // Responsive breakpoints
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 5,
+      },
+    },
   };
+
   sliders.forEach((item) => {
-    new Glide(item, conf).mount();
+    new Swiper(item, conf);
   });
 
-  new Glide('.connect', {
-    ...conf,
-    perView: 4,
-  }).mount();
+  new Swiper('.swiper-connect', {
+    direction: 'horizontal',
+    loop: false,
+    slidesPerView: 4,
+    spaceBetween: 10,
+    breakpoints: {
+      // when window width is >= 320px
+      320: {
+        slidesPerView: 1,
+      },
+      // when window width is >= 480px
+      480: {
+        slidesPerView: 2,
+      },
+      // when window width is >= 640px
+      640: {
+        slidesPerView: 4,
+      },
+    },
+  });
 });
 
 /**

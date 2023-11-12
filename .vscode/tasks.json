@@ -7,6 +7,15 @@
       "path": "themes/spichka",
       "label": "yarn: dev - themes/spichka",
       "detail": "bud dev"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "themes/spichka",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "yarn: build - themes/spichka",
+      "detail": "bud build"
     }
   ]
 }

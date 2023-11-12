@@ -5,11 +5,26 @@ $link-hover-color: #ff6f61;
 @import 'bootstrap/scss/bootstrap';
 @import 'common/fonts.scss';
 
-@import '@glidejs/glide/dist/css/glide.core.css';
-@import '@glidejs/glide/dist/css/glide.theme.css';
+@import './front-page.scss';
+@import './plugins.scss';
+@import './post.scss';
+@import './single-post.scss';
+@import './utils.scss';
+@import './buttons.scss';
+
+@import '~swiper/scss';
+@import '~swiper/scss/autoplay';
+@import '~swiper/scss/effect-fade';
 
 body {
   font-family: Montserrat, sans-serif;
+  color: #222;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 h1,
@@ -20,68 +35,21 @@ h5 {
   font-weight: 800;
 }
 
-.section-banner-video {
-  height: 100vh;
-  position: relative;
-  align-items: center;
-  display: flex;
-
-  .banner-video {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    filter: brightness(60%);
-  }
-
-  .header {
-    color: $white;
-    position: relative;
-    z-index: 2;
-
-    p {
-      font-weight: 800;
-    }
-  }
+a,
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #ff6f61;
 }
 
 section {
-  margin-top: 3rem;
+  margin: 3rem 0;
 
   h2 {
     margin-bottom: 1rem;
-  }
-}
-
-// Post card
-
-.post-card {
-  a {
-    color: $body-color;
-    text-decoration: none;
-
-    &:hover {
-      color: $link-hover-color;
-      transition: 0.3s;
-    }
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  h3 {
-    margin-top: 1rem;
-  }
-}
-
-// Donate
-
-.donate {
-  img {
-    max-width: 100%;
   }
 }
 
@@ -101,63 +69,23 @@ footer {
   }
 
   ul.social {
-    display: inline-block;
+    display: inline-flex;
     list-style: none;
+    margin: 2rem 0;
+    padding: unset;
     li {
-      float: left;
-      background-color: #333;
       margin: 0 0.25rem;
-
-      img {
-        width: 100%;
-        max-width: 1rem;
-
-        filter: invert(1);
-        filter: invert(100%) sepia(1%) saturate(1849%) hue-rotate(46deg)
-          brightness(114%) contrast(87%);
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #333;
+        color: #eee;
+        font-size: 1.25rem;
+        width: 2.5rem;
+        height: 2.5rem;
       }
     }
-  }
-}
-
-// Article
-
-article {
-  img {
-    max-width: 100%;
-  }
-}
-
-// Footnotes
-
-.footnote_referrer {
-  .footnote_plugin_tooltip_text {
-    &::before {
-      content: '[';
-    }
-    &::after {
-      content: ']';
-    }
-  }
-  &.note_active {
-    .footnote_tooltip {
-      max-width: 90% !important;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      position: static;
-    }
-  }
-}
-.footnote_plugin_index {
-  width: unset;
-}
-.footnote_tooltip {
-  max-height: 300px;
-  overflow-y: auto;
-}
-@media (pointer: none), (pointer: coarse) {
-  .footnote_referrer .footnote_tooltip {
-    display: none;
   }
 }

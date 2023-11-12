@@ -10,19 +10,20 @@
       <ul class="social">
         <li>
           <a arget="_blank" href="https://t.me/spichka_media">
-            <img src="@asset('images/telegram.svg')">
+            @svg('images.telegram')
+
           </a>
         </li>
 
         <li>
           <a arget="_blank" href="https://vk.com/spichkamedia">
-            <img src="@asset('images/vk.svg')">
+            @svg('images.vk')
           </a>
         </li>
 
         <li>
           <a target="_blank" href="https://www.youtube.com/channel/UCWPK0lM_fRM7IoQME5dKqNw">
-            <img src="@asset('images/youtube.svg')">
+            @svg('images.youtube')
           </a>
         </li>
       </ul>
@@ -36,7 +37,8 @@
     </div>
 
 
-    <a class="btn btn-primary" href="mailto:info@spichka.media">info@spichka.media</a>
+    <a class="btn btn-outline-dark" href="mailto:info@spichka.media"><span>@svg('images.envelope-regular')</span>
+      info@spichka.media</a>
   </div>
 
 </footer>

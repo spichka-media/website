@@ -36,38 +36,4 @@ export default async (app) => {
     .setUrl('http://localhost:8001')
     .setProxyUrl('http://localhost:8000')
     .watch(['resources/views', 'app']);
-
-  /**
-   * Generate WordPress `theme.json`
-   *
-   * @note This overwrites `theme.json` on every build.
-   *
-   * @see {@link https://bud.js.org/extensions/sage/theme.json}
-   * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json}
-   */
-  app.wpjson.setSettings({
-    color: {
-      custom: false,
-      customDuotone: false,
-      customGradient: false,
-      defaultDuotone: false,
-      defaultGradients: false,
-      defaultPalette: false,
-      duotone: [],
-    },
-    custom: {
-      spacing: {},
-      typography: {
-        'font-size': {},
-        'line-height': {},
-      },
-    },
-    spacing: {
-      padding: true,
-      units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-    },
-    typography: {
-      customFontSize: false,
-    },
-  });
 };

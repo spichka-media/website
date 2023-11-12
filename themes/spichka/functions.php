@@ -12,7 +12,7 @@
 */
 
 if (! file_exists($composer = __DIR__.'/vendor/autoload.php')) {
-    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'sage'));
+    wp_die(__('Error locating autoloader. Please run <code>composer install</code>.', 'spichka'));
 }
 
 require $composer;
@@ -31,11 +31,11 @@ require $composer;
 
 if (! function_exists('\Roots\bootloader')) {
     wp_die(
-        __('You need to install Acorn to use this theme.', 'sage'),
+        __('You need to install Acorn to use this theme.', 'spichka'),
         '',
         [
             'link_url' => 'https://roots.io/acorn/docs/installation/',
-            'link_text' => __('Acorn Docs: Installation', 'sage'),
+            'link_text' => __('Acorn Docs: Installation', 'spichka'),
         ]
     );
 }
@@ -59,7 +59,7 @@ collect(['setup', 'filters'])
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(
                 /* translators: %s is replaced with the relative file path */
-                sprintf(__('Error locating <code>%s</code> for inclusion.', 'sage'), $file)
+                sprintf(__('Error locating <code>%s</code> for inclusion.', 'spichka'), $file)
             );
         }
     });
@@ -68,7 +68,24 @@ collect(['setup', 'filters'])
 /**
  * Custom thumbnail sizes
  */
-add_image_size( 'post-card', 290, 410 );
+
+
+add_filter( 'intermediate_image_sizes_advanced', 'prefix_remove_default_images' );
+// This will remove the default image sizes and the medium_large size. 
+function prefix_remove_default_images( $sizes ) {
+ unset( $sizes['small']); // 150px
+ unset( $sizes['medium']); // 300px
+ unset( $sizes['large']); // 1024px
+ unset( $sizes['medium_large']); // 768px
+ return $sizes;
+}
+
+
+ // Post-card
+ add_image_size( 'post-card', 290, 410 );
+
+ // Post card extended
+ add_image_size( 'post-card-extended', 416, 588 );
 
 
 /**
@@ -91,13 +108,28 @@ function my_theme_register_required_plugins() {
         array(
             'name'      => 'footnotes',
             'slug'      => 'footnotes',
-            'required'  => false,
+            'required'  => true,
         ),
         array(
             'name' => 'Easy Table of Contents',
             'slug'      => 'easy-table-of-contents',
-            'required'  => false,
-        )
+            'required'  => true,
+        ),
+        array(
+            'name' => 'Contact form 7',
+            'slug' => 'contact-form-7',
+            'required' => true
+        ),
+        array(
+            'name' => 'PublishPress Authors',
+            'slug' => 'publishpress-authors',
+            'required' => true
+        ),
+        array(
+            'name' => 'Mistape',
+            'slug' => 'mistape',
+            'required' => true
+        ),
     );
 
    $config = array(
@@ -134,7 +166,8 @@ function auto_id_headings( $content ) {
 
 	$content = preg_replace_callback( '/(\<h[1-6](.*?))\>(.*)(<\/h[1-6]>)/i', function( $matches ) {
 		if ( ! stripos( $matches[0], 'id=' ) ) :
-			$matches[0] = $matches[1] . $matches[2] . ' id="' . sanitize_text_field( str_replace( ' ', '-', $matches[3]) ) . '">' . $matches[3] . $matches[4];
+            $id = sanitize_text_field( str_replace( array('?', ',', ":", ";", ".", '&nbsp;', "!"), '', str_replace( array(' '), '-', $matches[3]) ) );
+			$matches[0] = $matches[1] . $matches[2] . ' id="' . $id . '">' . $matches[3] . $matches[4];
 		endif;
 		return $matches[0];
 	}, $content );
@@ -143,3 +176,24 @@ function auto_id_headings( $content ) {
 
 }
 add_filter( 'the_content', 'auto_id_headings' );
+
+
+//----------------------------------------------------------/
+//  responsive images [ 1) add img-responsive class 2) remove dimensions ]
+//----------------------------------------------------------/
+
+function bootstrap_responsive_images( $html ){
+    $classes = 'img-responsive'; // separated by spaces, e.g. 'img image-link'
+  
+    // check if there are already classes assigned to the anchor
+    if ( preg_match('/<img.*? class="/', $html) ) {
+      $html = preg_replace('/(<img.*? class=".*?)(".*?\/>)/', '$1 ' . $classes . ' $2', $html);
+    } else {
+      $html = preg_replace('/(<img.*?)(\/>)/', '$1 class="' . $classes . '" $2', $html);
+    }
+    // remove dimensions from images,, does not need it!
+    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+    return $html;
+  }
+  add_filter( 'the_content','bootstrap_responsive_images',10 );
+  add_filter( 'post_thumbnail_html', 'bootstrap_responsive_images', 10 );

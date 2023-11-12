@@ -34,15 +34,22 @@
             'posts_per_page' => 10,
         ]);
       @endphp
-      <div class="glide">
-        <div data-glide-el="track" class="glide__track">
-          <ul class="glide__slides">
-            @foreach ($program_posts as $post)
-              <li class="glide__slide">
-                <x-post-card title="{{ get_the_title($post->ID) }}" :thumbnail="get_the_post_thumbnail($post->ID, 'post-card')" :url="get_post_permalink($post->ID)" />
-              </li>
-            @endforeach
-          </ul>
+
+
+
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          @foreach ($program_posts as $post)
+            <div class="swiper-slide">
+              @include('partials.post-card', [
+                  'title' => get_the_title($post->ID),
+                  'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card'),
+                  'url' => get_post_permalink($post->ID),
+              ])
+            </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -62,15 +69,17 @@
             'posts_per_page' => 10,
         ]);
       @endphp
-      <div class="glide">
-        <div data-glide-el="track" class="glide__track">
-          <ul class="glide__slides">
-            @foreach ($recent_posts as $post)
-              <li class="glide__slide">
-                <x-post-card title="{{ get_the_title($post->ID) }}" :thumbnail="get_the_post_thumbnail($post->ID, 'post-card')" :url="get_post_permalink($post->ID)" />
-              </li>
-            @endforeach
-          </ul>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          @foreach ($recent_posts as $post)
+            <div class="swiper-slide">
+              @include('partials.post-card', [
+                  'title' => get_the_title($post->ID),
+                  'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card'),
+                  'url' => get_post_permalink($post->ID),
+              ])
+            </div>
+          @endforeach
         </div>
       </div>
     </div>
@@ -99,7 +108,7 @@
     </div>
   </section>
 
-  <section class="donate">
+  <section class="donate-section">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -113,7 +122,7 @@
             приходится тратить свои.
           </p>
 
-          <button>Задонатить</button>
+          <a class="btn btn-outline-light btn-big"><span>@svg('images.coins-solid')</span> Задонатить</a>
         </div>
 
         <div class="col-sm-6">
@@ -122,51 +131,50 @@
 
       </div>
     </div>
+  </section>
 
-    <section class="connect">
-      <div class="container">
-        <h2>
-          Присоеденяйся
-        </h2>
+  <section class="connect">
+    <div class="container">
+      <h2>
+        Присоединяйся
+      </h2>
 
-        @php
-          $connect_blocks = [
-              [
-                  'title' => 'Кружки',
-                  'description' => 'В кружки вступают, чтобы изучать марксизм быстрее, легче и в коллективе единомышленников.',
-              ],
-              [
-                  'title' => 'Медиа',
-                  'description' => 'Мы рады любым талантам. Умеешь монтировать ролики, делать дизайн, писать и редактировать текст или ещё что-то? Пиши!',
-              ],
-              [
-                  'title' => 'Онлайн-кружок',
-                  'description' => 'Почти то же самое, что и обычный кружок; только занимаемся дистанционно. Подходит, если нашего кружка нет в твоём городе.',
-              ],
-              [
-                  'title' => 'Дальше — больше...',
-                  'description' => 'Не остановимся на том, что есть: уже думаем над новыми мероприятиями и активностями.',
-              ],
-          ];
-        @endphp
+      @php
+        $connect_blocks = [
+            [
+                'title' => 'Кружки',
+                'description' => 'В кружки вступают, чтобы изучать марксизм быстрее, легче и в коллективе единомышленников.',
+            ],
+            [
+                'title' => 'Медиа',
+                'description' => 'Мы рады любым талантам. Умеешь монтировать ролики, делать дизайн, писать и редактировать текст или ещё что-то? Пиши!',
+            ],
+            [
+                'title' => 'Онлайн-кружок',
+                'description' => 'Почти то же самое, что и обычный кружок; только занимаемся дистанционно. Подходит, если нашего кружка нет в твоём городе.',
+            ],
+            [
+                'title' => 'Дальше — больше...',
+                'description' => 'Не остановимся на том, что есть: уже думаем над новыми мероприятиями и активностями.',
+            ],
+        ];
+      @endphp
 
-        <div class="connect">
-          <div data-glide-el="track" class="glide__track">
-            <ul class="glide__slides">
-              @foreach ($connect_blocks as $block)
-                <li class="glide__slide">
-                  <div>
-                    <h3>{{ $block['title'] }}</h3>
-                    <p>{{ $block['description'] }}</p>
-                  </div>
-                </li>
-              @endforeach
-            </ul>
-          </div>
+
+      <div class="swiper-connect strech-cards">
+        <div class="swiper-wrapper">
+          @foreach ($connect_blocks as $block)
+            <div class="swiper-slide">
+              <div class="connect-card">
+                <h3>{{ $block['title'] }}</h3>
+                <p>{{ $block['description'] }}</p>
+
+                <a class="btn btn-outline-light btn-big" href="mailto:info@spichka.media"><span>@svg('images.envelope-regular')</span>
+                  Написать</a>
+              </div>
+            </div>
+          @endforeach
         </div>
       </div>
-      </div>
-    </section>
-
   </section>
 @endsection

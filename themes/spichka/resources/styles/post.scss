@@ -1,0 +1,29 @@
+// Post card
+
+.post-card {
+  a {
+    color: $body-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-hover-color;
+      transition: 0.3s;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h3 {
+    margin-top: 1rem;
+  }
+}
+
+.post-card-extended {
+  .description {
+    background-color: #eeeeee;
+
+    padding: 1.25rem;
+  }
+}
