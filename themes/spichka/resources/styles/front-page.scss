@@ -1,6 +1,5 @@
 .section-banner-video {
   height: 100vh;
-
   align-items: center;
   display: flex;
 
@@ -25,8 +24,22 @@
   }
 }
 
-// Connect
+// Donate
+.donate-section {
+  background-color: #333;
+  padding: 3rem 0;
+  color: #fff;
 
+  img {
+    max-width: 100%;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+  }
+}
+
+// Connect
 .connect {
   .connect-card {
     background-color: #3b3d42;
@@ -40,21 +53,5 @@
       margin: 1rem 2rem 0;
       margin-top: auto;
     }
-  }
-}
-
-// Donate
-
-.donate-section {
-  background-color: #333;
-  padding: 3rem 0;
-
-  color: white;
-  img {
-    max-width: 100%;
-  }
-
-  .btn {
-    padding: 0.5rem 1rem;
   }
 }

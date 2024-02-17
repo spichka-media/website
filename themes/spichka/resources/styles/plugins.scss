@@ -1,15 +1,27 @@
 // - Footnotes
 
+/* stylelint-disable-next-line selector-class-pattern */
 .footnote_referrer {
+  /* stylelint-disable-next-line selector-class-pattern */
+  .footnote_tooltip {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
   .footnote_plugin_tooltip_text {
     &::before {
       content: '[';
     }
+
     &::after {
       content: ']';
     }
   }
+
+  /* stylelint-disable-next-line selector-class-pattern */
   &.note_active {
+    /* stylelint-disable-next-line selector-class-pattern */
     .footnote_tooltip {
       max-width: 90% !important;
       margin-left: auto;
@@ -19,14 +31,14 @@
     }
   }
 }
+
+/* stylelint-disable-next-line selector-class-pattern */
 .footnote_plugin_index {
   width: unset;
 }
-.footnote_tooltip {
-  max-height: 300px;
-  overflow-y: auto;
-}
+
 @media (pointer: none), (pointer: coarse) {
+  /* stylelint-disable-next-line selector-class-pattern */
   .footnote_referrer .footnote_tooltip {
     display: none;
   }

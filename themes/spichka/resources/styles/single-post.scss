@@ -3,6 +3,10 @@
 article {
   margin: 3rem 0;
 
+  p {
+    font-size: 1.125rem;
+  }
+
   blockquote {
     p {
       font-size: 1.25rem;
@@ -11,17 +15,16 @@ article {
     }
   }
 
+  /* stylelint-disable-next-line selector-class-pattern */
   .mistape_caption {
     p {
       font-size: 0.75rem;
     }
   }
-  p {
-    font-size: 1.125rem;
-  }
 
   #ez-toc-container {
     margin: 2rem 0;
+
     .ez-toc-title {
       background-color: #333;
       color: white;

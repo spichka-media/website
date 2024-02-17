@@ -10,10 +10,7 @@
         </h1>
 
         <div>
-          <div>
-            {{ _e('Author') }}:
-            {!! do_shortcode('[publishpress_authors_box layout="inline" post_id="' . $post->ID . '"]') !!}
-          </div>
+          {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
 
           <div>
             {{ _e('Categories') }}:

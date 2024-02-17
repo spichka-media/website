@@ -3,15 +3,13 @@ $h2-font-size: $font-size-base * 2.5;
 $link-hover-color: #ff6f61;
 
 @import 'bootstrap/scss/bootstrap';
-@import 'common/fonts.scss';
-
-@import './front-page.scss';
-@import './plugins.scss';
-@import './post.scss';
-@import './single-post.scss';
-@import './utils.scss';
-@import './buttons.scss';
-
+@import 'common/fonts';
+@import './front-page';
+@import './plugins';
+@import './post';
+@import './single-post';
+@import './utils';
+@import './buttons';
 @import '~swiper/scss';
 @import '~swiper/scss/autoplay';
 @import '~swiper/scss/effect-fade';
@@ -73,8 +71,10 @@ footer {
     list-style: none;
     margin: 2rem 0;
     padding: unset;
+
     li {
       margin: 0 0.25rem;
+
       a {
         display: inline-flex;
         align-items: center;
