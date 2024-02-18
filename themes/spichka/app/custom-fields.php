@@ -29,6 +29,13 @@ add_action( 'carbon_fields_register_fields', function () {
     ) )
     ->add_tab( __( 'Программные статьи' ), array(
         Field::make( 'text', 'front_program_articles_header', __( 'Заголовок' ) )->set_default_value( 'Программные статьи'),
+        Field::make( 'association', 'front_program_articles', __( 'Статьи' ) )
+        ->set_types( array(
+            array(
+                'type'      => 'post',
+                'post_type' => 'post',
+            )
+        ) )
     ) )
     ->add_tab( __( 'Свежие статьи' ), array(
         Field::make( 'text', 'front_recent_articles_header', __( 'Заголовок' ) )->set_default_value( 'Свежие статьи'),

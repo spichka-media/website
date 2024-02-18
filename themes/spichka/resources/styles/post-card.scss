@@ -4,10 +4,8 @@
 .post-card-extended {
   a {
     color: $body-color;
-    text-decoration: none;
 
     &:hover {
-      color: $link-hover-color;
       transition: 0.3s;
     }
   }

@@ -26,26 +26,23 @@
       </h2>
     </div>
 
+    @php
+      $program_articles = get_posts([
+          'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
+      ]);
+    @endphp
+
     <div class="container-fluid">
-      @php
-        // the query
-        $program_posts = get_posts([
-            'posts_per_page' => 10,
-        ]);
-      @endphp
-
-
-
       <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
-          @foreach ($program_posts as $post)
+          @foreach ($program_articles as $post)
             <div class="swiper-slide">
               @include('partials.post-card', [
                   'title' => get_the_title($post->ID),
                   'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card'),
-                  'url' => get_post_permalink($post->ID),
+                  'url' => get_permalink($post->ID),
               ])
             </div>
           @endforeach
@@ -63,7 +60,6 @@
 
     <div class="container-fluid">
       @php
-        // the query
         $recent_posts = get_posts([
             'posts_per_page' => 10,
         ]);
@@ -75,7 +71,7 @@
               @include('partials.post-card', [
                   'title' => get_the_title($post->ID),
                   'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card'),
-                  'url' => get_post_permalink($post->ID),
+                  'url' => get_permalink($post->ID),
               ])
             </div>
           @endforeach
@@ -93,12 +89,8 @@
     </div>
 
     <div class="container">
-      @php
-        // the query
-        $categories = get_categories();
-      @endphp
       <div class="row">
-        @foreach ($categories as $category)
+        @foreach (get_categories() as $category)
           <div class="col-sm-3">
             <a href="{{ get_category_link($category->term_id) }}">/{{ $category->name }}</a>
           </div>

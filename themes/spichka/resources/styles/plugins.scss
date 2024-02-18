@@ -51,6 +51,7 @@
   counter-reset: item;
 
   li {
+    counter-increment: item;
     font-size: 0.9rem;
   }
 
@@ -59,16 +60,12 @@
   }
 
   li::marker {
+    content: counters(item, '.') '. ';
     color: #989898;
   }
 
   a.ez-toc-link {
     color: #333; //TODO: use variable for text color
-    text-decoration: none;
-
-    :hover {
-      text-decoration: underline; //TODO: suka, huli ono ne rabotaet
-    }
   }
 }
 

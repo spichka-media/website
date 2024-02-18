@@ -1,6 +1,6 @@
 <footer>
   <div class="container">
-    <img class="stalin" src="{{ wp_get_attachment_url(carbon_get_theme_option('theme_footer_image')) }}">
+    <img id="stalin" src="{{ wp_get_attachment_url(carbon_get_theme_option('theme_footer_image')) }}">
 
     <div>
       <ul class="social">

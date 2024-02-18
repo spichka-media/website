@@ -1,6 +1,7 @@
 $font-size-base: 1rem;
 $h2-font-size: $font-size-base * 2.5;
 $link-hover-color: #ff6f61;
+$text-color: #000;
 
 @import 'bootstrap/scss/bootstrap'; // TODO: leave only needed modules
 @import 'common/fonts';
@@ -17,7 +18,7 @@ $link-hover-color: #ff6f61;
 
 body {
   font-family: Montserrat, sans-serif;
-  color: #222;
+  color: $text-color;
 }
 
 img {
@@ -26,22 +27,22 @@ img {
   object-fit: contain;
 }
 
+a {
+  text-decoration: none;
+  color: $link-hover-color;
+
+  &:hover {
+    color: $link-hover-color;
+    text-decoration: underline;
+  }
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
   font-weight: 800;
-}
-
-a,
-h1 a:hover,
-h2 a:hover,
-h3 a:hover,
-h4 a:hover,
-h5 a:hover,
-h6 a:hover {
-  color: #ff6f61;
 }
 
 section {
@@ -59,7 +60,7 @@ footer {
   text-align: center;
   padding: 4rem 0;
 
-  .stalin {
+  #stalin {
     max-height: 100px;
   }
 
@@ -86,7 +87,10 @@ footer {
         font-size: 1.25rem;
         width: 2.5rem;
         height: 2.5rem;
-        text-decoration: none;
+
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
   }

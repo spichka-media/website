@@ -25,7 +25,7 @@
           @include('partials.post-card-extended', [
               'title' => get_the_title($$post->ID),
               'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card-extended'),
-              'url' => get_post_permalink($post->ID),
+              'url' => get_permalink($post->ID),
               'excerpt' => get_the_excerpt($post->ID),
               'date' => get_the_date($post->ID),
           ])
