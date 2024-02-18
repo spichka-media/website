@@ -1,5 +1,0 @@
-{
-  "extends": [
-    "@roots/sage/stylelint-config"
-  ]
-}
