@@ -2,7 +2,7 @@ $font-size-base: 1rem;
 $h2-font-size: $font-size-base * 2.5;
 $link-hover-color: #ff6f61;
 
-@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap/scss/bootstrap'; // TODO: leave only needed modules
 @import 'common/fonts';
 @import './front-page';
 @import './archive';

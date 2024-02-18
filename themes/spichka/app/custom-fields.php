@@ -3,6 +3,8 @@ use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Carbon_Fields\Carbon_Fields;
 
+// DOCS: https://docs.carbonfields.net/
+
 add_action( 'carbon_fields_register_fields', function () {
     
     Container::make( 'theme_options', __( 'Theme Options' ) )

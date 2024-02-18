@@ -1,7 +1,7 @@
 <header>
 
   <nav class="navbar navbar-dark bg-dark ">
-    <a class="navbar-brand ms-4" href="{{ home_url('/') }}">{!! '/' . $siteName !!}</a>
+    <a class="navbar-brand ms-4" href="{{ home_url('/') }}">{!! $siteName !!}</a>
   </nav>
 
 
