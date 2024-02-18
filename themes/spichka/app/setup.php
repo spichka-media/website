@@ -15,6 +15,10 @@ use function Roots\bundle;
  */
 add_action('wp_enqueue_scripts', function () {
     bundle('app')->enqueue();
+
+    if (is_front_page()) {
+        bundle('front-page')->enqueue();
+    }
 }, 100);
 
 
