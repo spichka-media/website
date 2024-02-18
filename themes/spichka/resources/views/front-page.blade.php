@@ -3,16 +3,15 @@
 @section('content')
   <section class="section-banner-video">
     <video class="banner-video" autoplay muted playsinline loop>
-      <source src="https://spichka.media/wp-content/uploads/2020/12/%D1%81%D0%BF%D0%B8%D1%87%D0%BA%D0%B8.mp4"
-        type="video/mp4">
+      <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}" type="video/mp4">
     </video>
 
     <div class="container">
       <div class="header">
         <div class="row">
           <div class="col-sm-6">
-            <h1>Марксистский журнал для умных, молодых и злых.</h1>
-            <p>Рассказываем просто и интересно про общество, политику, историю, экономику, культуру и философию.
+            <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
+            <p>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
           </div>
         </div>
         </p>
@@ -127,10 +126,7 @@
 
         <div class="col-sm-6">
           {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'front_donate_image'), [550, 350]) !!}
-
-
         </div>
-
       </div>
     </div>
   </section>
@@ -141,7 +137,7 @@
         {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
 
-      <div class="swiper-connect strech-cards">
+      <div class="swiper-connect stretch-cards">
         <div class="swiper-wrapper">
           @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
             <div class="swiper-slide">

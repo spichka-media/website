@@ -14,11 +14,17 @@ add_action( 'carbon_fields_register_fields', function () {
             Field::make( 'text', 'theme_social_link', 'Link' ),
             Field::make( 'text', 'theme_social_icon', 'Icon' ),
         ) ),
-      Field::make( 'text', 'theme_footer_text', 'Footer text' )->set_default_value( 'Авторские права никак не защищены и принадлежат народу. Но всё равно: ссылайтесь на нас, когда копируете наши материалы.' ),
+        Field::make( 'image', 'theme_footer_image', 'Изображение' ),
+        Field::make( 'text', 'theme_footer_text', 'Footer text' )->set_default_value( 'Авторские права никак не защищены и принадлежат народу. Но всё равно: ссылайтесь на нас, когда копируете наши материалы.' ),
     ) );
 
-    Container::make( 'post_meta', __( 'Options' ) )
+    Container::make( 'post_meta', __( 'Front page options' ) )
     ->where( 'post_id', '=', get_option( 'page_on_front' ) )
+    ->add_tab( __( 'Баннер' ), array(
+        Field::make( 'text', 'front_banner_header', __( 'Заголовок' ) )->set_default_value( 'Марксистский журнал для умных, молодых и злых.'),
+        Field::make( 'text', 'front_banner_description', __( 'Описание' ) )->set_default_value( 'Рассказываем просто и интересно про общество, политику, историю, экономику, культуру и философию.'),
+        Field::make( 'file', 'front_banner_video', __( 'Видео' ) )->set_type( array( 'video' ) )->set_default_value(11703),
+    ) )
     ->add_tab( __( 'Программные статьи' ), array(
         Field::make( 'text', 'front_program_articles_header', __( 'Заголовок' ) )->set_default_value( 'Программные статьи'),
     ) )

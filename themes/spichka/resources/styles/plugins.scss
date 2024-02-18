@@ -63,11 +63,11 @@
   }
 
   a.ez-toc-link {
-    color: #333; // use variable for text color
+    color: #333; //TODO: use variable for text color
     text-decoration: none;
 
     :hover {
-      text-decoration: underline; // suka, huli ono ne rabotaet
+      text-decoration: underline; //TODO: suka, huli ono ne rabotaet
     }
   }
 }

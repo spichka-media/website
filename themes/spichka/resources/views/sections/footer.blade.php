@@ -1,7 +1,6 @@
 <footer>
   <div class="container">
-
-    <img class="stalin" src="https://spichka.media/wp-content/uploads/2022/01/Сталин-2.png.webp" alt="">
+    <img class="stalin" src="{{ wp_get_attachment_url(carbon_get_theme_option('theme_footer_image')) }}">
 
     <div>
       <ul class="social">
@@ -19,14 +18,15 @@
     @if (carbon_get_theme_option('theme_footer_text'))
       <div class="row justify-content-md-center">
         <div class="col col-lg-6">
-          <p><?php echo carbon_get_theme_option('theme_footer_text'); ?></p>
+          <p> {{ carbon_get_theme_option('theme_footer_text') }} </p>
         </div>
       </div>
     @endif
 
     @if (carbon_get_theme_option('theme_email'))
-      <a class="btn btn-outline-dark" href="mailto:<?php echo carbon_get_theme_option('theme_email'); ?>"><i class="far fa-envelope"></i>
-        <?php echo carbon_get_theme_option('theme_email'); ?></a>
+      <a class="btn btn-outline-dark" href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i
+          class="far fa-envelope"></i>
+        {{ carbon_get_theme_option('theme_email') }} </a>
     @endif
   </div>
 
