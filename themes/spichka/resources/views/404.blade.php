@@ -2,15 +2,18 @@
 
 @section('content')
   <div class="container">
-    @include('partials.page-header')
+    <div class="row">
+      <div class="col-12">
+        @include('partials.page-header')
 
+        @if (!have_posts())
+          <x-alert type="warning">
+            {!! __('Sorry, no results were found.', 'spichka') !!}
+          </x-alert>
 
-    @if (!have_posts())
-      <x-alert type="warning">
-        {!! __('Sorry, but the page you are trying to view does not exist.', 'spichka') !!}
-      </x-alert>
-
-      {!! get_search_form(false) !!}
-    @endif
+          {!! get_search_form(false) !!}
+      </div>
+      @endif
+    </div>
   </div>
 @endsection

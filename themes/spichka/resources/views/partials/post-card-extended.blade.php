@@ -4,15 +4,16 @@
   </a>
 
   <div class="description">
-    <a href="{!! $url !!}">
-      <h4>{!! $title !!}</h4>
-    </a>
+
+    <h4>
+      <a href="{!! $url !!}">{!! $title !!}</a>
+    </h4>
 
     <p>
       {!! $excerpt !!}
     </p>
 
-    <div>
+    <div class="date">
       {!! $date !!}
     </div>
   </div>

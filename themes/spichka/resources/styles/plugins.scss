@@ -43,3 +43,33 @@
     display: none;
   }
 }
+
+// + Table of contents
+
+.ez-toc-counter ul {
+  list-style: auto;
+  counter-reset: item;
+
+  li {
+    font-size: 0.9rem;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  li::marker {
+    color: #989898;
+  }
+
+  a.ez-toc-link {
+    color: #333; // use variable for text color
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline; // suka, huli ono ne rabotaet
+    }
+  }
+}
+
+// - Table of contents

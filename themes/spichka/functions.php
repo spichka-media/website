@@ -130,6 +130,19 @@ function my_theme_register_required_plugins() {
             'slug' => 'mistape',
             'required' => true
         ),
+        array(
+            'name' => 'Font Awesome',
+            'slug' => 'font-awesome',
+            'required' => true
+        ),
+        array(
+			'name'               => 'Carbon fields',
+			'slug'               => 'carbon-fields', 
+			'source'             => get_stylesheet_directory() . '/plugins/carbon-fields.zip', 
+			'required'           => true, 
+			'force_activation'   => true, 
+		),
+
     );
 
    $config = array(

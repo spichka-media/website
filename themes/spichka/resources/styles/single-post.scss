@@ -2,15 +2,12 @@
 
 article {
   margin: 3rem 0;
-
-  p {
-    font-size: 1.125rem;
-  }
+  font-size: 1.125rem;
 
   blockquote {
     p {
-      font-size: 1.25rem;
-      font-weight: 500;
+      font-size: 1.75em;
+      font-weight: 400;
       margin: 0;
     }
   }
@@ -42,6 +39,24 @@ article {
       padding-left: 0;
       background-color: #efefef;
       color: #333;
+    }
+  }
+
+  #post-date {
+    margin-top: 1rem;
+    font-weight: 400;
+    color: #666;
+  }
+
+  #post-categories,
+  .box-instance-id-1 {
+    font-size: 0.9rem;
+  }
+
+  .pp-author-boxes-name,
+  #post-categories {
+    a {
+      font-weight: 700;
     }
   }
 }

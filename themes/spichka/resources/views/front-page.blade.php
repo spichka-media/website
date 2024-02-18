@@ -23,7 +23,7 @@
   <section class="program-articles">
     <div class="container">
       <h2>
-        Программные статьи
+        {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
       </h2>
     </div>
 
@@ -58,7 +58,7 @@
   <section class="program-articles">
     <div class="container">
       <h2>
-        Свежие статьи
+        {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
       </h2>
     </div>
 
@@ -89,7 +89,7 @@
   <section class="categories">
     <div class="container">
       <h2>
-        Рубрики
+        {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
       </h2>
     </div>
 
@@ -113,20 +113,22 @@
       <div class="row">
         <div class="col-sm-6">
           <h2>
-            Помогай
+            {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
           </h2>
 
           <p>
-            Мы работаем над проектом в свободное время и на энтузиазме. Чтобы творить, нам нужно тратить деньги на сайт,
-            покупать оборудование для видео и подкастов, снимать студии. Спасибо, что присылаете нам деньги — так нам реже
-            приходится тратить свои.
+            {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
           </p>
 
-          <a class="btn btn-outline-light btn-big"><span>@svg('images.coins-solid')</span> Задонатить</a>
+          <a class="btn btn-outline-light btn-big">
+            <i class="fas fa-coins"></i>{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
+          </a>
         </div>
 
         <div class="col-sm-6">
-          <img src="https://spichka.media/wp-content/uploads/2022/01/1_1-1024x658.png" alt="">
+          {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'front_donate_image'), [550, 350]) !!}
+
+
         </div>
 
       </div>
@@ -136,41 +138,22 @@
   <section class="connect">
     <div class="container">
       <h2>
-        Присоединяйся
+        {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
-
-      @php
-        $connect_blocks = [
-            [
-                'title' => 'Кружки',
-                'description' => 'В кружки вступают, чтобы изучать марксизм быстрее, легче и в коллективе единомышленников.',
-            ],
-            [
-                'title' => 'Медиа',
-                'description' => 'Мы рады любым талантам. Умеешь монтировать ролики, делать дизайн, писать и редактировать текст или ещё что-то? Пиши!',
-            ],
-            [
-                'title' => 'Онлайн-кружок',
-                'description' => 'Почти то же самое, что и обычный кружок; только занимаемся дистанционно. Подходит, если нашего кружка нет в твоём городе.',
-            ],
-            [
-                'title' => 'Дальше — больше...',
-                'description' => 'Не остановимся на том, что есть: уже думаем над новыми мероприятиями и активностями.',
-            ],
-        ];
-      @endphp
-
 
       <div class="swiper-connect strech-cards">
         <div class="swiper-wrapper">
-          @foreach ($connect_blocks as $block)
+          @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
             <div class="swiper-slide">
               <div class="connect-card">
-                <h3>{{ $block['title'] }}</h3>
-                <p>{{ $block['description'] }}</p>
+                <h3>{{ $block['front_connect_blocks_block_header'] }}</h3>
+                <p>{{ $block['front_connect_blocks_block_description'] }}</p>
 
-                <a class="btn btn-outline-light btn-big" href="mailto:info@spichka.media"><span>@svg('images.envelope-regular')</span>
-                  Написать</a>
+                @if ($block['front_connect_blocks_block_button_text'])
+                  <a class="btn btn-outline-light btn-big" href="mailto:info@spichka.media"><i
+                      class="far fa-envelope"></i>
+                    {{ $block['front_connect_blocks_block_button_text'] }}</a>
+                @endif
               </div>
             </div>
           @endforeach

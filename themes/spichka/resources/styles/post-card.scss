@@ -1,6 +1,7 @@
 // Post card
 
-.post-card {
+.post-card,
+.post-card-extended {
   a {
     color: $body-color;
     text-decoration: none;
@@ -18,11 +19,20 @@
   h3 {
     margin-top: 1rem;
   }
+
+  h4 {
+    font-size: 1.25rem;
+  }
 }
 
 .post-card-extended {
   .description {
     background-color: #eee;
     padding: 1.25rem;
+  }
+
+  .date {
+    color: #adadad;
+    font-size: 0.9rem;
   }
 }

@@ -5,8 +5,9 @@ $link-hover-color: #ff6f61;
 @import 'bootstrap/scss/bootstrap';
 @import 'common/fonts';
 @import './front-page';
+@import './archive';
 @import './plugins';
-@import './post';
+@import './post-card';
 @import './single-post';
 @import './utils';
 @import './buttons';
@@ -85,6 +86,7 @@ footer {
         font-size: 1.25rem;
         width: 2.5rem;
         height: 2.5rem;
+        text-decoration: none;
       }
     }
   }
