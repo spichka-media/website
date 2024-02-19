@@ -5,7 +5,7 @@
 
   <div class="description">
 
-    <h4>
+    <h4 class="mb-4">
       <a href="{!! $url !!}">{!! $title !!}</a>
     </h4>
 

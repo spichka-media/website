@@ -3,7 +3,7 @@
 .post-card,
 .post-card-extended {
   a {
-    color: $body-color;
+    color: $dark-text-color;
 
     &:hover {
       transition: 0.3s;
@@ -25,12 +25,12 @@
 
 .post-card-extended {
   .description {
-    background-color: #eee;
+    background-color: $light-background-color;
     padding: 1.25rem;
   }
 
   .date {
-    color: #adadad;
+    color: $light-text-color;
     font-size: 0.9rem;
   }
 }

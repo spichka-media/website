@@ -23,8 +23,8 @@ article {
     margin: 2rem 0;
 
     .ez-toc-title {
-      background-color: $text-color;
-      color: white;
+      background-color: $dark-background-color;
+      color: #fff;
       font-size: 1rem;
       margin: 0;
       padding: 0.75rem;
@@ -37,15 +37,15 @@ article {
     nav {
       padding: 1.25rem;
       padding-left: 0;
-      background-color: #efefef;
-      color: $text-color;
+      background-color: $light-background-color;
+      color: $dark-text-color;
     }
   }
 
   #post-date {
     margin-top: 1rem;
     font-weight: 400;
-    color: #666;
+    color: $dark-text-color;
   }
 
   #post-categories,

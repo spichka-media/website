@@ -1,11 +1,15 @@
 $font-size-base: 1rem;
 $h2-font-size: $font-size-base * 2.5;
 $link-hover-color: #ff6f61;
-$text-color: #000;
+$dark-text-color: #000;
+$light-text-color: #eee;
+$dark-background-color: #333;
+$light-background-color: #eee;
 
 @import 'bootstrap/scss/bootstrap'; // TODO: leave only needed modules
 @import 'common/fonts';
 @import './archive';
+@import './front-page';
 @import './plugins';
 @import './post-card';
 @import './single-post';
@@ -17,7 +21,7 @@ $text-color: #000;
 
 body {
   font-family: Montserrat, sans-serif;
-  color: $text-color;
+  color: $dark-text-color;
 }
 
 img {
@@ -55,7 +59,7 @@ section {
 // Footer
 
 footer {
-  background-color: #eee;
+  background-color: $light-background-color;
   text-align: center;
   padding: 4rem 0;
 
@@ -81,8 +85,8 @@ footer {
         align-items: center;
         justify-content: center;
         border-radius: 50%;
-        background-color: #333;
-        color: #eee;
+        background-color: $dark-background-color;
+        color: $light-text-color;
         font-size: 1.25rem;
         width: 2.5rem;
         height: 2.5rem;

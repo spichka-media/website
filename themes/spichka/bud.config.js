@@ -15,7 +15,7 @@ export default async (app) => {
    */
   app
     .entry('app', ['@scripts/app', '@styles/app'])
-    .entry('front-page', ['@scripts/front-page', '@styles/front-page'])
+    .entry('front-page', ['@scripts/front-page'])
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .assets(['images', 'fonts']);
 
