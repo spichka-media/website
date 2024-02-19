@@ -4,11 +4,11 @@
   <div class="container pt-5 pb-5">
     @include('partials.page-header')
 
-    <div class="row gy-3 g-md-3 mt-3" data-masonry='{"percentPosition": true }'>
+    <div class="row gy-3 mt-3">
       @while (have_posts())
         @php(the_post())
 
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           @include('partials.post-card-extended', [
               'title' => get_the_title($$post->ID),
               'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card-extended'),
