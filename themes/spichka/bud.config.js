@@ -15,7 +15,7 @@ export default async (app) => {
    */
   app
     .entry('app', ['@scripts/app', '@styles/app'])
-    .entry('front-page', ['@scripts/front-page'])
+    .entry('front-page', ['@scripts/front-page']) // TODO: I guess it is possible to enqueue scripts per entry for optimizations, need to check documentation
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .assets(['images', 'fonts']);
 
