@@ -4,7 +4,9 @@ import 'bootstrap'; // TODO: Later leave only needed modules
 /**
  * Application entrypoint
  */
-domReady(async () => {});
+domReady(async () => {
+  //
+});
 
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}
