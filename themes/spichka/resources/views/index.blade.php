@@ -19,6 +19,6 @@
         </div>
       @endwhile
     </div>
-    {!! get_the_posts_navigation() !!}
+    {!! get_the_posts_pagination() !!}
   </div>
 @endsection
