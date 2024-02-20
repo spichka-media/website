@@ -11,8 +11,10 @@
 - Положи бэкап `backup` папку
 - Раскоментируй backup файлы в `docker-compose.yaml` и переименуй там архив
 - Выполни `docker-compose up -d --build`
+- Выполни `docker exec -it spichka_website sh -c "chown www-data:www-data /var/www/html/installer.php"`
+- Выполни `docker exec -it spichka_website sh -c "chown www-data:www-data /var/www/html/[название архива.zip]"`
 - Перейди на `localhost:8000/installer.php`
-- Для подключения к базе данных используй адрес `db:3306`
+- Для подключения к базе данных используй адрес `db`
 - Выполни `docker exec -it spichka_website sh -c "cd /var/www/html/wp-content/themes/spichka && composer install"`
 - Перейди в папку с темой
 - Выполни `yarn`
