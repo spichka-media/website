@@ -6,13 +6,14 @@ on:
   pull_request:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: ./themes/spichka
+
 jobs:
   testing:
     name: Testing
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./themes/spichka
 
     steps:
       - name: "Checkout"
