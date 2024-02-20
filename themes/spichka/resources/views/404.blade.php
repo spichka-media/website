@@ -7,9 +7,7 @@
         @include('partials.page-header')
 
         @if (!have_posts())
-          <x-alert type="warning">
-            {!! __('Sorry, no results were found.', 'spichka') !!}
-          </x-alert>
+          {!! __('Sorry, no results were found.', 'spichka') !!}
 
           {!! get_search_form(false) !!}
       </div>
