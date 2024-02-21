@@ -138,7 +138,7 @@
                 <p>{{ $block['front_connect_blocks_block_description'] }}</p>
 
                 @if ($block['front_connect_blocks_block_button_text'])
-                  <a class="btn btn-outline-light btn-big" href="mailto:info@spichka.media"><i
+                  <a class="btn btn-outline-light btn-big" href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i
                       class="far fa-envelope"></i>
                     {{ $block['front_connect_blocks_block_button_text'] }}</a>
                 @endif
