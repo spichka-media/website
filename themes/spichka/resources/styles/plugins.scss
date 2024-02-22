@@ -1,108 +1,11 @@
 // + Footnotes
 
-/* stylelint-disable-next-line selector-class-pattern */
-.footnote_referrer {
-  /* stylelint-disable-next-line selector-class-pattern */
-  .footnote_tooltip {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-
-  /* stylelint-disable-next-line selector-class-pattern */
-  .footnote_plugin_tooltip_text {
-    &::before {
-      content: '[';
-    }
-
-    &::after {
-      content: ']';
-    }
-  }
-
-  /* stylelint-disable-next-line selector-class-pattern */
-  &.note_active {
-    /* stylelint-disable-next-line selector-class-pattern */
-    .footnote_tooltip {
-      max-width: 90% !important;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      position: static;
-    }
-  }
-}
-
-/* stylelint-disable-next-line selector-class-pattern */
-.footnote_plugin_index {
-  width: unset;
-}
-
-@media (pointer: none), (pointer: coarse) {
-  /* stylelint-disable-next-line selector-class-pattern */
-  .footnote_referrer .footnote_tooltip {
-    display: none;
-  }
-}
-
 // - Footnotes
 
 // + Table of contents
 
-.ez-toc-counter ul {
-  list-style: auto;
-  counter-reset: item;
-
-  li {
-    counter-increment: item;
-    font-size: 0.9rem;
-  }
-
-  li:not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
-
-  li::marker {
-    content: counters(item, '.') '. ';
-    color: #989898;
-  }
-
-  a.ez-toc-link {
-    color: #333; //TODO: use variable for text color
-  }
-}
-
-#ez-toc-container {
-  margin: 2rem 0;
-
-  .ez-toc-title {
-    background-color: $dark-background-color;
-    color: #fff;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0.75rem;
-  }
-
-  ul {
-    margin-bottom: 0;
-  }
-
-  nav {
-    padding: 1.25rem;
-    padding-left: 0;
-    background-color: $body-secondary-bg;
-    color: $body-color;
-  }
-}
-
 // - Table of contents
 
 // + Mistape
-
-/* stylelint-disable-next-line selector-class-pattern */
-.mistape_caption {
-  p {
-    font-size: 0.75rem;
-  }
-}
 
 // - Mistape

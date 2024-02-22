@@ -1,7 +1,5 @@
 // Post card
 
-// TODO: Replace styles with bootstrap utils
-
 .post-card,
 .post-card-extended {
   a {
@@ -10,29 +8,5 @@
     &:hover {
       transition: 0.3s;
     }
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  h3 {
-    margin-top: 1rem;
-  }
-
-  h4 {
-    font-size: 1.25rem;
-  }
-}
-
-.post-card-extended {
-  .description {
-    background-color: $body-secondary-bg;
-    padding: 1.25rem;
-  }
-
-  .date {
-    color: $body-secondary-color;
-    font-size: 0.9rem;
   }
 }

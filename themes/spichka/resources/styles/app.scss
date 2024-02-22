@@ -43,15 +43,20 @@ $primary: #ff6f61;
 @import 'bootstrap/scss/utilities/_api';
 
 // Theme
+@import './layout';
 @import './fonts';
 @import './front-page';
-@import './plugins';
 @import './components/post-card';
 @import './single-post';
 @import './utils';
 @import '~swiper/scss';
 @import '~swiper/scss/autoplay';
 @import '~swiper/scss/effect-fade';
+
+// Plugins
+@import './plugins/footnotes';
+@import './plugins/mistape';
+@import './plugins/table-of-contents';
 
 body {
   font-family: Montserrat, sans-serif;
@@ -78,21 +83,4 @@ h3,
 h4,
 h5 {
   font-weight: 800;
-}
-
-// Footer
-
-footer {
-  background-color: $body-secondary-bg;
-
-  .social-link {
-    background-color: $dark-background-color;
-    color: $body-secondary-color;
-    width: 2.5rem;
-    height: 2.5rem;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }

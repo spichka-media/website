@@ -1,0 +1,14 @@
+footer {
+  background-color: $body-secondary-bg;
+
+  .social-link {
+    background-color: $dark-background-color;
+    color: $body-secondary-color;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
