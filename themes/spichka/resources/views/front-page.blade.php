@@ -39,11 +39,7 @@
           <!-- Slides -->
           @foreach ($program_articles as $post)
             <div class="swiper-slide">
-              @include('partials.post-card', [
-                  'title' => get_the_title($post->ID),
-                  'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card'),
-                  'url' => get_permalink($post->ID),
-              ])
+              @include('partials.post-card', ['post' => $post])
             </div>
           @endforeach
         </div>
@@ -68,11 +64,7 @@
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
             <div class="swiper-slide">
-              @include('partials.post-card', [
-                  'title' => get_the_title($post->ID),
-                  'thumbnail' => get_the_post_thumbnail($post->ID, 'post-card'),
-                  'url' => get_permalink($post->ID),
-              ])
+              @include('partials.post-card', ['post' => $post])
             </div>
           @endforeach
         </div>
