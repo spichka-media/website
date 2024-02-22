@@ -1,27 +1,61 @@
 $font-size-base: 1rem;
 $h2-font-size: $font-size-base * 2.5;
-$link-hover-color: #ff6f61;
-$dark-text-color: #000;
-$light-text-color: #eee;
 $dark-background-color: #333;
-$light-background-color: #eee;
+$body-secondary-color: #eee;
+$primary: #ff6f61;
 
-@import 'bootstrap/scss/bootstrap'; // TODO: leave only needed modules
-@import 'common/fonts';
-@import './archive';
+// Configuration
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_functions';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_variables';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_variables-dark';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_maps';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_mixins';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_utilities';
+
+// Layout & components
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_root';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_reboot';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_type';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_containers';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_grid';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_navbar';
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_buttons';
+
+// Helpers
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/_helpers';
+
+// Utilities
+/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
+@import 'bootstrap/scss/utilities/_api';
+
+// Theme
+@import './fonts';
 @import './front-page';
 @import './plugins';
-@import './post-card';
+@import './components/post-card';
 @import './single-post';
 @import './utils';
-@import './buttons';
 @import '~swiper/scss';
 @import '~swiper/scss/autoplay';
 @import '~swiper/scss/effect-fade';
 
 body {
   font-family: Montserrat, sans-serif;
-  color: $dark-text-color;
+  color: $body-color;
 }
 
 img {
@@ -32,10 +66,8 @@ img {
 
 a {
   text-decoration: none;
-  color: $link-hover-color;
 
   &:hover {
-    color: $link-hover-color;
     text-decoration: underline;
   }
 }
@@ -48,53 +80,19 @@ h5 {
   font-weight: 800;
 }
 
-section {
-  margin: 3rem 0;
-
-  h2 {
-    margin-bottom: 1rem;
-  }
-}
-
 // Footer
 
 footer {
-  background-color: $light-background-color;
-  text-align: center;
-  padding: 4rem 0;
+  background-color: $body-secondary-bg;
 
-  #stalin {
-    max-height: 100px;
-  }
+  .social-link {
+    background-color: $dark-background-color;
+    color: $body-secondary-color;
+    width: 2.5rem;
+    height: 2.5rem;
 
-  p {
-    justify-content: center;
-  }
-
-  ul.social {
-    display: inline-flex;
-    list-style: none;
-    margin: 2rem 0;
-    padding: unset;
-
-    li {
-      margin: 0 0.25rem;
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background-color: $dark-background-color;
-        color: $light-text-color;
-        font-size: 1.25rem;
-        width: 2.5rem;
-        height: 2.5rem;
-
-        &:hover {
-          text-decoration: none;
-        }
-      }
+    &:hover {
+      text-decoration: none;
     }
   }
 }

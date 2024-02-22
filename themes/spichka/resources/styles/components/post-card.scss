@@ -1,9 +1,11 @@
 // Post card
 
+// TODO: Replace styles with bootstrap utils
+
 .post-card,
 .post-card-extended {
   a {
-    color: $dark-text-color;
+    color: $body-color;
 
     &:hover {
       transition: 0.3s;
@@ -25,12 +27,12 @@
 
 .post-card-extended {
   .description {
-    background-color: $light-background-color;
+    background-color: $body-secondary-bg;
     padding: 1.25rem;
   }
 
   .date {
-    color: $light-text-color;
+    color: $body-secondary-color;
     font-size: 0.9rem;
   }
 }

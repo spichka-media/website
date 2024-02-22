@@ -1,4 +1,4 @@
-<article>
+<article class="mt-5 mb-5">
   <div class="container max-width-1140">
     <div class="row">
       <div class="col-sm-6">
@@ -17,7 +17,7 @@
             @php(the_category(', '))
           </div>
 
-          <div id="post-date">
+          <div class="mt-2 fs-6 fw-400">
             <span>@svg('images.calendar-regular')</span>
             @php(the_date('j F, Y'))
           </div>

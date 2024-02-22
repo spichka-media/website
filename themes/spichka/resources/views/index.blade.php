@@ -13,6 +13,6 @@
         </div>
       @endwhile
     </div>
-    {!! get_the_posts_pagination() !!}
+    {!! get_the_posts_pagination(['class' => 'mt-4']) !!}
   </div>
 @endsection

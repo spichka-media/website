@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="section-banner-video">
+  <section class="mt-5 mb-5 ms-0 me-0 section-banner-video">
     <video class="banner-video" autoplay muted playsinline loop>
       <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}" type="video/mp4">
     </video>
@@ -19,9 +19,9 @@
     </div>
   </section>
 
-  <section class="program-articles">
+  <section class="mt-5 mb-5 ms-0 me-0 program-articles">
     <div class="container">
-      <h2>
+      <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
       </h2>
     </div>
@@ -47,9 +47,9 @@
     </div>
   </section>
 
-  <section class="program-articles">
+  <section class="mt-5 mb-5 ms-0 me-0 program-articles">
     <div class="container">
-      <h2>
+      <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
       </h2>
     </div>
@@ -73,9 +73,9 @@
   </section>
 
 
-  <section class="categories">
+  <section class="mt-5 mb-5 ms-0 me-0 categories">
     <div class="container">
-      <h2>
+      <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
       </h2>
     </div>
@@ -91,11 +91,11 @@
     </div>
   </section>
 
-  <section class="donate-section">
+  <section class="mt-5 mb-5 ms-0 me-0 donate-section">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <h2>
+          <h2 class="mb-3">
             {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
           </h2>
 
@@ -103,7 +103,7 @@
             {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
           </p>
 
-          <a class="btn btn-outline-light btn-big">
+          <a class="btn btn-outline-light fs-5 fw-600 border-2">
             <i class="fas fa-coins"></i>{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
           </a>
         </div>
@@ -115,9 +115,9 @@
     </div>
   </section>
 
-  <section class="connect">
+  <section class="mt-5 mb-5 ms-0 me-0 connect">
     <div class="container">
-      <h2>
+      <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
 
@@ -130,8 +130,8 @@
                 <p>{{ $block['front_connect_blocks_block_description'] }}</p>
 
                 @if ($block['front_connect_blocks_block_button_text'])
-                  <a class="btn btn-outline-light btn-big" href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i
-                      class="far fa-envelope"></i>
+                  <a class="btn btn-outline-light fs-5 fw-600 border-2"
+                    href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i class="far fa-envelope"></i>
                     {{ $block['front_connect_blocks_block_button_text'] }}</a>
                 @endif
               </div>

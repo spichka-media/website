@@ -71,4 +71,38 @@
   }
 }
 
+#ez-toc-container {
+  margin: 2rem 0;
+
+  .ez-toc-title {
+    background-color: $dark-background-color;
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.75rem;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  nav {
+    padding: 1.25rem;
+    padding-left: 0;
+    background-color: $body-secondary-bg;
+    color: $body-color;
+  }
+}
+
 // - Table of contents
+
+// + Mistape
+
+/* stylelint-disable-next-line selector-class-pattern */
+.mistape_caption {
+  p {
+    font-size: 0.75rem;
+  }
+}
+
+// - Mistape
