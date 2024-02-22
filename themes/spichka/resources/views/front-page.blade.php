@@ -39,7 +39,7 @@
           <!-- Slides -->
           @foreach ($program_articles as $post)
             <div class="swiper-slide">
-              @include('partials.post-card', ['post' => $post])
+              <x-post-card :post="$post" />
             </div>
           @endforeach
         </div>
@@ -64,7 +64,7 @@
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
             <div class="swiper-slide">
-              @include('partials.post-card', ['post' => $post])
+              <x-post-card :post="$post" />
             </div>
           @endforeach
         </div>
