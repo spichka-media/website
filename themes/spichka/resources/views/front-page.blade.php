@@ -7,11 +7,11 @@
     </video>
 
     <div class="container">
-      <div class="header">
+      <div class="header text-white">
         <div class="row">
           <div class="col-sm-6">
             <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
-            <p>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+            <p class="fw-800">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
           </div>
         </div>
         </p>
@@ -91,7 +91,7 @@
     </div>
   </section>
 
-  <section class="mt-5 mb-5 ms-0 me-0 donate-section">
+  <section class="mt-5 mb-5 ms-0 me-0 donate-section text-white pt-5 pb-5 bg-dark">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -103,7 +103,7 @@
             {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
           </p>
 
-          <a class="btn btn-outline-light fs-5 fw-600 border-2">
+          <a class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
             <i class="fas fa-coins"></i>{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
           </a>
         </div>
@@ -125,12 +125,12 @@
         <div class="swiper-wrapper">
           @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
             <div class="swiper-slide">
-              <div class="connect-card">
+              <div class="connect-card bg-dark text-white text-center d-flex flex-column">
                 <h3>{{ $block['front_connect_blocks_block_header'] }}</h3>
                 <p>{{ $block['front_connect_blocks_block_description'] }}</p>
 
                 @if ($block['front_connect_blocks_block_button_text'])
-                  <a class="btn btn-outline-light fs-5 fw-600 border-2"
+                  <a class="btn btn-outline-light fs-5 fw-600 border-2 mt-auto mb-3 ms-0 me-0"
                     href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i class="far fa-envelope"></i>
                     {{ $block['front_connect_blocks_block_button_text'] }}</a>
                 @endif

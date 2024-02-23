@@ -1,3 +1,4 @@
+// TODO: Refactor this and move to bootstrap classes
 .section-banner-video {
   height: 100vh;
   align-items: center;
@@ -14,50 +15,19 @@
   }
 
   .header {
-    color: white;
     position: relative;
     z-index: 2;
-
-    p {
-      font-weight: 800;
-    }
-  }
-}
-
-// Donate
-.donate-section {
-  background-color: $dark-background-color;
-  padding: 3rem 0;
-  color: #fff;
-
-  img {
-    max-width: 100%;
-  }
-
-  .btn {
-    padding: 0.5rem 1rem;
   }
 }
 
 // Connect
 .connect {
   .connect-card {
-    background-color: #3b3d42;
-    color: white;
-    padding: 4.5rem 1rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-
-    .btn {
-      margin: 1rem 2rem 0;
-      margin-top: auto;
-      text-decoration: none;
-    }
+    padding: 4.5rem 2rem; // TODO: Need to setup spacing in bootstrap, I guess
   }
 
   // Carousel
-
+  // TODO: Maybe remove carousels at all?
   .swiper-connect.stretch-cards {
     .swiper-wrapper {
       // align-items: stretch;

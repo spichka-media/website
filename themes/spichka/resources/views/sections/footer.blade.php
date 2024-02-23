@@ -26,8 +26,8 @@
       @endif
 
       @if (carbon_get_theme_option('theme_email'))
-        <a class="btn btn-outline-dark" href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i
-            class="far fa-envelope"></i>
+        <a class="btn btn-outline-dark text-decoration-none"
+          href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i class="far fa-envelope"></i>
           {{ carbon_get_theme_option('theme_email') }} </a>
       @endif
     </div>
