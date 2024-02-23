@@ -10,16 +10,16 @@
         </h1>
 
         <div>
-          {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
+          <small>{!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}</small>
 
           <div id="post-categories">
-            {{ _e('Categories') }}:
-            @php(the_category(', '))
+            <small>{{ _e('Categories') }}:
+              @php(the_category(', '))</small>
           </div>
 
-          <div class="mt-2 fs-6 fw-400">
+          <div>
             <span>@svg('images.calendar-regular')</span>
-            @php(the_date('j F, Y'))
+            <small>@php(the_date('j F, Y'))</small>
           </div>
         </div>
 
