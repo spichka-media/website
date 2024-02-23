@@ -1,6 +1,6 @@
 <article class="mt-5 mb-5">
-  <div class="container max-width-1140">
-    <div class="row">
+  <div class="container container-header">
+    <div class="row gy-4">
       <div class="col-sm-6">
         @php(the_post_thumbnail('medium'))
       </div>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="container max-width-720 mt-5">
+  <div class="container container-body mt-5">
     <div class="row">
       <div class="col-xs-12">
         @php(the_content())
