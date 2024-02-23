@@ -4,43 +4,8 @@ $dark-background-color: #333;
 $body-secondary-color: #eee;
 $primary: #ff6f61;
 
-// Configuration
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_functions';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_variables';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_variables-dark';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_maps';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_mixins';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_utilities';
-
-// Layout & components
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_root';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_reboot';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_type';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_containers';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_grid';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_navbar';
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_buttons';
-
-// Helpers
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/_helpers';
-
-// Utilities
-/* stylelint-disable-next-line scss/at-import-no-partial-leading-underscore */
-@import 'bootstrap/scss/utilities/_api';
+// Libraries
+@import './libs/bootstrap';
 
 // Theme
 @import './layout';

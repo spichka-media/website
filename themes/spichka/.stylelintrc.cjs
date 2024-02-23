@@ -11,5 +11,11 @@ module.exports = {
         'selector-class-pattern': null,
       },
     },
+    {
+      files: ['resources/styles/libs/bootstrap.scss'],
+      rules: {
+        'at-import-no-partial-leading-underscore': null,
+      },
+    },
   ],
 };
