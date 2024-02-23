@@ -6,6 +6,7 @@ $primary: #ff6f61;
 
 // Libraries
 @import './libs/bootstrap';
+@import './libs/swiper';
 
 // Theme
 @import './layout';
@@ -14,9 +15,6 @@ $primary: #ff6f61;
 @import './components/post-card';
 @import './single-post';
 @import './utils';
-@import '~swiper/scss';
-@import '~swiper/scss/autoplay';
-@import '~swiper/scss/effect-fade';
 
 // Plugins
 @import './plugins/footnotes';
