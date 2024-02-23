@@ -1,4 +1,4 @@
-<footer class="pt-5 pb-5">
+<footer class="pt-5 pb-5 mt-auto">
   <div class="container">
 
     <div class="d-flex align-items-center flex-column">
