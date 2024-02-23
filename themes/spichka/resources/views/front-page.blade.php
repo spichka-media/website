@@ -26,11 +26,11 @@
       </h2>
     </div>
 
-    @php(
-    $program_articles = get_posts([
-        'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
-    ]),
-)
+    @php
+      $program_articles = get_posts([
+          'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
+      ]);
+    @endphp
 
     <div class="container-fluid">
       <div class="swiper">
@@ -55,11 +55,11 @@
     </div>
 
     <div class="container-fluid">
-      @php(
-    $recent_posts = get_posts([
-        'posts_per_page' => 10,
-    ]),
-)
+      @php
+        $recent_posts = get_posts([
+            'posts_per_page' => 10,
+        ]);
+      @endphp
       <div class="swiper">
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
