@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="mt-5 mb-5 ms-0 me-0 section-banner-video">
+  {{-- <section class="mt-5 mb-5 ms-0 me-0 section-banner-video">
     <video class="banner-video" autoplay muted playsinline loop>
       <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}" type="video/mp4">
     </video>
@@ -17,7 +17,7 @@
         </p>
       </div>
     </div>
-  </section>
+  </section> --}}
 
   <section class="mt-5 mb-5 ms-0 me-0 program-articles">
     <div class="container">
@@ -26,11 +26,11 @@
       </h2>
     </div>
 
-    @php
-      $program_articles = get_posts([
-          'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
-      ]);
-    @endphp
+    @php(
+    $program_articles = get_posts([
+        'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
+    ]),
+)
 
     <div class="container-fluid">
       <div class="swiper">
@@ -55,11 +55,11 @@
     </div>
 
     <div class="container-fluid">
-      @php
-        $recent_posts = get_posts([
-            'posts_per_page' => 10,
-        ]);
-      @endphp
+      @php(
+    $recent_posts = get_posts([
+        'posts_per_page' => 10,
+    ]),
+)
       <div class="swiper">
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
@@ -130,7 +130,7 @@
                 <p>{{ $block['front_connect_blocks_block_description'] }}</p>
 
                 @if ($block['front_connect_blocks_block_button_text'])
-                  <a class="btn btn-outline-light fs-5 fw-600 border-2 mt-auto mb-3 ms-0 me-0"
+                  <a class="btn btn-outline-light fs-5 fw-600 border-2 mt-auto mb-3 ms-0 me-0 text-decoration-none"
                     href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i class="far fa-envelope"></i>
                     {{ $block['front_connect_blocks_block_button_text'] }}</a>
                 @endif
