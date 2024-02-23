@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container pt-5 pb-5">
+  <div class="container pt-5 pb-4">
     @include('partials.page-header')
 
     <div class="row gy-3 mt-3">
@@ -13,6 +13,7 @@
         </div>
       @endwhile
     </div>
-    {!! get_the_posts_pagination(['class' => 'mt-4']) !!}
+
+    {!! bs_get_the_posts_pagination() !!}
   </div>
 @endsection

@@ -21,6 +21,7 @@
         </div>
       @endwhile
     </div>
-    {!! get_the_posts_pagination(['class' => 'mt-4']) !!}
+
+    {!! bs_get_the_posts_pagination() !!}
   </div>
 @endsection

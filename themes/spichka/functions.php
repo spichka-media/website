@@ -230,3 +230,5 @@ function array_pluck($array, $key) {
       return is_object($v) ? $v->$key : $v[$key];
     }, $array);
 }
+
+require_once dirname( __FILE__ ) . '/app/lib/pagination.php';
