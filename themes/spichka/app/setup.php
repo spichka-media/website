@@ -113,9 +113,6 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
-
-    require_once dirname( __FILE__ ) . '/custom-fields.php';
-
 }, 20);
 
 /**
