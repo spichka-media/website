@@ -25,7 +25,7 @@ defaults:
 jobs:
   deploy:
     name: Deploy
-    environment: "dev"
+    environment: dev
     runs-on: ubuntu-latest
 
     steps:
