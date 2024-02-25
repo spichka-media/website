@@ -17,7 +17,7 @@
         @php(the_post())
 
         <div class="col-sm-3 mb-2">
-          <x-post-card-extended :post="$post" />
+          <x-post-card-extended />
         </div>
       @endwhile
     </div>

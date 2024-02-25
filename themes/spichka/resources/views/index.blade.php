@@ -9,7 +9,7 @@
         @php(the_post())
 
         <div class="col-sm-4">
-          <x-post-card-extended :post="$post" />
+          <x-post-card-extended />
         </div>
       @endwhile
     </div>
