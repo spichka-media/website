@@ -1,6 +1,17 @@
 name: Deploy
 run-name: Deploy to ${{ inputs.environment }}
 
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       environment:
+#         type: choice
+#         description: 'Environment'
+#         required: true
+#         options:
+#           - staging
+#           - prod
+
 on:
   push:
     branches: [main]
@@ -12,8 +23,9 @@ defaults:
     working-directory: ./themes/spichka
 
 jobs:
-  testing:
+  deploy:
     name: Deploy
+    environment: "dev"
     runs-on: ubuntu-latest
 
     steps:
@@ -31,11 +43,11 @@ jobs:
       - name: Install yarn dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Cache Composer dependencies
-        uses: actions/cache@v3
-        with:
-          path: /tmp/composer-cache
-          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+      # - name: Cache Composer dependencies
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: /tmp/composer-cache
+      #     key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Install composer dependencies
         uses: php-actions/composer@v6
@@ -45,3 +57,14 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: 📂 Sync Files
+        uses: SamKirkland/web-deploy@v1
+        with:
+          target-server: ${{ secrets.SSH_HOST }}
+          remote-user: ${{ secrets.SSH_HOST }}
+          private-ssh-key: ${{ secrets.SSH_KEY }}
+          ssh-port: 22
+          source-path: ./themes/spichka/
+          destination-path: ${{ secrets.SSH_PATH }}
+          rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude '**/node_modules/**'
