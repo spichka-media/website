@@ -64,7 +64,7 @@ jobs:
           target-server: ${{ secrets.SSH_HOST }}
           remote-user: ${{ secrets.SSH_HOST }}
           private-ssh-key: ${{ secrets.SSH_KEY }}
-          ssh-port: 22
+          ssh-port: 2222
           source-path: ./themes/spichka/
           destination-path: ${{ secrets.SSH_PATH }}
           rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude '**/node_modules/**'
