@@ -59,12 +59,13 @@ jobs:
         run: yarn build
 
       - name: 📂 Sync Files
-        uses: SamKirkland/web-deploy@v1
+        uses: easingthemes/ssh-deploy@main
         with:
-          target-server: ${{ vars.SSH_HOST }}
-          remote-user: ${{ vars.SSH_USER }}
-          private-ssh-key: ${{ vars.SSH_KEY }}
-          ssh-port: 2222
-          source-path: ./themes/spichka/
-          destination-path: ${{ secrets.SSH_PATH }}
-          rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable --exclude '**/node_modules/**'
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "--dry-run --verbose"
+          SOURCE: "./themes/spichka/"
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: 2222
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          TARGET: ${{ secrets.SSH_PATH }}
+          EXCLUDE: "/node_modules/"
