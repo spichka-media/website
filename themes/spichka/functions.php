@@ -237,4 +237,4 @@ function array_pluck($array, $key) {
 
 require_once dirname( __FILE__ ) . '/app/lib/pagination.php';
 
-require_once dirname( __FILE__ ) . '/custom-fields.php';
+require_once dirname( __FILE__ ) . '/app/custom-fields.php';
