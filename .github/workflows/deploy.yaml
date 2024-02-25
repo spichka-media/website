@@ -58,7 +58,7 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: 📂 Sync Files 1
+      - name: 📂 Sync Files
         uses: SamKirkland/web-deploy@v1
         with:
           target-server: ${{ secrets.SSH_HOST }}
