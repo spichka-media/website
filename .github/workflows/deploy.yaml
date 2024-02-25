@@ -2,15 +2,10 @@ name: Deploy
 run-name: Deploy to ${{ inputs.environment }}
 
 on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        type: choice
-        description: "Environment"
-        required: true
-        options:
-          - staging
-          - prod
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 defaults:
   run:
