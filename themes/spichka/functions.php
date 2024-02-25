@@ -152,7 +152,6 @@ function my_theme_register_required_plugins() {
 			'required'           => true, 
 			'force_activation'   => true, 
 		),
-
     );
 
    $config = array(
