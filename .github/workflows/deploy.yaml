@@ -62,7 +62,7 @@ jobs:
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-          ARGS: "--dry-run --verbose"
+          ARGS: "--verbose"
           SOURCE: "./themes/spichka/"
           REMOTE_HOST: ${{ secrets.SSH_HOST }}
           REMOTE_PORT: 2222
