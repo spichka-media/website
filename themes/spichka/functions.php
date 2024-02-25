@@ -123,6 +123,7 @@ function my_theme_register_required_plugins() {
             'name' => 'Easy Table of Contents',
             'slug'      => 'easy-table-of-contents',
             'required'  => true,
+			'force_activation'   => true, 
         ),
         array(
             'name' => 'Contact form 7',
@@ -132,12 +133,14 @@ function my_theme_register_required_plugins() {
         array(
             'name' => 'PublishPress Authors',
             'slug' => 'publishpress-authors',
-            'required' => true
+            'required' => true,
+			'force_activation'   => true,
         ),
         array(
             'name' => 'Font Awesome',
             'slug' => 'font-awesome',
-            'required' => true
+            'required' => true,
+			'force_activation'   => true,
         ),
         array(
             'name' => 'WP Search with Algolia',
@@ -147,7 +150,8 @@ function my_theme_register_required_plugins() {
         array(
             'name' => 'Yoast SEO',
             'slug' => 'wordpress-seo',
-            'required' => true
+            'required' => true,
+			'force_activation'   => true, 
         ),
         array(
 			'name'               => 'Carbon fields',
