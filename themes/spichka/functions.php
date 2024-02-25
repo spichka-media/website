@@ -141,6 +141,11 @@ function my_theme_register_required_plugins() {
             'required' => true
         ),
         array(
+            'name' => 'Yoast SEO',
+            'slug' => 'wordpress-seo',
+            'required' => true
+        ),
+        array(
 			'name'               => 'Carbon fields',
 			'slug'               => 'carbon-fields', 
 			'source'             => get_stylesheet_directory() . '/plugins/carbon-fields.zip', 
