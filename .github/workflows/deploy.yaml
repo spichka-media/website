@@ -41,7 +41,7 @@ jobs:
         uses: php-actions/composer@v6
         with:
           dev: no
-          working-directory: ./themes/spichka
+          working_dir: ./themes/spichka
 
       - name: Build
         run: yarn build
