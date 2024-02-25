@@ -61,9 +61,9 @@ jobs:
       - name: 📂 Sync Files
         uses: SamKirkland/web-deploy@v1
         with:
-          target-server: ${{ secrets.SSH_HOST }}
-          remote-user: ${{ secrets.SSH_USER }}
-          private-ssh-key: ${{ secrets.SSH_KEY }}
+          target-server: ${{ vars.SSH_HOST }}
+          remote-user: ${{ vars.SSH_USER }}
+          private-ssh-key: ${{ vars.SSH_KEY }}
           ssh-port: 2222
           source-path: ./themes/spichka/
           destination-path: ${{ secrets.SSH_PATH }}
