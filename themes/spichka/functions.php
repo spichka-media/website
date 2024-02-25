@@ -106,10 +106,12 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
 function my_theme_register_required_plugins() {
     $plugins = array(
         array(
-            'name'      => 'footnotes',
-            'slug'      => 'footnotes',
-            'required'  => true,
-        ),
+			'name'               => 'footnotes',
+			'slug'               => 'footnotes', 
+			'source'             => get_stylesheet_directory() . '/plugins/footnotes.zip', 
+			'required'           => true, 
+			'force_activation'   => true, 
+		),
         array(
             'name' => 'Easy Table of Contents',
             'slug'      => 'easy-table-of-contents',
@@ -123,11 +125,6 @@ function my_theme_register_required_plugins() {
         array(
             'name' => 'PublishPress Authors',
             'slug' => 'publishpress-authors',
-            'required' => true
-        ),
-        array(
-            'name' => 'Mistape',
-            'slug' => 'mistape',
             'required' => true
         ),
         array(

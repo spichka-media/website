@@ -62,4 +62,6 @@ add_action( 'carbon_fields_register_fields', function () {
     ) );
 }, 100);
 
-Carbon_Fields::boot();
+if (class_exists("Carbon_Fields\Carbon_Fields")) {
+    Carbon_Fields::boot();
+}
