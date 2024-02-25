@@ -113,6 +113,13 @@ function my_theme_register_required_plugins() {
 			'force_activation'   => true, 
 		),
         array(
+			'name'               => 'mistape',
+			'slug'               => 'mistape', 
+			'source'             => get_stylesheet_directory() . '/plugins/mistape.zip', 
+			'required'           => true, 
+			'force_activation'   => true, 
+		),
+        array(
             'name' => 'Easy Table of Contents',
             'slug'      => 'easy-table-of-contents',
             'required'  => true,
