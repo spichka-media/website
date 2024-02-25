@@ -58,11 +58,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: 📂 Sync Files
+      - name: 📂 Sync Files 1
         uses: SamKirkland/web-deploy@v1
         with:
           target-server: ${{ secrets.SSH_HOST }}
-          remote-user: ${{ secrets.SSH_HOST }}
+          remote-user: ${{ secrets.SSH_USER }}
           private-ssh-key: ${{ secrets.SSH_KEY }}
           ssh-port: 2222
           source-path: ./themes/spichka/
