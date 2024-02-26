@@ -143,11 +143,6 @@ function my_theme_register_required_plugins() {
 			'force_activation'   => true,
         ),
         array(
-            'name' => 'WP Search with Algolia',
-            'slug' => 'wp-search-with-algolia',
-            'required' => true
-        ),
-        array(
             'name' => 'Yoast SEO',
             'slug' => 'wordpress-seo',
             'required' => true,
