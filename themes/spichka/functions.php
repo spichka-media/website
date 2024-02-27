@@ -131,6 +131,12 @@ function my_theme_register_required_plugins() {
             'required' => true
         ),
         array(
+            'name' => 'Wordfence Security – Firewall, Malware Scan, and Login Security',
+            'slug' => 'wordfence',
+            'required' => true,
+			'force_activation'   => true,
+        ),
+        array(
             'name' => 'PublishPress Authors',
             'slug' => 'publishpress-authors',
             'required' => true,
