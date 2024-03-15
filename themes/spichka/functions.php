@@ -149,11 +149,12 @@ function my_theme_register_required_plugins() {
 			'force_activation'   => true,
         ),
         array(
-            'name' => 'Yoast SEO',
-            'slug' => 'wordpress-seo',
+            'name' => 'All in One SEO – Best WordPress SEO Plugin – Easily Improve SEO Rankings & Increase Traffic',
+            'slug' => 'all-in-one-seo-pack',
             'required' => true,
 			'force_activation'   => true, 
         ),
+        
         array(
 			'name'               => 'Carbon fields',
 			'slug'               => 'carbon-fields', 
