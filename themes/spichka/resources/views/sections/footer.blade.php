@@ -8,7 +8,7 @@
         <ul class="social d-flex list-unstyled mt-3 mb-3">
           @foreach (carbon_get_theme_option('theme_socials') as $social)
             <li class="ms-1 me-1">
-              <a class="d-flex align-items-center justify-content-center rounded-circle fs-5 social-link" arget="_blank"
+              <a class="d-flex align-items-center justify-content-center rounded-circle fs-5 social-link" target="_blank"
                 href="{{ $social['theme_social_link'] }}">
                 <i class="{{ $social['theme_social_icon'] }}"></i>
               </a>
