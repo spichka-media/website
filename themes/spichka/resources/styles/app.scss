@@ -1,0 +1,49 @@
+$font-size-base: 1rem;
+$h2-font-size: $font-size-base * 2.5;
+$dark-background-color: #333;
+$body-secondary-color: #eee;
+$primary: #ff6f61;
+$pagination-disabled-color: $primary;
+
+// Libraries
+@import './libs/bootstrap';
+@import './libs/swiper';
+
+// Theme
+@import './layout';
+@import './fonts';
+@import './front-page';
+@import './components/post-card';
+@import './single-post';
+
+// Plugins
+@import './plugins/footnotes';
+@import './plugins/mistape';
+@import './plugins/table-of-contents';
+
+body {
+  font-family: Montserrat, sans-serif;
+  color: $body-color;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 800;
+}

@@ -1,0 +1,27 @@
+// Article
+
+article {
+  .container-body {
+    max-width: 720px;
+  }
+
+  .container-header {
+    max-width: 1140px;
+  }
+
+  blockquote {
+    p {
+      font-size: 1.75em;
+      font-weight: 400;
+      margin: 0;
+    }
+  }
+
+  .pp-author-boxes-name,
+  #post-categories,
+  #post-tags {
+    a {
+      font-weight: 700;
+    }
+  }
+}
