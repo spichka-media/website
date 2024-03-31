@@ -1,22 +1,16 @@
 name: Deploy
-run-name: Deploy to ${{ inputs.environment }}
-
-# on:
-#   workflow_dispatch:
-#     inputs:
-#       environment:
-#         type: choice
-#         description: 'Environment'
-#         required: true
-#         options:
-#           - staging
-#           - prod
+run-name: Deploy to ${{ inputs.environment }} from ${{ github.head_ref || github.ref_name }} 
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: 'Environment'
+        required: true
+        options:
+          - dev
+          - prod
 
 defaults:
   run:
@@ -25,7 +19,7 @@ defaults:
 jobs:
   deploy:
     name: Deploy
-    environment: dev
+    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
 
     steps:
