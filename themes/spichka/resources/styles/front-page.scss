@@ -1,0 +1,44 @@
+// TODO: Refactor this and move to bootstrap classes
+.section-banner-video {
+  height: 100vh;
+  align-items: center;
+  display: flex;
+
+  .banner-video {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: brightness(60%);
+  }
+
+  .header {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+// Connect
+.connect {
+  .connect-card {
+    padding: 4.5rem 2rem; // TODO: Need to setup spacing in bootstrap, I guess
+  }
+
+  // Carousel
+  // TODO: Maybe remove carousels at all?
+  .swiper-connect.stretch-cards {
+    .swiper-wrapper {
+      // align-items: stretch;
+    }
+
+    .swiper-slide {
+      > * {
+        height: 100%;
+      }
+
+      height: unset;
+    }
+  }
+}

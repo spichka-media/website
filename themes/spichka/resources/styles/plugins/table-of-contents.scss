@@ -1,0 +1,45 @@
+.ez-toc-counter ul {
+  list-style: auto;
+  counter-reset: item;
+
+  li {
+    counter-increment: item;
+    font-size: 0.9rem;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  li::marker {
+    content: counters(item, '.') '. ';
+    color: $secondary;
+  }
+
+  a.ez-toc-link {
+    color: $body-color;
+  }
+}
+
+#ez-toc-container {
+  margin: 2rem 0;
+
+  .ez-toc-title {
+    background-color: $dark-background-color;
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+    padding: 0.75rem;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  nav {
+    padding: 1.25rem;
+    padding-left: 0;
+    background-color: $body-secondary-bg;
+    color: $body-color;
+  }
+}

@@ -1,0 +1,65 @@
+name: Deploy
+run-name: Deploy to ${{ inputs.environment }} from ${{ github.head_ref || github.ref_name }} 
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: 'Environment'
+        required: true
+        options:
+          - dev
+          - prod
+
+defaults:
+  run:
+    working-directory: ./themes/spichka
+
+jobs:
+  deploy:
+    name: Deploy
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+
+      - name: "Use Node.js 18.x"
+        uses: actions/setup-node@v4
+        with:
+          registry-url: "https://registry.npmjs.org"
+          node-version: "18.x"
+          cache: "yarn"
+          cache-dependency-path: ./themes/spichka/yarn.lock
+
+      - name: Install yarn dependencies
+        run: yarn install --frozen-lockfile
+
+      # - name: Cache Composer dependencies
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: /tmp/composer-cache
+      #     key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Install composer dependencies
+        uses: php-actions/composer@v6
+        with:
+          dev: no
+          working_dir: ./themes/spichka
+
+      - name: Build
+        run: yarn build
+
+      - name: 📂 Sync Files
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "--verbose"
+          SOURCE: "./themes/spichka/"
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_PORT: 2222
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          TARGET: ${{ secrets.SSH_PATH }}
+          EXCLUDE: "/node_modules/"

@@ -1,0 +1,12 @@
+// Post card
+
+.post-card,
+.post-card-extended {
+  a {
+    color: $body-color;
+
+    &:hover {
+      transition: 0.3s;
+    }
+  }
+}
