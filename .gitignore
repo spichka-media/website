@@ -1,2 +1,4 @@
 .DS_Store
 wp-content
+/backup
+!/backup/.gitkeep
