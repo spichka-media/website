@@ -173,8 +173,8 @@ function my_theme_register_required_plugins() {
         array(
             'name' => 'Site Kit by Google',
             'slug' => 'google-site-kit',
-            'required' => true,
-            'force_activation' => true
+            'required' => false,
+            'force_activation' => false
         )
     );
 
