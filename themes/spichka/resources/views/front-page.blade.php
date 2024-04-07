@@ -127,7 +127,7 @@
       </h2>
 
 
-      <div class="row row-cols-md-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
         @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
           <div class="col">
             <div class="card h-100">
