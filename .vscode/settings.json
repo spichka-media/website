@@ -1,10 +1,5 @@
 {
   "bladeFormatter.format.enabled": true,
   "bladeFormatter.format.indentSize": 2,
-  "npm.packageManager": "yarn",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "[blade]": {
-    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
-  }
+  "npm.packageManager": "yarn"
 }
