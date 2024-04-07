@@ -20,7 +20,7 @@
     "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
-    "lint:php": "node_modules/.bin/blade-formatter --write resources/**/*.blade.php && node_modules/.bin/blade-formatter --write app/**/*.php && node_modules/.bin/blade-formatter --write index.php && node_modules/.bin/blade-formatter --write functions.php",
+    "lint:php": "node_modules/.bin/blade-formatter -c resources/**/*.blade.php && node_modules/.bin/blade-formatter -с app/**/*.php && node_modules/.bin/blade-formatter -с index.php && node_modules/.bin/blade-formatter -с functions.php",
     "test": "yarn lint"
   },
   "devDependencies": {
