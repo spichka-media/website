@@ -17,9 +17,10 @@
     "translate:compile": "yarn translate:mo && yarn translate:js",
     "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang",
-    "lint": "yarn lint:js && yarn lint:css",
+    "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
+    "lint:php": "node_modules/.bin/blade-formatter --write resources/**/*.blade.php && node_modules/.bin/blade-formatter --write app/**/*.php && node_modules/.bin/blade-formatter --write index.php && node_modules/.bin/blade-formatter --write functions.php",
     "test": "yarn lint"
   },
   "devDependencies": {
@@ -29,7 +30,8 @@
     "@roots/bud-sass": "6.17.0",
     "@roots/bud-stylelint": "^6.17.0",
     "@roots/eslint-config": "^6.17.0",
-    "@roots/sage": "6.17.0"
+    "@roots/sage": "6.17.0",
+    "blade-formatter": "^1.41.1"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",

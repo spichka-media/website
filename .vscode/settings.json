@@ -6,5 +6,8 @@
   "editor.formatOnSave": true,
   "[blade]": {
     "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+  },
+  "[php]": {
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
   }
 }
