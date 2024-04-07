@@ -66,6 +66,7 @@ add_action( 'carbon_fields_register_fields', function () {
         Field::make( 'text', 'front_donate_header', __( 'Заголовок' ) )->set_default_value( 'Помогай'),
         Field::make( 'text', 'front_donate_description', __( 'Описание' ) )->set_default_value( 'Мы работаем над проектом в свободное время и на энтузиазме. Чтобы творить, нам нужно тратить деньги на сайт, покупать оборудование для видео и подкастов, снимать студии. Спасибо, что присылаете нам деньги — так нам реже приходится тратить свои.'),
         Field::make( 'text', 'front_donate_button_text', __( 'Текст на кнопке' ) )->set_default_value( 'Задонатить'),
+        Field::make( 'text', 'front_donate_button_link', 'Ссылка' )->set_default_value( 'https://telegra.ph/Rekvizity-Spichki-11-09'),
         Field::make( 'image', 'front_donate_image', __( 'Изображение' ) ),
     ) );
 }, 100);
