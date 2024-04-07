@@ -2,6 +2,9 @@
   "bladeFormatter.format.enabled": true,
   "bladeFormatter.format.indentSize": 2,
   "npm.packageManager": "yarn",
-  "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
-  "editor.formatOnSave": true
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "[blade]": {
+    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
+  }
 }
