@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   testing:
-    name: CI
+    name: Testing
     runs-on: ubuntu-latest
 
     steps:
