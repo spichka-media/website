@@ -2,7 +2,6 @@
   "parser": "php",
   "plugins": ["@prettier/plugin-php"],
   "bracketSpacing": false,
-  "jsxBracketSameLine": true,
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
