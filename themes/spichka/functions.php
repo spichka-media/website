@@ -162,6 +162,13 @@ function my_theme_register_required_plugins() {
 			'required'           => true, 
 			'force_activation'   => true, 
 		),
+
+        array(
+            'name' => 'Simple History',
+            'slug' => 'simple-history',
+            'required' => false,
+            'force_activation' => false
+        )
     );
 
    $config = array(
