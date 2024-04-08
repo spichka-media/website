@@ -71,7 +71,7 @@ collect(['setup', 'filters'])
 
 
 add_filter( 'intermediate_image_sizes_advanced', 'prefix_remove_default_images' );
-// This will remove the default image sizes and the medium_large size. 
+// This will remove the default image sizes and the medium_large size.
 function prefix_remove_default_images( $sizes ) {
  unset( $sizes['small']); // 150px
  unset( $sizes['medium']); // 300px
@@ -107,23 +107,23 @@ function my_theme_register_required_plugins() {
     $plugins = array(
         array(
 			'name'               => 'footnotes',
-			'slug'               => 'footnotes', 
-			'source'             => get_stylesheet_directory() . '/plugins/footnotes.zip', 
-			'required'           => true, 
-			'force_activation'   => true, 
+			'slug'               => 'footnotes',
+			'source'             => get_stylesheet_directory() . '/plugins/footnotes.zip',
+			'required'           => true,
+			'force_activation'   => true,
 		),
         array(
 			'name'               => 'mistape',
-			'slug'               => 'mistape', 
-			'source'             => get_stylesheet_directory() . '/plugins/mistape.zip', 
-			'required'           => true, 
-			'force_activation'   => true, 
+			'slug'               => 'mistape',
+			'source'             => get_stylesheet_directory() . '/plugins/mistape.zip',
+			'required'           => true,
+			'force_activation'   => true,
 		),
         array(
             'name' => 'Easy Table of Contents',
             'slug'      => 'easy-table-of-contents',
             'required'  => true,
-			'force_activation'   => true, 
+			'force_activation'   => true,
         ),
         array(
             'name' => 'Contact form 7',
@@ -152,20 +152,27 @@ function my_theme_register_required_plugins() {
             'name' => 'All in One SEO – Best WordPress SEO Plugin – Easily Improve SEO Rankings & Increase Traffic',
             'slug' => 'all-in-one-seo-pack',
             'required' => true,
-			'force_activation'   => true, 
+			'force_activation'   => true,
         ),
-        
+
         array(
 			'name'               => 'Carbon fields',
-			'slug'               => 'carbon-fields', 
-			'source'             => get_stylesheet_directory() . '/plugins/carbon-fields.zip', 
-			'required'           => true, 
-			'force_activation'   => true, 
+			'slug'               => 'carbon-fields',
+			'source'             => get_stylesheet_directory() . '/plugins/carbon-fields.zip',
+			'required'           => true,
+			'force_activation'   => true,
 		),
 
         array(
             'name' => 'Simple History',
             'slug' => 'simple-history',
+            'required' => false,
+            'force_activation' => false
+        ),
+
+        array(
+            'name' => 'Site Kit by Google',
+            'slug' => 'google-site-kit',
             'required' => false,
             'force_activation' => false
         )
@@ -223,7 +230,7 @@ add_filter( 'the_content', 'auto_id_headings' );
 
 function bootstrap_responsive_images( $html ){
     $classes = 'img-responsive'; // separated by spaces, e.g. 'img image-link'
-  
+
     // check if there are already classes assigned to the anchor
     if ( preg_match('/<img.*? class="/', $html) ) {
       $html = preg_replace('/(<img.*? class=".*?)(".*?\/>)/', '$1 ' . $classes . ' $2', $html);
