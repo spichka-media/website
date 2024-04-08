@@ -1,3 +1,7 @@
 {
-  "recommendations": ["eamodio.gitlens", "onecentlin.laravel-blade"]
+  "recommendations": [
+    "eamodio.gitlens",
+    "onecentlin.laravel-blade",
+    "esbenp.prettier-vscode"
+  ]
 }
