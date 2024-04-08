@@ -165,6 +165,20 @@ function my_theme_register_required_plugins()
       'required' => true,
       'force_activation' => true,
     ],
+
+    [
+      'name' => 'Simple History',
+      'slug' => 'simple-history',
+      'required' => false,
+      'force_activation' => false,
+    ],
+
+    [
+      'name' => 'Site Kit by Google',
+      'slug' => 'google-site-kit',
+      'required' => false,
+      'force_activation' => false,
+    ],
   ];
 
   $config = [
