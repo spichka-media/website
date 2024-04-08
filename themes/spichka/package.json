@@ -5,7 +5,7 @@
     "extends @roots/browserslist-config"
   ],
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "type": "module",
   "scripts": {
@@ -17,12 +17,14 @@
     "translate:compile": "yarn translate:mo && yarn translate:js",
     "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
     "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang",
-    "lint": "yarn lint:js && yarn lint:css",
+    "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
+    "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
     "test": "yarn lint"
   },
   "devDependencies": {
+    "@prettier/plugin-php": "^0.22.2",
     "@roots/bud": "6.17.0",
     "@roots/bud-eslint": "^6.17.0",
     "@roots/bud-prettier": "^6.17.0",

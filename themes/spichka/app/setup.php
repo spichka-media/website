@@ -13,41 +13,49 @@ use function Roots\bundle;
  *
  * @return void
  */
-add_action('wp_enqueue_scripts', function () {
+add_action(
+  'wp_enqueue_scripts',
+  function () {
     bundle('app')->enqueue();
 
     if (is_front_page()) {
-        bundle('front-page')->enqueue();
+      bundle('front-page')->enqueue();
     }
-}, 100);
-
-
+  },
+  100
+);
 
 /**
  * Register the theme assets with the block editor.
  *
  * @return void
  */
-add_action('enqueue_block_editor_assets', function () {
+add_action(
+  'enqueue_block_editor_assets',
+  function () {
     bundle('editor')->enqueue();
-}, 100);
+  },
+  100
+);
 
 /**
  * Register the initial theme setup.
  *
  * @return void
  */
-add_action('after_setup_theme', function () {
+add_action(
+  'after_setup_theme',
+  function () {
     /**
      * Enable features from the Soil plugin if activated.
      *
      * @link https://roots.io/plugins/soil/
      */
     add_theme_support('soil', [
-        'clean-up',
-        'nav-walker',
-        'nice-search',
-        'relative-urls',
+      'clean-up',
+      'nav-walker',
+      'nice-search',
+      'relative-urls',
     ]);
 
     /**
@@ -63,7 +71,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'spichka'),
+      'primary_navigation' => __('Primary Navigation', 'spichka'),
     ]);
 
     /**
@@ -100,11 +108,11 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#html5
      */
     add_theme_support('html5', [
-        'caption',
-        'gallery',
-        'search-form',
-        'script',
-        'style',
+      'caption',
+      'gallery',
+      'search-form',
+      'script',
+      'style',
     ]);
 
     /**
@@ -113,7 +121,9 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
-}, 20);
+  },
+  20
+);
 
 /**
  * Register the theme sidebars.
@@ -121,5 +131,5 @@ add_action('after_setup_theme', function () {
  * @return void
  */
 add_action('widgets_init', function () {
-    //
+  //
 });
