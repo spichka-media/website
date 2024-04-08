@@ -26,3 +26,14 @@ add_filter('excerpt_more', function () {
 add_filter( 'navigation_markup_template', function ($template) {
     return str_replace( '"navigation %1$s"', '"navigation %1$s" role="navigation"', $template );
 }, 10, 2 );
+
+add_filter('nav_menu_css_class',function ($classes, $item, $args) {
+    $classes[] = 'nav-item';
+    return $classes;
+},1,3);
+
+
+add_filter('wp_nav_menu', function ($ulclass) {
+    return preg_replace('/<a /', '<a class="nav-link"', $ulclass);
+});
+
