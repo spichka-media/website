@@ -20,18 +20,18 @@
     "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
-    "lint:php": "node_modules/.bin/blade-formatter --check-formatted **/*.php",
+    "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
     "test": "yarn lint"
   },
   "devDependencies": {
+    "@prettier/plugin-php": "^0.22.2",
     "@roots/bud": "6.17.0",
     "@roots/bud-eslint": "^6.17.0",
     "@roots/bud-prettier": "^6.17.0",
     "@roots/bud-sass": "6.17.0",
     "@roots/bud-stylelint": "^6.17.0",
     "@roots/eslint-config": "^6.17.0",
-    "@roots/sage": "6.17.0",
-    "blade-formatter": "^1.41.1"
+    "@roots/sage": "6.17.0"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
