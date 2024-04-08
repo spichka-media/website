@@ -3,7 +3,7 @@
 ## Требуется для работы
 
 - Docker
-- Node, >=16
+- Node, >=18
 - yarn, v1.22
 
 ## Инструкция по разворачиванию локального окружения в первый раз
@@ -20,7 +20,7 @@
 - Выполни `docker exec -it spichka_website sh -c "cd /var/www/html/wp-content/themes/spichka && composer install"`.
 - Перейди в папку с темой `themes/spichka`.
 - Выполни `yarn`.
-- В wp-admin установи и активируй все рекомендуемые плагины *по очереди* в админке Appearance -> Install Plugins (если их не было в бэкапе).
+- В wp-admin установи и активируй все рекомендуемые плагины _по очереди_ в админке Appearance -> Install Plugins (если их не было в бэкапе).
 
 ## Инструкция по запуску локального окружения
 
