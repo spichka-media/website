@@ -50,6 +50,6 @@ add_filter(
   3
 );
 
-add_filter('wp_nav_menu', function ($ulclass) {
-  return preg_replace('/<a /', '<a class="nav-link"', $ulclass);
+add_filter('wp_nav_menu', function ($ulСlass) {
+  return preg_replace('/<a /', '<a class="nav-link"', $ulСlass);
 });
