@@ -4,20 +4,20 @@
   {{-- <section class="mt-5 mb-5 ms-0 me-0 section-banner-video">
     <video class="banner-video" autoplay muted playsinline loop>
       <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}" type="video/mp4">
-    </video>
+</video>
 
-    <div class="container">
-      <div class="header text-white">
-        <div class="row">
-          <div class="col-sm-6">
-            <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
-            <p class="fw-800">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
-          </div>
-        </div>
-        </p>
+<div class="container">
+  <div class="header text-white">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
+        <p class="fw-800">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
       </div>
     </div>
-  </section> --}}
+    </p>
+  </div>
+</div>
+</section> --}}
 
   <section class="mt-5 mb-5 ms-0 me-0 program-articles">
     <div class="container">
@@ -81,10 +81,14 @@
     </div>
 
     <div class="container">
-      <div class="row">
+      <div class="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
         @foreach (get_categories() as $category)
-          <div class="col-sm-3">
-            <a href="{{ get_category_link($category->term_id) }}">/{{ $category->name }}</a>
+          <div class="col">
+            <div class="card">
+              <div class="card-body">
+                <a href="{{ get_category_link($category->term_id) }}">/{{ $category->name }}</a>
+              </div>
+            </div>
           </div>
         @endforeach
       </div>
@@ -103,7 +107,8 @@
             {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
           </p>
 
-          <a class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
+          <a href="{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_link') }}" target="_blank"
+            class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
             <i class="fas fa-coins"></i>{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
           </a>
         </div>
@@ -121,23 +126,24 @@
         {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
 
-      <div class="swiper-connect stretch-cards">
-        <div class="swiper-wrapper">
-          @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
-            <div class="swiper-slide">
-              <div class="connect-card bg-dark text-white text-center d-flex flex-column">
-                <h3>{{ $block['front_connect_blocks_block_header'] }}</h3>
-                <p>{{ $block['front_connect_blocks_block_description'] }}</p>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
+        @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body bg-dark text-white text-center px-4 py-5">
+                <h3 class="card-title">{{ $block['front_connect_blocks_block_header'] }}</h3>
+                <p class="card-text">{{ $block['front_connect_blocks_block_description'] }}</p>
 
                 @if ($block['front_connect_blocks_block_button_text'])
-                  <a class="btn btn-outline-light fs-5 fw-600 border-2 mt-auto mb-3 ms-0 me-0 text-decoration-none"
+                  <a class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none"
                     href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i class="far fa-envelope"></i>
                     {{ $block['front_connect_blocks_block_button_text'] }}</a>
                 @endif
               </div>
             </div>
-          @endforeach
-        </div>
+          </div>
+        @endforeach
       </div>
   </section>
 @endsection
