@@ -6,8 +6,6 @@
 
     @if (!have_posts())
       {!! __('Sorry, no results were found.', 'spichka') !!}
-
-      {!! get_search_form(false) !!}
     @endif
 
     <div class="row">
