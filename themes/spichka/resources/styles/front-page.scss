@@ -19,26 +19,3 @@
     z-index: 2;
   }
 }
-
-// Connect
-.connect {
-  .connect-card {
-    padding: 4.5rem 2rem; // TODO: Need to setup spacing in bootstrap, I guess
-  }
-
-  // Carousel
-  // TODO: Maybe remove carousels at all?
-  .swiper-connect.stretch-cards {
-    .swiper-wrapper {
-      // align-items: stretch;
-    }
-
-    .swiper-slide {
-      > * {
-        height: 100%;
-      }
-
-      height: unset;
-    }
-  }
-}

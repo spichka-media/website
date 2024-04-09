@@ -1,4 +1,5 @@
 <?php
+
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Carbon_Fields\Carbon_Fields;
@@ -143,6 +144,11 @@ add_action(
           'front_donate_button_text',
           __('Текст на кнопке')
         )->set_default_value('Задонатить'),
+        Field::make(
+          'text',
+          'front_donate_button_link',
+          'Ссылка'
+        )->set_default_value('https://telegra.ph/Rekvizity-Spichki-11-09'),
         Field::make('image', 'front_donate_image', __('Изображение')),
       ]);
   },
