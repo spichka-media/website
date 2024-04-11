@@ -1,5 +1,11 @@
 # Сайт
 
+## Для ознакомления
+
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Документация Wordpress](https://wordpress.org/documentation/)
+- [Документация Sage](https://roots.io/sage/docs/)
+
 ## Требуется для работы
 
 - Docker
