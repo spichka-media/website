@@ -21,6 +21,7 @@
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
     "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
+    "lint:php:fix": "node_modules/.bin/prettier \"**/*.php\" --write",
     "test": "yarn lint"
   },
   "devDependencies": {
