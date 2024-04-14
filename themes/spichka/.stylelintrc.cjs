@@ -14,7 +14,7 @@ module.exports = {
     {
       files: ['resources/styles/libs/bootstrap.scss'],
       rules: {
-        'scss/at-import-no-partial-leading-underscore': null,
+        'scss/load-no-partial-leading-underscore': null,
       },
     },
   ],
