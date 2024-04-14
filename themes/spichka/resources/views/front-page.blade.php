@@ -1,23 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-
-  <section class="video-section">
-    <div class="video-container">
-      <div class="details">
-        <div class="text-container">
-          <h1 class="main-text">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
-          <p class="additional-text">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+  @if (!wp_is_mobile())
+    <section class="video-section text-white">
+      <div class="video-container d-flex justify-content-center position-relative">
+        <div class="details justify-content-center d-flex flex-column ">
+          <div class="text-container d-flex flex-column position-relative gap-5">
+            <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
+            <p class="h4">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+          </div>
+          <a class="link-to-content" href="#start">
+            <i class="icon fas fa-angle-down"></i>
+          </a>
         </div>
-        <a class="link-to-content" href="#start">
-          <i class="icon fas fa-angle-down"></i>
-        </a>
+        <video class="video-element" autoplay muted playsinline loop>
+          <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
+            type="video/mp4">
+        </video>
       </div>
-      <video class="video-element" autoplay muted playsinline loop>
-        <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}" type="video/mp4">
-      </video>
-    </div>
-  </section>
+    </section>
+  @endif
 
   <section id="start" class="mt-5 mb-5 ms-0 me-0 program-articles">
     <div class="container">

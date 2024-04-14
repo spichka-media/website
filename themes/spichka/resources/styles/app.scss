@@ -1,9 +1,5 @@
-$font-size-base: 1rem;
-$h2-font-size: $font-size-base * 2.5;
-$dark-background-color: #333;
-$body-secondary-color: #eee;
-$primary: #ff6f61;
-$pagination-disabled-color: $primary;
+// Project variables
+@import './variables';
 
 // Libraries
 @import './libs/bootstrap';
