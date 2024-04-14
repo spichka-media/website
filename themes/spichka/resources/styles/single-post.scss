@@ -12,6 +12,16 @@ article {
   blockquote {
     p {
       border-left: solid $primary 3px;
+
+      // copy-paste of 'display-7' class
+      @include font-size(map-get($display-font-sizes, 7));
+      font-family: $display-font-family;
+      font-style: $display-font-style;
+      font-weight: $display-font-weight;
+      line-height: $display-line-height;
+
+      // copy-paste of 'px-3' class
+      padding: 0 map-get($spacers, 3);
     }
   }
 

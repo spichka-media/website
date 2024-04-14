@@ -21,10 +21,6 @@ add_action(
     if (is_front_page()) {
       bundle('front-page')->enqueue();
     }
-
-    if (is_single()) {
-      bundle('single-post')->enqueue();
-    }
   },
   100
 );
