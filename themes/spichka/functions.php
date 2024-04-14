@@ -179,13 +179,6 @@ function my_theme_register_required_plugins()
       'required' => false,
       'force_activation' => false,
     ],
-
-    [
-      'name' => 'WP Downgrade',
-      'slug' => 'wpdowngrade',
-      'required' => false,
-      'force_activation' => false,
-    ],
   ];
 
   $config = [
