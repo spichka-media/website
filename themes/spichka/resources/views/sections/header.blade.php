@@ -1,23 +1,23 @@
 <header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand ms-4 fs-6" href="{{ home_url('/') }}">{!! $siteName !!}</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerMenu"
-                aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="headerMenu">
-                @if (has_nav_menu('primary_navigation'))
-                    {!! wp_nav_menu([
-                        'theme_location' => 'primary_navigation',
-                        'container_class' => '',
-                        'menu_class' => 'navbar-nav',
-                    ]) !!}
-                @endif
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-6" href="{{ home_url('/') }}">{!! $siteName !!}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerMenu"
+        aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="headerMenu">
+        @if (has_nav_menu('primary_navigation'))
+          {!! wp_nav_menu([
+              'theme_location' => 'primary_navigation',
+              'container_class' => '',
+              'menu_class' => 'navbar-nav',
+          ]) !!}
+        @endif
+      </div>
+    </div>
+  </nav>
 
 
 
