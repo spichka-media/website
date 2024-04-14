@@ -127,16 +127,11 @@ function my_theme_register_required_plugins()
       'force_activation' => true,
     ],
     [
-      'name' => 'Contact form 7',
-      'slug' => 'contact-form-7',
-      'required' => true,
-    ],
-    [
       'name' =>
         'Wordfence Security – Firewall, Malware Scan, and Login Security',
       'slug' => 'wordfence',
-      'required' => true,
-      'force_activation' => true,
+      'required' => false,
+      'force_activation' => false,
     ],
     [
       'name' => 'PublishPress Authors',
@@ -154,10 +149,9 @@ function my_theme_register_required_plugins()
       'name' =>
         'All in One SEO – Best WordPress SEO Plugin – Easily Improve SEO Rankings & Increase Traffic',
       'slug' => 'all-in-one-seo-pack',
-      'required' => true,
-      'force_activation' => true,
+      'required' => false,
+      'force_activation' => false,
     ],
-
     [
       'name' => 'Carbon fields',
       'slug' => 'carbon-fields',
@@ -165,14 +159,12 @@ function my_theme_register_required_plugins()
       'required' => true,
       'force_activation' => true,
     ],
-
     [
       'name' => 'Simple History',
       'slug' => 'simple-history',
       'required' => false,
       'force_activation' => false,
     ],
-
     [
       'name' => 'Site Kit by Google',
       'slug' => 'google-site-kit',
