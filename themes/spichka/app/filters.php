@@ -39,3 +39,17 @@ add_filter(
   10,
   2
 );
+
+add_filter(
+  'nav_menu_css_class',
+  function ($classes, $item, $args) {
+    $classes[] = 'nav-item';
+    return $classes;
+  },
+  1,
+  3
+);
+
+add_filter('wp_nav_menu', function ($ulСlass) {
+  return preg_replace('/<a /', '<a class="nav-link"', $ulСlass);
+});
