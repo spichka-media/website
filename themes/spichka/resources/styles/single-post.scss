@@ -14,8 +14,13 @@ article {
     p {
       @include font-size($blockquote-font-size);
  
+      line-height: 1.4;
       border-left: solid $primary 3px;
       padding: 0 map.get($spacers, 4);
+
+      @include media-breakpoint-down(md) {
+        padding: 0 map.get($spacers, 3);
+      }
     }
   }
 
