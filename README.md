@@ -1,9 +1,15 @@
 # Сайт
 
+## Для ознакомления
+
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Документация Wordpress](https://wordpress.org/documentation/)
+- [Документация Sage](https://roots.io/sage/docs/)
+
 ## Требуется для работы
 
 - Docker
-- Node, >=18
+- Node, >=20
 - yarn, v1.22
 
 ## Инструкция по разворачиванию локального окружения в первый раз

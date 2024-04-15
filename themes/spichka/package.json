@@ -5,7 +5,7 @@
     "extends @roots/browserslist-config"
   ],
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "type": "module",
   "scripts": {
@@ -24,19 +24,20 @@
     "test": "yarn lint"
   },
   "devDependencies": {
-    "@prettier/plugin-php": "^0.22.2",
-    "@roots/bud": "6.17.0",
-    "@roots/bud-eslint": "^6.17.0",
-    "@roots/bud-prettier": "^6.17.0",
-    "@roots/bud-sass": "6.17.0",
-    "@roots/bud-stylelint": "^6.17.0",
-    "@roots/eslint-config": "^6.17.0",
-    "@roots/sage": "6.17.0",
-    "blade-formatter": "^1.41.1"
+    "@prettier/plugin-php": "0.22.2",
+    "@roots/bud": "6.20.0",
+    "@roots/bud-eslint": "6.20.0",
+    "@roots/bud-prettier": "6.20.0",
+    "@roots/bud-sass": "6.20.0",
+    "@roots/bud-stylelint": "6.20.0",
+    "@roots/eslint-config": "6.20.0",
+    "@roots/sage": "6.20.0",
+    "blade-formatter": "1.41.1",
+    "install-peers": "^1.0.4"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "5.3.2",
-    "swiper": "^10.3.1"
+    "@popperjs/core": "2.11.8",
+    "bootstrap": "5.3.3",
+    "swiper": "11.1.1"
   }
 }
