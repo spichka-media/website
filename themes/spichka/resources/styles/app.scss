@@ -4,16 +4,10 @@ $dark-background-color: #333;
 $body-secondary-color: #eee;
 $primary: #ff6f61;
 $pagination-disabled-color: $primary;
-$display-font-sizes: (
-  1: 5rem,
-  2: 4.5rem,
-  3: 4rem,
-  4: 3.5rem,
-  5: 3rem,
-  6: 2.5rem,
-  7: 2.0rem,
-  8: 1.5rem,
-);
+$font-size-base: 1.125rem;
+$navbar-brand-font-size: 1rem;
+$nav-link-font-size: 1rem;
+
 
 // Libraries
 @import './libs/bootstrap';
