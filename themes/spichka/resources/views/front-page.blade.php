@@ -2,22 +2,28 @@
 
 @section('content')
   @if (!wp_is_mobile())
-    <section class="video-section text-white">
-      <div class="video-container d-flex justify-content-center position-relative">
-        <div class="details justify-content-center d-flex flex-column ">
-          <div class="text-container d-flex flex-column position-relative gap-5">
-            <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
-            <p class="h4">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+    <section class="video-section flex-column text-white d-flex position-relative">
+      <div class="container z-1">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="details">
+              <h1 class="mb-5 pb-3 display-5 fw-bold">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
+              <p class="h4 fw-bold">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+            </div>
           </div>
-          <a class="link-to-content" href="#start">
-            <i class="icon fas fa-angle-down"></i>
-          </a>
         </div>
-        <video class="video-element" autoplay muted playsinline loop>
-          <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
-            type="video/mp4">
-        </video>
       </div>
+      <div class="d-flex justify-content-center pt-3 mt-auto pb-5">
+        <a class="link-to-content text-body fs-3 lh-1 bg-white d-flex align-items-center justify-content-center rounded-circle text-decoration-none z-1"
+          href="#start">
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </div>
+      <video class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
+        autoplay muted playsinline loop>
+        <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
+          type="video/mp4">
+      </video>
     </section>
   @endif
 
