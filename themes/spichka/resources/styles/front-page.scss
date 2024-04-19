@@ -10,6 +10,10 @@
     width: 3rem;
     transition: transform 0.3s ease-out;
 
+    .fa-angle-down {
+      padding-top: 0.4rem;
+    }
+
     &:hover {
       transform: translateY(8px);
     }
