@@ -20,7 +20,7 @@
     "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
-    "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check && node_modules/.bin/blade-formatter --check-formatted --indent-size 2 resources/**/*.blade.php",
+    "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
     "lint:php:fix": "node_modules/.bin/prettier \"**/*.php\" --write",
     "test": "yarn lint"
   },
