@@ -27,7 +27,7 @@
     </section>
   @endif
 
-  <section id="start" class="mt-5 mb-5 ms-0 me-0 program-articles">
+  <section id="start" class="mt-3 ms-0 me-0 program-articles">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
@@ -46,7 +46,7 @@
         <div class="swiper-wrapper">
           <!-- Slides -->
           @foreach ($program_articles as $post)
-            <div class="swiper-slide">
+            <div class="mx-1 swiper-slide">
               <x-post-card :post="$post" />
             </div>
           @endforeach
@@ -55,7 +55,7 @@
     </div>
   </section>
 
-  <section class="mt-5 mb-5 ms-0 me-0 program-articles">
+  <section class="mt-5 ms-0 me-0 program-articles">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
@@ -71,7 +71,7 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
-            <div class="swiper-slide">
+            <div class="mx-1 swiper-slide">
               <x-post-card :post="$post" />
             </div>
           @endforeach
@@ -81,7 +81,7 @@
   </section>
 
 
-  <section class="mt-5 mb-5 ms-0 me-0 categories">
+  <section class="mt-5 ms-0 me-0 categories">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
