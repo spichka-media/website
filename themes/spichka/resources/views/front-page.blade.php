@@ -27,42 +27,43 @@
     </section>
   @endif
 
-  <section id="start" class="mt-3 ms-0 me-0 program-articles">
+  <section id="start" class="mt-3 ms-0 me-0 ps-1 program-articles">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
       </h2>
     </div>
 
-    @php
-      $program_articles = get_posts([
-          'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
-      ]);
-    @endphp
-
-    <div class="container-fluid">
+    <div class="swiper-container position-relative container-fluid">
+      @php
+        $program_articles = get_posts([
+            'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
+        ]);
+      @endphp
       <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
           @foreach ($program_articles as $post)
-            <div class="mx-1 swiper-slide">
+            <div class="swiper-slide">
               <x-post-card :post="$post" />
             </div>
           @endforeach
         </div>
       </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </section>
 
-  <section class="mt-5 ms-0 me-0 program-articles">
+  <section class="mt-3 mt-md-5 ms-0 me-0 ps-1 program-articles">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
       </h2>
     </div>
 
-    <div class="container-fluid">
+    <div class="swiper-container position-relative container-fluid">
       @php
         $recent_posts = get_posts([
             'posts_per_page' => 10,
@@ -71,17 +72,19 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
-            <div class="mx-1 swiper-slide">
+            <div class="swiper-slide">
               <x-post-card :post="$post" />
             </div>
           @endforeach
         </div>
       </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
   </section>
 
 
-  <section class="mt-5 ms-0 me-0 categories">
+  <section class="mt-3 mt-md-5 ms-0 me-0 ps-1 categories">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
@@ -103,7 +106,7 @@
     </div>
   </section>
 
-  <section class="mt-5 mb-5 ms-0 me-0 donate-section text-white pt-5 pb-5 bg-dark">
+  <section class="mt-5 ms-0 me-0 donate-section text-white pt-5 pb-5 ps-1 bg-dark">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -116,25 +119,23 @@
           </p>
 
           <a href="{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_link') }}" target="_blank"
-            class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
+            class="d-none btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
             <i class="fas fa-coins"></i>{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
           </a>
         </div>
 
-        <div class="col-sm-6">
+        <div class="d-none d-sm-block col-sm-6">
           {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'front_donate_image'), [550, 350]) !!}
         </div>
       </div>
     </div>
   </section>
 
-  <section class="mt-5 mb-5 ms-0 me-0 connect">
+  <section class="mt-5 mb-5 ms-0 me-0 ps-1 connect">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
-
-
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
         @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
           <div class="col">

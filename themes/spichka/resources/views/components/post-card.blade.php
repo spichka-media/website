@@ -4,6 +4,6 @@
   </a>
 
   <a href="{!! $url !!}">
-    <h3 class="mt-2">{!! $title !!}</h3>
+    <h5 class="mt-2 break-word">{!! $title !!}</h5>
   </a>
 </div>
