@@ -1,2 +1,6 @@
 .DS_Store
 wp-content
+.idea
+
+backup
+!backup/.gitkeep
