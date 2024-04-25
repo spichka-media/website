@@ -8,6 +8,10 @@ article {
 
   .container-header {
     max-width: 1140px;
+
+    i {
+      width: $font-size-base
+    }
   }
 
   blockquote {
@@ -29,6 +33,12 @@ article {
   #post-tags {
     a {
       font-weight: 700;
+    }
+  }
+
+  #post-tags {
+    a {
+      margin-left: map.get($spacers, 1);
     }
   }
 }

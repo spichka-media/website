@@ -9,19 +9,28 @@
           @php(the_title())
         </h1>
 
-        <div>
-          {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
-
-          <div id="post-categories">
-            {{ _e('Categories') }}:
-            @php(the_category(', '))
+        <div class="d-flex flex-column">
+          <div class="d-flex align-items-baseline">
+            <i class="me-2 fas fa-user"></i>
+            <div>{!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}</div>
           </div>
 
-          <div id="post-tags">
-            @php(the_tags(null, ', '))
+          <div class="d-flex align-items-baseline" id="post-categories">
+            <i class="me-2 fas fa-bookmark"></i>
+            <div>
+              <span>{{ _e('Categories') }}:</span><span class="ms-1">@php(the_category(', '))</span>
+            </div>
           </div>
 
-          <div>
+          @if(has_tag())
+            <div class="d-flex align-items-baseline" id="post-tags">
+              <i class="me-2 fas fa-tags"></i>
+              @php(the_tags(null, ', '))
+            </div>
+          @endif
+
+          <div class="d-flex align-items-baseline">
+            <i class="me-2 far fa-calendar-alt"></i>
             @php(the_date('j F, Y'))
           </div>
         </div>
