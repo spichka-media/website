@@ -29,8 +29,8 @@ function create_modules_post_type()
 {
   register_post_type('module', [
     'labels' => [
-      'name' => __('Module'),
-      'singular_name' => __('Modules'),
+      'name' => __('Lesson modules'),
+      'singular_name' => __('Lesson module'),
     ],
     'public' => true,
     'show_in_rest' => true,
