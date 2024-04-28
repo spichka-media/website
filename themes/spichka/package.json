@@ -22,7 +22,7 @@
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
     "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check && node_modules/.bin/blade-formatter --check-formatted --indent-size 2 resources/**/*.blade.php",
     "test": "yarn lint",
-    "build:lessons": "zip -r plugins/lessons.zip plugins/lessons"
+    "build:lessons": "cd plugins && zip -r lessons.zip lessons"
   },
   "devDependencies": {
     "@prettier/plugin-php": "0.22.2",
