@@ -174,7 +174,7 @@ function my_theme_register_required_plugins()
     [
       'name' => 'Lessons plugin',
       'slug' => 'lessons',
-      'source' => get_stylesheet_directory() . '/plugins/lessons/lessons.php',
+      'source' => get_stylesheet_directory() . '/plugins/lessons.zip',
       'required' => false,
       'force_activation' => false,
     ],
