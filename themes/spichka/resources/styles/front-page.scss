@@ -1,21 +1,25 @@
-// TODO: Refactor this and move to bootstrap classes
-.section-banner-video {
-  height: 100vh;
-  align-items: center;
-  display: flex;
+.video-section {
+  min-height: calc(100vh - 3.5rem);
 
-  .banner-video {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    filter: brightness(60%);
+  .details {
+    padding-top: 20vh;
   }
 
-  .header {
-    position: relative;
-    z-index: 2;
+  .link-to-content {
+    height: 3rem;
+    width: 3rem;
+    transition: transform 0.3s ease-out;
+
+    .fa-angle-down {
+      padding-top: 0.4rem;
+    }
+
+    &:hover {
+      transform: translateY(8px);
+    }
+  }
+
+  .video-element {
+    filter: brightness(60%);
   }
 }

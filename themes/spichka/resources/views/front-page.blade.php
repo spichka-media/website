@@ -1,25 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-  {{-- <section class="mt-5 mb-5 ms-0 me-0 section-banner-video">
-    <video class="banner-video" autoplay muted playsinline loop>
-      <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}" type="video/mp4">
-</video>
-
-<div class="container">
-  <div class="header text-white">
-    <div class="row">
-      <div class="col-sm-6">
-        <h1>{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
-        <p class="fw-800">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+  @if (!wp_is_mobile())
+    <section class="video-section flex-column text-white d-flex position-relative">
+      <div class="container z-1">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="details">
+              <h1 class="mb-5 pb-3 display-5 fw-bold">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
+              <p class="h4 fw-bold">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    </p>
-  </div>
-</div>
-</section> --}}
+      <div class="d-flex justify-content-center pt-3 mt-auto pb-5">
+        <a class="link-to-content text-body fs-3 lh-1 bg-white d-flex align-items-center justify-content-center rounded-circle text-decoration-none z-1"
+          href="#start">
+          <i class="fa-solid fa-angle-down"></i>
+        </a>
+      </div>
+      <video class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
+        autoplay muted playsinline loop>
+        <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
+          type="video/mp4">
+      </video>
+    </section>
+  @endif
 
-  <section class="mt-5 mb-5 ms-0 me-0 program-articles">
+  <section id="start" class="mt-5 mb-5 ms-0 me-0 program-articles">
     <div class="container">
       <h2 class="mb-3">
         {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
