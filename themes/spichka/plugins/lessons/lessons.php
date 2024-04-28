@@ -1,15 +1,36 @@
 <?php
+/*
+Plugin Name: Lessons Plugin
+Version: 0.0.1
+*/
+
+register_activation_hook(__FILE__, 'child_plugin_activate');
+function child_plugin_activate()
+{
+  // Require parent plugin
+  if (
+    !is_plugin_active('carbon-fields/carbon-fields-plugin.php') and
+    current_user_can('activate_plugins')
+  ) {
+    // Stop activation redirect and show error
+    wp_die(
+      'Sorry, but this plugin requires the Parent Plugin to be installed and active. <br><a href="' .
+        admin_url('plugins.php') .
+        '">&laquo; Return to Plugins</a>'
+    );
+  }
+}
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 use Carbon_Fields\Carbon_Fields;
 
-function create_lessons_posttype()
+function create_modules_post_type()
 {
-  register_post_type('lesson', [
+  register_post_type('module', [
     'labels' => [
-      'name' => __('Lesson'),
-      'singular_name' => __('Lessons'),
+      'name' => __('Module'),
+      'singular_name' => __('Modules'),
     ],
     'public' => true,
     'show_in_rest' => true,
@@ -17,53 +38,42 @@ function create_lessons_posttype()
   ]);
 }
 
-add_action('init', 'create_lessons_posttype');
+add_action('init', 'create_modules_post_type');
 
 add_action(
   'carbon_fields_register_fields',
   function () {
     Container::make('post_meta', __('Настройки поста'))
-      ->where('post_type', '=', 'lesson')
+      ->where('post_type', '=', 'module')
       ->add_tab(__('Уроки'), [
         Field::make('complex', 'lessons', 'Уроки')
           ->set_visible_in_rest_api(true)
           ->set_layout('tabbed-vertical')
           ->add_fields([
-            Field::make('text', 'lessons_title', 'Заголовок'),
-            Field::make('text', 'lessons_description', 'Описание'),
-            Field::make('complex', 'lesson_topics', 'Темы')
+            Field::make('text', 'title', 'Заголовок'),
+            Field::make('text', 'description', 'Описание'),
+            Field::make('complex', 'topics', 'Темы')
               ->set_layout('tabbed-vertical')
               ->add_fields([
-                Field::make('text', 'lesson_lessons_title', 'Заголовок'),
-                Field::make('rich_text', 'lesson_lessons_questions', 'Вопросы'),
-                Field::make('complex', 'lesson_topic_books', 'Материал')
+                Field::make('text', 'title', 'Заголовок'),
+                Field::make('complex', 'resources', 'Материал')
                   ->set_layout('tabbed-vertical')
                   ->add_fields([
+                    Field::make('text', 'title', 'Заголовок'),
                     Field::make(
                       'text',
-                      'lesson_lessons_topic_books_title',
-                      'Заголовок'
-                    ),
-                    Field::make(
-                      'text',
-                      'lesson_lessons_topic_books_description',
-                      'Описание'
-                    ),
-                    Field::make(
-                      'text',
-                      'lesson_lessons_topic_books_start',
+                      'document_page_start',
                       'Со страницы'
-                    ),
+                    )->set_attribute('type', 'number'),
                     Field::make(
                       'text',
-                      'lesson_lessons_topic_books_end',
+                      'document_page_end',
                       'До страницы'
-                    ),
-                    Field::make(
-                      'file',
-                      'lesson_lessons_topic_books_book',
-                      __('Книга')
-                    )->set_type(['application/pdf']),
+                    )->set_attribute('type', 'number'),
+                    Field::make('file', 'document', __('Книга'))->set_type([
+                      'application/pdf',
+                    ]),
+                    Field::make('rich_text', 'text', 'Текст'),
                   ]),
               ]),
           ]),

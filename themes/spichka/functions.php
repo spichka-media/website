@@ -171,6 +171,13 @@ function my_theme_register_required_plugins()
       'required' => false,
       'force_activation' => false,
     ],
+    [
+      'name' => 'Lessons plugin',
+      'slug' => 'lessons',
+      'source' => get_stylesheet_directory() . '/plugins/lessons/lessons.php',
+      'required' => false,
+      'force_activation' => false,
+    ],
   ];
 
   $config = [
@@ -278,5 +285,3 @@ function array_pluck($array, $key)
 require_once dirname(__FILE__) . '/app/lib/pagination.php';
 
 require_once dirname(__FILE__) . '/app/custom-fields.php';
-
-require_once dirname(__FILE__) . '/plugins/lessons/lessons.php';

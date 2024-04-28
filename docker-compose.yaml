@@ -35,6 +35,7 @@ services:
       - ./wp-content/uploads:/var/www/html/wp-content/uploads
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
       - ./.htaccess:/var/www/html/.htaccess
+      - ./themes/spichka/plugins/lessons:/var/www/html/wp-content/plugins/lessons
       # - ./backup/20240402_spichkamedia_5dc61a8b8eee5d784880_20240402130244_archive.zip:/var/www/html/20240402_spichkamedia_5dc61a8b8eee5d784880_20240402130244_archive.zip
       # - ./backup/installer.php:/var/www/html/installer.php
 
