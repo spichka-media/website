@@ -1,5 +1,5 @@
 // Article
-@use "sass:map";
+@use 'sass:map';
 
 article {
   .container-body {
@@ -9,15 +9,15 @@ article {
   .container-header {
     max-width: 1140px;
 
-    i {
-      width: $font-size-base
+    .icon {
+      width: $font-size-sm;
     }
   }
 
   blockquote {
     p {
       @include font-size($blockquote-font-size);
- 
+
       line-height: 1.4;
       border-left: solid $primary 3px;
       padding: 0 map.get($spacers, 4);

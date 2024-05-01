@@ -1,16 +1,19 @@
+@use 'sass:map';
+
 @import '../variables';
 
 .ez-toc-counter ul {
   list-style: auto;
   counter-reset: item;
+  font-size: 1rem;
 
   li {
     counter-increment: item;
-    font-size: 0.9rem;
-  }
 
-  li:not(:last-child) {
-    margin-bottom: 0.5rem;
+    a {
+      margin-bottom: $spacer * 0.75;
+      display: inline-block;
+    }
   }
 
   li::marker {
@@ -24,23 +27,22 @@
 }
 
 #ez-toc-container {
-  margin: 2rem 0;
-
   .ez-toc-title {
     background-color: $dark-background-color;
     color: #fff;
-    font-size: 1rem;
     margin: 0;
     padding: 0.75rem;
+    padding-left: map.get($spacers, 3);
+    font-weight: $font-weight-semibold;
   }
 
   ul {
     margin-bottom: 0;
+    padding-left: map.get($spacers, 4);
   }
 
   nav {
-    padding: 1.25rem;
-    padding-left: 0;
+    padding: map.get($spacers, 3) 2.5rem;
     background-color: $body-secondary-bg;
     color: $body-color;
   }

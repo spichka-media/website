@@ -4,19 +4,14 @@
       <div class="col-sm-6">
         @php(the_post_thumbnail('medium'))
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-6 d-flex flex-column row-gap-4">
         <h1>
           @php(the_title())
         </h1>
 
-        <div class="d-flex flex-column">
-          <div class="d-flex align-items-baseline">
-            <i class="me-2 fas fa-user"></i>
-            <div>{!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}</div>
-          </div>
-
+        <div class="d-flex flex-column row-gap-3">
           <div class="d-flex align-items-baseline" id="post-categories">
-            <i class="me-2 fas fa-bookmark"></i>
+            <i class="icon me-2 fas fa-bookmark"></i>
             <div>
               <span>{{ _e('Categories') }}:</span><span class="ms-1">@php(the_category(', '))</span>
             </div>
@@ -24,15 +19,20 @@
 
           @if(has_tag())
             <div class="d-flex align-items-baseline" id="post-tags">
-              <i class="me-2 fas fa-tags"></i>
-              @php(the_tags(null, ', '))
+              <i class="icon me-2 fas fa-tags"></i>
+              <span>{{ _e('Tags') }}:</span>
+              <div>@php(the_tags('', ', '))</div>
             </div>
           @endif
 
           <div class="d-flex align-items-baseline">
-            <i class="me-2 far fa-calendar-alt"></i>
-            @php(the_date('j F, Y'))
+            <i class="icon me-2 fas fa-user"></i>
+            <div>{!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}</div>
           </div>
+        </div>
+
+        <div class="d-flex align-items-baseline">
+          @php(the_date('j F, Y'))
         </div>
 
         <div>
@@ -53,8 +53,8 @@
           <script
             async
             src="https://telegram.org/js/telegram-widget.js?22"
-            data-telegram-discussion="{{ carbon_get_theme_option('theme_telegram_channel') }}{{ carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id') ? '/' . carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id') : '' }}"
-            data-comments-limit="5"
+                  data-telegram-discussion="{{ carbon_get_theme_option('theme_telegram_channel') }}{{ carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id') ? '/' . carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id') : '' }}"
+                  data-comments-limit="5"
             data-color="343638"
             data-dark-color="FFFFFF"></script>
         @endif
