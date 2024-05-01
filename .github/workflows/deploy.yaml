@@ -47,7 +47,7 @@ jobs:
         run: yarn build
 
       - name: Build lessons plugin
-        run: cd plugins && zip -r lessons.zip lessons
+        run: yarn build:lessons
 
       - name: 📂 Sync Files
         uses: easingthemes/ssh-deploy@main
