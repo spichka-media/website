@@ -60,20 +60,48 @@ add_action(
                   ->set_layout('tabbed-vertical')
                   ->add_fields([
                     Field::make('text', 'title', 'Заголовок'),
-                    Field::make(
-                      'text',
-                      'document_page_start',
-                      'Со страницы'
-                    )->set_attribute('type', 'number'),
-                    Field::make(
-                      'text',
-                      'document_page_end',
-                      'До страницы'
-                    )->set_attribute('type', 'number'),
-                    Field::make('file', 'document', __('Книга'))->set_type([
-                      'application/pdf',
+                    Field::make('select', 'type', __('Тип'))->add_options([
+                      'document' => __('Документ'),
+                      'text' => __('Текст'),
                     ]),
-                    Field::make('rich_text', 'text', 'Текст'),
+                    Field::make('text', 'document_page_start', 'Со страницы')
+                      ->set_attribute('type', 'number')
+                      ->set_conditional_logic([
+                        [
+                          'field' => 'type',
+                          'value' => 'document',
+                          'compare' => '=',
+                        ],
+                      ]),
+                    Field::make('text', 'document_page_end', 'До страницы')
+                      ->set_attribute('type', 'number')
+                      ->set_conditional_logic([
+                        [
+                          'field' => 'type',
+                          'value' => 'document',
+                          'compare' => '=',
+                        ],
+                      ]),
+                    Field::make('file', 'document', __('Книга'))
+                      ->set_type(['application/pdf'])
+                      ->set_conditional_logic([
+                        [
+                          'field' => 'type',
+                          'value' => 'document',
+                          'compare' => '=',
+                        ],
+                      ]),
+                    Field::make(
+                      'rich_text',
+                      'text',
+                      'Текст'
+                    )->set_conditional_logic([
+                      [
+                        'field' => 'type',
+                        'value' => 'text',
+                        'compare' => '=',
+                      ],
+                    ]),
                   ]),
               ]),
           ]),
