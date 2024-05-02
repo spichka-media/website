@@ -1,20 +1,19 @@
 @import '~swiper/scss';
 @import '~swiper/scss/autoplay';
 @import '~swiper/scss/effect-fade';
-@import '~swiper/scss/navigation';
+@import '~swiper/scss/pagination';
 
 .swiper-container {
-  width: calc(100% - 50px);
-
-  .swiper-button-next, .swiper-button-prev {
-    color: inherit;
+  .swiper-slide {
+    width: fit-content;
   }
 
-  .swiper-button-next {
-    right: -20px;
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: unset;
+    top: unset;
   }
 
-  .swiper-button-prev {
-    left: -20px;
+  .swiper-pagination-bullet-active {
+    background: $dark-background-color;
   }
 }

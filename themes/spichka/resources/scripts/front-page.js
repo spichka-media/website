@@ -1,7 +1,7 @@
 import domReady from '@roots/sage/client/dom-ready';
 
 import {Swiper} from 'swiper';
-import { Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 /**
  * Application entrypoint
@@ -14,28 +14,13 @@ domReady(async () => {
       loop: false,
       grabCursor: true,
       spaceBetween: 10,
-      slidesPerView: 1,
-      breakpoints: {
-        370: {
-          slidesPerView: 2,
-        },
-        680: {
-          slidesPerView: 3,
-        },
-        992: {
-          slidesPerView: 5,
-        },
-        1400: {
-          slidesPerView: 6,
-        },
+      slidesPerView: 'auto',
+      pagination: {
+        el: container.querySelector('.swiper-pagination'),
+        clickable: true,
       },
 
-      navigation: {
-        nextEl: container.querySelector('.swiper-button-next'),
-        prevEl: container.querySelector('.swiper-button-prev'),
-      },
-
-      modules: [Navigation],
+      modules: [Pagination],
     };
 
     new Swiper(container.querySelector('.swiper'), conf);

@@ -2,6 +2,8 @@
 
 .post-card,
 .post-card-extended {
+  width: 100%;
+
   a {
     color: $body-color;
 
@@ -9,4 +11,8 @@
       transition: 0.3s;
     }
   }
+}
+
+.post-card {
+  max-width: 18.125rem;
 }
