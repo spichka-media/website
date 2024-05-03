@@ -1,10 +1,20 @@
 {
-  "plugins": ["@prettier/plugin-php"],
+  "plugins": ["@prettier/plugin-php", "prettier-plugin-blade"],
   "bracketSpacing": false,
   "bracketSameLine": true,
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": [
+        "*.blade.php"
+      ],
+      "options": {
+        "parser": "blade"
+      }
+    }
+  ]
 }
