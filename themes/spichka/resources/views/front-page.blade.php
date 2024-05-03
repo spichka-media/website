@@ -1,15 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-  @if (!wp_is_mobile())
-    <section class="video-section flex-column text-white d-flex position-relative">
+  @if (! wp_is_mobile())
+    <section
+      class="video-section flex-column text-white d-flex position-relative">
       <div class="container z-1">
         <div class="row">
           <div class="col-md-6">
             <div class="details">
-              <h1
-                class="mb-5 pb-3 display-5 fw-bold">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}</h1>
-              <p class="h4 fw-bold">{{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}</p>
+              <h1 class="mb-5 pb-3 display-5 fw-bold">
+                {{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}
+              </h1>
+              <p class="h4 fw-bold">
+                {{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}
+              </p>
             </div>
           </div>
         </div>
@@ -21,10 +25,15 @@
           <i class="fa-solid fa-angle-down"></i>
         </a>
       </div>
-      <video class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
-             autoplay muted playsinline loop>
-        <source src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
-                type="video/mp4">
+      <video
+        class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
+        autoplay
+        muted
+        playsinline
+        loop>
+        <source
+          src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
+          type="video/mp4" />
       </video>
     </section>
   @endif
@@ -39,16 +48,17 @@
     <div class="swiper-container position-relative container-fluid">
       @php
         $program_articles = get_posts([
-            'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
+          'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
         ]);
       @endphp
+
       <div class="swiper">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
           <!-- Slides -->
           @foreach ($program_articles as $post)
             <div class="swiper-slide">
-              <x-post-card :post="$post"/>
+              <x-post-card :post="$post" />
             </div>
           @endforeach
         </div>
@@ -67,14 +77,15 @@
     <div class="swiper-container position-relative container-fluid">
       @php
         $recent_posts = get_posts([
-            'posts_per_page' => 10,
+          'posts_per_page' => 10,
         ]);
       @endphp
+
       <div class="swiper">
         <div class="swiper-wrapper">
           @foreach ($recent_posts as $post)
             <div class="swiper-slide">
-              <x-post-card :post="$post"/>
+              <x-post-card :post="$post" />
             </div>
           @endforeach
         </div>
@@ -82,7 +93,6 @@
       <div class="swiper-pagination"></div>
     </div>
   </section>
-
 
   <section class="mt-5 ms-0 me-0 ps-1 categories">
     <div class="container">
@@ -97,7 +107,9 @@
           <div class="col">
             <div class="card">
               <div class="card-body">
-                <a href="{{ get_category_link($category->term_id) }}">/{{ $category->name }}</a>
+                <a href="{{ get_category_link($category->term_id) }}">
+                  /{{ $category->name }}
+                </a>
               </div>
             </div>
           </div>
@@ -106,7 +118,8 @@
     </div>
   </section>
 
-  <section class="mt-5 ms-0 me-0 donate-section text-white pt-5 pb-5 ps-1 bg-dark">
+  <section
+    class="mt-5 ms-0 me-0 donate-section text-white pt-5 pb-5 ps-1 bg-dark">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -118,13 +131,16 @@
             {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
           </p>
 
-          <a href="{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_link') }}" target="_blank"
-             class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
-            <i class="fas fa-coins me-1"></i>{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
+          <a
+            href="{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_link') }}"
+            target="_blank"
+            class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
+            <i class="fas fa-coins me-1"></i>
+            {{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
           </a>
         </div>
 
-        @if (!wp_is_mobile())
+        @if (! wp_is_mobile())
           <div class="d-sm-block col-sm-6">
             {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'front_donate_image'), [550, 350]) !!}
           </div>
@@ -143,18 +159,26 @@
           <div class="col">
             <div class="card h-100">
               <div class="card-body bg-dark text-white text-center px-4 py-5">
-                <h3 class="card-title">{{ $block['front_connect_blocks_block_header'] }}</h3>
-                <p class="card-text">{{ $block['front_connect_blocks_block_description'] }}</p>
+                <h3 class="card-title">
+                  {{ $block['front_connect_blocks_block_header'] }}
+                </h3>
+                <p class="card-text">
+                  {{ $block['front_connect_blocks_block_description'] }}
+                </p>
 
                 @if ($block['front_connect_blocks_block_button_text'])
-                  <a class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none"
-                     href="mailto:{{ carbon_get_theme_option('theme_email') }}"><i class="far fa-envelope"></i>
-                    {{ $block['front_connect_blocks_block_button_text'] }}</a>
+                  <a
+                    class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none"
+                    href="mailto:{{ carbon_get_theme_option('theme_email') }}">
+                    <i class="far fa-envelope"></i>
+                    {{ $block['front_connect_blocks_block_button_text'] }}
+                  </a>
                 @endif
               </div>
             </div>
           </div>
         @endforeach
       </div>
+    </div>
   </section>
 @endsection

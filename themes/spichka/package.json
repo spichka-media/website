@@ -23,7 +23,7 @@
     "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
     "lint:php:fix": "node_modules/.bin/prettier \"**/*.php\" --write",
     "test": "yarn lint",
-    "prepare": "husky"
+    "postinstall": "cd ../.. && husky install"
   },
   "devDependencies": {
     "@prettier/plugin-php": "0.22.2",
