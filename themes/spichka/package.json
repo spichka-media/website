@@ -22,7 +22,8 @@
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
     "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
     "lint:php:fix": "node_modules/.bin/prettier \"**/*.php\" --write",
-    "test": "yarn lint"
+    "test": "yarn lint",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@prettier/plugin-php": "0.22.2",
@@ -33,6 +34,7 @@
     "@roots/bud-stylelint": "6.20.0",
     "@roots/eslint-config": "6.20.0",
     "@roots/sage": "6.20.0",
+    "husky": "^9.0.11",
     "install-peers": "^1.0.4",
     "prettier-plugin-blade": "2.1.12"
   },
