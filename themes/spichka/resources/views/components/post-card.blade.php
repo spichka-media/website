@@ -2,6 +2,6 @@
   <a href="{!! $url !!}">
     {!! $thumbnail !!}
 
-    <h5 class="mt-2 break-word">{!! $title !!}</h5>
+    <h6 class="mt-3 break-word">{!! $title !!}</h6>
   </a>
 </div>

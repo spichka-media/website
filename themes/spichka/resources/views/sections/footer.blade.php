@@ -1,4 +1,4 @@
-<footer class="pt-5 pb-5 mt-auto">
+<footer>
   <div class="container">
     <div class="d-flex align-items-center flex-column">
       {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [100, 80]) !!}
