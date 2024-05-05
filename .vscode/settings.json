@@ -7,9 +7,5 @@
   ],
   "[php]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[blade]": {
-    "editor.defaultFormatter": "shufo.vscode-blade-formatter"
-  },
-  "bladeFormatter.format.indentSize": 2
+  }
 }
