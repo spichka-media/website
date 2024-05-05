@@ -1,30 +1,28 @@
 import domReady from '@roots/sage/client/dom-ready';
 
-import Swiper from 'swiper';
+import {Swiper} from 'swiper';
+import {Pagination} from 'swiper/modules';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  const sliders = document.querySelectorAll('.swiper');
-  const conf = {
-    direction: 'horizontal',
-    loop: true,
-    slidesPerView: 1,
-    // Responsive breakpoints
-    breakpoints: {
-      // sm breakpoint
-      576: {
-        slidesPerView: 2,
+  const sliders = document.querySelectorAll('.swiper-container');
+  sliders.forEach((container) => {
+    const conf = {
+      direction: 'horizontal',
+      loop: false,
+      grabCursor: true,
+      spaceBetween: 16,
+      slidesPerView: 'auto',
+      pagination: {
+        el: container.querySelector('.swiper-pagination'),
+        clickable: true,
       },
-      // lg breakpoint
-      992: {
-        slidesPerView: 5,
-      },
-    },
-  };
 
-  sliders.forEach((item) => {
-    new Swiper(item, conf);
+      modules: [Pagination],
+    };
+
+    new Swiper(container.querySelector('.swiper'), conf);
   });
 });
