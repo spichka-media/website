@@ -1,25 +1,80 @@
-.video-section {
-  min-height: calc(100vh - 3.5rem);
+@use 'sass:map';
 
-  .details {
-    padding-top: 20vh;
+#front-page {
+  h1 {
+    margin-bottom: map.get($spacers, 4);
   }
 
-  .link-to-content {
-    height: 3rem;
-    width: 3rem;
-    transition: transform 0.3s ease-out;
+  .video-section {
+    min-height: calc(100vh - 3.5rem);
 
-    .fa-angle-down {
-      padding-top: 0.4rem;
+    h1 {
+      font-size: 3.125rem;
     }
 
-    &:hover {
-      transform: translateY(8px);
+    .details {
+      padding-top: 20vh;
+      width: 70%;
+    }
+
+    .link-to-content {
+      height: 3rem;
+      width: 3rem;
+      transition: transform 0.3s ease-out;
+
+      .fa-angle-down {
+        padding-top: 0.4rem;
+      }
+
+      &:hover {
+        transform: translateY(8px);
+      }
+    }
+
+    .video-element {
+      filter: brightness(60%);
     }
   }
 
-  .video-element {
-    filter: brightness(60%);
+  .program-articles,
+  .recent-articles {
+    // to compensate swiper navigation height
+    padding-bottom: 1.6875rem;
+
+    .post-card {
+      max-width: 18.125rem;
+    }
+
+    .swiper {
+      padding-bottom: map.get($spacers, 4);
+    }
+  }
+
+  section {
+    margin-top: $desktop-sections-gap;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: $desktop-sections-gap;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    section {
+      margin-top: map.get($spacers, 4) !important;
+
+      &:last-child {
+        margin-bottom: map.get($spacers, 4);
+      }
+    }
+
+    .program-articles,
+    .recent-articles {
+      .swiper {
+        padding-bottom: map.get($spacers, 1);
+      }
+    }
   }
 }

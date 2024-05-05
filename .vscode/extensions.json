@@ -2,7 +2,6 @@
   "recommendations": [
     "eamodio.gitlens",
     "onecentlin.laravel-blade",
-    "esbenp.prettier-vscode",
-    "shufo.vscode-blade-formatter"
+    "esbenp.prettier-vscode"
   ]
 }
