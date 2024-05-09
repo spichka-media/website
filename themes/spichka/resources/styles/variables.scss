@@ -1,10 +1,14 @@
 $navbar-brand-font-size: 1rem;
 $nav-link-font-size: 1rem;
+$navbar-brand-padding-y: 0;
+$navbar-padding-y: 0.6875rem;
+
 $dark-background-color: #333;
 $body-secondary-color: #eee;
 $primary: #ff6f61;
 $pagination-disabled-color: $primary;
 $desktop-sections-gap: 4.375rem;
+$single-post-gap: 3.875rem;
 
 $spacer: 1rem;
 $spacers: (
@@ -12,9 +16,10 @@ $spacers: (
   1: $spacer * 0.25,
   2: $spacer * 0.5,
   3: $spacer,
-  4: $spacer * 1.5,
-  5: $spacer * 2.5,
-  6: $spacer * 3,
+  4: $spacer * 1.25,
+  5: $spacer * 1.5,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
 );
 
 $font-size-base: 1rem;
@@ -36,3 +41,5 @@ $font-sizes: (
   6: $h6-font-size,
   7: $h7-font-size,
 );
+
+$font-weight-x-bold: 800;

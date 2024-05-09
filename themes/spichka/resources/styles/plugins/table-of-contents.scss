@@ -37,8 +37,9 @@
   }
 
   ul {
+    font-weight: $font-weight-medium;
     margin-bottom: 0;
-    padding-left: map.get($spacers, 4);
+    padding-left: map.get($spacers, 5);
   }
 
   nav {

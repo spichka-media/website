@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+    <div class="px-4 container-fluid">
       <a class="navbar-brand fw-bold" href="{{ home_url('/') }}">
         {!! $siteName !!}
       </a>
