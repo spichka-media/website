@@ -6,7 +6,7 @@
   }
 
   .video-section {
-    min-height: calc(100vh - 3.5rem);
+    min-height: calc(100vh - 2.875rem);
 
     h1 {
       font-size: 3.125rem;
@@ -75,6 +75,17 @@
       .swiper {
         padding-bottom: map.get($spacers, 1);
       }
+    }
+  }
+
+  .categories-card {
+    border-radius: 0;
+    border-color: $categories-card-border-color;
+    border-width: 2px;
+
+    a {
+      color: inherit;
+      font-weight: $font-weight-bold;
     }
   }
 }

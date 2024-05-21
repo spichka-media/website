@@ -101,10 +101,10 @@
       </div>
 
       <div class="container">
-        <div class="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
+        <div class="row row-cols-1 row-cols-lg-4 g-3 g-lg-3">
           @foreach (get_categories() as $category)
             <div class="col">
-              <div class="card">
+              <div class="card categories-card">
                 <div class="card-body">
                   <a href="{{ get_category_link($category->term_id) }}">
                     /{{ $category->name }}
