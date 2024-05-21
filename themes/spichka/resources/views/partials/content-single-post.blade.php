@@ -46,7 +46,10 @@
   </div>
 
   <div class="container container-body">
-    <h2 class="excerpt">@php(the_excerpt())</h2>
+    @if (has_excerpt())
+      <h2 class="excerpt">@php(the_excerpt())</h2>
+    @endif
+
     <div class="row">
       <div class="col-xs-12">
         @php(the_content())
