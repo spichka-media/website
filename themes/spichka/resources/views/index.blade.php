@@ -8,7 +8,7 @@
       @while (have_posts())
         @php(the_post())
 
-        <div class="col-sm-4">
+        <div class="card-container">
           <x-post-card-extended />
         </div>
       @endwhile

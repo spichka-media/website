@@ -67,6 +67,7 @@ add_action(
         Field::make('file', 'front_banner_video', __('Видео'))
           ->set_type(['video'])
           ->set_default_value(11703),
+        Field::make('image', 'front_banner_video_poster', __('Постер к Видео')),
       ])
       ->add_tab(__('Программные статьи'), [
         Field::make(

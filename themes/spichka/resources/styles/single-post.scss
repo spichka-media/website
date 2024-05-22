@@ -1,22 +1,53 @@
 // Article
-@use "sass:map";
+@use 'sass:map';
 
 article {
+  p {
+    margin-bottom: map.get($spacers, 5);
+  }
+
+  padding-left: map.get($spacers, 4);
+  padding-right: map.get($spacers, 4);
+
+  &.single-post {
+    margin-top: $single-post-gap;
+    margin-bottom: $single-post-gap;
+  }
+
   .container-body {
+    line-height: 1.45;
+    margin-top: $single-post-gap;
     max-width: 800px;
+    font-size: $h6-font-size;
+    padding-left: 0;
+    padding-right: 0;
+
+    .excerpt {
+      font-size: 1.625rem;
+      font-weight: $font-weight-medium;
+    }
   }
 
   .container-header {
     max-width: 1140px;
+    padding-left: 0;
+    padding-right: 0;
+
+    .icon {
+      width: $font-size-sm;
+    }
   }
 
   blockquote {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
     p {
-      @include font-size($blockquote-font-size);
- 
+      font-size: 1.375rem !important;
+      margin-bottom: 0;
+      font-weight: $font-weight-medium;
       line-height: 1.4;
       border-left: solid $primary 3px;
-      padding: 0 map.get($spacers, 4);
+      padding: 0 0 0 map.get($spacers, 5);
 
       @include media-breakpoint-down(md) {
         padding: 0 map.get($spacers, 3);
@@ -28,7 +59,22 @@ article {
   #post-categories,
   #post-tags {
     a {
-      font-weight: 700;
+      font-weight: $font-weight-x-bold;
     }
+  }
+  .box-header-title,
+  .taxonomy-name {
+    font-weight: $font-weight-x-bold;
+  }
+
+  #post-tags {
+    a {
+      margin-left: map.get($spacers, 1);
+    }
+  }
+
+  figure {
+    margin-top: map.get($spacers, 5);
+    margin-bottom: map.get($spacers, 5);
   }
 }

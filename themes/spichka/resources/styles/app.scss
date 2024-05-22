@@ -11,6 +11,9 @@
 @import './components/post-card';
 @import './single-post';
 @import './footer';
+@import './header';
+@import './index';
+@import './404';
 
 // Plugins
 @import './plugins/footnotes';
@@ -42,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 800;
+  font-weight: $font-weight-x-bold;
 }
 
 .break-word {
