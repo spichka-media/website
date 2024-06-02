@@ -20,10 +20,9 @@
     "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "eslint resources/scripts",
     "lint:css": "stylelint \"resources/**/*.{css,scss,vue}\"",
-    "lint:php": "yarn prettier \"**/*.php\" --check",
-    "lint:php:fix": "yarn prettier \"**/*.php\" --write",
-    "test": "yarn lint",
-    "postinstall": "cd ../.. && husky install"
+    "lint:php": "node_modules/.bin/prettier \"**/*.php\" --check",
+    "lint:php:fix": "node_modules/.bin/prettier \"**/*.php\" --write",
+    "test": "yarn lint"
   },
   "devDependencies": {
     "@prettier/plugin-php": "0.22.2",
@@ -34,9 +33,8 @@
     "@roots/bud-stylelint": "6.20.0",
     "@roots/eslint-config": "6.20.0",
     "@roots/sage": "6.20.0",
-    "husky": "^9.0.11",
-    "install-peers": "^1.0.4",
-    "prettier-plugin-blade": "2.1.12"
+    "blade-formatter": "1.41.1",
+    "install-peers": "^1.0.4"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
