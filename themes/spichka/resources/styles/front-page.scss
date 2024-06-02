@@ -2,14 +2,14 @@
 
 #front-page {
   h1 {
-    margin-bottom: map.get($spacers, 5);
+    margin-bottom: map.get($spacers, 4);
   }
 
   .video-section {
-    min-height: calc(100vh - 2.875rem);
+    min-height: calc(100vh - 3.5rem);
 
     h1 {
-      font-size: $giant-font-size;
+      font-size: 3.125rem;
     }
 
     .details {
@@ -46,7 +46,7 @@
     }
 
     .swiper {
-      padding-bottom: map.get($spacers, 5);
+      padding-bottom: map.get($spacers, 4);
     }
   }
 
@@ -63,13 +63,10 @@
 
   @include media-breakpoint-down(md) {
     section {
-      margin-top: map.get($spacers, 5) !important;
+      margin-top: map.get($spacers, 4) !important;
 
-      &:first-child {
-        margin-top: 0 !important;
-      }
       &:last-child {
-        margin-bottom: map.get($spacers, 6);
+        margin-bottom: map.get($spacers, 4);
       }
     }
 
@@ -78,17 +75,6 @@
       .swiper {
         padding-bottom: map.get($spacers, 1);
       }
-    }
-  }
-
-  .categories-card {
-    border-radius: 0;
-    border-color: $categories-card-border-color;
-    border-width: $button-border-width;
-
-    a {
-      color: inherit;
-      font-weight: $font-weight-bold;
     }
   }
 }

@@ -20,9 +20,9 @@
 
       @if (carbon_get_theme_option('theme_footer_text'))
         <div class="row justify-content-center">
-          <div class="col">
+          <div class="col col-lg-6">
             <p class="text-center">
-              {!! nl2br(e(str_replace('\\n', PHP_EOL, carbon_get_theme_option('theme_footer_text')))) !!}
+              {{ carbon_get_theme_option('theme_footer_text') }}
             </p>
           </div>
         </div>
@@ -30,7 +30,7 @@
 
       @if (carbon_get_theme_option('theme_email'))
         <a
-          class="email-button btn btn-outline-dark rounded-0 text-decoration-none"
+          class="btn btn-outline-dark text-decoration-none"
           href="mailto:{{ carbon_get_theme_option('theme_email') }}">
           <i class="far fa-envelope"></i>
           {{ carbon_get_theme_option('theme_email') }}

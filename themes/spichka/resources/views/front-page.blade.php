@@ -2,50 +2,44 @@
 
 @section('content')
   <div id="front-page">
-    <section
-      class="video-section flex-column text-white d-flex position-relative">
-      <div class="container z-1">
-        <div class="row">
-          <div class="details">
-            <h1 class="break-word mb-5 pb-3 display-5 fw-bold">
-              {{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}
-            </h1>
-            <p class="h4 fw-bold">
-              {{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}
-            </p>
+    @if (! wp_is_mobile())
+      <section
+        class="video-section flex-column text-white d-flex position-relative">
+        <div class="container z-1">
+          <div class="row">
+            <div class="details">
+              <h1 class="mb-5 pb-3 display-5 fw-bold">
+                {{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}
+              </h1>
+              <p class="h4 fw-bold">
+                {{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="d-flex justify-content-center pt-3 mt-auto pb-5">
-        <a
-          class="link-to-content text-body fs-3 lh-1 bg-white d-flex align-items-center justify-content-center rounded-circle text-decoration-none z-1"
-          href="#start">
-          <i class="fa-solid fa-angle-down"></i>
-        </a>
-      </div>
-
-      @php
-        $poster = wp_is_mobile() ? wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video_poster')) : '';
-      @endphp
-
-      <video
-        poster="{{ $poster }}"
-        class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
-        autoplay
-        muted
-        playsinline
-        loop>
-        @if (! wp_is_mobile())
+        <div class="d-flex justify-content-center pt-3 mt-auto pb-5">
+          <a
+            class="link-to-content text-body fs-3 lh-1 bg-white d-flex align-items-center justify-content-center rounded-circle text-decoration-none z-1"
+            href="#start">
+            <i class="fa-solid fa-angle-down"></i>
+          </a>
+        </div>
+        <video
+          class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
+          autoplay
+          muted
+          playsinline
+          loop>
           <source
             src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
             type="video/mp4" />
-        @endif
-      </video>
-    </section>
+        </video>
+      </section>
+    @endif
 
     <section id="start" class="ps-1 program-articles">
       <div class="container">
-        <h1 class="break-word">
+        <h1>
           {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
         </h1>
       </div>
@@ -107,10 +101,10 @@
       </div>
 
       <div class="container">
-        <div class="row row-cols-1 row-cols-lg-4 g-3 g-lg-3">
+        <div class="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
           @foreach (get_categories() as $category)
             <div class="col">
-              <div class="card categories-card">
+              <div class="card">
                 <div class="card-body">
                   <a href="{{ get_category_link($category->term_id) }}">
                     /{{ $category->name }}
@@ -155,7 +149,7 @@
 
     <section class="ps-1 connect">
       <div class="container">
-        <h1 class="break-word">
+        <h1>
           {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
         </h1>
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
