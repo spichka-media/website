@@ -56,6 +56,7 @@
     &:first-child {
       margin-top: 0;
     }
+
     &:last-child {
       margin-bottom: $desktop-sections-gap;
     }
@@ -68,6 +69,7 @@
       &:first-child {
         margin-top: 0 !important;
       }
+
       &:last-child {
         margin-bottom: map.get($spacers, 6);
       }
@@ -89,6 +91,25 @@
     a {
       color: inherit;
       font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.donate-section {
+  p {
+    font-size: $font-size-base * 1.125;
+  }
+}
+
+.connect-section {
+  .card {
+    .card-body {
+      --bs-card-spacer-y: calc(#{$card-spacer-y} * 2);
+      --bs-card-spacer-x: calc(#{$card-spacer-x} * 2);
+
+      .card-text {
+        font-size: $font-size-base * 1.125;
+      }
     }
   }
 }

@@ -1,6 +1,8 @@
 $dark-background-color: #333;
 $body-secondary-color: #eee;
 $primary: #ff6f61;
+$light: #eee;
+$dark: #333;
 $pagination-disabled-color: $primary;
 $desktop-sections-gap: 4.375rem;
 $single-post-gap: 3.875rem;
@@ -19,13 +21,13 @@ $spacers: (
 
 $font-size-base: 1rem;
 
-$h1-font-size: $font-size-base * 2.5;
-$h2-font-size: $font-size-base * 2;
-$h3-font-size: $font-size-base * 1.75;
-$h4-font-size: $font-size-base * 1.5;
-$h5-font-size: $font-size-base * 1.25;
-$h6-font-size: $font-size-base * 1.125;
-$h7-font-size: $font-size-base;
+$h1-font-size: $font-size-base * 2.5; // 40px
+$h2-font-size: $font-size-base * 2; // 32px
+$h3-font-size: $font-size-base * 1.75; // 28px
+$h4-font-size: $font-size-base * 1.5; // 24px
+$h5-font-size: $font-size-base * 1.25; // 20px
+$h6-font-size: $font-size-base * 1.125; // 18px
+$h7-font-size: $font-size-base; // 16px
 
 $font-sizes: (
   1: $h1-font-size,
@@ -49,3 +51,9 @@ $navbar-dark-color: $body-secondary-color;
 $categories-card-border-color: $dark-background-color;
 $button-border-width: 2px;
 $giant-font-size: 3.125rem;
+
+$border-radius: 0;
+
+$input-btn-font-size: $font-size-base * 1.125; // 18px
+$input-btn-padding-x: 1.5rem;
+$input-btn-padding-y: 0.5rem;

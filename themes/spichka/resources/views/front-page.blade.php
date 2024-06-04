@@ -131,14 +131,14 @@
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
             </h1>
 
-            <p class="regular-text">
+            <p>
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
             </p>
 
             <a
               href="{{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_link') }}"
               target="_blank"
-              class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none">
+              class="btn btn-outline-light fw-bold border-2 text-decoration-none">
               <i class="fas fa-coins me-1"></i>
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_button_text') }}
             </a>
@@ -153,7 +153,7 @@
       </div>
     </section>
 
-    <section class="ps-1 connect">
+    <section class="ps-1 connect-section">
       <div class="container">
         <h1 class="break-word">
           {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
@@ -161,25 +161,24 @@
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
           @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
             <div class="col">
-              <div
-                class="d-flex flex-column justify-content-between row-gap-5 card h-100 card-body bg-dark text-white px-4 py-5">
-                <div>
+              <div class="card h-100 bg-dark">
+                <div class="d-flex flex-column row-gap-5 card-body text-white">
                   <h3 class="card-title fw-semibold">
                     {{ $block['front_connect_blocks_block_header'] }}
                   </h3>
-                  <p class="regular-text card-text">
+                  <p class="card-text">
                     {{ $block['front_connect_blocks_block_description'] }}
                   </p>
-                </div>
 
-                @if ($block['front_connect_blocks_block_button_text'])
-                  <a
-                    class="btn btn-outline-light fs-5 fw-600 border-2 text-decoration-none"
-                    href="mailto:{{ carbon_get_theme_option('theme_email') }}">
-                    <i class="far fa-envelope"></i>
-                    {{ $block['front_connect_blocks_block_button_text'] }}
-                  </a>
-                @endif
+                  @if ($block['front_connect_blocks_block_button_text'])
+                    <a
+                      class="btn btn-outline-light fw-bold border-2 text-decoration-none mt-auto"
+                      href="mailto:{{ carbon_get_theme_option('theme_email') }}">
+                      <i class="far fa-envelope fs-5"></i>
+                      {{ $block['front_connect_blocks_block_button_text'] }}
+                    </a>
+                  @endif
+                </div>
               </div>
             </div>
           @endforeach

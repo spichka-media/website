@@ -35,7 +35,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline;
+    color: $primary !important;
   }
 }
 
@@ -51,8 +51,4 @@ h6 {
 .break-word {
   word-break: break-word;
   hyphens: auto;
-}
-
-.regular-text {
-  font-size: $h6-font-size;
 }
