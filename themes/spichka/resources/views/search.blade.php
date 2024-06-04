@@ -4,13 +4,11 @@
   <div class="container pt-5 pb-5">
     @include('partials.page-header')
 
-    @if (!have_posts())
+    @if (! have_posts())
       {!! __('Sorry, no results were found.', 'spichka') !!}
     @endif
 
     <div class="row">
-
-
       @while (have_posts())
         @php(the_post())
 
