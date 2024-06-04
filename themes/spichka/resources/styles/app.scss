@@ -34,8 +34,10 @@ img {
 a {
   text-decoration: none;
 
-  &:hover {
-    color: $primary !important;
+  &:not(.btn) {
+    &:hover {
+      color: $primary !important;
+    }
   }
 }
 
