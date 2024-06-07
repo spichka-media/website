@@ -131,7 +131,7 @@
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
             </h1>
 
-            <p>
+            <p class="fs-6">
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
             </p>
 
@@ -166,7 +166,7 @@
                   <h3 class="card-title fw-semibold">
                     {{ $block['front_connect_blocks_block_header'] }}
                   </h3>
-                  <p class="card-text">
+                  <p class="card-text fs-6">
                     {{ $block['front_connect_blocks_block_description'] }}
                   </p>
 
