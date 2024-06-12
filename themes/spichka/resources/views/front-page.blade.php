@@ -2,17 +2,18 @@
 
 @section('content')
   <div id="front-page">
-    <section
-      class="video-section flex-column text-white d-flex position-relative">
+    <section class="video flex-column text-white d-flex position-relative">
       <div class="container z-1">
         <div class="row">
-          <div class="details">
-            <h1 class="break-word mb-5 pb-3 display-5 fw-bold">
-              {{ carbon_get_post_meta(get_the_ID(), 'front_banner_header') }}
-            </h1>
-            <p class="h4 fw-bold">
-              {{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}
-            </p>
+          <div class="col-md-6">
+            <div class="details">
+              <h1 class="break-word mb-5 pb-3 display-5">
+                {!! strip_tags(wpautop(carbon_get_post_meta(get_the_ID(), 'front_banner_header')), '<br>') !!}
+              </h1>
+              <p class="h4 fw-bold">
+                {{ carbon_get_post_meta(get_the_ID(), 'front_banner_description') }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -24,12 +25,8 @@
         </a>
       </div>
 
-      @php
-        $poster = wp_is_mobile() ? wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video_poster')) : '';
-      @endphp
-
       <video
-        poster="{{ $poster }}"
+        poster="{{ wp_is_mobile() ? wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video_poster')) : '' }}"
         class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
         autoplay
         muted
@@ -43,11 +40,11 @@
       </video>
     </section>
 
-    <section id="start" class="ps-1 program-articles">
+    <section id="start" class="mt-7 mt-lg-10 program-articles">
       <div class="container">
-        <h1 class="break-word">
+        <h2 class="mb-5 break-word">
           {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
-        </h1>
+        </h2>
       </div>
 
       <div class="swiper-container position-relative container-fluid">
@@ -57,7 +54,7 @@
           ]);
         @endphp
 
-        <div class="swiper">
+        <div class="swiper mb-5">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
@@ -72,11 +69,11 @@
       </div>
     </section>
 
-    <section class="ps-1 recent-articles">
+    <section class="mt-7 mt-lg-10 recent-articles">
       <div class="container">
-        <h1>
+        <h2 class="mb-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
-        </h1>
+        </h2>
       </div>
 
       <div class="swiper-container position-relative container-fluid">
@@ -86,7 +83,7 @@
           ]);
         @endphp
 
-        <div class="swiper">
+        <div class="swiper mb-5">
           <div class="swiper-wrapper">
             @foreach ($recent_posts as $post)
               <div class="swiper-slide">
@@ -99,20 +96,22 @@
       </div>
     </section>
 
-    <section class="ps-1 categories">
+    <section class="mt-7 mt-lg-10 categories">
       <div class="container">
-        <h1>
+        <h2 class="mb-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
-        </h1>
+        </h2>
       </div>
 
       <div class="container">
         <div class="row row-cols-1 row-cols-lg-4 g-3 g-lg-3">
           @foreach (get_categories() as $category)
             <div class="col">
-              <div class="card categories-card">
+              <div class="card border-dark border-2">
                 <div class="card-body">
-                  <a href="{{ get_category_link($category->term_id) }}">
+                  <a
+                    class="fw-bold text-dark"
+                    href="{{ get_category_link($category->term_id) }}">
                     /{{ $category->name }}
                   </a>
                 </div>
@@ -123,13 +122,13 @@
       </div>
     </section>
 
-    <section class="donate-section text-white pt-5 pb-5 ps-1 bg-dark">
+    <section class="donate mt-7 mt-lg-10 text-white py-7 bg-dark">
       <div class="container">
-        <div class="row">
+        <div class="row align-items-center">
           <div class="col-sm-6">
-            <h1>
+            <h2 class="mb-5">
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
-            </h1>
+            </h2>
 
             <p class="fs-6">
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_description') }}
@@ -153,16 +152,17 @@
       </div>
     </section>
 
-    <section class="ps-1 connect-section">
+    <section class="my-7 my-lg-10 connect">
       <div class="container">
-        <h1 class="break-word">
+        <h2 class="break-word mb-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
-        </h1>
+        </h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
           @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
             <div class="col">
               <div class="card h-100 bg-dark">
-                <div class="d-flex flex-column row-gap-5 card-body text-white">
+                <div
+                  class="d-flex flex-column row-gap-5 card-body p-6 text-white">
                   <h3 class="card-title fw-semibold">
                     {{ $block['front_connect_blocks_block_header'] }}
                   </h3>

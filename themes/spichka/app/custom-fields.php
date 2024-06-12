@@ -26,7 +26,7 @@ add_action(
       )->set_default_value('spichka_media'),
       Field::make('image', 'theme_footer_image', 'Изображение'),
       Field::make(
-        'text',
+        'rich_text',
         'theme_footer_text',
         'Текст в футере'
       )->set_default_value(
@@ -53,7 +53,7 @@ add_action(
       ->where('post_id', '=', get_option('page_on_front'))
       ->add_tab(__('Баннер'), [
         Field::make(
-          'text',
+          'rich_text',
           'front_banner_header',
           __('Заголовок')
         )->set_default_value('Марксистский журнал для умных, молодых и злых.'),

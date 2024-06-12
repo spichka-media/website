@@ -1,8 +1,8 @@
 $dark-background-color: #333;
 $body-secondary-color: #eee;
 $primary: #ff6f61;
-$light: #eee;
-$dark: #333;
+$light: $body-secondary-color;
+$dark: $dark-background-color;
 $pagination-disabled-color: $primary;
 $desktop-sections-gap: 4.375rem;
 $single-post-gap: 3.875rem;
@@ -15,8 +15,11 @@ $spacers: (
   3: $spacer,
   4: $spacer * 1.25,
   5: $spacer * 1.5,
-  6: $spacer * 2.5,
-  7: $spacer * 3,
+  6: $spacer * 2,
+  7: $spacer * 2.5,
+  8: $spacer * 3,
+  9: $spacer * 3.5,
+  10: $spacer * 4,
 );
 
 $font-size-base: 1rem;
@@ -40,7 +43,7 @@ $font-sizes: (
 );
 
 $font-weight-x-bold: 800;
-
+$display-font-weight: $font-weight-x-bold;
 $navbar-brand-font-size: 1rem;
 $nav-link-font-size: 1rem;
 $navbar-brand-padding-y: 0;
@@ -48,12 +51,12 @@ $navbar-padding-y: 0.6875rem;
 $nav-link-padding-y: 0;
 $navbar-dark-color: $body-secondary-color;
 
-$categories-card-border-color: $dark-background-color;
-$button-border-width: 2px;
-$giant-font-size: 3.125rem;
+$btn-border-width: 2px;
 
 $border-radius: 0;
 
 $input-btn-font-size: $font-size-base * 1.125; // 18px
 $input-btn-padding-x: 1.5rem;
 $input-btn-padding-y: 0.5rem;
+
+$headings-line-height: 1.3;

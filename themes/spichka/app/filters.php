@@ -51,5 +51,5 @@ add_filter(
 );
 
 add_filter('wp_nav_menu', function ($ulСlass) {
-  return preg_replace('/<a /', '<a class="nav-link"', $ulСlass);
+  return preg_replace('/<a /', '<a class="nav-link fw-semibold"', $ulСlass);
 });

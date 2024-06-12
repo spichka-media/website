@@ -1,105 +1,38 @@
 @use 'sass:map';
 
 #front-page {
-  h1 {
-    margin-bottom: map.get($spacers, 5);
-  }
-
-  .video-section {
-    min-height: calc(100vh - 2.875rem);
-
-    h1 {
-      font-size: $giant-font-size;
-    }
-
-    .details {
-      padding-top: 20vh;
-      width: 70%;
-    }
-
-    .link-to-content {
-      height: 3rem;
-      width: 3rem;
-      transition: transform 0.3s ease-out;
-
-      .fa-angle-down {
-        padding-top: 0.4rem;
-      }
-
-      &:hover {
-        transform: translateY(8px);
-      }
-    }
-
-    .video-element {
-      filter: brightness(60%);
-    }
-  }
-
-  .program-articles,
-  .recent-articles {
-    // to compensate swiper navigation height
-    padding-bottom: 1.6875rem;
-
-    .post-card {
-      max-width: 18.125rem;
-    }
-
-    .swiper {
-      padding-bottom: map.get($spacers, 5);
-    }
-  }
-
   section {
-    margin-top: $desktop-sections-gap;
+    &.video {
+      min-height: calc(100vh - 2.875rem);
 
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: $desktop-sections-gap;
-    }
-  }
-
-  @include media-breakpoint-down(md) {
-    section {
-      margin-top: map.get($spacers, 5) !important;
-
-      &:first-child {
-        margin-top: 0 !important;
+      .details {
+        padding-top: 20vh;
       }
 
-      &:last-child {
-        margin-bottom: map.get($spacers, 6);
+      .link-to-content {
+        height: 3rem;
+        width: 3rem;
+        transition: transform 0.3s ease-out;
+
+        .fa-angle-down {
+          padding-top: 0.4rem;
+        }
+
+        &:hover {
+          transform: translateY(8px);
+        }
+      }
+
+      .video-element {
+        filter: brightness(60%);
       }
     }
 
-    .program-articles,
-    .recent-articles {
-      .swiper {
-        padding-bottom: map.get($spacers, 1);
+    &.program-articles,
+    &.recent-articles {
+      .post-card {
+        max-width: 18.125rem;
       }
-    }
-  }
-
-  .categories-card {
-    border-radius: 0;
-    border-color: $categories-card-border-color;
-    border-width: $button-border-width;
-
-    a {
-      color: inherit;
-      font-weight: $font-weight-bold;
-    }
-  }
-}
-
-.connect-section {
-  .card {
-    .card-body {
-      --bs-card-spacer-y: calc(#{$card-spacer-y} * 2);
-      --bs-card-spacer-x: calc(#{$card-spacer-x} * 2);
     }
   }
 }

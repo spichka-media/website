@@ -16,4 +16,7 @@
   .swiper-pagination-bullet-active {
     background: $dark-background-color;
   }
+
+  // to compensate swiper navigation height
+  margin-bottom: 1.6875rem;
 }

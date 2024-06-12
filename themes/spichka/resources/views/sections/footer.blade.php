@@ -1,4 +1,4 @@
-<footer>
+<footer class="pb-8 pt-8">
   <div class="container">
     <div class="d-flex align-items-center flex-column">
       {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [100, 80]) !!}
@@ -20,10 +20,8 @@
 
       @if (carbon_get_theme_option('theme_footer_text'))
         <div class="row justify-content-center">
-          <div class="col">
-            <p class="text-center">
-              {!! nl2br(e(str_replace('\\n', PHP_EOL, carbon_get_theme_option('theme_footer_text')))) !!}
-            </p>
+          <div class="col text-center">
+            {!! wpautop(carbon_get_theme_option('theme_footer_text')) !!}
           </div>
         </div>
       @endif
