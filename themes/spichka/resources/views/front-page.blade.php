@@ -55,7 +55,7 @@
           ]);
         @endphp
 
-        <div class="swiper mb-5">
+        <div class="swiper pb-5">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
@@ -84,7 +84,7 @@
           ]);
         @endphp
 
-        <div class="swiper mb-5">
+        <div class="swiper pb-5">
           <div class="swiper-wrapper">
             @foreach ($recent_posts as $post)
               <div class="swiper-slide">
