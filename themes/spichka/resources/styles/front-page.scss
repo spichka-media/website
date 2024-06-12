@@ -2,7 +2,7 @@
 
 #front-page {
   section {
-    &.video {
+    &.video-section {
       min-height: calc(100vh - 2.875rem);
 
       .details {
@@ -28,8 +28,8 @@
       }
     }
 
-    &.program-articles,
-    &.recent-articles {
+    &.program-articles-section,
+    &.recent-articles-section {
       .post-card {
         max-width: 18.125rem;
       }

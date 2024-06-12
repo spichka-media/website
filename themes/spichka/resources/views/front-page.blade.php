@@ -2,7 +2,8 @@
 
 @section('content')
   <div id="front-page">
-    <section class="video flex-column text-white d-flex position-relative">
+    <section
+      class="video-section flex-column text-white d-flex position-relative">
       <div class="container z-1">
         <div class="row">
           <div class="col-md-6">
@@ -40,7 +41,7 @@
       </video>
     </section>
 
-    <section id="start" class="mt-7 mt-lg-10 program-articles">
+    <section id="start" class="mt-7 mt-lg-10 program-articles-section">
       <div class="container">
         <h2 class="mb-5 break-word">
           {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
@@ -69,7 +70,7 @@
       </div>
     </section>
 
-    <section class="mt-7 mt-lg-10 recent-articles">
+    <section class="mt-7 mt-lg-10 recent-articles-section">
       <div class="container">
         <h2 class="mb-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
@@ -96,7 +97,7 @@
       </div>
     </section>
 
-    <section class="mt-7 mt-lg-10 categories">
+    <section class="mt-7 mt-lg-10 categories-section">
       <div class="container">
         <h2 class="mb-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
@@ -122,7 +123,7 @@
       </div>
     </section>
 
-    <section class="donate mt-7 mt-lg-10 text-white py-7 bg-dark">
+    <section class="donate-section mt-7 mt-lg-10 text-white py-7 bg-dark">
       <div class="container">
         <div class="row align-items-center">
           <div class="col-sm-6">
@@ -152,7 +153,7 @@
       </div>
     </section>
 
-    <section class="my-7 my-lg-10 connect">
+    <section class="my-7 my-lg-10 connect-section">
       <div class="container">
         <h2 class="break-word mb-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
