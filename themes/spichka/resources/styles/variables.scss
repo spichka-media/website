@@ -3,23 +3,45 @@ $body-secondary-color: #eee;
 $primary: #ff6f61;
 $light: $body-secondary-color;
 $dark: $dark-background-color;
+$body-secondary-bg: $body-secondary-color;
 $pagination-disabled-color: $primary;
 $desktop-sections-gap: 4.375rem;
 $single-post-gap: 3.875rem;
 
 $spacer: 1rem;
 $spacers: (
+  // 0px
   0: 0,
+
+  // 4px
   1: $spacer * 0.25,
+
+  // 8px
   2: $spacer * 0.5,
+
+  // 16px
   3: $spacer,
+
+  // 20px
   4: $spacer * 1.25,
+
+  // 24px
   5: $spacer * 1.5,
+
+  // 32px
   6: $spacer * 2,
+
+  // 40px
   7: $spacer * 2.5,
+
+  // 48px
   8: $spacer * 3,
-  9: $spacer * 3.5,
-  10: $spacer * 4,
+
+  // 60px
+  9: $spacer * 3.75,
+
+  // 64px
+  10: $spacer * 4
 );
 
 $font-size-base: 1rem;

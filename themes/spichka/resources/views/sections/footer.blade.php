@@ -1,10 +1,10 @@
-<footer class="pb-8 pt-8">
+<footer class="py-9">
   <div class="container">
     <div class="d-flex align-items-center flex-column">
-      {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [100, 80]) !!}
+      {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100]) !!}
 
       <nav>
-        <ul class="social d-flex list-unstyled mt-3 mb-3">
+        <ul class="social d-flex list-unstyled mt-5">
           @foreach (carbon_get_theme_option('theme_socials') as $social)
             <li class="ms-1 me-1">
               <a
@@ -19,9 +19,11 @@
       </nav>
 
       @if (carbon_get_theme_option('theme_footer_text'))
-        <div class="row justify-content-center">
-          <div class="col text-center">
-            {!! wpautop(carbon_get_theme_option('theme_footer_text')) !!}
+        <div class="row justify-content-center my-7">
+          <div class="col">
+            <p class="text-center mb-0">
+              {!! strip_tags(wpautop(carbon_get_theme_option('theme_footer_text')), '<br>') !!}
+            </p>
           </div>
         </div>
       @endif
