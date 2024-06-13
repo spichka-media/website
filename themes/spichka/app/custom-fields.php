@@ -32,6 +32,11 @@ add_action(
       )->set_default_value(
         'Авторские права никак не защищены и принадлежат народу. Но всё равно: ссылайтесь на нас, когда копируете наши материалы.'
       ),
+      Field::make(
+        'file',
+        'posts_more_image',
+        __('Изображение для "Больше статей"')
+      )->set_type(['image']),
     ]);
 
     Container::make('post_meta', __('Настройки поста'))
@@ -85,6 +90,19 @@ add_action(
             'post_type' => 'post',
           ],
         ]),
+        Field::make(
+          'association',
+          'front_program_articles_taxonomy',
+          __('Категория для перехода')
+        )
+          ->set_types([
+            [
+              'type' => 'term',
+              'taxonomy' => 'category',
+            ],
+          ])
+          ->set_min(1)
+          ->set_max(1),
       ])
       ->add_tab(__('Свежие статьи'), [
         Field::make(

@@ -2,40 +2,13 @@
 @use 'sass:map';
 
 article {
+  h2,
   p {
     margin-bottom: map.get($spacers, 5);
   }
 
-  padding-left: map.get($spacers, 4);
-  padding-right: map.get($spacers, 4);
-
-  &.single-post {
-    margin-top: $single-post-gap;
-    margin-bottom: $single-post-gap;
-  }
-
-  .container-body {
-    line-height: 1.45;
-    margin-top: $single-post-gap;
-    max-width: 800px;
-    font-size: $h6-font-size;
-    padding-left: 0;
-    padding-right: 0;
-
-    .excerpt {
-      font-size: 1.625rem;
-      font-weight: $font-weight-medium;
-    }
-  }
-
-  .container-header {
-    max-width: 1140px;
-    padding-left: 0;
-    padding-right: 0;
-
-    .icon {
-      width: $font-size-sm;
-    }
+  h3 {
+    margin-bottom: map.get($spacers, 3);
   }
 
   blockquote {
@@ -62,11 +35,6 @@ article {
     a {
       font-weight: $font-weight-x-bold;
     }
-  }
-
-  .box-header-title,
-  .taxonomy-name {
-    font-weight: $font-weight-x-bold;
   }
 
   #post-tags {

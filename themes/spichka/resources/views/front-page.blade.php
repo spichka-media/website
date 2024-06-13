@@ -64,6 +64,17 @@
                 <x-post-card :post="$post" />
               </div>
             @endforeach
+
+            @if (carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy'))
+              <div class="swiper-slide">
+                <div class="post-card">
+                  <a
+                    href="{!! get_term_link(intval(array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy'), 'id')[0])) !!}">
+                    {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+                  </a>
+                </div>
+              </div>
+            @endif
           </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -91,6 +102,14 @@
                 <x-post-card :post="$post" />
               </div>
             @endforeach
+
+            <div class="swiper-slide">
+              <div class="post-card">
+                <a href="{!! get_permalink(get_option('page_for_posts')) !!}">
+                  {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="swiper-pagination"></div>

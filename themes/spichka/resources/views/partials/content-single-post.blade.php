@@ -1,57 +1,52 @@
-<article class="single-post">
-  <div class="container container-header">
-    <div class="row">
-      <div class="col-sm-6 mt-0">
+<article class="my-6">
+  <div class="container">
+    <div class="row justify-content-center gx-7 gy-3 gy-md-0">
+      <div class="col-md-5">
         @php(the_post_thumbnail('medium'))
       </div>
-      <div class="col-sm-6 d-flex flex-column row-gap-4 mt-0">
-        <h1>
+      <div class="col-md-5 d-flex flex-column row-gap-5">
+        <h1 class="mb-0">
           @php(the_title())
         </h1>
 
         <div class="d-flex flex-column row-gap-2">
           <div class="d-flex align-items-baseline" id="post-categories">
             <i class="icon me-2 fas fa-bookmark"></i>
-            <div>
-              <span class="taxonomy-name">{{ _e('Categories') }}:</span>
-              <span class="ms-1">@php(the_category(', '))</span>
-            </div>
+            <span class="fw-x-bold">{{ _e('Categories') }}:</span>
+            <span class="ms-1">@php(the_category(', '))</span>
           </div>
 
           @if (has_tag())
             <div class="d-flex align-items-baseline" id="post-tags">
               <i class="icon me-2 fas fa-tags"></i>
-              <span class="taxonomy-name">{{ _e('Tags') }}:</span>
-              <div>@php(the_tags('', ', '))</div>
+              <span class="fw-x-bold">{{ _e('Tags') }}:</span>
+              <span>@php(the_tags('', ', '))</span>
             </div>
           @endif
 
           <div class="d-flex align-items-baseline">
             <i class="icon me-2 fas fa-user"></i>
-            <div>
-              {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
-            </div>
+            {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
           </div>
         </div>
 
         <div class="d-flex align-items-baseline">
-          @php(the_date('j F, Y'))
+          <i class="icon me-2 fa-regular fa-calendar"></i>
+          <span>@php(the_date('j F, Y'))</span>
         </div>
 
-        <div>
-          {!! do_shortcode('[ez-toc]') !!}
-        </div>
+        {!! do_shortcode('[ez-toc]') !!}
       </div>
     </div>
   </div>
 
-  <div class="container container-body">
-    @if (has_excerpt())
-      <h2 class="excerpt">@php(the_excerpt())</h2>
-    @endif
+  <div class="container mt-6 fs-6 container-body">
+    <div class="row justify-content-center">
+      <div class="col-sm-8">
+        @if (has_excerpt())
+          <p class="fs-4">{!! strip_tags(get_the_excerpt()) !!}</p>
+        @endif
 
-    <div class="row">
-      <div class="col-xs-12">
         @php(the_content())
 
         @php(do_shortcode('[mistape format="text"]'))
