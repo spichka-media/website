@@ -35,8 +35,10 @@ add_action(
       Field::make(
         'file',
         'posts_more_image',
-        __('Изображение для "Больше статей"')
-      )->set_type(['image']),
+        __('Изображение для "Больше статей')
+      )
+        ->set_type(['image'])
+        ->set_default_value(15180),
     ]);
 
     Container::make('post_meta', __('Настройки поста'))
