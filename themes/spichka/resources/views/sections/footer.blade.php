@@ -4,7 +4,7 @@
       {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100]) !!}
 
       <nav>
-        <ul class="social d-flex list-unstyled mt-5">
+        <ul class="social d-flex list-unstyled mt-5 mb-0">
           @foreach (carbon_get_theme_option('theme_socials') as $social)
             <li class="ms-1 me-1">
               <a

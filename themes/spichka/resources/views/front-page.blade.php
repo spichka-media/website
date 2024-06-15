@@ -43,7 +43,7 @@
 
     <section id="start" class="mt-7 mt-lg-10 program-articles-section">
       <div class="container">
-        <h2 class="mb-5 break-word">
+        <h2 class="mb-3 mb-lg-5 break-word">
           {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
         </h2>
       </div>
@@ -83,7 +83,7 @@
 
     <section class="mt-7 mt-lg-10 recent-articles-section">
       <div class="container">
-        <h2 class="mb-5">
+        <h2 class="mb-3 mb-lg-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
         </h2>
       </div>
@@ -118,7 +118,7 @@
 
     <section class="mt-7 mt-lg-10 categories-section">
       <div class="container">
-        <h2 class="mb-5">
+        <h2 class="mb-3 mb-lg-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
         </h2>
       </div>
@@ -146,7 +146,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-sm-6">
-            <h2 class="mb-5">
+            <h2 class="mb-3 mb-lg-5">
               {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
             </h2>
 
@@ -174,7 +174,7 @@
 
     <section class="my-7 my-lg-10 connect-section">
       <div class="container">
-        <h2 class="break-word mb-5">
+        <h2 class="break-word mb-3 mb-lg-5">
           {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
         </h2>
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
