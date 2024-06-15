@@ -32,7 +32,7 @@
         <a
           class="email-button btn fs-7 btn-outline-dark rounded-0 text-decoration-none"
           href="mailto:{{ carbon_get_theme_option('theme_email') }}">
-          <i class="far fa-envelope"></i>
+          <i class="far fa-envelope me-1"></i>
           {{ carbon_get_theme_option('theme_email') }}
         </a>
       @endif
