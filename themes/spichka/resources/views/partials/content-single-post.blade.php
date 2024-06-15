@@ -1,6 +1,6 @@
 <article class="my-6">
   <div class="container">
-    <div class="row justify-content-center gx-7 gy-3 gy-md-0">
+    <div class="row justify-content-center gx-md-7 gy-3 gy-md-0">
       <div class="col-md-5">
         @php(the_post_thumbnail('medium'))
       </div>
