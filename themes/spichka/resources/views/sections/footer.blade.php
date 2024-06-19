@@ -6,7 +6,7 @@
       <nav>
         <ul class="social d-flex list-unstyled mt-5 mb-0">
           @foreach (carbon_get_theme_option('theme_socials') as $social)
-            <li class="ms-1 me-1">
+            <li class="mx-1">
               <a
                 class="d-flex align-items-center justify-content-center rounded-circle fs-7 social-link"
                 target="_blank"
