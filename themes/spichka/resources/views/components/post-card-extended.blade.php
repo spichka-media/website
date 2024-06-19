@@ -3,13 +3,13 @@
     {!! $thumbnail !!}
   </a>
 
-  <div class="card-body fw-medium py-6 px-5 bg-light">
+  <div class="card-body py-6 px-5 bg-light">
     <h4 class="card-title break-word mb-3 fs-5">
       <a class="link-dark" href="{!! $url !!}">{!! $title !!}</a>
     </h4>
 
     @if ($excerpt)
-      <p class="card-text">
+      <p class="fw-medium">
         {!! $excerpt !!}
       </p>
     @endif
