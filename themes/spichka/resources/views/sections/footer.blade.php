@@ -1,4 +1,4 @@
-<footer class="py-9">
+<footer class="py-9 bg-light">
   <div class="container">
     <div class="d-flex align-items-center flex-column">
       {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100]) !!}

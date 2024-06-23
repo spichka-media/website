@@ -33,6 +33,14 @@ section {
     .social-link {
       width: 3.25rem;
       height: 3.25rem;
+      background: $light;
+
+      &:hover {
+        background: #e4e4e4;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
     }
   }
 
@@ -40,6 +48,19 @@ section {
   &.recent-articles-section {
     .post-card {
       max-width: 18.125rem;
+    }
+  }
+}
+
+.categories-section {
+  .card {
+    a {
+      color: $body;
+    }
+
+    a:hover {
+      background: $body;
+      color: white;
     }
   }
 }

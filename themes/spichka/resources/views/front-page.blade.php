@@ -21,7 +21,7 @@
             @foreach (carbon_get_theme_option('theme_socials') as $social)
               <li class="mx-2">
                 <a
-                  class="d-flex bg-light align-items-center justify-content-center rounded-circle fs-5 social-link"
+                  class="d-flex align-items-center justify-content-center rounded-circle fs-5 social-link"
                   target="_blank"
                   href="{{ $social['theme_social_link'] }}">
                   <i class="text-dark {{ $social['theme_social_icon'] }}"></i>
@@ -142,13 +142,11 @@
         @foreach (get_categories() as $category)
           <div class="col">
             <div class="card border-dark border-2">
-              <div class="card-body">
-                <a
-                  class="fw-bold link-dark"
-                  href="{{ get_category_link($category->term_id) }}">
-                  /{{ $category->name }}
-                </a>
-              </div>
+              <a
+                class="fw-bold"
+                href="{{ get_category_link($category->term_id) }}">
+                <div class="card-body">/{{ $category->name }}</div>
+              </a>
             </div>
           </div>
         @endforeach

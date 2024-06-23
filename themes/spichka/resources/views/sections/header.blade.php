@@ -1,17 +1,5 @@
 <header class="sticky-top">
-  @if (is_singular('post'))
-    <div
-      id="single-post-progressbar"
-      class="progress z-3"
-      role="progressbar"
-      aria-valuenow="0"
-      aria-valuemin="0"
-      aria-valuemax="100">
-      <div class="progress-bar" style="width: 0%"></div>
-    </div>
-  @endif
-
-  <nav class="navbar navbar-expand-lg navbar-dark z-2">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="px-4 container-fluid">
       <a class="navbar-brand fw-bold" href="{{ home_url('/') }}">
         {!! $siteName !!}
@@ -39,4 +27,16 @@
       </div>
     </div>
   </nav>
+
+  @if (is_singular('post'))
+    <div
+      id="single-post-progressbar"
+      class="progress"
+      role="progressbar"
+      aria-valuenow="0"
+      aria-valuemin="0"
+      aria-valuemax="100">
+      <div class="progress-bar" style="width: 0%"></div>
+    </div>
+  @endif
 </header>

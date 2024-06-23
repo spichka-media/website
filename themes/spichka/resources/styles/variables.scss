@@ -89,21 +89,26 @@ $btn-border-width: 2px;
 // - Buttons
 
 // + Pagination
-$pagination-disabled-color: $primary;
-$pagination-color: $dark;
+$pagination-color: $secondary;
 $pagination-padding-y: 0.75rem;
 $pagination-padding-x: 1rem;
 $pagination-border-width: 0;
 $pagination-bg: $light;
 $pagination-margin-start: map.get($spacers, 2);
-$pagination-hover-color: #fff;
-$pagination-hover-bg: $tertiary;
-$pagination-disabled-color: $body;
+$pagination-hover-color: $secondary;
+$pagination-hover-bg: #e4e4e4;
+$pagination-disabled-color: $tertiary;
+$pagination-disabled-bg: $light;
 $pagination-focus-box-shadow: none;
 $pagination-focus-outline: 0;
+$pagination-focus-color: $secondary;
 // - Pagination
 
 $link-hover-color: $primary;
 $border-radius: 0;
 $container-padding-x: 3.25rem;
 $progress-height: 1px;
+
+.text-tertiary {
+  color: $tertiary !important;
+}

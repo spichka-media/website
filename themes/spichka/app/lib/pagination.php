@@ -69,7 +69,7 @@ function bs_get_the_posts_pagination($args = [])
 
     $args = wp_parse_args($args, [
       'end_size' => 1,
-      'mid_size' => 3,
+      'mid_size' => 1,
       'prev_next' => false,
       'prev_text' => _x('Previous', 'previous set of posts'),
       'next_text' => _x('Next', 'next set of posts'),

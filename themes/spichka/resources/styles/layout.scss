@@ -22,8 +22,6 @@ header {
 }
 
 footer {
-  background-color: $body-secondary-bg;
-
   .social-link {
     background-color: $body;
     color: $white;
@@ -32,6 +30,10 @@ footer {
 
     &:hover {
       text-decoration: none;
+      background-color: $primary;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
     }
   }
 }
