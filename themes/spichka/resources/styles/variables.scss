@@ -99,6 +99,8 @@ $pagination-margin-start: map.get($spacers, 2);
 $pagination-hover-color: #fff;
 $pagination-hover-bg: $tertiary;
 $pagination-disabled-color: $body;
+$pagination-focus-box-shadow: none;
+$pagination-focus-outline: 0;
 // - Pagination
 
 $link-hover-color: $primary;

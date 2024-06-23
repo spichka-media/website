@@ -138,7 +138,7 @@
     </div>
 
     <div class="container">
-      <div class="row row-cols-1 row-cols-lg-4 g-3 g-lg-3">
+      <div class="row row-cols-1 row-cols-lg-3 g-3 g-lg-3">
         @foreach (get_categories() as $category)
           <div class="col">
             <div class="card border-dark border-2">
