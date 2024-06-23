@@ -15,7 +15,18 @@ export default async (app) => {
    */
   app
     .entry('app', ['@scripts/app', '@styles/app'])
-    .entry('front-page', ['@scripts/front-page']) // TODO: I guess it is possible to enqueue scripts per entry for optimizations, need to check documentation
+    .entry({
+      'front-page': {
+        import: ['@scripts/front-page', '@styles/front-page'],
+        dependOn: ['app'],
+      },
+    })
+    .entry({
+      'single-post': {
+        import: ['@scripts/single-post', '@styles/single-post'],
+        dependOn: ['app'],
+      },
+    })
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .assets(['images', 'fonts']);
 

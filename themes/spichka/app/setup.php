@@ -21,6 +21,10 @@ add_action(
     if (is_front_page()) {
       bundle('front-page')->enqueue();
     }
+
+    if (is_singular('post')) {
+      bundle('single-post')->enqueue();
+    }
   },
   100
 );
@@ -121,6 +125,15 @@ add_action(
      * @link https://developer.wordpress.org/reference/functions/add_theme_support/#customize-selective-refresh-widgets
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    /**
+     * Custom thumbnail sizes
+     */
+    // Post-card
+    add_image_size('post-card', 290, 410);
+
+    // Post card extended
+    add_image_size('post-card-extended', 416, 588);
   },
   20
 );

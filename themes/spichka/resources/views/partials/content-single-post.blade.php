@@ -1,4 +1,4 @@
-<article class="my-6">
+<article class="my-4 my-lg-6">
   <div class="container">
     <div class="row justify-content-center gx-md-7 gy-3 gy-md-0">
       <div class="col-md-5">
@@ -48,8 +48,6 @@
         @endif
 
         @php(the_content())
-
-        @php(do_shortcode('[mistape format="text"]'))
 
         @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && carbon_get_theme_option('theme_telegram_channel'))
           <script

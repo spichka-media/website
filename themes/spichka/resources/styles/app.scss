@@ -3,19 +3,9 @@
 
 // Libraries
 @import './libs/bootstrap';
-@import './libs/swiper';
 
 // Theme
 @import './layout';
-@import './front-page';
-@import './single-post';
-@import './header';
-
-// Plugins
-@import './plugins/footnotes';
-@import './plugins/mistape';
-@import './plugins/table-of-contents';
-@import './plugins/publishpress-authors';
 
 body {
   font-family: Montserrat, sans-serif;
@@ -35,15 +25,9 @@ a {
     transition: 0.3s;
   }
 
-  &:not(.btn) {
-    &:hover {
-      color: $primary !important;
-    }
+  &.link-dark:hover {
+    color: $primary !important;
   }
-}
-
-a.link-dark {
-  color: $body-color;
 }
 
 h1,

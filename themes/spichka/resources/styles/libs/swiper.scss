@@ -11,10 +11,19 @@
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: unset;
     top: unset;
+
+    --swiper-pagination-bullet-width: 1rem;
+    --swiper-pagination-bullet-height: 1rem;
+    --swiper-pagination-bullet-inactive-color: #{$secondary};
+    --swiper-pagination-bullet-inactive-opacity: 1;
   }
 
   .swiper-pagination-bullet-active {
-    background: $dark-background-color;
+    background: #{$gray-900};
+  }
+
+  .swiper-pagination-bullet {
+    border: 2px solid #{$dark};
   }
 
   // to compensate swiper navigation height

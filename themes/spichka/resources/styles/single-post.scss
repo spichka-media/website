@@ -1,6 +1,13 @@
 // Article
 @use 'sass:map';
 
+@import './app';
+
+// Plugins
+@import './plugins/mistape';
+@import './plugins/table-of-contents';
+@import './plugins/publishpress-authors';
+
 article {
   h2,
   p {

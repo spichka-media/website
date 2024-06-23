@@ -1,38 +1,45 @@
 @use 'sass:map';
 
-#front-page {
-  section {
-    &.video-section {
-      min-height: calc(100vh - 2.875rem);
+@import './app';
+@import './libs/swiper';
 
-      .details {
-        padding-top: 20vh;
+section {
+  &.video-section {
+    min-height: calc(100vh - 2.875rem);
+
+    .details,
+    .social {
+      padding-top: 20vh;
+    }
+
+    .link-to-content {
+      height: 3rem;
+      width: 3rem;
+      transition: transform 0.3s ease-out;
+
+      .fa-angle-down {
+        padding-top: 0.4rem;
       }
 
-      .link-to-content {
-        height: 3rem;
-        width: 3rem;
-        transition: transform 0.3s ease-out;
-
-        .fa-angle-down {
-          padding-top: 0.4rem;
-        }
-
-        &:hover {
-          transform: translateY(8px);
-        }
-      }
-
-      .video-element {
-        filter: brightness(60%);
+      &:hover {
+        transform: translateY(8px);
       }
     }
 
-    &.program-articles-section,
-    &.recent-articles-section {
-      .post-card {
-        max-width: 18.125rem;
-      }
+    .video-element {
+      filter: brightness(60%);
+    }
+
+    .social-link {
+      width: 3.25rem;
+      height: 3.25rem;
+    }
+  }
+
+  &.program-articles-section,
+  &.recent-articles-section {
+    .post-card {
+      max-width: 18.125rem;
     }
   }
 }
