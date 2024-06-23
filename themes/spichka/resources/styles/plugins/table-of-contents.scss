@@ -18,7 +18,7 @@
 
   li::marker {
     content: counters(item, '.') '. ';
-    color: $secondary;
+    color: $tertiary;
   }
 
   a.ez-toc-link {

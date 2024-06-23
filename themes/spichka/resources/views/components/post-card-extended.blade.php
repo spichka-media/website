@@ -15,7 +15,7 @@
     @endif
   </div>
   <div
-    class="card-footer fs-7 fw-medium text-secondary bg-light border-0 pt-0 px-5 pb-6">
+    class="card-footer fs-7 fw-medium text-body-tertiary bg-light border-0 pt-0 px-5 pb-6">
     {!! $date !!}
   </div>
 </div>
