@@ -25,14 +25,6 @@ function my_theme_register_required_plugins()
       'version' => '1.4.19',
     ],
     [
-      'name' => 'mistape',
-      'slug' => 'mistape',
-      'source' => get_stylesheet_directory() . '/plugins/mistape.zip',
-      'required' => true,
-      'force_activation' => true,
-      'version' => '1.3.9',
-    ],
-    [
       'name' => 'Easy Table of Contents',
       'slug' => 'easy-table-of-contents',
       'required' => true,
