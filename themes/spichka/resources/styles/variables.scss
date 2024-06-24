@@ -107,7 +107,8 @@ $pagination-focus-color: $secondary;
 $link-hover-color: $primary;
 $border-radius: 0;
 $container-padding-x: 3.25rem;
-$progress-height: 1px;
+$progress-height: 0.25rem;
+$progress-bg: transparent;
 
 .text-tertiary {
   color: $tertiary !important;
