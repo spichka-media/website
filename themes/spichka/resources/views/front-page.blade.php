@@ -58,7 +58,11 @@
   <section id="start" class="mt-7 mt-lg-10 program-articles-section">
     <div class="container">
       <h2 class="mb-3 mb-lg-5 break-word">
-        {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
+        <a
+          class="link-dark"
+          href="{!! get_term_link(intval(carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy')[0]['id'])) !!}">
+          {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
+        </a>
       </h2>
     </div>
 
@@ -98,7 +102,11 @@
   <section class="mt-7 mt-lg-10 recent-articles-section">
     <div class="container">
       <h2 class="mb-3 mb-lg-5">
-        {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
+        <a
+          class="link-dark"
+          href="{!! get_permalink(get_option('page_for_posts')) !!}">
+          {{ carbon_get_post_meta(get_the_ID(), 'front_recent_articles_header') }}
+        </a>
       </h2>
     </div>
 
