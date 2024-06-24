@@ -197,31 +197,28 @@
       <h2 class="break-word mb-3 mb-lg-5">
         {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-2">
-        @foreach (carbon_get_post_meta(get_the_ID(), 'front_connect_blocks') as $block)
-          <div class="col">
-            <div class="card h-100 bg-dark">
-              <div
-                class="d-flex flex-column row-gap-5 card-body p-6 text-white">
-                <h3 class="card-title fw-semibold">
-                  {{ $block['front_connect_blocks_block_header'] }}
-                </h3>
-                <p class="fs-6">
-                  {{ $block['front_connect_blocks_block_description'] }}
-                </p>
 
-                @if ($block['front_connect_blocks_block_button_text'])
-                  <a
-                    class="btn btn-outline-light fw-bold border-2 text-decoration-none mt-auto"
-                    href="mailto:{{ carbon_get_theme_option('theme_email') }}">
-                    <i class="far fa-envelope fs-5"></i>
-                    {{ $block['front_connect_blocks_block_button_text'] }}
-                  </a>
-                @endif
-              </div>
+      @php
+        $connect_cards = carbon_get_post_meta(get_the_ID(), 'front_connect_blocks');
+      @endphp
+
+      <div class="row g-3">
+        <div class="col-12 col-xl-4">
+          <x-connect-card :card="$connect_cards[0]" />
+        </div>
+        <div class="col-12 col-xl-8">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <x-connect-card :card="$connect_cards[1]" />
+            </div>
+            <div class="col-12 col-md-6">
+              <x-connect-card :card="$connect_cards[2]" />
+            </div>
+            <div class="col-12 text-body">
+              <x-connect-card :card="$connect_cards[3]" />
             </div>
           </div>
-        @endforeach
+        </div>
       </div>
     </div>
   </section>

@@ -135,7 +135,7 @@ add_action(
               'Заголовок'
             ),
             Field::make(
-              'text',
+              'rich_text',
               'front_connect_blocks_block_description',
               'Описание'
             ),
@@ -144,7 +144,16 @@ add_action(
               'front_connect_blocks_block_button_text',
               'Текст на кнопке'
             ),
-            Field::make('text', 'front_connect_blocks_block_form', 'Форма'),
+            Field::make(
+              'color',
+              'front_connect_blocks_block_background_color',
+              'Цвет фона'
+            ),
+            Field::make(
+              'color',
+              'front_connect_blocks_block_color',
+              'Цвет текста'
+            ),
           ]),
       ])
       ->add_tab(__('Донать'), [
