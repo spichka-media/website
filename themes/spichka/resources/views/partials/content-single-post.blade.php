@@ -11,27 +11,27 @@
 
         <div class="d-flex flex-column row-gap-2">
           <div class="d-flex align-items-baseline" id="post-categories">
-            <i class="icon me-2 fas fa-bookmark"></i>
+            <i class="fa-fw me-2 fas fa-bookmark"></i>
             <span class="fw-x-bold">{{ _e('Categories') }}:</span>
             <span class="ms-1">@php(the_category(', '))</span>
           </div>
 
           @if (has_tag())
             <div class="d-flex align-items-baseline" id="post-tags">
-              <i class="icon me-2 fas fa-tags"></i>
+              <i class="fa-fw me-2 fas fa-tags"></i>
               <span class="fw-x-bold">{{ _e('Tags') }}:</span>
               <span>@php(the_tags('', ', '))</span>
             </div>
           @endif
 
           <div class="d-flex align-items-baseline">
-            <i class="icon me-2 fas fa-user"></i>
+            <i class="fa-fw me-2 fas fa-user"></i>
             {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
           </div>
         </div>
 
         <div class="d-flex align-items-baseline">
-          <i class="icon me-2 fa-regular fa-calendar"></i>
+          <i class="fa-fw me-2 fa-regular fa-calendar"></i>
           <span>@php(the_date('j F, Y'))</span>
         </div>
 
