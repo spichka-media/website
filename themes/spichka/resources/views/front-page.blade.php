@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="details">
-            <h1 class="break-word mb-5 pb-3 display-5">
+            <h1 class="mb-5 pb-3 display-5">
               {!! strip_tags(wpautop(carbon_get_post_meta(get_the_ID(), 'front_banner_header')), '<br>') !!}
             </h1>
             <p class="h4 fw-bold">
