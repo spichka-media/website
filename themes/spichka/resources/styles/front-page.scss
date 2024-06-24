@@ -33,13 +33,11 @@ section {
     .social-link {
       width: 3.25rem;
       height: 3.25rem;
-      background: $light;
+      background-color: $light;
+      transition: background-color 0.3s;
 
       &:hover {
-        background: #e4e4e4;
-        transition:
-          background-color 0.3s,
-          color 0.3s;
+        background-color: #e4e4e4;
       }
     }
   }

@@ -20,10 +20,7 @@ img {
 
 a {
   text-decoration: none;
-
-  &:hover {
-    transition: 0.3s;
-  }
+  transition: 0.3s;
 
   &.link-dark:hover {
     color: $primary !important;
