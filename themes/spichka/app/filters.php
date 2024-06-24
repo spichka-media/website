@@ -51,7 +51,7 @@ add_filter(
 );
 
 add_filter('wp_nav_menu', function ($ulСlass) {
-  return preg_replace('/<a /', '<a class="nav-link fw-semibold"', $ulСlass);
+  return preg_replace('/<a /', '<a class="nav-link fw-medium"', $ulСlass);
 });
 
 // This will remove the default image sizes and the medium_large size.

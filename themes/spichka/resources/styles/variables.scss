@@ -9,6 +9,7 @@ $tertiary: #adadad;
 $light: #eee;
 // - Colors
 
+// + Spacer
 $spacer: 1rem;
 $spacers: (
   // 0px
@@ -44,6 +45,7 @@ $spacers: (
   // 64px
   10: $spacer * 4
 );
+// - Spacer
 
 // + Font
 $font-size-base: 1rem;
@@ -79,6 +81,7 @@ $navbar-padding-y: 1rem;
 $nav-link-padding-y: 0;
 $navbar-dark-color: #fff;
 $navbar-dark-background-color: #222;
+$nav-link-padding-y: map.get($spacers, 2);
 // - Nav
 
 // + Buttons
@@ -107,9 +110,13 @@ $pagination-focus-color: $secondary;
 $link-hover-color: $primary;
 $border-radius: 0;
 $container-padding-x: 3.25rem;
+
+// + Progressbar
 $progress-height: 0.25rem;
 $progress-bg: transparent;
+// - Progressbar
 
-.text-tertiary {
-  color: $tertiary !important;
-}
+// + Offcanvas
+$offcanvas-padding-y: map.get($spacers, 3);
+$offcanvas-padding-x: map.get($spacers, 6);
+// - Offcanvas

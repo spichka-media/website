@@ -1,5 +1,5 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-dark">
+  <nav class="navbar navbar-dark">
     <div class="px-4 container-fluid">
       <a class="navbar-brand fw-bold" href="{{ home_url('/') }}">
         {!! $siteName !!}
@@ -7,23 +7,49 @@
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#headerMenu"
-        aria-controls="headerMenu"
-        aria-expanded="false"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar"
         aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="headerMenu">
-        @if (has_nav_menu('primary_navigation'))
-          {!!
-            wp_nav_menu([
-              'theme_location' => 'primary_navigation',
-              'container_class' => '',
-              'menu_class' => 'navbar-nav',
-            ])
-          !!}
-        @endif
+      <div
+        class="offcanvas offcanvas-end text-bg-dark"
+        tabindex="-1"
+        id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close btn btn-dark"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="offcanvas-body">
+          @if (has_nav_menu('primary_navigation'))
+            {!!
+              wp_nav_menu([
+                'theme_location' => 'primary_navigation',
+                'container_class' => '',
+                'menu_class' => 'navbar-nav',
+              ])
+            !!}
+          @endif
+
+          @if (has_nav_menu('secondary_navigation'))
+            <hr class="bg-white my-3" />
+
+            {!!
+              wp_nav_menu([
+                'theme_location' => 'secondary_navigation',
+                'container_class' => '',
+                'menu_class' => 'navbar-nav',
+              ])
+            !!}
+          @endif
+        </div>
       </div>
     </div>
   </nav>
