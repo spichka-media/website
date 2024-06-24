@@ -120,12 +120,12 @@ add_action(
           __('Заголовок')
         )->set_default_value('Рубрики'),
       ])
-      ->add_tab(__('Присоеденяйся'), [
+      ->add_tab(__('Присоединяйся'), [
         Field::make(
           'text',
           'front_connect_header',
           __('Заголовок')
-        )->set_default_value('Присоеденяйся'),
+        )->set_default_value('Присоединяйся'),
         Field::make('complex', 'front_connect_blocks', 'Блоки')
           ->set_layout('tabbed-horizontal')
           ->add_fields([
