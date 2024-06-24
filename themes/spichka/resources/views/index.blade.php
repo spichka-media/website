@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="container py-6">
+  <div class="container pt-6 pb-10">
     @include('partials.page-header')
 
     <div class="row gy-3 mt-1 mt-lg-3 row-cols-1 row-cols-md-2 row-cols-lg-3">

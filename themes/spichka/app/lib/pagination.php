@@ -39,7 +39,7 @@ function bs_navigation_markup($links, $args)
     );
   }
 
-  return '<div class="mt-4">' . $navigation . '</div>';
+  return '<div class="mt-6 pt-1">' . $navigation . '</div>';
 }
 
 /**
