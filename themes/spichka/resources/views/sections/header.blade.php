@@ -21,7 +21,7 @@
         <div class="offcanvas-header">
           <button
             type="button"
-            class="btn-close btn btn-dark"
+            class="btn-close btn btn-dark border-0 rounded-circle"
             data-bs-dismiss="offcanvas"
             aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
