@@ -77,12 +77,13 @@ $headings-line-height: 1.3;
 $navbar-brand-font-size: 1rem;
 $nav-link-font-size: 1rem;
 $navbar-brand-padding-y: 0;
-$navbar-padding-y: $spacer * 0.75;
+$navbar-padding-y: map.get($spacers, 2);
 $nav-link-padding-y: 0;
 $navbar-dark-color: #fff;
 $navbar-dark-background-color: #222;
 $nav-link-padding-y: map.get($spacers, 2);
-$navbar-toggler-padding-x: $spacer * 0.125; // 2px
+$navbar-toggler-padding-x: map.get($spacers, 2);
+$navbar-toggler-padding-y: map.get($spacers, 2);
 // - Nav
 
 // + Buttons
