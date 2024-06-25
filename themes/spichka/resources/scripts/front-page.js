@@ -28,7 +28,7 @@ domReady(async () => {
 
   scrolled();
 
-  jQuery(document).scroll(() => scrolled());
+  document.addEventListener('scroll', scrolled);
 
   document.addEventListener('mousemove', function (e) {
     const image = document.querySelector('.floating-image');

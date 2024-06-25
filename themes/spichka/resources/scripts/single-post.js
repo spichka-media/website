@@ -4,7 +4,7 @@ import domReady from '@roots/sage/client/dom-ready';
  * Application entrypoint
  */
 domReady(async () => {
-  jQuery(document).scroll(() => scrolled());
+  document.addEventListener('scroll', scrolled);
 });
 
 function scrolled() {
@@ -16,6 +16,16 @@ function scrolled() {
     ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100,
   );
 
-  jQuery('#single-post-progressbar .progress-bar').css('width', p + '%');
-  jQuery('#single-post-progressbar').attr('aria-valuenow', p);
+  const progress = document.querySelector(
+    '#single-post-progressbar .progress-bar',
+  );
+  const bar = document.querySelector('#single-post-progressbar');
+
+  if (!progress || !bar) {
+    return;
+  }
+
+  progress.style.width = `${p}%`;
+
+  bar.setAttribute('aria-valuenow', `${p}%`);
 }
