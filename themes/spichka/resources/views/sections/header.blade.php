@@ -11,7 +11,7 @@
         data-bs-target="#offcanvasDarkNavbar"
         aria-controls="offcanvasDarkNavbar"
         aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <i class="fas fa-fw fa-bars"></i>
       </button>
       <div
         class="offcanvas offcanvas-end text-bg-dark"

@@ -4,12 +4,7 @@ import domReady from '@roots/sage/client/dom-ready';
  * Application entrypoint
  */
 domReady(async () => {
-  jQuery(document).ready(function () {
-    scrolled();
-  });
-  jQuery(document).scroll(function () {
-    scrolled();
-  });
+  jQuery(document).scroll(() => scrolled());
 });
 
 function scrolled() {

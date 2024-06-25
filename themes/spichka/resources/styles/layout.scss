@@ -2,12 +2,22 @@
 
 header {
   .navbar .navbar-toggler {
-    padding: 0;
     border: none;
 
     &:focus {
       box-shadow: none;
     }
+
+    &:hover {
+      background-color: $white;
+      border-radius: 50%;
+      color: $body;
+    }
+  }
+
+  .navbar-toggler-icon {
+    width: 1.3em;
+    height: 1.3em;
   }
 
   .navbar {
