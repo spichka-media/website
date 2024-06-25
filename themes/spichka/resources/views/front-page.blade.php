@@ -187,7 +187,7 @@
 
         @if (! wp_is_mobile())
           <div class="d-sm-block col-sm-6 text-end">
-            {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'front_donate_image'), [550, 350]) !!}
+            {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'front_donate_image'), [550, 350], false, ['class' => 'floating-image']) !!}
           </div>
         @endif
       </div>

@@ -48,6 +48,12 @@ section {
       max-width: 18.125rem;
     }
   }
+
+  &.donate-section {
+    .floating-image {
+      transition: transform 0.4s;
+    }
+  }
 }
 
 .categories-section {
