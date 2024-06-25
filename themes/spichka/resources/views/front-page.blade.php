@@ -153,7 +153,7 @@
               <a
                 class="fw-bold"
                 href="{{ get_category_link($category->term_id) }}">
-                <div class="card-body">/{{ $category->name }}</div>
+                <div class="card-body">/{{ strtolower($category->name) }}</div>
               </a>
             </div>
           </div>
