@@ -3,7 +3,7 @@
 @section('content')
   <section
     class="video-section flex-column text-white d-flex position-relative">
-    <div class="container z-1">
+    <div class="container z-1" id="video-section-container">
       <div class="row">
         <div class="col-md-6">
           <div class="details">

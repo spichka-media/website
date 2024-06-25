@@ -62,3 +62,9 @@ section {
     }
   }
 }
+
+#video-section-container {
+  transition:
+    filter 0.1s,
+    transform 0.1s;
+}
