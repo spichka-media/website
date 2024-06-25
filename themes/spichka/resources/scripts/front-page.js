@@ -26,6 +26,8 @@ domReady(async () => {
     new Swiper(container.querySelector('.swiper'), conf);
   });
 
+  scrolled();
+
   jQuery(document).scroll(() => scrolled());
 
   document.addEventListener('mousemove', function (e) {
@@ -54,7 +56,7 @@ function scrolled() {
     return;
   }
 
-  const threshold = window.innerHeight / 3;
+  const threshold = window.innerHeight / 2.5;
   const maxBlur = 20;
   const maxShift = 200;
 
