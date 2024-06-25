@@ -14,8 +14,21 @@ article {
     margin-bottom: map.get($spacers, 5);
   }
 
+  h2 {
+    margin-top: map.get($spacers, 8);
+
+    @include media-breakpoint-only(xs) {
+      margin-top: map.get($spacers, 6);
+    }
+  }
+
   h3 {
     margin-bottom: map.get($spacers, 3);
+    margin-top: map.get($spacers, 7);
+
+    @include media-breakpoint-only(xs) {
+      margin-top: map.get($spacers, 6);
+    }
   }
 
   blockquote {
