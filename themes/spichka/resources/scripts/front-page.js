@@ -33,7 +33,7 @@ domReady(async () => {
   document.addEventListener('mousemove', function (e) {
     const image = document.querySelector('.floating-image');
 
-    if (!checkVisible(image)) {
+    if (!image || !checkVisible(image)) {
       return;
     }
 
@@ -56,7 +56,7 @@ function scrolled() {
     return;
   }
 
-  const threshold = window.innerHeight / 2.5;
+  const threshold = window.innerHeight / 2;
   const maxBlur = 20;
   const maxShift = 200;
 
