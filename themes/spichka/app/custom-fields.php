@@ -118,6 +118,16 @@ add_action(
           'front_article_categories_header',
           __('Заголовок')
         )->set_default_value('Рубрики'),
+        Field::make(
+          'association',
+          'front_article_categories',
+          __('Категории')
+        )->set_types([
+          [
+            'type' => 'term',
+            'taxonomy' => 'category',
+          ],
+        ]),
       ])
       ->add_tab(__('Присоединяйся'), [
         Field::make(

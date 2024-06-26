@@ -144,14 +144,14 @@
 
     <div class="container">
       <div class="row row-cols-1 row-cols-lg-3 g-3 g-lg-3">
-        @foreach (get_categories() as $category)
+        @foreach (carbon_get_post_meta(get_the_ID(), 'front_article_categories') as $category)
           <div class="col">
             <div class="card border-dark border-2">
               <a
                 class="fw-bold"
-                href="{{ get_category_link($category->term_id) }}">
+                href="{{ get_category_link($category['id']) }}">
                 <div class="card-body">
-                  /{{ mb_strtolower($category->name) }}
+                  /{{ mb_strtolower(get_cat_name($category['id'])) }}
                 </div>
               </a>
             </div>
