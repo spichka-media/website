@@ -7,11 +7,6 @@ section {
   &.video-section {
     min-height: calc(100vh - 2.875rem);
 
-    .details,
-    .social {
-      padding-top: 20vh;
-    }
-
     .link-to-content {
       height: 3rem;
       width: 3rem;
@@ -39,6 +34,10 @@ section {
       &:hover {
         background-color: #e4e4e4;
       }
+    }
+
+    .container {
+      margin-top: 20vh;
     }
   }
 

@@ -17,7 +17,7 @@
         </div>
 
         <div class="d-none d-md-block col-md-6">
-          <ul class="social d-flex list-unstyled mt-5 mb-0 float-end">
+          <ul class="social d-flex list-unstyled mb-0 float-end">
             @foreach (carbon_get_theme_option('theme_socials') as $social)
               <li class="mx-2">
                 <a
@@ -54,7 +54,7 @@
 
   <section id="start" class="mt-7 mt-lg-10 program-articles-section">
     <div class="container">
-      <h2 class="mb-3 mb-lg-5 break-word">
+      <h2 class="h1 mb-3 mb-lg-5 break-word">
         <a
           class="link-dark"
           href="{!! get_term_link(intval(carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy')[0]['id'])) !!}">
@@ -98,7 +98,7 @@
 
   <section class="mt-7 mt-lg-10 recent-articles-section">
     <div class="container">
-      <h2 class="mb-3 mb-lg-5">
+      <h2 class="h1 mb-3 mb-lg-5">
         <a
           class="link-dark"
           href="{!! get_permalink(get_option('page_for_posts')) !!}">
@@ -137,7 +137,7 @@
 
   <section class="mt-7 mt-lg-10 categories-section">
     <div class="container">
-      <h2 class="mb-3 mb-lg-5">
+      <h2 class="h1 mb-3 mb-lg-5">
         {{ carbon_get_post_meta(get_the_ID(), 'front_article_categories_header') }}
       </h2>
     </div>
@@ -165,7 +165,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-sm-6">
-          <h2 class="mb-3 mb-lg-5">
+          <h2 class="h1 mb-3 mb-lg-5">
             {{ carbon_get_post_meta(get_the_ID(), 'front_donate_header') }}
           </h2>
 
@@ -193,7 +193,7 @@
 
   <section class="my-7 my-lg-10 connect-section">
     <div class="container">
-      <h2 class="break-word mb-3 mb-lg-5">
+      <h2 class="h1 break-word mb-3 mb-lg-5">
         {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
       </h2>
 

@@ -56,11 +56,13 @@ function scrolled() {
     return;
   }
 
-  const threshold = window.innerHeight / 2;
   const maxBlur = 20;
   const maxShift = 200;
 
-  const {bottom} = container.getBoundingClientRect();
+  const {bottom, y, top} = container.getBoundingClientRect();
+
+  const threshold =
+    400 + Math.min(window.innerHeight / 2, y / top + window.scrollY);
 
   if (bottom > threshold) {
     container.style.filter = `blur(0px)`;
