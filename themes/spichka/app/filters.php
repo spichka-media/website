@@ -58,7 +58,6 @@ add_filter('wp_nav_menu', function ($ulСlass) {
 add_filter('intermediate_image_sizes_advanced', function ($sizes) {
   unset($sizes['small']); // 150px
   unset($sizes['medium']); // 300px
-  unset($sizes['large']); // 1024px
   unset($sizes['medium_large']); // 768px
   return $sizes;
 });
