@@ -53,6 +53,14 @@ section {
       transition: transform 0.4s;
     }
   }
+
+  &.connect-section {
+    .description {
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 }
 
 .categories-section {
