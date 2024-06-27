@@ -12,15 +12,19 @@
         <div class="d-flex flex-column row-gap-2">
           <div class="d-flex align-items-baseline" id="post-categories">
             <i class="fa-fw me-2 fas fa-bookmark"></i>
-            <span class="fw-x-bold">{{ _e('Categories') }}:</span>
-            <span class="ms-1">@php(the_category(', '))</span>
+            <span>
+              <span class="fw-x-bold">{{ _e('Categories') }}:</span>
+              <span class="ms-1">@php(the_category(', '))</span>
+            </span>
           </div>
 
           @if (has_tag())
             <div class="d-flex align-items-baseline" id="post-tags">
               <i class="fa-fw me-2 fas fa-tags"></i>
-              <span class="fw-x-bold">{{ _e('Tags') }}:</span>
-              <span>@php(the_tags('', ', '))</span>
+              <span>
+                <span class="fw-x-bold">{{ _e('Tags') }}:</span>
+                <span>@php(the_tags('', ', '))</span>
+              </span>
             </div>
           @endif
 
