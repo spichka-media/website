@@ -138,6 +138,11 @@ add_action(
 
     // Post card extended
     add_image_size('post-card-extended', 416, 588);
+
+    // WTF IS THIS IMAGES??
+    add_image_size('medium-x-large', 724, 1024);
+    add_image_size('medium-xy-large', 1024, 819);
+    // WTF IS THIS IMAGES??
   },
   20
 );
