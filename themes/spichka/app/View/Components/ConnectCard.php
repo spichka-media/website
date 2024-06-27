@@ -11,6 +11,7 @@ class ConnectCard extends Component
   public $button_text;
   public $background_color;
   public $color;
+  public $link_meta;
 
   public function __construct($card)
   {
@@ -22,6 +23,7 @@ class ConnectCard extends Component
     $this->background_color =
       $card['front_connect_blocks_block_background_color'];
     $this->color = $card['front_connect_blocks_block_color'];
+    $this->link_meta = $card['front_connect_blocks_block_link_meta'];
   }
 
   /**

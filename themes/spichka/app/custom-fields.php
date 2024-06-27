@@ -154,6 +154,11 @@ add_action(
               'Текст на кнопке'
             ),
             Field::make(
+              'text',
+              'front_connect_blocks_block_link_meta',
+              __('Параметры ссылки')
+            ),
+            Field::make(
               'color',
               'front_connect_blocks_block_background_color',
               'Цвет фона'
