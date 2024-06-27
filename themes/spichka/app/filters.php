@@ -54,10 +54,11 @@ add_filter('wp_nav_menu', function ($ulСlass) {
   return preg_replace('/<a /', '<a class="nav-link fw-medium"', $ulСlass);
 });
 
-// This will remove the default image sizes and the medium_large size.
+// Remove unused image sizes
 add_filter('intermediate_image_sizes_advanced', function ($sizes) {
   unset($sizes['small']); // 150px
   unset($sizes['medium']); // 300px
+  unset($sizes['large']); // 1024px
   unset($sizes['medium_large']); // 768px
   return $sizes;
 });
@@ -73,7 +74,7 @@ add_filter('the_content', function ($content) {
       if (!stripos($matches[0], 'id=')):
         $id = sanitize_text_field(
           str_replace(
-            ['?', ',', ':', ';', '.', '&nbsp;', '!'],
+            ['?', ',', ':', ';', '.', '&nbsp;', '!', '*'],
             '',
             str_replace([' '], '-', $matches[3])
           )
