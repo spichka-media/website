@@ -47,13 +47,6 @@ function my_theme_register_required_plugins()
       'version' => '4.7.0',
     ],
     [
-      'name' => 'Font Awesome',
-      'slug' => 'font-awesome',
-      'required' => true,
-      'force_activation' => true,
-      'version' => '4.5.0',
-    ],
-    [
       'name' =>
         'All in One SEO – Best WordPress SEO Plugin – Easily Improve SEO Rankings & Increase Traffic',
       'slug' => 'all-in-one-seo-pack',

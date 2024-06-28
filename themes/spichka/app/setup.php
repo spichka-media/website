@@ -22,9 +22,36 @@ add_action(
       bundle('front-page')->enqueue();
     }
 
+    if (is_archive()) {
+      bundle('archive')->enqueue();
+    }
+
+    if (is_404()) {
+      bundle('404')->enqueue();
+    }
+
     if (is_singular('post')) {
       bundle('single-post')->enqueue();
+    } else {
+      wp_dequeue_style('modern_footnotes');
+      wp_dequeue_script('modern_footnotes');
     }
+
+    if (!is_user_logged_in()) {
+      wp_deregister_style('dashicons');
+    }
+
+    wp_enqueue_script(
+      'font-awesome',
+      esc_url('https://kit.fontawesome.com/53084a7412.js'),
+      [],
+      '6.x',
+      ['strategy' => 'defer']
+    );
+
+    wp_dequeue_style('wp-block-library');
+
+    wp_dequeue_style('multiple-authors-style');
   },
   100
 );

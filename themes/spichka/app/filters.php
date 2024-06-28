@@ -129,6 +129,7 @@ add_filter(
   },
   10
 );
+
 add_filter(
   'post_thumbnail_html',
   function ($html) {

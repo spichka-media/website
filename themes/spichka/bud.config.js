@@ -14,7 +14,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.assets}
    */
   app
-    .entry('app', ['@scripts/app', '@styles/app'])
+    .entry('app', ['@scripts/app'])
     .entry({
       'front-page': {
         import: ['@scripts/front-page', '@styles/front-page'],
@@ -24,6 +24,18 @@ export default async (app) => {
     .entry({
       'single-post': {
         import: ['@scripts/single-post', '@styles/single-post'],
+        dependOn: ['app'],
+      },
+    })
+    .entry({
+      404: {
+        import: ['@styles/404'],
+        dependOn: ['app'],
+      },
+    })
+    .entry({
+      archive: {
+        import: ['@styles/archive'],
         dependOn: ['app'],
       },
     })
