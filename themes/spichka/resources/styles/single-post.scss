@@ -10,6 +10,10 @@
 @import './plugins/footnotes';
 
 article {
+  [id] {
+    scroll-margin-top: map.get($spacers, 8);
+  }
+
   h2,
   p {
     margin-bottom: map.get($spacers, 5);
