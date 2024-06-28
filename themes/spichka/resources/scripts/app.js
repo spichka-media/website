@@ -1,5 +1,5 @@
 import domReady from '@roots/sage/client/dom-ready';
-import 'bootstrap'; // TODO: Later leave only needed modules
+import 'bootstrap/js/dist/offcanvas';
 
 /**
  * Application entrypoint
