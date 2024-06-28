@@ -96,44 +96,16 @@ add_filter('the_content', function ($content) {
   return $content;
 });
 
-//----------------------------------------------------------/
-//  responsive images [ 1) add img-responsive class 2) remove dimensions ]
-//----------------------------------------------------------/
+// add_filter(
+//   'wp_calculate_image_sizes',
+//   function ($sizes, $size) {
+//     if (is_singular('post')) {
+//       //And these sizes for other embedded images in the post content
+//       $sizes = '(max-width: 200px) 149px';
 
-function bootstrap_responsive_images($html)
-{
-  $classes = 'img-responsive'; // separated by spaces, e.g. 'img image-link'
-
-  // check if there are already classes assigned to the anchor
-  if (preg_match('/<img.*? class="/', $html)) {
-    $html = preg_replace(
-      '/(<img.*? class=".*?)(".*?\/>)/',
-      '$1 ' . $classes . ' $2',
-      $html
-    );
-  } else {
-    $html = preg_replace(
-      '/(<img.*?)(\/>)/',
-      '$1 class="' . $classes . '" $2',
-      $html
-    );
-  }
-  // remove dimensions from images,, does not need it!
-  $html = preg_replace('/(width|height)=\"\d*\"\s/', '', $html);
-  return $html;
-}
-add_filter(
-  'the_content',
-  function ($html) {
-    return bootstrap_responsive_images($html);
-  },
-  10
-);
-
-add_filter(
-  'post_thumbnail_html',
-  function ($html) {
-    return bootstrap_responsive_images($html);
-  },
-  10
-);
+//       return $sizes;
+//     }
+//   },
+//   10,
+//   2
+// );
