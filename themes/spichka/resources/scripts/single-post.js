@@ -16,7 +16,7 @@ function scrolled() {
   );
   const bar = document.querySelector('#single-post-progressbar');
 
-  if (!progress || !bar) {
+  if (!content || !progress || !bar) {
     return;
   }
 
