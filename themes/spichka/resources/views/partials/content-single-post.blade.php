@@ -46,13 +46,15 @@
 
   <div class="container mt-10 fs-6 container-body">
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
+      <div id="content" class="col-12 col-lg-9 col-xl-8 px-xl-6">
         @if (has_excerpt())
           <p class="fs-4">{!! strip_tags(get_the_excerpt()) !!}</p>
         @endif
 
         @php(the_content())
+      </div>
 
+      <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
         @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && carbon_get_theme_option('theme_telegram_channel'))
           <script
             async
