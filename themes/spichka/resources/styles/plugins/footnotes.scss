@@ -1,36 +1,4 @@
-.footnote_referrer {
-  .footnote_tooltip {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-
-  .footnote_plugin_tooltip_text {
-    &::before {
-      content: '[';
-    }
-
-    &::after {
-      content: ']';
-    }
-  }
-
-  &.note_active {
-    .footnote_tooltip {
-      max-width: 90% !important;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      position: static;
-    }
-  }
-}
-
-.footnote_plugin_index {
-  width: unset;
-}
-
-@media (pointer: none), (pointer: coarse) {
-  .footnote_referrer .footnote_tooltip {
-    display: none;
-  }
+.modern-footnotes-footnote__note--tooltip,
+.modern-footnotes-footnote__note--expandable {
+  overflow-wrap: break-word;
 }

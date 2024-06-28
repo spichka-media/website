@@ -37,4 +37,4 @@ services:
       # - ./backup/installer.php:/var/www/html/installer.php
 
 volumes:
-  db_data: 
+  db_data:

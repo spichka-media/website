@@ -3,7 +3,6 @@ module.exports = {
   rules: {
     'import-notation': null,
     'no-empty-source': null,
-    'rule-empty-line-before': null
   },
   overrides: [
     {

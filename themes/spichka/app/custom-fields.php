@@ -26,12 +26,19 @@ add_action(
       )->set_default_value('spichka_media'),
       Field::make('image', 'theme_footer_image', 'Изображение'),
       Field::make(
-        'text',
+        'rich_text',
         'theme_footer_text',
         'Текст в футере'
       )->set_default_value(
         'Авторские права никак не защищены и принадлежат народу. Но всё равно: ссылайтесь на нас, когда копируете наши материалы.'
       ),
+      Field::make(
+        'file',
+        'posts_more_image',
+        __('Изображение для "Больше статей')
+      )
+        ->set_type(['image'])
+        ->set_default_value(15180),
     ]);
 
     Container::make('post_meta', __('Настройки поста'))
@@ -53,7 +60,7 @@ add_action(
       ->where('post_id', '=', get_option('page_on_front'))
       ->add_tab(__('Баннер'), [
         Field::make(
-          'text',
+          'rich_text',
           'front_banner_header',
           __('Заголовок')
         )->set_default_value('Марксистский журнал для умных, молодых и злых.'),
@@ -67,7 +74,6 @@ add_action(
         Field::make('file', 'front_banner_video', __('Видео'))
           ->set_type(['video'])
           ->set_default_value(11703),
-        Field::make('image', 'front_banner_video_poster', __('Постер к Видео')),
       ])
       ->add_tab(__('Программные статьи'), [
         Field::make(
@@ -85,6 +91,19 @@ add_action(
             'post_type' => 'post',
           ],
         ]),
+        Field::make(
+          'association',
+          'front_program_articles_taxonomy',
+          __('Категория для перехода')
+        )
+          ->set_types([
+            [
+              'type' => 'term',
+              'taxonomy' => 'category',
+            ],
+          ])
+          ->set_min(1)
+          ->set_max(1),
       ])
       ->add_tab(__('Свежие статьи'), [
         Field::make(
@@ -99,13 +118,23 @@ add_action(
           'front_article_categories_header',
           __('Заголовок')
         )->set_default_value('Рубрики'),
+        Field::make(
+          'association',
+          'front_article_categories',
+          __('Категории')
+        )->set_types([
+          [
+            'type' => 'term',
+            'taxonomy' => 'category',
+          ],
+        ]),
       ])
-      ->add_tab(__('Присоеденяйся'), [
+      ->add_tab(__('Присоединяйся'), [
         Field::make(
           'text',
           'front_connect_header',
           __('Заголовок')
-        )->set_default_value('Присоеденяйся'),
+        )->set_default_value('Присоединяйся'),
         Field::make('complex', 'front_connect_blocks', 'Блоки')
           ->set_layout('tabbed-horizontal')
           ->add_fields([
@@ -115,7 +144,7 @@ add_action(
               'Заголовок'
             ),
             Field::make(
-              'text',
+              'rich_text',
               'front_connect_blocks_block_description',
               'Описание'
             ),
@@ -124,7 +153,21 @@ add_action(
               'front_connect_blocks_block_button_text',
               'Текст на кнопке'
             ),
-            Field::make('text', 'front_connect_blocks_block_form', 'Форма'),
+            Field::make(
+              'text',
+              'front_connect_blocks_block_link_meta',
+              __('Параметры ссылки')
+            ),
+            Field::make(
+              'color',
+              'front_connect_blocks_block_background_color',
+              'Цвет фона'
+            ),
+            Field::make(
+              'color',
+              'front_connect_blocks_block_color',
+              'Цвет текста'
+            ),
           ]),
       ])
       ->add_tab(__('Донать'), [

@@ -17,7 +17,7 @@ class PostCardExtended extends Component
     $this->title = get_the_title();
     $this->thumbnail = get_the_post_thumbnail(null, 'post-card-extended');
     $this->url = get_permalink();
-    $this->excerpt = get_the_excerpt();
+    $this->excerpt = has_excerpt() ? get_the_excerpt() : null;
     $this->date = get_the_date();
   }
 

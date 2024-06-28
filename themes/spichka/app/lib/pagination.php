@@ -14,7 +14,7 @@ function bs_navigation_markup($links, $args)
 
   if ($links) {
     $pagination =
-      '<ul class="pagination pagination-md mb-0 flex-wrap justify-content-center">';
+      '<ul class="pagination lh-1 pagination-md mb-0 flex-wrap justify-content-center">';
 
     foreach ($links as $link) {
       $active = strpos($link, 'current');
@@ -39,7 +39,7 @@ function bs_navigation_markup($links, $args)
     );
   }
 
-  return '<div class="mt-4">' . $navigation . '</div>';
+  return '<div class="mt-6 pt-1">' . $navigation . '</div>';
 }
 
 /**
@@ -69,7 +69,7 @@ function bs_get_the_posts_pagination($args = [])
 
     $args = wp_parse_args($args, [
       'end_size' => 1,
-      'mid_size' => 3,
+      'mid_size' => 1,
       'prev_next' => false,
       'prev_text' => _x('Previous', 'previous set of posts'),
       'next_text' => _x('Next', 'next set of posts'),

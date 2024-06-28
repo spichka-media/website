@@ -1,16 +1,51 @@
 @import './variables';
 
-footer {
-  background-color: $body-secondary-bg;
+header {
+  .navbar .navbar-toggler {
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
 
+    &:focus {
+      box-shadow: none;
+    }
+
+    &:hover {
+      background-color: $white;
+      border-radius: 50%;
+      color: $body;
+    }
+  }
+
+  .btn-close {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .navbar {
+    &.navbar-dark {
+      background-color: $navbar-dark-background-color;
+    }
+
+    .collapse.navbar-collapse {
+      flex-grow: 0;
+    }
+  }
+}
+
+footer {
   .social-link {
-    background-color: $dark-background-color;
-    color: $body-secondary-color;
+    background-color: $body;
+    color: $white;
     width: 2.5rem;
     height: 2.5rem;
 
     &:hover {
       text-decoration: none;
+      background-color: $primary;
+      transition:
+        background-color 0.3s,
+        color 0.3s;
     }
   }
 }

@@ -3,22 +3,9 @@
 
 // Libraries
 @import './libs/bootstrap';
-@import './libs/swiper';
 
 // Theme
 @import './layout';
-@import './front-page';
-@import './components/post-card';
-@import './single-post';
-@import './footer';
-@import './header';
-@import './index';
-@import './404';
-
-// Plugins
-@import './plugins/footnotes';
-@import './plugins/mistape';
-@import './plugins/table-of-contents';
 
 body {
   font-family: Montserrat, sans-serif;
@@ -33,9 +20,10 @@ img {
 
 a {
   text-decoration: none;
+  transition: 0.3s;
 
-  &:hover {
-    text-decoration: underline;
+  &.link-dark:hover {
+    color: $primary !important;
   }
 }
 
@@ -48,11 +36,15 @@ h6 {
   font-weight: $font-weight-x-bold;
 }
 
+.fw-x-bold {
+  font-weight: $font-weight-x-bold;
+}
+
 .break-word {
   word-break: break-word;
   hyphens: auto;
 }
 
-.regular-text {
-  font-size: $h6-font-size;
+.text-tertiary {
+  color: $tertiary !important;
 }

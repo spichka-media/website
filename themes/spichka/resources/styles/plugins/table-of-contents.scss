@@ -12,24 +12,28 @@
 
     a {
       margin-bottom: $spacer * 0.75;
-      display: inline-block;
+      display: block;
     }
   }
 
   li::marker {
     content: counters(item, '.') '. ';
-    color: $secondary;
+    color: $tertiary;
   }
 
   a.ez-toc-link {
     color: $body-color;
+
+    &:hover {
+      color: $primary !important;
+    }
   }
 }
 
 #ez-toc-container {
   .ez-toc-title {
-    background-color: $dark-background-color;
-    color: #fff;
+    background-color: $dark;
+    color: $white;
     margin: 0;
     padding: 0.75rem;
     padding-left: map.get($spacers, 3);
@@ -44,7 +48,7 @@
 
   nav {
     padding: map.get($spacers, 3) 2.5rem;
-    background-color: $body-secondary-bg;
+    background-color: $light;
     color: $body-color;
   }
 }
