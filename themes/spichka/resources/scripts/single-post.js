@@ -4,17 +4,12 @@ import domReady from '@roots/sage/client/dom-ready';
  * Application entrypoint
  */
 domReady(async () => {
+  setTimeout(scrolled, 1000);
   document.addEventListener('scroll', scrolled);
 });
 
 function scrolled() {
-  var h = document.documentElement,
-    b = document.body,
-    st = 'scrollTop',
-    sh = 'scrollHeight';
-  var p = parseInt(
-    ((h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight)) * 100,
-  );
+  const content = document.getElementById('content');
 
   const progress = document.querySelector(
     '#single-post-progressbar .progress-bar',
@@ -25,7 +20,20 @@ function scrolled() {
     return;
   }
 
-  progress.style.width = `${p}%`;
+  const {top, height} = content.getBoundingClientRect();
 
-  bar.setAttribute('aria-valuenow', `${p}%`);
+  if (top > 0) {
+    progress.style.width = `0%`;
+    bar.setAttribute('aria-valuenow', `0%`);
+
+    return;
+  }
+
+  const srollableContentHeight = height - window.innerHeight;
+
+  const scrolled = (Math.abs(top) / srollableContentHeight) * 100;
+
+  progress.style.width = `${scrolled}%`;
+
+  bar.setAttribute('aria-valuenow', `${scrolled}%`);
 }
