@@ -1,3 +1,5 @@
+import purgeCssWordPress from 'purgecss-with-wordpress';
+
 /**
  * Compiler configuration
  *
@@ -48,6 +50,21 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
   app.setPublicPath('/app/themes/sage/public/');
+
+  app.purgecss({
+    content: [app.path(`resources/views/**`)],
+    safelist: {
+      ...purgeCssWordPress.safelist,
+      standard: ['html', 'body', 'img', 'author', 'box-header-title'],
+      deep: [
+        /^ez-toc-/,
+        /^offcanvas(-.*)?$/,
+        /^nav-/,
+        /^modern-footnotes-/,
+        /^swiper-/,
+      ],
+    },
+  });
 
   /**
    * Development server settings

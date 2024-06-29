@@ -26,17 +26,20 @@
     "postinstall": "cd ../.. && husky install"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "6.0.0",
     "@prettier/plugin-php": "0.22.2",
     "@roots/bud": "6.21.0",
     "@roots/bud-eslint": "6.21.0",
     "@roots/bud-prettier": "6.21.0",
+    "@roots/bud-purgecss": "6.23.1",
     "@roots/bud-sass": "6.21.0",
     "@roots/bud-stylelint": "6.21.0",
     "@roots/eslint-config": "6.21.0",
     "@roots/sage": "6.21.0",
     "husky": "9.0.11",
     "install-peers": "1.0.4",
-    "prettier-plugin-blade": "2.1.12"
+    "prettier-plugin-blade": "2.1.12",
+    "purgecss-with-wordpress": "6.0.0"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
