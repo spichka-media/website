@@ -69,7 +69,7 @@ function my_theme_register_required_plugins()
     ],
     [
       'name' => 'Lazy Load - Optimize Images',
-      'slug' => 'rocket_lazyload',
+      'slug' => 'rocket-lazy-load',
       'required' => false,
       'force_activation' => false,
       'version' => '2.3.7',
