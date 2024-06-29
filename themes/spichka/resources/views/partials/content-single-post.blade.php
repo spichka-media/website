@@ -1,11 +1,10 @@
 <article class="my-4 my-lg-6">
   <div class="container">
     <div class="row justify-content-center gx-md-7 gy-3 gy-md-0">
-      <div class="col-md-6 col-xl-5 order-last order-sm-first">
+      <div class="col-md-6 col-xl-5">
         @php(the_post_thumbnail('xs'))
       </div>
-      <div
-        class="col-md-6 col-xl-5 d-flex flex-column row-gap-5 order-first order-sm-last">
+      <div class="col-md-6 col-xl-5 d-flex flex-column row-gap-5">
         <h1 class="mb-0">
           @php(the_title())
         </h1>
