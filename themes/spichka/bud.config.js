@@ -52,16 +52,17 @@ export default async (app) => {
   app.setPublicPath('/app/themes/sage/public/');
 
   app.purgecss({
-    content: [app.path(`resources/views/**`)],
+    content: [app.path(`resources/views/**`), app.path(`index.php`)],
     safelist: {
       ...purgeCssWordPress.safelist,
-      standard: ['html', 'body', 'img', 'author', 'box-header-title'],
+      standard: ['img', 'blockquote', 'figure'],
       deep: [
         /^ez-toc-/,
         /^offcanvas(-.*)?$/,
         /^nav-/,
         /^modern-footnotes-/,
         /^swiper-/,
+        /^pp-multiple-authors-/,
       ],
     },
   });

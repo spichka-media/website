@@ -55,11 +55,22 @@ add_filter('wp_nav_menu', function ($ulСlass) {
 });
 
 // Remove unused image sizes
-add_filter('intermediate_image_sizes_advanced', function ($sizes) {
-  unset($sizes['small']); // 150px
-  unset($sizes['medium']); // 300px
-  unset($sizes['large']); // 1024px
-  unset($sizes['medium_large']); // 768px
+add_filter('intermediate_image_sizes', function ($sizes) {
+  $targets = [
+    //'thumbnail', TODO: uncomment when all the pictures are migrated
+    'medium',
+    'medium_large',
+    'large',
+    '1536x1536',
+    '2048x2048',
+  ];
+
+  foreach ($sizes as $size_index => $size) {
+    if (in_array($size, $targets)) {
+      unset($sizes[$size_index]);
+    }
+  }
+
   return $sizes;
 });
 
@@ -96,16 +107,8 @@ add_filter('the_content', function ($content) {
   return $content;
 });
 
-// add_filter(
-//   'wp_calculate_image_sizes',
-//   function ($sizes, $size) {
-//     if (is_singular('post')) {
-//       //And these sizes for other embedded images in the post content
-//       $sizes = '(max-width: 200px) 149px';
+add_filter('wp_calculate_image_sizes', function ($sizes) {
+  $sizes = '(max-width: 576px) 200px, (min-width: 577px) 500px';
 
-//       return $sizes;
-//     }
-//   },
-//   10,
-//   2
-// );
+  return $sizes;
+});

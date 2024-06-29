@@ -180,6 +180,12 @@ add_action(
 
     // Post card extended
     add_image_size('post-card-extended', 416, 588);
+
+    remove_image_size('1536x1536');
+    remove_image_size('2048x2048');
+
+    add_image_size('md', 1000);
+    add_image_size('xs', 600);
   },
   20
 );
