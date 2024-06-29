@@ -74,6 +74,13 @@ function my_theme_register_required_plugins()
       'force_activation' => false,
       'version' => '2.3.7',
     ],
+    [
+      'name' => 'WebP Express',
+      'slug' => 'webp-express',
+      'required' => false,
+      'force_activation' => false,
+      'version' => '0.25.9',
+    ],
   ];
 
   $config = [
