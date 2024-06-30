@@ -45,5 +45,6 @@
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
     "swiper": "11.1.4"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }
