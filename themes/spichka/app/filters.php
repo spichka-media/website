@@ -108,7 +108,8 @@ add_filter('the_content', function ($content) {
 });
 
 add_filter('wp_calculate_image_sizes', function ($sizes) {
-  $sizes = '(max-width: 576px) 200px, (min-width: 577px) 500px';
+  $sizes =
+    '(max-width: 576px) 200px, (min-width: 577px) and (max-width: 767px) 500px, (min-width: 768px) 900px';
 
   return $sizes;
 });
