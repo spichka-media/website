@@ -56,3 +56,11 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USER }}
           TARGET: ${{ secrets.SSH_PATH }}
           EXCLUDE: "/node_modules/"
+
+      - name: Purge cloudflare cache
+        uses: jakejarvis/cloudflare-purge-action@master
+        if: "${{ inputs.environment == 'prod' }}"
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+          CLOUDFLARE_KEY: ${{ secrets.CLOUDFLARE_KEY }}
