@@ -49,7 +49,7 @@
       loop>
       <source
         src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
-        type="video/mp4" />
+        type="video/webm" />
     </video>
   </section>
 
