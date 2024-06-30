@@ -2,19 +2,19 @@
 
 ## Для ознакомления
 
-- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Bootstrap 5](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Документация Wordpress](https://wordpress.org/documentation/)
 - [Документация Sage](https://roots.io/sage/docs/)
 
 ## Требуется для работы
 
 - Docker
-- Node, >=20
-- yarn, v1.22
+- Node
+- yarn
 
 ## Инструкция по разворачиванию локального окружения в первый раз
 
-- Скачай бэкап, используя Duplicator Pro.
+- Скачай бэкап, используя Duplicator.
 - Положи бэкап в папку `backup`.
 - В `docker-compose.yaml` для сервиса `wordpress` добавь volume'ы с бэкапом по примеру, закоментируй остальные volume'ы, кроме uploads (!).
 - Выполни `docker-compose up -d --build`.
