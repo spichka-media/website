@@ -57,7 +57,7 @@ add_filter('wp_nav_menu', function ($ulСlass) {
 // Remove unused image sizes
 add_filter('intermediate_image_sizes', function ($sizes) {
   $targets = [
-    //'thumbnail', TODO: uncomment when all the pictures are migrated
+    'thumbnail',
     'medium',
     'medium_large',
     'large',
