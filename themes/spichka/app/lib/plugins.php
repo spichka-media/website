@@ -32,34 +32,11 @@ function my_theme_register_required_plugins()
       'version' => '2.0.67.1',
     ],
     [
-      'name' =>
-        'Wordfence Security – Firewall, Malware Scan, and Login Security',
-      'slug' => 'wordfence',
-      'required' => false,
-      'force_activation' => false,
-      'version' => '7.11.6',
-    ],
-    [
       'name' => 'PublishPress Authors',
       'slug' => 'publishpress-authors',
       'required' => true,
       'force_activation' => true,
       'version' => '4.7.0',
-    ],
-    [
-      'name' => 'Font Awesome',
-      'slug' => 'font-awesome',
-      'required' => true,
-      'force_activation' => true,
-      'version' => '4.5.0',
-    ],
-    [
-      'name' =>
-        'All in One SEO – Best WordPress SEO Plugin – Easily Improve SEO Rankings & Increase Traffic',
-      'slug' => 'all-in-one-seo-pack',
-      'required' => false,
-      'force_activation' => false,
-      'version' => '4.6.5',
     ],
     [
       'name' => 'Carbon fields',
@@ -82,6 +59,27 @@ function my_theme_register_required_plugins()
       'required' => false,
       'force_activation' => false,
       'version' => '1.129.1',
+    ],
+    [
+      'name' => 'Performance Lab',
+      'slug' => 'performance-lab',
+      'required' => false,
+      'force_activation' => false,
+      'version' => '3.2.0',
+    ],
+    [
+      'name' => 'Lazy Load - Optimize Images',
+      'slug' => 'rocket-lazy-load',
+      'required' => false,
+      'force_activation' => false,
+      'version' => '2.3.7',
+    ],
+    [
+      'name' => 'WebP Express',
+      'slug' => 'webp-express',
+      'required' => false,
+      'force_activation' => false,
+      'version' => '0.25.9',
     ],
   ];
 

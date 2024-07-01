@@ -1,7 +1,10 @@
-.box-header-title {
-  font-weight: $font-weight-x-bold;
-}
+.pp-multiple-authors-boxes-wrapper {
+  .box-header-title {
+    font-weight: $font-weight-x-bold;
+  }
 
-a.author {
-  white-space: nowrap;
+  a.author {
+    white-space: nowrap;
+    font-weight: $font-weight-x-bold;
+  }
 }

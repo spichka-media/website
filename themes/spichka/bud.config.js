@@ -1,3 +1,5 @@
+import purgeCssWordPress from 'purgecss-with-wordpress';
+
 /**
  * Compiler configuration
  *
@@ -14,7 +16,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.assets}
    */
   app
-    .entry('app', ['@scripts/app', '@styles/app'])
+    .entry('app', ['@scripts/app'])
     .entry({
       'front-page': {
         import: ['@scripts/front-page', '@styles/front-page'],
@@ -27,6 +29,18 @@ export default async (app) => {
         dependOn: ['app'],
       },
     })
+    .entry({
+      404: {
+        import: ['@styles/404'],
+        dependOn: ['app'],
+      },
+    })
+    .entry({
+      archive: {
+        import: ['@styles/archive'],
+        dependOn: ['app'],
+      },
+    })
     .entry('editor', ['@scripts/editor', '@styles/editor'])
     .assets(['images', 'fonts']);
 
@@ -36,6 +50,26 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
   app.setPublicPath('/app/themes/sage/public/');
+
+  app.purgecss({
+    content: [
+      app.path(`resources/views/**`),
+      app.path(`index.php`),
+      app.path(`app/lib/pagination.php`),
+    ],
+    safelist: {
+      ...purgeCssWordPress.safelist,
+      standard: ['img', 'blockquote', 'figure', 'screen-reader-text'],
+      deep: [
+        /^ez-toc-/,
+        /^offcanvas(-.*)?$/,
+        /^nav-/,
+        /^modern-footnotes-/,
+        /^swiper-/,
+        /^pp-multiple-authors-/,
+      ],
+    },
+  });
 
   /**
    * Development server settings

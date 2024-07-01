@@ -55,11 +55,22 @@ add_filter('wp_nav_menu', function ($ulСlass) {
 });
 
 // Remove unused image sizes
-add_filter('intermediate_image_sizes_advanced', function ($sizes) {
-  unset($sizes['small']); // 150px
-  unset($sizes['medium']); // 300px
-  unset($sizes['large']); // 1024px
-  unset($sizes['medium_large']); // 768px
+add_filter('intermediate_image_sizes', function ($sizes) {
+  $targets = [
+    'thumbnail',
+    'medium',
+    'medium_large',
+    'large',
+    '1536x1536',
+    '2048x2048',
+  ];
+
+  foreach ($sizes as $size_index => $size) {
+    if (in_array($size, $targets)) {
+      unset($sizes[$size_index]);
+    }
+  }
+
   return $sizes;
 });
 
@@ -96,43 +107,9 @@ add_filter('the_content', function ($content) {
   return $content;
 });
 
-//----------------------------------------------------------/
-//  responsive images [ 1) add img-responsive class 2) remove dimensions ]
-//----------------------------------------------------------/
+add_filter('wp_calculate_image_sizes', function ($sizes) {
+  $sizes =
+    '(max-width: 576px) 200px, (min-width: 577px) and (max-width: 767px) 500px, (min-width: 768px) 900px';
 
-function bootstrap_responsive_images($html)
-{
-  $classes = 'img-responsive'; // separated by spaces, e.g. 'img image-link'
-
-  // check if there are already classes assigned to the anchor
-  if (preg_match('/<img.*? class="/', $html)) {
-    $html = preg_replace(
-      '/(<img.*? class=".*?)(".*?\/>)/',
-      '$1 ' . $classes . ' $2',
-      $html
-    );
-  } else {
-    $html = preg_replace(
-      '/(<img.*?)(\/>)/',
-      '$1 class="' . $classes . '" $2',
-      $html
-    );
-  }
-  // remove dimensions from images,, does not need it!
-  $html = preg_replace('/(width|height)=\"\d*\"\s/', '', $html);
-  return $html;
-}
-add_filter(
-  'the_content',
-  function ($html) {
-    return bootstrap_responsive_images($html);
-  },
-  10
-);
-add_filter(
-  'post_thumbnail_html',
-  function ($html) {
-    return bootstrap_responsive_images($html);
-  },
-  10
-);
+  return $sizes;
+});

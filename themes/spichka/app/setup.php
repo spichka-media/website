@@ -18,13 +18,55 @@ add_action(
   function () {
     bundle('app')->enqueue();
 
+    if (!is_user_logged_in()) {
+      wp_deregister_style('dashicons');
+      wp_deregister_script('jquery');
+
+      if (is_singular('post')) {
+        wp_register_script(
+          'jquery',
+          '/wp-includes/js/jquery/jquery.min.js',
+          [],
+          null,
+          [
+            'strategy' => 'defer',
+          ]
+        );
+        wp_enqueue_script('jquery');
+      }
+    }
+
     if (is_front_page()) {
       bundle('front-page')->enqueue();
     }
 
+    if (is_archive() || is_home()) {
+      bundle('archive')->enqueue();
+    }
+
+    if (is_404()) {
+      bundle('404')->enqueue();
+    }
+
     if (is_singular('post')) {
       bundle('single-post')->enqueue();
+    } else {
+      wp_dequeue_style('modern_footnotes');
+      wp_dequeue_script('modern_footnotes');
     }
+
+    wp_enqueue_script(
+      'font-awesome',
+      esc_url('https://kit.fontawesome.com/53084a7412.js'),
+      [],
+      '6.x',
+      ['strategy' => 'defer']
+    );
+
+    wp_dequeue_style('wp-block-library');
+
+    wp_dequeue_style('multiple-authors-widget-css');
+    wp_deregister_style('multiple-authors-widget-css');
   },
   100
 );
@@ -138,6 +180,12 @@ add_action(
 
     // Post card extended
     add_image_size('post-card-extended', 416, 588);
+
+    remove_image_size('1536x1536');
+    remove_image_size('2048x2048');
+
+    add_image_size('md', 1000);
+    add_image_size('xs', 600);
   },
   20
 );
@@ -149,4 +197,18 @@ add_action(
  */
 add_action('widgets_init', function () {
   //
+});
+
+/**
+ * Deregister jquery-migrate
+ *
+ * @return void
+ */
+add_action('wp_default_scripts', function ($scripts) {
+  if (!empty($scripts->registered['jquery'])) {
+    $scripts->registered['jquery']->deps = array_diff(
+      $scripts->registered['jquery']->deps,
+      ['jquery-migrate']
+    );
+  }
 });

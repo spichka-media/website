@@ -41,6 +41,7 @@
     </div>
 
     <video
+      poster="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video_poster')) }}"
       class="video-element position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
       autoplay
       muted
@@ -48,7 +49,7 @@
       loop>
       <source
         src="{{ wp_get_attachment_url(carbon_get_post_meta(get_the_ID(), 'front_banner_video')) }}"
-        type="video/mp4" />
+        type="video/webm" />
     </video>
   </section>
 

@@ -10,35 +10,21 @@ add_action(
   'carbon_fields_register_fields',
   function () {
     Container::make('theme_options', __('Настройки темы'))->add_fields([
-      Field::make('text', 'theme_email', 'Email')->set_default_value(
-        'info@spichka.media'
-      ),
+      Field::make('text', 'theme_email', 'Email'),
       Field::make('complex', 'theme_socials', 'Социальные сети')
         ->set_layout('tabbed-horizontal')
         ->add_fields([
           Field::make('text', 'theme_social_link', 'Ссылка'),
           Field::make('text', 'theme_social_icon', 'Иконка'),
         ]),
-      Field::make(
-        'text',
-        'theme_telegram_channel',
-        'Телеграм канал'
-      )->set_default_value('spichka_media'),
+      Field::make('text', 'theme_telegram_channel', 'Телеграм канал'),
       Field::make('image', 'theme_footer_image', 'Изображение'),
-      Field::make(
-        'rich_text',
-        'theme_footer_text',
-        'Текст в футере'
-      )->set_default_value(
-        'Авторские права никак не защищены и принадлежат народу. Но всё равно: ссылайтесь на нас, когда копируете наши материалы.'
-      ),
+      Field::make('rich_text', 'theme_footer_text', 'Текст в футере'),
       Field::make(
         'file',
         'posts_more_image',
         __('Изображение для "Больше статей')
-      )
-        ->set_type(['image'])
-        ->set_default_value(15180),
+      )->set_type(['image']),
     ]);
 
     Container::make('post_meta', __('Настройки поста'))
@@ -59,28 +45,15 @@ add_action(
     Container::make('post_meta', __('Настройки главной страницы'))
       ->where('post_id', '=', get_option('page_on_front'))
       ->add_tab(__('Баннер'), [
-        Field::make(
-          'rich_text',
-          'front_banner_header',
-          __('Заголовок')
-        )->set_default_value('Марксистский журнал для умных, молодых и злых.'),
-        Field::make(
-          'text',
-          'front_banner_description',
-          __('Описание')
-        )->set_default_value(
-          'Рассказываем просто и интересно про общество, политику, историю, экономику, культуру и философию.'
-        ),
-        Field::make('file', 'front_banner_video', __('Видео'))
-          ->set_type(['video'])
-          ->set_default_value(11703),
+        Field::make('rich_text', 'front_banner_header', __('Заголовок')),
+        Field::make('text', 'front_banner_description', __('Описание')),
+        Field::make('file', 'front_banner_video', __('Видео'))->set_type([
+          'video',
+        ]),
+        Field::make('image', 'front_banner_video_poster', __('Постер к Видео')),
       ])
       ->add_tab(__('Программные статьи'), [
-        Field::make(
-          'text',
-          'front_program_articles_header',
-          __('Заголовок')
-        )->set_default_value('Программные статьи'),
+        Field::make('text', 'front_program_articles_header', __('Заголовок')),
         Field::make(
           'association',
           'front_program_articles',
@@ -106,18 +79,10 @@ add_action(
           ->set_max(1),
       ])
       ->add_tab(__('Свежие статьи'), [
-        Field::make(
-          'text',
-          'front_recent_articles_header',
-          __('Заголовок')
-        )->set_default_value('Свежие статьи'),
+        Field::make('text', 'front_recent_articles_header', __('Заголовок')),
       ])
       ->add_tab(__('Рубрики'), [
-        Field::make(
-          'text',
-          'front_article_categories_header',
-          __('Заголовок')
-        )->set_default_value('Рубрики'),
+        Field::make('text', 'front_article_categories_header', __('Заголовок')),
         Field::make(
           'association',
           'front_article_categories',
@@ -130,11 +95,7 @@ add_action(
         ]),
       ])
       ->add_tab(__('Присоединяйся'), [
-        Field::make(
-          'text',
-          'front_connect_header',
-          __('Заголовок')
-        )->set_default_value('Присоединяйся'),
+        Field::make('text', 'front_connect_header', __('Заголовок')),
         Field::make('complex', 'front_connect_blocks', 'Блоки')
           ->set_layout('tabbed-horizontal')
           ->add_fields([
@@ -171,28 +132,10 @@ add_action(
           ]),
       ])
       ->add_tab(__('Донать'), [
-        Field::make(
-          'text',
-          'front_donate_header',
-          __('Заголовок')
-        )->set_default_value('Помогай'),
-        Field::make(
-          'text',
-          'front_donate_description',
-          __('Описание')
-        )->set_default_value(
-          'Мы работаем над проектом в свободное время и на энтузиазме. Чтобы творить, нам нужно тратить деньги на сайт, покупать оборудование для видео и подкастов, снимать студии. Спасибо, что присылаете нам деньги — так нам реже приходится тратить свои.'
-        ),
-        Field::make(
-          'text',
-          'front_donate_button_text',
-          __('Текст на кнопке')
-        )->set_default_value('Задонатить'),
-        Field::make(
-          'text',
-          'front_donate_button_link',
-          'Ссылка'
-        )->set_default_value('https://telegra.ph/Rekvizity-Spichki-11-09'),
+        Field::make('text', 'front_donate_header', __('Заголовок')),
+        Field::make('text', 'front_donate_description', __('Описание')),
+        Field::make('text', 'front_donate_button_text', __('Текст на кнопке')),
+        Field::make('text', 'front_donate_button_link', 'Ссылка'),
         Field::make('image', 'front_donate_image', __('Изображение')),
       ]);
   },
