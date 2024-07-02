@@ -73,6 +73,7 @@ export default async (app) => {
         /^modern-footnotes-/,
         /^swiper-/,
         /^pp-multiple-authors-/,
+        /^article/,
       ],
     },
   });
