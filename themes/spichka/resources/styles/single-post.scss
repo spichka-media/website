@@ -74,7 +74,7 @@ article {
 
     figcaption {
       margin-top: map.get($spacers, 3) !important;
-      margin-bottom: 0 !important;
+      margin-bottom: map.get($spacers, 5) !important;
       color: $secondary;
       font-size: 1rem;
       text-align: center;
