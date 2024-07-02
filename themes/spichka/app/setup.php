@@ -63,8 +63,6 @@ add_action(
       ['strategy' => 'defer']
     );
 
-    wp_dequeue_style('wp-block-library');
-
     wp_dequeue_style('multiple-authors-widget-css');
     wp_deregister_style('multiple-authors-widget-css');
   },
