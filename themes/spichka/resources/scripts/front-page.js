@@ -37,15 +37,26 @@ domReady(async () => {
       return;
     }
 
-    const x = e.clientX / window.innerWidth - 0.5;
-    const y = e.clientY / window.innerHeight - 0.5;
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const rect = image.getBoundingClientRect();
+    const imageX = rect.left + rect.width / 2;
+    const imageY = rect.top + rect.height / 2;
 
-    const translateX = x * -75;
-    const translateY = y * -100;
-    const rotateX = y * -75;
-    const rotateY = x * 75;
+    // Calculate distance between mouse and image center
+    const distX = mouseX - imageX;
+    const distY = mouseY - imageY;
 
-    image.style.transform = `translateX(${translateX}px) translateY(${translateY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    // Calculate push effect
+    const pushX = distX * 0.04; // Adjust 0.1 to control push intensity
+    const pushY = distY * 0.04;
+
+    // Calculate 3D slope effect
+    const angleX = -distY * 0.04; // Adjust 0.05 to control slope intensity
+    const angleY = distX * 0.04;
+
+    // Apply transform with push and 3D slope effect
+    image.style.transform = `translate(${pushX}px, ${pushY}px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
   });
 });
 
