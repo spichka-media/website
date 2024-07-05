@@ -59,6 +59,7 @@ export default async (app) => {
     ],
     safelist: {
       ...purgeCssWordPress.safelist,
+
       standard: ['img', 'blockquote', 'figure', 'screen-reader-text'],
       deep: [
         /^ez-toc-/,
@@ -67,6 +68,7 @@ export default async (app) => {
         /^modern-footnotes-/,
         /^swiper-/,
         /^pp-multiple-authors-/,
+        /^article/,
       ],
     },
   });

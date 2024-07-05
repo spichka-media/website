@@ -71,5 +71,20 @@ article {
   figure {
     margin-top: map.get($spacers, 5);
     margin-bottom: map.get($spacers, 5);
+
+    figcaption {
+      margin-top: map.get($spacers, 3);
+      color: $secondary;
+      font-size: 1rem;
+      text-align: center;
+    }
+  }
+
+  .has-text-align-right {
+    text-align: right;
+  }
+
+  .has-text-align-center {
+    text-align: right;
   }
 }
