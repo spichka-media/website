@@ -15,7 +15,8 @@
       <div class="pt-3 pt-sm-10 mt-sm-auto">
         <a
           class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100"
-          href="mailto:{{ carbon_get_theme_option('theme_email') }}{!! $link_meta !!}">
+          target="_blank"
+          href="{!! $link !!}">
           {!! $button_text !!}
         </a>
       </div>

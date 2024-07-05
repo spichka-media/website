@@ -116,8 +116,8 @@ add_action(
             ),
             Field::make(
               'text',
-              'front_connect_blocks_block_link_meta',
-              __('Параметры ссылки')
+              'front_connect_blocks_block_link',
+              __('Ссылка')
             ),
             Field::make(
               'color',
