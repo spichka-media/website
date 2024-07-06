@@ -85,7 +85,7 @@ add_filter('the_content', function ($content) {
       if (!stripos($matches[0], 'id=')):
         $id = sanitize_text_field(
           str_replace(
-            ['?', ',', ':', ';', '.', '&nbsp;', '!', '*'],
+            ['?', ',', ':', ';', '.', '&nbsp;', '!', '*', '&nbsp'],
             '',
             str_replace([' '], '-', $matches[3])
           )

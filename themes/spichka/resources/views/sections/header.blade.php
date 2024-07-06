@@ -17,7 +17,7 @@
         class="offcanvas offcanvas-end text-bg-dark"
         tabindex="-1"
         id="offcanvasDarkNavbar"
-        aria-labelledby="offcanvasDarkNavbarLabel">
+        aria-labelledby="offcanvasDarkNavbar">
         <div class="offcanvas-header">
           <button
             type="button"
