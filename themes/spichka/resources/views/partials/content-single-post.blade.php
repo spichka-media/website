@@ -30,7 +30,7 @@
 
           <div class="d-flex align-items-baseline">
             <i class="fa-fw me-2 fas fa-user"></i>
-            {!! do_shortcode('[publishpress_authors_box layout="ppma_boxes_15606"]') !!}
+            {!! do_shortcode('[publishpress_authors_box]') !!}
           </div>
         </div>
 
