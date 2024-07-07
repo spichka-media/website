@@ -55,13 +55,18 @@
 
   <section id="start" class="mt-7 mt-lg-10 program-articles-section">
     <div class="container">
-      <h2 class="h1 mb-3 mb-lg-5 break-word">
-        <a
-          class="link-dark"
-          href="{!! get_term_link(intval(carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy')[0]['id'])) !!}">
-          {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
-        </a>
-      </h2>
+      @php
+        $term = carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy');
+        $program_term_link = ! empty($term[0]) ? get_term_link(intval($term[0]['id'])) : null;
+      @endphp
+
+      @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+        <h2 class="h1 mb-3 mb-lg-5 break-word">
+          <a class="link-dark" href="{!! $program_term_link !!}">
+            {{ carbon_get_post_meta(get_the_ID(), 'front_program_articles_header') }}
+          </a>
+        </h2>
+      @endif
     </div>
 
     <div class="swiper-container position-relative container-fluid">
@@ -84,10 +89,11 @@
           @if (carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy'))
             <div class="swiper-slide">
               <div class="post-card">
-                <a
-                  href="{!! get_term_link(intval(carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy')[0]['id'])) !!}">
-                  {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
-                </a>
+                @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+                  <a href="{!! $program_term_link !!}">
+                    {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+                  </a>
+                @endif
               </div>
             </div>
           @endif
@@ -190,34 +196,36 @@
     </div>
   </section>
 
-  <section class="my-7 my-lg-10 connect-section">
-    <div class="container">
-      <h2 class="h1 break-word mb-3 mb-lg-5">
-        {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
-      </h2>
+  @php
+    $connect_cards = carbon_get_post_meta(get_the_ID(), 'front_connect_blocks');
+  @endphp
 
-      @php
-        $connect_cards = carbon_get_post_meta(get_the_ID(), 'front_connect_blocks');
-      @endphp
+  @if (! empty($connect_cards))
+    <section class="my-7 my-lg-10 connect-section">
+      <div class="container">
+        <h2 class="h1 break-word mb-3 mb-lg-5">
+          {{ carbon_get_post_meta(get_the_ID(), 'front_connect_header') }}
+        </h2>
 
-      <div class="row g-3">
-        <div class="col-12 col-xl-4">
-          <x-connect-card :card="$connect_cards[0]" />
-        </div>
-        <div class="col-12 col-xl-8">
-          <div class="row g-3">
-            <div class="col-12 col-md-6">
-              <x-connect-card :card="$connect_cards[1]" />
-            </div>
-            <div class="col-12 col-md-6">
-              <x-connect-card :card="$connect_cards[2]" />
-            </div>
-            <div class="col-12 text-body">
-              <x-connect-card :card="$connect_cards[3]" />
+        <div class="row g-3">
+          <div class="col-12 col-xl-4">
+            <x-connect-card :card="$connect_cards[0]" />
+          </div>
+          <div class="col-12 col-xl-8">
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <x-connect-card :card="$connect_cards[1]" />
+              </div>
+              <div class="col-12 col-md-6">
+                <x-connect-card :card="$connect_cards[2]" />
+              </div>
+              <div class="col-12 text-body">
+                <x-connect-card :card="$connect_cards[3]" />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  @endif
 @endsection
