@@ -65,9 +65,6 @@ add_action(
     );
 
     wp_dequeue_style('wp-block-library'); // Remove WordPress core CSS
-
-    wp_dequeue_style('multiple-authors-widget-css');
-    wp_deregister_style('multiple-authors-widget-css');
   },
   100
 );
