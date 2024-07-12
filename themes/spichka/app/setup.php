@@ -48,10 +48,11 @@ add_action(
       bundle('404')->enqueue();
     }
 
+    wp_dequeue_style('modern_footnotes');
+
     if (is_singular('post')) {
       bundle('single-post')->enqueue();
     } else {
-      wp_dequeue_style('modern_footnotes');
       wp_dequeue_script('modern_footnotes');
     }
 
@@ -64,9 +65,6 @@ add_action(
     );
 
     wp_dequeue_style('wp-block-library'); // Remove WordPress core CSS
-
-    wp_dequeue_style('multiple-authors-widget-css');
-    wp_deregister_style('multiple-authors-widget-css');
   },
   100
 );
@@ -210,5 +208,11 @@ add_action('wp_default_scripts', function ($scripts) {
       $scripts->registered['jquery']->deps,
       ['jquery-migrate']
     );
+  }
+});
+
+add_action('get_footer', function () {
+  if (is_singular('post')) {
+    wp_enqueue_style('modern_footnotes');
   }
 });
