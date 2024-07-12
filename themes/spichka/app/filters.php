@@ -113,3 +113,11 @@ add_filter('wp_calculate_image_sizes', function ($sizes) {
 
   return $sizes;
 });
+
+add_filter('publishpress_authors_load_style_in_frontend', function () {
+  return false;
+});
+
+add_filter('get_search_form', function () {
+  return \Roots\view('partials.searchform');
+});
