@@ -1,7 +1,7 @@
 <form role="search" method="get" action="{{ home_url('/') }}">
   <label class="screen-reader-text" for="s">{{ __('Search') }}</label>
   <div
-    class="d-flex align-items-center form-group has-search p-3 bg-tertiary bg-opacity-10">
+    class="d-flex align-items-center form-group has-search px-3 py-2 bg-tertiary bg-opacity-10">
     <span class="fa fa-search text-tertiary form-control-feedback l-1"></span>
 
     <input
