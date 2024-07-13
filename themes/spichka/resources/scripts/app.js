@@ -16,7 +16,15 @@ function searchInputHandler() {
     return;
   }
 
+  displaySearchResetToggle(searchInput, resetButton);
+
   searchInput.addEventListener('input', function () {
+    displaySearchResetToggle(searchInput, resetButton);
+  });
+
+  resetButton.addEventListener('click', function (e) {
+    e.preventDefault();
+    searchInput.value = '';
     displaySearchResetToggle(searchInput, resetButton);
   });
 }

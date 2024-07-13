@@ -13,7 +13,7 @@
       placeholder="{{ __('Search') }}" />
 
     <button
-      class="d-none btn d-flex p-2 align-items-center justify-content-center btn-secondary rounded-circle"
+      class="btn d-flex p-2 align-items-center justify-content-center btn-secondary rounded-circle"
       type="reset"
       id="search-reset"
       title="{{ __('Reset') }}">
