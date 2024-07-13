@@ -32,12 +32,17 @@ header {
     }
   }
 
-  button[type='reset'] {
-    width: 1rem;
-    height: 1rem;
+  .search-wrapper {
+    padding-top: 0.875rem; /* 14px */
+    padding-bottom: 0.875rem; /* 14px */
 
-    i {
-      font-size: 0.6rem;
+    button[type='reset'] {
+      width: 1rem;
+      height: 1rem;
+
+      i {
+        font-size: 0.6rem;
+      }
     }
   }
 }
