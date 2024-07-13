@@ -125,16 +125,6 @@ add_filter('get_search_form', function () {
 // Algolia search
 function wds_algolia_custom_fields($attributes, $post)
 {
-  $fields = ['ppma_authors_name'];
-
-  foreach ($fields as $field) {
-    $data = get_post_meta($post->ID, $field);
-
-    if (!empty($data)) {
-      $attributes[$field] = $data[0];
-    }
-  }
-
   return array_intersect_key(
     $attributes,
     array_flip([
