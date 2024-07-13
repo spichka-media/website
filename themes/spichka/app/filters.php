@@ -128,7 +128,6 @@ function wds_algolia_custom_fields($attributes, $post)
   return array_intersect_key(
     $attributes,
     array_flip([
-      ...$fields,
       'post_title',
       'content',
       'post_id',
