@@ -6,14 +6,16 @@
 
     <input
       type="search"
+      id="search"
       value="{{ get_search_query() }}"
       name="s"
       class="form-control w-100 ms-2 bg-transparent focus-ring shadow-none text-white border-0"
       placeholder="{{ __('Search') }}" />
 
     <button
-      class="btn d-flex p-2 align-items-center justify-content-center btn-secondary rounded-circle"
+      class="d-none btn d-flex p-2 align-items-center justify-content-center btn-secondary rounded-circle"
       type="reset"
+      id="search-reset"
       title="{{ __('Reset') }}">
       <i class="small fa-solid text-tertiary fa-xmark"></i>
     </button>
