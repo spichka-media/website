@@ -26,6 +26,7 @@ function searchInputHandler() {
     e.preventDefault();
     searchInput.value = '';
     displaySearchResetToggle(searchInput, resetButton);
+    searchInput.focus();
   });
 }
 
