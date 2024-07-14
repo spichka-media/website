@@ -9,6 +9,7 @@
       id="search"
       value="{{ get_search_query() }}"
       name="s"
+      minlength="3"
       class="form-control w-100 ms-2 bg-transparent focus-ring shadow-none text-white border-0"
       placeholder="{{ __('Search') }}" />
 
