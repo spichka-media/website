@@ -59,7 +59,7 @@ export default async (app) => {
     ],
     safelist: {
       ...purgeCssWordPress.safelist,
-      standard: ['img', 'blockquote', 'figure', 'screen-reader-text'],
+      standard: ['img', 'iframe', 'blockquote', 'figure', 'screen-reader-text'],
       deep: [
         /^ez-toc-/,
         /^offcanvas(-.*)?$/,
