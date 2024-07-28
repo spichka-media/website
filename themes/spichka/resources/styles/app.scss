@@ -55,6 +55,10 @@ h6 {
   color: $tertiary !important;
 }
 
+.bg-tertiary {
+  background-color: rgba($tertiary, var(--bs-bg-opacity)) !important;
+}
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
   border: 0;

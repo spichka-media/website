@@ -117,3 +117,71 @@ add_filter('wp_calculate_image_sizes', function ($sizes) {
 add_filter('publishpress_authors_load_style_in_frontend', function () {
   return false;
 });
+
+add_filter('get_search_form', function () {
+  return \Roots\view('partials.searchform');
+});
+
+// Algolia search
+function wds_algolia_custom_fields($attributes, $post)
+{
+  return array_intersect_key(
+    $attributes,
+    array_flip([
+      'post_title',
+      'content',
+      'post_id',
+      'taxonomies',
+      'post_excerpt',
+      'taxonomies_hierarchical',
+    ])
+  );
+}
+
+add_filter(
+  'algolia_post_shared_attributes',
+  function ($attributes, $post) {
+    return wds_algolia_custom_fields($attributes, $post);
+  },
+  10,
+  2
+);
+
+add_filter(
+  'algolia_searchable_post_shared_attributes',
+  function ($attributes, $post) {
+    return wds_algolia_custom_fields($attributes, $post);
+  },
+  10,
+  2
+);
+
+add_filter(
+  'algolia_should_index_searchable_post',
+  function ($should_index, $post) {
+    return $should_index && 'post' === $post->post_type;
+  },
+  10,
+  2
+);
+
+add_filter(
+  'algolia_searchable_posts_index_settings',
+  function () {
+    return [
+      'searchableAttributes' => [
+        'unordered(post_title)',
+        'unordered(taxonomies)',
+        'unordered(content)',
+        'unordered(post_excerpt)',
+        'unordered(taxonomies_hierarchical)',
+      ],
+      'attributeForDistinct' => 'post_id',
+      'distinct' => true,
+      'attributesToSnippet' => ['post_title:30', 'content:30'],
+      'snippetEllipsisText' => '…',
+    ];
+  },
+  10,
+  0
+);

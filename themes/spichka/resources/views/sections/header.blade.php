@@ -28,24 +28,26 @@
           </button>
         </div>
         <div class="offcanvas-body">
+          {{ get_search_form() }}
+
           @if (has_nav_menu('primary_navigation'))
             {!!
               wp_nav_menu([
                 'theme_location' => 'primary_navigation',
                 'container_class' => '',
-                'menu_class' => 'navbar-nav',
+                'menu_class' => 'navbar-nav my-3',
               ])
             !!}
           @endif
 
           @if (has_nav_menu('secondary_navigation'))
-            <hr class="bg-white my-3" />
+            <hr class="bg-white" />
 
             {!!
               wp_nav_menu([
                 'theme_location' => 'secondary_navigation',
                 'container_class' => '',
-                'menu_class' => 'navbar-nav',
+                'menu_class' => 'navbar-nav my-3',
               ])
             !!}
           @endif

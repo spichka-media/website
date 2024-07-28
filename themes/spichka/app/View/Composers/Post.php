@@ -41,7 +41,7 @@ class Post extends Composer
         return get_the_title($home);
       }
 
-      return __('Latest Posts', 'spichka');
+      return __('Latest Posts');
     }
 
     if (is_archive()) {
@@ -51,13 +51,13 @@ class Post extends Composer
     if (is_search()) {
       return sprintf(
         /* translators: %s is replaced with the search query */
-        __('Search Results for %s', 'spichka'),
+        __('Search Results for &#8220;%s&#8221;'),
         get_search_query()
       );
     }
 
     if (is_404()) {
-      return __('Not Found', 'spichka');
+      return __('Not Found');
     }
 
     return get_the_title();

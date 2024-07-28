@@ -40,7 +40,7 @@ add_action(
       bundle('front-page')->enqueue();
     }
 
-    if (is_archive() || is_home()) {
+    if (is_archive() || is_home() || is_search()) {
       bundle('archive')->enqueue();
     }
 

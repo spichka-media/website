@@ -81,6 +81,13 @@ function my_theme_register_required_plugins()
       'force_activation' => false,
       'version' => '0.25.9',
     ],
+    [
+      'name' => 'WP Search with Algolia',
+      'slug' => 'wp-search-with-algolia',
+      'required' => false,
+      'force_activation' => false,
+      'version' => '2.8.1',
+    ],
   ];
 
   $config = [
