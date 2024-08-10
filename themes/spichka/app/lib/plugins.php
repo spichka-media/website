@@ -65,14 +65,14 @@ function my_theme_register_required_plugins()
       'slug' => 'performance-lab',
       'required' => false,
       'force_activation' => false,
-      'version' => '3.2.0',
+      'version' => '3.3.1',
     ],
     [
       'name' => 'Lazy Load - Optimize Images',
       'slug' => 'rocket-lazy-load',
       'required' => false,
       'force_activation' => false,
-      'version' => '2.3.7',
+      'version' => '2.3.9',
     ],
     [
       'name' => 'WebP Express',
