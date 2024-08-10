@@ -20,31 +20,32 @@
     "lint": "yarn lint:js && yarn lint:css && yarn lint:php",
     "lint:js": "./node_modules/.bin/eslint resources/scripts",
     "lint:css": "./node_modules/.bin/stylelint \"resources/**/*.{css,scss,vue}\"",
-    "lint:php": "./node_modules/.bin/prettier \"**/*.php\" --check",
-    "lint:php:fix": "./node_modules/.bin/prettier \"**/*.php\" --write",
+    "lint:php": "prettier \"**/*.php\" --check",
+    "lint:php:fix": "prettier \"**/*.php\" --write",
     "test": "yarn lint",
     "postinstall": "cd ../.. && husky install"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "6.0.0",
     "@prettier/plugin-php": "0.22.2",
-    "@roots/bud": "6.23.1",
-    "@roots/bud-eslint": "6.23.1",
-    "@roots/bud-prettier": "6.23.1",
-    "@roots/bud-purgecss": "6.23.1",
-    "@roots/bud-sass": "6.23.1",
-    "@roots/bud-stylelint": "6.23.1",
-    "@roots/eslint-config": "6.23.1",
-    "@roots/sage": "6.23.1",
-    "husky": "9.0.11",
+    "@roots/bud": "6.23.2",
+    "@roots/bud-eslint": "6.23.2",
+    "@roots/bud-prettier": "6.23.2",
+    "@roots/bud-purgecss": "6.23.2",
+    "@roots/bud-sass": "6.23.2",
+    "@roots/bud-stylelint": "6.23.2",
+    "@roots/eslint-config": "6.23.2",
+    "@roots/sage": "6.23.2",
+    "husky": "9.1.4",
     "install-peers": "1.0.4",
-    "prettier-plugin-blade": "2.1.16",
+    "prettier": "3.3.3",
+    "prettier-plugin-blade": "2.1.18",
     "purgecss-with-wordpress": "6.0.0"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
-    "swiper": "11.1.4"
+    "swiper": "11.1.9"
   },
   "packageManager": "yarn@4.3.1"
 }

@@ -39,9 +39,9 @@
     }
   },
   "require": {
-    "php": "^8.0",
-    "log1x/sage-svg": "^1.1",
-    "roots/acorn": "^3.2"
+    "php": "^8.3",
+    "log1x/sage-svg": "2.0.1",
+    "roots/acorn": "4.3.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.7.2"
