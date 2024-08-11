@@ -29,7 +29,7 @@ function my_theme_register_required_plugins()
       'slug' => 'easy-table-of-contents',
       'required' => true,
       'force_activation' => true,
-      'version' => '2.0.67.1',
+      'version' => '2.0.68.1',
     ],
     [
       'name' => 'PublishPress Authors',
