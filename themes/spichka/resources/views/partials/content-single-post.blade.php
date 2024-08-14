@@ -65,11 +65,13 @@
           <div class="row">
             @foreach ($recommended_posts as $recommended_post)
               <div class="row gx-3 col-md-6 mt-5">
-                <div class="col-auto">
-                  <a href="{{ get_the_permalink($recommended_post->ID) }}">
-                    {!! get_the_post_thumbnail($recommended_post->ID, [64, 91]) !!}
-                  </a>
-                </div>
+                @if (has_post_thumbnail($recommended_post->ID))
+                  <div class="col-auto">
+                    <a href="{{ get_the_permalink($recommended_post->ID) }}">
+                      {!! get_the_post_thumbnail($recommended_post->ID, [64, 91]) !!}
+                    </a>
+                  </div>
+                @endif
 
                 <div class="col">
                   <a
@@ -78,9 +80,11 @@
                     {{ get_the_title($recommended_post->ID) }}
                   </a>
 
-                  <p class="mt-1 mb-0 fs-8 text-secondary">
-                    {{ get_the_excerpt($recommended_post->ID) }}
-                  </p>
+                  @if (has_excerpt($recommended_post->ID))
+                    <p class="mt-1 mb-0 fs-8 text-secondary">
+                      {{ get_the_excerpt($recommended_post->ID) }}
+                    </p>
+                  @endif
                 </div>
               </div>
             @endforeach
