@@ -4,12 +4,9 @@ const MAX_RECOMENDATIONS_AMOUNT = 4;
 
 function get_post_recommendations(int $post_id)
 {
-  $manual_recommendations = carbon_get_post_meta(
-    get_the_ID(),
-    'front_program_articles'
-  );
+  $manual_recommendations = carbon_get_post_meta($post_id, 'recommended_posts');
 
-  if (count($manual_recommendations)) {
+  if ($manual_recommendations && count($manual_recommendations)) {
     return $manual_recommendations;
   }
 
