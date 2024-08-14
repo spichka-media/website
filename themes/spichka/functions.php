@@ -71,3 +71,4 @@ require_once dirname(__FILE__) . '/app/lib/utils.php';
 require_once dirname(__FILE__) . '/app/lib/pagination.php';
 require_once dirname(__FILE__) . '/app/lib/plugins.php';
 require_once dirname(__FILE__) . '/app/custom-fields.php';
+require_once dirname(__FILE__) . '/app/lib/recommendations.php';

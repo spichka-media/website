@@ -54,8 +54,42 @@
         @php(the_content())
       </div>
 
-      <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
-        @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && carbon_get_theme_option('theme_telegram_channel'))
+      @php($recommended_posts = get_post_recommendations(get_the_ID()))
+      @if (count($recommended_posts))
+        <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
+          <div class="h3 fw-medium">
+            {{ carbon_get_theme_option('recommended_posts_title') }}
+          </div>
+          <hr class="my-0" />
+
+          <div class="row">
+            @foreach ($recommended_posts as $recommended_post)
+              <div class="row gx-3 col-md-6 mt-5">
+                <div class="col-auto">
+                  <a href="{{ get_the_permalink($recommended_post->ID) }}">
+                    {!! get_the_post_thumbnail($recommended_post->ID, [64, 91]) !!}
+                  </a>
+                </div>
+
+                <div class="col">
+                  <a
+                    class="link-dark fw-semibold fs-7"
+                    href="{{ get_the_permalink($recommended_post->ID) }}">
+                    {{ get_the_title($recommended_post->ID) }}
+                  </a>
+
+                  <p class="mt-1 mb-0 fs-8 text-secondary">
+                    {{ get_the_excerpt($recommended_post->ID) }}
+                  </p>
+                </div>
+              </div>
+            @endforeach
+          </div>
+        </div>
+      @endif
+
+      @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && carbon_get_theme_option('theme_telegram_channel'))
+        <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
           <script
             async
             src="https://telegram.org/js/telegram-widget.js?22"
@@ -63,8 +97,8 @@
             data-comments-limit="5"
             data-color="343638"
             data-dark-color="FFFFFF"></script>
-        @endif
-      </div>
+        </div>
+      @endif
     </div>
   </div>
 </article>
