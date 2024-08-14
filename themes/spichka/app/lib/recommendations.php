@@ -16,7 +16,7 @@ function get_post_recommendations(int $post_id)
   $tag_posts = [];
   $tags = get_the_tags($post_id);
 
-  if (count($tags)) {
+  if ($tags && count($tags)) {
     $args = [
       'numberposts' => MAX_RECOMENDATIONS_AMOUNT,
       'post_type' => 'post',
