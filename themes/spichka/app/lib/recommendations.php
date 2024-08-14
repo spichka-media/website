@@ -13,24 +13,29 @@ function get_post_recommendations(int $post_id)
     return $manual_recommendations;
   }
 
-  $args = [
-    'numberposts' => MAX_RECOMENDATIONS_AMOUNT,
-    'post_type' => 'post',
-    'post_status' => 'publish',
-    'tax_query' => [
-      [
-        'taxonomy' => 'post_tag',
-        'field' => 'slug',
-        'terms' => array_pluck(get_the_tags($post_id), 'slug'),
+  $tag_posts = [];
+  $tags = get_the_tags($post_id);
+
+  if (count($tags)) {
+    $args = [
+      'numberposts' => MAX_RECOMENDATIONS_AMOUNT,
+      'post_type' => 'post',
+      'post_status' => 'publish',
+      'tax_query' => [
+        [
+          'taxonomy' => 'post_tag',
+          'field' => 'slug',
+          'terms' => array_pluck($tags, 'slug'),
+        ],
       ],
-    ],
-    'exclude' => [$post_id],
-  ];
+      'exclude' => [$post_id],
+    ];
 
-  $tag_posts = get_posts($args);
+    $tag_posts = get_posts($args);
 
-  if (count($tag_posts) === MAX_RECOMENDATIONS_AMOUNT) {
-    return $tag_posts;
+    if (count($tag_posts) === MAX_RECOMENDATIONS_AMOUNT) {
+      return $tag_posts;
+    }
   }
 
   $args = [
