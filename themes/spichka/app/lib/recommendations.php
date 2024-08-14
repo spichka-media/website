@@ -7,7 +7,9 @@ function get_post_recommendations(int $post_id)
   $manual_recommendations = carbon_get_post_meta($post_id, 'recommended_posts');
 
   if ($manual_recommendations && count($manual_recommendations)) {
-    return $manual_recommendations;
+    return get_posts([
+      'include' => array_pluck($manual_recommendations, 'id'),
+    ]);
   }
 
   $tag_posts = [];
