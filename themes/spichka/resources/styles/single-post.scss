@@ -62,12 +62,6 @@ article {
     }
   }
 
-  #post-tags {
-    a {
-      margin-left: map.get($spacers, 1);
-    }
-  }
-
   figure {
     margin-top: map.get($spacers, 5);
     margin-bottom: map.get($spacers, 5);
