@@ -14,7 +14,7 @@
             <i class="fa-fw me-2 fas fa-bookmark"></i>
             <span>
               <span class="fw-x-bold">{{ _e('Categories') }}:</span>
-              <span class="ms-1">@php(the_category(', '))</span>
+              <span>@php(the_category(', '))</span>
             </span>
           </div>
 
