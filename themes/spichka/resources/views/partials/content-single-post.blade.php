@@ -56,33 +56,34 @@
 
       @php($recommended_posts = get_post_recommendations(get_the_ID()))
       @if (count($recommended_posts))
-        <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
+        <div class="recomended">
           <div class="h3 fw-medium">
             {{ carbon_get_theme_option('recommended_posts_title') }}
           </div>
-          <hr class="my-0" />
+          <hr class="my-0 pb-5" />
 
-          <div class="row">
+          <div class="row-recommended">
             @foreach ($recommended_posts as $recommended_post)
-              <div class="row col-md-6 mt-5">
+              <div class="recommended-post d-flex align-items-start">
                 @if (has_post_thumbnail($recommended_post->ID))
-                  <div class="col-auto">
+                  <div class="img-container">
                     <a href="{{ get_the_permalink($recommended_post->ID) }}">
                       {!! preg_replace('/(srcset|sizes)="[^"]*"/', '', get_the_post_thumbnail($recommended_post->ID, [65, 92])) !!}
                     </a>
                   </div>
                 @endif
 
-                <div class="col ps-1">
+                <div class="text-container">
                   <a
-                    class="link-dark fw-semibold fs-7"
+                    class="header-text link-dark fw-semibold fs-7"
                     href="{{ get_the_permalink($recommended_post->ID) }}">
                     {{ get_the_title($recommended_post->ID) }}
                   </a>
                   @if (has_excerpt($recommended_post->ID))
-                    <p class="mt-1 mb-0 fs-8 text-secondary">
+                    <div
+                      class="post-text ellipsis-container text-secondary pe-2">
                       {{ get_the_excerpt($recommended_post->ID) }}
-                    </p>
+                    </div>
                   @endif
                 </div>
               </div>
