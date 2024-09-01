@@ -56,6 +56,7 @@ export default async (app) => {
       app.path(`resources/views/**`),
       app.path(`index.php`),
       app.path(`app/lib/pagination.php`),
+      app.path(`node_modules/bootstrap/**`),
     ],
     safelist: {
       ...purgeCssWordPress.safelist,
