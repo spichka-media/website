@@ -30,6 +30,12 @@ export default async (app) => {
       },
     })
     .entry({
+      'about-us': {
+        import: ['@scripts/about-us', '@styles/about-us'],
+        dependOn: ['app'],
+      },
+    })
+    .entry({
       404: {
         import: ['@styles/404'],
         dependOn: ['app'],

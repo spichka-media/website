@@ -48,6 +48,10 @@ add_action(
       bundle('404')->enqueue();
     }
 
+    if (is_page('about-us')) {
+      bundle('about-us')->enqueue();
+    }
+
     wp_dequeue_style('modern_footnotes');
 
     if (is_singular('post')) {

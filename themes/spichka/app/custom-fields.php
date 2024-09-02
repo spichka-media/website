@@ -42,6 +42,14 @@ add_action(
         ),
       ]);
 
+    if (get_page_by_path('about-us')) {
+      Container::make('post_meta', __('Настройки'))
+        ->where('post_id', '=', get_page_by_path('about-us')->ID)
+        ->add_fields([
+          //
+        ]);
+    }
+
     Container::make('post_meta', __('Настройки главной страницы'))
       ->where('post_id', '=', get_option('page_on_front'))
       ->add_tab(__('Баннер'), [
