@@ -88,65 +88,23 @@ article {
     text-align: center;
   }
 
-  .recommended-post {
-    height: 91px;
-    border-radius: 5px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-  }
+  .recommendations {
+    .recommended-card {
+      .wp-post-image {
+        transition: transform 0.5s;
+      }
 
-  .recommended-post:hover .post-text,
-  .recommended-post:hover .header-text {
-    color: #7d7d7d !important;
-  }
-
-  .recommended-post .img-container {
-    flex: 0 0 auto;
-    margin-right: 1rem;
-    max-width: 100px;
-    transition: transform 0.5s;
-  }
-
-  .recommended-post:hover .img-container {
-    transform: scale(1.2);
-  }
-
-  .recommended-post img {
-    width: 64px;
-    height: 91px;
-    object-fit: cover;
-  }
-
-  .recommended-post .text-container {
-    flex: 1 1 auto;
-  }
-
-  .recommended-post .fs-7 {
-    font-size: 1rem;
-  }
-
-  .recommended-post .fs-8 {
-    font-size: 0.875rem;
-  }
-
-  .row-recommended {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  @include media-breakpoint-only(xs) {
-    .row-recommended {
-      grid-template-columns: 1fr;
+      &:hover {
+        .excerpt {
+          color: #7d7d7d !important;
+        }
+        .title {
+          color: #6f6f6f !important;
+        }
+        .wp-post-image {
+          transform: scale(1.2);
+        }
+      }
     }
-  }
-
-  .ellipsis-container {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-height: 20px;
   }
 }
