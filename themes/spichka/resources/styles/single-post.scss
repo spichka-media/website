@@ -88,6 +88,11 @@ article {
       transition: transform 0.5s;
     }
 
+    .excerpt,
+    .title {
+      transition: opacity 0.5s;
+    }
+
     &:hover {
       .excerpt,
       .title {
@@ -95,7 +100,7 @@ article {
       }
 
       .wp-post-image {
-        transform: scale(1.2);
+        transform: scale(1.1);
       }
     }
   }
