@@ -36,13 +36,12 @@ function get_post_recommendations(int $post_id)
       return $tag_posts;
     }
   }
-
   $args = [
     'numberposts' => MAX_RECOMMENDED_POSTS - count($tag_posts),
     'post_type' => 'post',
     'post_status' => 'publish',
     'category' => array_pluck(get_the_category($post_id), 'term_id'),
-    'exclude' => [$post_id],
+    'exclude' => [...array_pluck($tag_posts, 'ID'), $post_id],
   ];
 
   $category_posts = get_posts($args);
