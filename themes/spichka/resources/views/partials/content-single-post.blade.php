@@ -69,8 +69,10 @@
                   href="{{ get_the_permalink($recommended_post->ID) }}">
                   <span class="row">
                     @if (has_post_thumbnail($recommended_post->ID))
-                      <span class="d-block col-auto overflow-hidden">
-                        {!! preg_replace('/(srcset|sizes)="[^"]*"/', '', get_the_post_thumbnail($recommended_post->ID, [65, 92])) !!}
+                      <span class="d-block col-auto">
+                        <span class="d-block overflow-hidden">
+                          {!! preg_replace('/(srcset|sizes)="[^"]*"/', '', get_the_post_thumbnail($recommended_post->ID, [65, 92])) !!}
+                        </span>
                       </span>
                     @endif
 
