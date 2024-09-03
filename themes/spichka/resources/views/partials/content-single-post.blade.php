@@ -61,32 +61,35 @@
             {{ carbon_get_theme_option('recommended_posts_title') }}
           </div>
           <hr class="my-0" />
+          <div class="mt-5 mb-6">
+            <div class="gx-5 gy-5 row">
+              @foreach ($recommended_posts as $recommended_post)
+                <a
+                  class="d-block recommended-card col-md-6"
+                  href="{{ get_the_permalink($recommended_post->ID) }}">
+                  <span class="row">
+                    @if (has_post_thumbnail($recommended_post->ID))
+                      <span class="d-block col-auto overflow-hidden">
+                        {!! preg_replace('/(srcset|sizes)="[^"]*"/', '', get_the_post_thumbnail($recommended_post->ID, [65, 92])) !!}
+                      </span>
+                    @endif
 
-          <div class="row">
-            @foreach ($recommended_posts as $recommended_post)
-              <div class="row col-md-6 mt-5">
-                @if (has_post_thumbnail($recommended_post->ID))
-                  <div class="col-auto">
-                    <a href="{{ get_the_permalink($recommended_post->ID) }}">
-                      {!! preg_replace('/(srcset|sizes)="[^"]*"/', '', get_the_post_thumbnail($recommended_post->ID, [65, 92])) !!}
-                    </a>
-                  </div>
-                @endif
+                    <span class="d-block col ps-1">
+                      <span class="title text-dark fs-7 fw-semibold">
+                        {{ get_the_title($recommended_post->ID) }}
+                      </span>
 
-                <div class="col ps-1">
-                  <a
-                    class="link-dark fw-semibold fs-7"
-                    href="{{ get_the_permalink($recommended_post->ID) }}">
-                    {{ get_the_title($recommended_post->ID) }}
-                  </a>
-                  @if (has_excerpt($recommended_post->ID))
-                    <p class="mt-1 mb-0 fs-8 text-secondary">
-                      {{ get_the_excerpt($recommended_post->ID) }}
-                    </p>
-                  @endif
-                </div>
-              </div>
-            @endforeach
+                      @if (has_excerpt($recommended_post->ID))
+                        <span
+                          class="d-block excerpt mt-1 mb-0 fs-8 text-secondary">
+                          {{ get_the_excerpt($recommended_post->ID) }}
+                        </span>
+                      @endif
+                    </span>
+                  </span>
+                </a>
+              @endforeach
+            </div>
           </div>
         </div>
       @endif
