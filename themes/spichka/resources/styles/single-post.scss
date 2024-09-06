@@ -82,4 +82,26 @@ article {
   .has-text-align-center {
     text-align: center;
   }
+
+  .recommended-card {
+    .wp-post-image {
+      transition: transform 0.5s;
+    }
+
+    .excerpt,
+    .title {
+      transition: opacity 0.3s;
+    }
+
+    &:hover {
+      .excerpt,
+      .title {
+        opacity: 0.65;
+      }
+
+      .wp-post-image {
+        transform: scale(1.1);
+      }
+    }
+  }
 }
