@@ -57,13 +57,13 @@ export default async (app) => {
    */
   app.setPublicPath('/app/themes/sage/public/');
 
-  app.purgecss({
-    content: [
+  app.purge
+    .setContent([
       app.path(`resources/views/**`),
       app.path(`index.php`),
       app.path(`app/lib/pagination.php`),
-    ],
-    safelist: {
+    ])
+    .setSafelist({
       ...purgeCssWordPress.safelist,
       standard: ['img', 'iframe', 'blockquote', 'figure', 'screen-reader-text'],
       deep: [
@@ -75,8 +75,7 @@ export default async (app) => {
         /^pp-multiple-authors-/,
         /^article/,
       ],
-    },
-  });
+    });
 
   /**
    * Development server settings

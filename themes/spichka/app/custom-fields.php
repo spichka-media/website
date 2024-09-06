@@ -21,6 +21,11 @@ add_action(
       Field::make('image', 'theme_footer_image', 'Изображение'),
       Field::make('rich_text', 'theme_footer_text', 'Текст в футере'),
       Field::make(
+        'text',
+        'recommended_posts_title',
+        'Заголовок блока рекомендаций'
+      ),
+      Field::make(
         'file',
         'posts_more_image',
         __('Изображение для "Больше статей')
@@ -40,6 +45,18 @@ add_action(
           'post_telegram_post_id',
           __('Номер поста в Telegram')
         ),
+      ])
+      ->add_tab(__('Рекомендованные статьи'), [
+        Field::make(
+          'association',
+          'recommended_posts',
+          __('Статьи')
+        )->set_types([
+          [
+            'type' => 'post',
+            'post_type' => 'post',
+          ],
+        ]),
       ]);
 
     if (get_page_by_path('about-us')) {
