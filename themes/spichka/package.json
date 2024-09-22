@@ -28,24 +28,24 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "6.0.0",
     "@prettier/plugin-php": "0.22.2",
-    "@roots/bud": "6.23.2",
-    "@roots/bud-eslint": "6.23.2",
-    "@roots/bud-prettier": "6.23.2",
-    "@roots/bud-purgecss": "6.23.2",
-    "@roots/bud-sass": "6.23.2",
-    "@roots/bud-stylelint": "6.23.2",
-    "@roots/eslint-config": "6.23.2",
-    "@roots/sage": "6.23.2",
-    "husky": "9.1.4",
+    "@roots/bud": "6.23.3",
+    "@roots/bud-eslint": "6.23.3",
+    "@roots/bud-prettier": "6.23.3",
+    "@roots/bud-purgecss": "6.23.3",
+    "@roots/bud-sass": "6.23.3",
+    "@roots/bud-stylelint": "6.23.3",
+    "@roots/eslint-config": "6.23.3",
+    "@roots/sage": "6.23.3",
+    "husky": "9.1.6",
     "install-peers": "1.0.4",
     "prettier": "3.3.3",
-    "prettier-plugin-blade": "2.1.18",
+    "prettier-plugin-blade": "2.1.19",
     "purgecss-with-wordpress": "6.0.0"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
-    "swiper": "11.1.9"
+    "swiper": "11.1.14"
   },
   "packageManager": "yarn@4.3.1"
 }
