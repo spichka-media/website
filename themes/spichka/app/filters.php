@@ -207,3 +207,5 @@ add_filter('rest_authentication_errors', function ($result) {
   // on logged-in requests
   return $result;
 });
+
+add_filter('xmlrpc_enabled', '__return_false');
