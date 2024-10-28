@@ -1,1 +1,88 @@
 @import './app';
+@import './libs/swiper';
+
+.hero-section {
+  h1 {
+    @include font-size(6.25rem);
+
+    padding-top: 100px;
+  }
+
+  .image {
+    &::before,
+    &::after {
+      content: '';
+      border-bottom: 1px solid #333;
+      opacity: 0.5;
+      position: absolute;
+      width: 100vw;
+      right: 300px;
+      top: 70px;
+      z-index: -1;
+      transform-origin: bottom right 60px;
+    }
+
+    &::before {
+      top: 59px;
+      transform: rotate(8deg);
+    }
+
+    &::after {
+      top: 115px;
+      transform: rotate(-2deg);
+    }
+  }
+}
+
+.support-section {
+  .image {
+    // background-image: url('http://localhost:8000/wp-content/uploads/2024/10/Frame-1552.svg');
+    // background-size: 360px 253px;
+    // background-repeat: repeat-x;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .join-section,
+  .hero-section,
+  .about-section {
+    .description {
+      padding-top: 100px !important;
+      padding-bottom: 100px !important;
+    }
+  }
+}
+
+.program-articles-section {
+  .post-card {
+    max-width: 18.125rem;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .border-xs-0 {
+    border: none !important;
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .border-sm-end {
+    border-right: 1px solid $border-color !important;
+  }
+
+  .border-sm-start {
+    border-left: 1px solid $border-color !important;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .border-lg-end {
+    border-right: 1px solid $border-color !important;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .border-md-end {
+    border-right: 1px solid $border-color !important;
+  }
+}
