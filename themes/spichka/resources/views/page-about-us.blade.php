@@ -83,6 +83,7 @@
               'terms' => 'programm',
             ],
           ],
+          'numberposts' => -1,
         ]);
       @endphp
 
