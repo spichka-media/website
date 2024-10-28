@@ -13,7 +13,7 @@
 
           <div class="col-12 offset-lg-4 col-md-8 description fs-6">
             <p>
-              <b>Мы создали «Спичка», чтобы:</b>
+              <b>Мы создали «Спичку», чтобы:</b>
             </p>
 
             <ol>
