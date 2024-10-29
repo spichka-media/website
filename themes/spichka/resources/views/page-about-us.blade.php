@@ -6,29 +6,17 @@
       <div class="row border-sm-start border-sm-end border-0">
         <div class="col-12 col-sm-9 border-lg-end border-0">
           <h1 class="fw-x-bold lh-1 text-uppercase text-dark">
-            Куда
-            <br />
-            мы идём
+            {!! strip_tags(wpautop(carbon_get_post_meta(get_the_ID(), 'banner_title')), '<br>') !!}
           </h1>
 
           <div class="col-12 offset-lg-4 col-md-8 description fs-6">
-            <p>
-              <b>Мы создали «Спичку», чтобы:</b>
-            </p>
-
-            <ol>
-              <li>развивать марксизм,</li>
-              <li>делать его снова популярным,</li>
-              <li>сформировать сплочённый и образованный коллектив.</li>
-            </ol>
+            {!! wpautop(carbon_get_post_meta(get_the_ID(), 'banner_description')) !!}
           </div>
         </div>
       </div>
 
       <div class="image d-none d-lg-block position-absolute bottom-0 end-0">
-        <img
-          src="https://spichka.media/wp-content/uploads/2024/10/mask.png"
-          alt="" />
+        {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'banner_image'), 'full') !!}
       </div>
     </div>
   </section>
@@ -37,31 +25,14 @@
     <div class="container">
       <div class="row border-sm-start border-sm-end border-0">
         <div class="col-12 col-md-4 border-sm-end border-0">
-          <h2 class="mt-6">О чём вещаем</h2>
+          <h2 class="mt-6">
+            {{ carbon_get_post_meta(get_the_ID(), 'about_title') }}
+          </h2>
         </div>
 
         <div class="col-12 col-md-8 col-lg-5">
           <div class="description py-4 fs-6">
-            <p>
-              Идеи не меняют мир, если о них никто не знает.  Поэтому наш
-              принцип — писать и говорить ясно.
-            </p>
-
-            <p>
-              Сперва мы много писали про социалистические страны:  Восточную
-              Германию, Кубу и Северную Корею.
-            </p>
-
-            <p>
-              Теперь у нас больше авторов, и пишем не только про историю; ещё
-              мы изучаем капитализм, вопросы эстетики и культуры, размышляем,
-              что делать левым.
-            </p>
-
-            <p>
-              Записываем подкасты и ведём ютуб-канал, делаем лучший дизайн среди
-              левых медиа.
-            </p>
+            {!! wpautop(carbon_get_post_meta(get_the_ID(), 'about_description')) !!}
           </div>
         </div>
       </div>
@@ -70,7 +41,9 @@
 
   <section class="program-articles-section border-top">
     <div class="container">
-      <h2 class="mt-6">Программные статьи</h2>
+      <h2 class="mt-6">
+        {{ carbon_get_post_meta(get_the_ID(), 'articles_title') }}
+      </h2>
     </div>
 
     <div class="mt-4 mb-8 swiper-container position-relative container-fluid">
@@ -114,22 +87,20 @@
     <div class="container">
       <div class="row border-sm-start border-sm-end border-0">
         <div class="col-12 col-md-4 border-sm-end border-0">
-          <h2 class="mt-6">Что ещё делаем</h2>
+          <h2 class="mt-6">
+            {{ carbon_get_post_meta(get_the_ID(), 'join_title') }}
+          </h2>
         </div>
 
         <div class="col-12 col-md-8 col-lg-5">
           <div class="description py-4 fs-6">
-            <p>Мы не просто журнал. «Спичка» — это сообщество.</p>
+            {!! wpautop(carbon_get_post_meta(get_the_ID(), 'join_description')) !!}
 
-            <p>
-              У нас есть марксистские кружки в Москве, Санкт-Петербурге,
-              Калининграде и Новосибирске. Для тех, кто из других городов или
-              кому неудобно ходить на занятия, ведём онлайн-кружок.
-            </p>
-
-            <p>Иногда смотрим фильмы в киноклубе, ходим в музеи и походы.</p>
-            <a href="#" class="btn btn-outline-dark fw-bold">
-              Вступить в кружок
+            <a
+              href="{{ carbon_get_post_meta(get_the_ID(), 'join_button_link') }}"
+              target="_blank"
+              class="btn btn-outline-dark fw-bold">
+              {{ carbon_get_post_meta(get_the_ID(), 'join_button_text') }}
             </a>
           </div>
         </div>
@@ -141,47 +112,46 @@
     <div class="container">
       <div class="row border-sm-start border-sm-end border-0">
         <div class="col-12 col-md-4 col-lg-3 border-sm-end border-0">
-          <h2 class="mt-6">Нравится «Спичка»?</h2>
+          <h2 class="mt-6">
+            {{ carbon_get_post_meta(get_the_ID(), 'support_title') }}
+          </h2>
         </div>
 
         <div
           class="col-12 col-md-4 col-lg-3 align-self-center border-md-end border-0 fs-6">
           <div class="my-6">
-            <h3>Помогай деньгами</h3>
+            <h3>
+              {{ carbon_get_post_meta(get_the_ID(), 'support_block_1_title') }}
+            </h3>
 
-            <p>
-              Мы даём немного денег членам коллектива. Благодаря этому они
-              меньше думают о заработке и больше — об идее.
-            </p>
+            {!! wpautop(carbon_get_post_meta(get_the_ID(), 'support_block_1_description')) !!}
 
-            <p>
-              Ещё мы тратимся  на хостинг сайта, планировщик задач, рекламу,
-              книги и помещения для кружков.
-            </p>
-
-            <a href="#" class="btn mt-6 btn-outline-dark fw-bold w-100">
-              Задонатить
+            <a
+              href="{{ carbon_get_post_meta(get_the_ID(), 'support_block_1_button_link') }}"
+              target="_blank"
+              class="btn mt-6 btn-outline-dark fw-bold w-100">
+              {{ carbon_get_post_meta(get_the_ID(), 'support_block_1_button_text') }}
             </a>
           </div>
         </div>
 
         <div class="col-12 col-md-4 col-lg-3 border-lg-end border-0 fs-6">
-          <h3 class="mt-6">Вступай в коллектив</h3>
+          <h3 class="mt-6">
+            {{ carbon_get_post_meta(get_the_ID(), 'support_block_1_title') }}
+          </h3>
 
-          <p>
-            Прежде всего нам нужны исследователи и авторы статей, дизайнеры,
-            редакторы и программисты.
-          </p>
+          {!! wpautop(carbon_get_post_meta(get_the_ID(), 'support_block_2_description')) !!}
 
-          <a href="#" class="mt-6 mb-4 btn btn-outline-dark fw-bold w-100">
-            Присоединиться
+          <a
+            href="{{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_link') }}"
+            target="_blank"
+            class="mt-6 mb-4 btn btn-outline-dark fw-bold w-100">
+            {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_text') }}
           </a>
         </div>
 
         <div class="col-12 col-lg-3 p-lg-0 image">
-          <img
-            src="https://spichka.media/wp-content/uploads/2024/10/image.jpg"
-            alt="" />
+          {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'support_image'), 'full') !!}
         </div>
       </div>
     </div>
@@ -194,7 +164,7 @@
         <div class="d-none d-sm-block col-3 border-sm-end border-0"></div>
         <div class="col align-self-end my-7">
           <div class="m-0 fs-5 fw-bold text-md-end">
-            <span>Поддерживая нас, ты оживляешь марксизм.</span>
+            {{ carbon_get_post_meta(get_the_ID(), 'footer_title') }}
           </div>
         </div>
       </div>

@@ -62,8 +62,63 @@ add_action(
     if (get_page_by_path('about-us')) {
       Container::make('post_meta', __('Настройки'))
         ->where('post_id', '=', get_page_by_path('about-us')->ID)
-        ->add_fields([
-          //
+        ->add_tab(__('Баннер'), [
+          Field::make('rich_text', 'banner_title', 'Заголовок'),
+          Field::make('rich_text', 'banner_description', 'Описание'),
+          Field::make('image', 'banner_image', 'Изображение'),
+        ])
+        ->add_tab(__('О нас'), [
+          Field::make('text', 'about_title', 'Заголовок'),
+          Field::make('rich_text', 'about_description', 'Описание'),
+        ])
+        ->add_tab(__('Статьи'), [
+          Field::make('text', 'articles_title', 'Заголовок'),
+        ])
+        ->add_tab(__('Присоеденяйся'), [
+          Field::make('text', 'join_title', 'Заголовок'),
+          Field::make('rich_text', 'join_description', 'Описание'),
+          Field::make('text', 'join_button_text', 'Текст на кнопке'),
+          Field::make('text', 'join_button_link', 'Ссылка на кнопке'),
+        ])
+        ->add_tab(__('Поддержи'), [
+          Field::make('text', 'support_title', 'Заголовок'),
+          Field::make('text', 'support_block_1_title', 'Заголовок блок 1'),
+          Field::make(
+            'rich_text',
+            'support_block_1_description',
+            'Описание блок 1'
+          ),
+          Field::make(
+            'text',
+            'support_block_1_button_text',
+            'Текст на кнопке блок 1'
+          ),
+          Field::make(
+            'text',
+            'support_block_1_button_link',
+            'Ссылка на кнопке блок 1'
+          ),
+          Field::make('rich_text', 'support_block_2_title', 'Заголовок блок 2'),
+          Field::make(
+            'rich_text',
+            'support_block_2_description',
+            'Описание блок 2'
+          ),
+          Field::make(
+            'text',
+            'support_block_2_button_text',
+            'Текст на кнопке блок 2'
+          ),
+          Field::make(
+            'text',
+            'support_block_2_button_link',
+            'Ссылка на кнопке блок 2'
+          ),
+          Field::make('image', 'support_image', 'Изображение'),
+          Field::make('image', 'support_pattern', 'Паттерн'),
+        ])
+        ->add_tab(__('Футер'), [
+          Field::make('text', 'footer_title', 'Заголовок'),
         ]);
     }
 
