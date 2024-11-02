@@ -115,9 +115,9 @@ add_action(
             'Ссылка на кнопке блок 2'
           ),
           Field::make('image', 'support_image', 'Изображение'),
-          Field::make('image', 'support_pattern', 'Паттерн'),
         ])
         ->add_tab(__('Футер'), [
+          Field::make('image', 'footer_pattern', 'Паттерн'),
           Field::make('text', 'footer_title', 'Заголовок'),
         ]);
     }
