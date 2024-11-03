@@ -1,7 +1,7 @@
 import domReady from '@roots/sage/client/dom-ready';
 
 import {Swiper} from 'swiper';
-import {Pagination} from 'swiper/modules';
+import {Autoplay, Pagination} from 'swiper/modules';
 
 domReady(async () => {
   const sliders = document.querySelectorAll('.swiper-container');
@@ -16,8 +16,13 @@ domReady(async () => {
         el: container.querySelector('.swiper-pagination'),
         clickable: true,
       },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: true,
+        pauseOnMouseEnter: true,
+      },
 
-      modules: [Pagination],
+      modules: [Pagination, Autoplay],
     };
 
     new Swiper(container.querySelector('.swiper'), conf);
