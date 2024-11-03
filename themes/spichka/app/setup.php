@@ -126,6 +126,10 @@ add_action(
       'secondary_navigation' => __('Secondary Navigation', 'spichka'),
     ]);
 
+    register_nav_menus([
+      'header_navigation' => __('Header Navigation', 'spichka'),
+    ]);
+
     /**
      * Disable the default block patterns.
      *
