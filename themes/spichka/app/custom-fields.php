@@ -70,6 +70,7 @@ add_action(
         ->add_tab(__('О нас'), [
           Field::make('text', 'about_title', 'Заголовок'),
           Field::make('rich_text', 'about_description', 'Описание'),
+          Field::make('image', 'about_decoration', 'Изображение на мобильном'),
         ])
         ->add_tab(__('Статьи'), [
           Field::make('text', 'articles_title', 'Заголовок'),
@@ -79,6 +80,7 @@ add_action(
           Field::make('rich_text', 'join_description', 'Описание'),
           Field::make('text', 'join_button_text', 'Текст на кнопке'),
           Field::make('text', 'join_button_link', 'Ссылка на кнопке'),
+          Field::make('image', 'join_decoration', 'Изображение на мобильном'),
         ])
         ->add_tab(__('Поддержи'), [
           Field::make('text', 'support_title', 'Заголовок'),
@@ -115,6 +117,7 @@ add_action(
             'Ссылка на кнопке блок 2'
           ),
           Field::make('image', 'support_image', 'Изображение'),
+          Field::make('image', 'support_decoration', 'Декорация на мобильном'),
         ])
         ->add_tab(__('Футер'), [
           Field::make('image', 'footer_pattern', 'Паттерн'),

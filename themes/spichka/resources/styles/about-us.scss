@@ -139,10 +139,10 @@
   }
 
   @include media-breakpoint-down(sm) {
-    --mr: 0px;
+    --container-width: 100vw;
 
-    margin-left: 0;
-    padding-left: 0;
+    margin-left: -24px;
+    padding-left: 24px;
   }
 
   margin-right: var(--mr);
@@ -162,4 +162,12 @@
       padding-bottom: 8.5rem;
     }
   }
+}
+
+.support-decoration {
+  margin-left: 48px;
+}
+
+.join-decoration {
+  margin-left: 95px;
 }

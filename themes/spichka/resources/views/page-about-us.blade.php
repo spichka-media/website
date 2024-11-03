@@ -32,7 +32,9 @@
     </div>
   </section>
 
-  <section class="about-section border-top py-9 py-sm-0">
+  <section class="about-section border-top pb-9 py-sm-0">
+    {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'about_decoration'), 'full', false, ['class' => 'd-sm-none']) !!}
+
     <div class="container">
       <div class="row gx-6 border-sm-start border-sm-end border-0">
         <div class="col-12 col-md-3 border-md-end border-0">
@@ -101,7 +103,7 @@
   </section>
 
   <section class="join-section border-top">
-    <div class="container">
+    <div class="container overflow-hidden">
       <div class="row gx-6 border-sm-start border-sm-end border-0 py-9 py-sm-0">
         <div class="col-12 col-md-3 border-md-end border-0">
           <h2 class="h3 pt-0 pt-sm-6 mb-6 mb-md-0">
@@ -122,11 +124,13 @@
           </div>
         </div>
       </div>
+
+      {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'join_decoration'), 'full', false, ['class' => 'd-sm-none join-decoration']) !!}
     </div>
   </section>
 
   <section class="support-section border-top">
-    <div class="container">
+    <div class="container overflow-hidden">
       <div class="row gx-6 border-sm-start border-sm-end border-0 py-9 py-sm-0">
         <div class="col-12 col-md-3 border-md-end border-0">
           <h2 class="h3 m-0 pt-sm-6">
@@ -152,8 +156,10 @@
           </div>
         </div>
 
+        {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'support_decoration'), 'full', false, ['class' => 'd-sm-none my-6 support-decoration']) !!}
+
         <div
-          class="col-12 col-md-4 col-lg-3 mt-9 mt-md-0 border-lg-end border-0 fs-6">
+          class="col-12 col-md-4 col-lg-3 mt-sm-9 mt-md-0 border-lg-end border-0 fs-6">
           <h3 class="h5 mt-0 mt-md-6">
             {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_title') }}
           </h3>
