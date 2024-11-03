@@ -146,7 +146,7 @@
             <a
               href="{{ carbon_get_post_meta(get_the_ID(), 'support_block_1_button_link') }}"
               target="_blank"
-              class="btn mt-4 btn-outline-dark fw-bold w-100">
+              class="btn mt-4 btn-outline-dark fw-bold w-md-100">
               {{ carbon_get_post_meta(get_the_ID(), 'support_block_1_button_text') }}
             </a>
           </div>
@@ -163,7 +163,7 @@
           <a
             href="{{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_link') }}"
             target="_blank"
-            class="mt-3 mb-sm-9 mb-md-0 mb-md-0 btn btn-outline-dark fw-bold w-100">
+            class="mt-3 mb-sm-9 mb-md-0 mb-md-0 btn btn-outline-dark fw-bold w-md-100">
             {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_text') }}
           </a>
         </div>

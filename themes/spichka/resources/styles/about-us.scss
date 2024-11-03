@@ -3,6 +3,17 @@
 @import './app';
 @import './libs/swiper';
 
+.description {
+  p,
+  ol,
+  ul,
+  dl {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .hero-section {
   h1 {
     @include font-size(4.75rem);
@@ -33,6 +44,13 @@
     &::after {
       top: 24%;
       transform: rotate(-2deg);
+    }
+  }
+
+  .description {
+    ol,
+    ul {
+      padding-left: 1.25rem;
     }
   }
 }
@@ -87,6 +105,10 @@
   .border-md-end {
     border-right: 1px solid $border-color !important;
   }
+
+  .w-md-100 {
+    width: 100%;
+  }
 }
 
 .swiper {
@@ -138,17 +160,6 @@
     .support-block-1 {
       padding-top: 8.5rem;
       padding-bottom: 8.5rem;
-    }
-  }
-}
-
-.description {
-  p,
-  ol,
-  ul,
-  dl {
-    &:last-child {
-      margin-bottom: 0;
     }
   }
 }
