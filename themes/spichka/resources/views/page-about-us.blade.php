@@ -37,13 +37,13 @@
 
     <div class="container">
       <div class="row gx-6 border-sm-start border-sm-end border-0">
-        <div class="col-12 col-md-3 border-md-end border-0">
+        <div class="col-12 col-md-3 border-0">
           <h2 class="h3 pt-0 pt-sm-6 mb-6 mb-md-0">
             {{ carbon_get_post_meta(get_the_ID(), 'about_title') }}
           </h2>
         </div>
 
-        <div class="col-12 col-md-8 col-lg-5">
+        <div class="col-12 col-md-8 col-lg-5 border-md-start">
           <div class="description pt-md-14 mb-sm-9 mb-md-6 fs-6">
             {!! wpautop(carbon_get_post_meta(get_the_ID(), 'about_description')) !!}
           </div>
@@ -105,13 +105,13 @@
   <section class="join-section border-top">
     <div class="container overflow-hidden">
       <div class="row gx-6 border-sm-start border-sm-end border-0 py-9 py-sm-0">
-        <div class="col-12 col-md-3 border-md-end border-0">
+        <div class="col-12 col-md-3 border-0">
           <h2 class="h3 pt-0 pt-sm-6 mb-6 mb-md-0">
             {{ carbon_get_post_meta(get_the_ID(), 'join_title') }}
           </h2>
         </div>
 
-        <div class="col-12 col-md-8 col-lg-5">
+        <div class="col-12 col-md-8 col-lg-5 border-md-start">
           <div class="description py-md-14 fs-6">
             {!! wpautop(carbon_get_post_meta(get_the_ID(), 'join_description')) !!}
 
@@ -125,21 +125,21 @@
         </div>
       </div>
 
-      {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'join_decoration'), 'full', false, ['class' => 'd-sm-none join-decoration']) !!}
+      {!! wp_get_attachment_image(carbon_get_post_meta(get_the_ID(), 'join_decoration'), 'full', false, ['class' => 'd-sm-none join-decoration w-100']) !!}
     </div>
   </section>
 
   <section class="support-section border-top">
     <div class="container overflow-hidden">
       <div class="row gx-6 border-sm-start border-sm-end border-0 py-9 py-sm-0">
-        <div class="col-12 col-md-3 border-md-end border-0">
+        <div class="col-12 col-md-3 border-0">
           <h2 class="h3 m-0 pt-sm-6">
             {{ carbon_get_post_meta(get_the_ID(), 'support_title') }}
           </h2>
         </div>
 
         <div
-          class="col-12 col-md-4 col-lg-3 mt-9 mt-md-0 border-md-end border-0 fs-6">
+          class="col-12 col-md-4 col-lg-3 mt-9 mt-md-0 border-md-start border-md-end border-0 fs-6">
           <div class="support-block-1">
             <h3 class="h5">
               {{ carbon_get_post_meta(get_the_ID(), 'support_block_1_title') }}
@@ -196,8 +196,9 @@
 
     <div class="container">
       <div class="row gx-6 border-lg-start border-lg-end border-0">
-        <div class="d-none d-lg-block col-3 border-lg-end border-0"></div>
-        <div class="d-none d-lg-block col-3 border-lg-end border-0"></div>
+        <div class="d-none d-lg-block col-3 border-0"></div>
+        <div
+          class="d-none d-lg-block col-3 border-lg-start border-lg-end border-0"></div>
         <div class="col align-self-end py-7">
           <div class="m-0 fs-5 fw-bold text-lg-end">
             {{ carbon_get_post_meta(get_the_ID(), 'footer_title') }}
