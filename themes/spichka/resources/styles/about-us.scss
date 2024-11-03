@@ -4,6 +4,11 @@
 @import './libs/swiper';
 
 .description {
+  ol,
+  ul {
+    padding-left: 1.25rem;
+  }
+
   p,
   ol,
   ul,
@@ -44,13 +49,6 @@
     &::after {
       top: 24%;
       transform: rotate(-2deg);
-    }
-  }
-
-  .description {
-    ol,
-    ul {
-      padding-left: 1.25rem;
     }
   }
 }
