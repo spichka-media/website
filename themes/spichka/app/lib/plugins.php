@@ -88,6 +88,13 @@ function my_theme_register_required_plugins()
       'force_activation' => false,
       'version' => '2.8.1',
     ],
+    [
+      'name' => 'SVG Support',
+      'slug' => 'svg-support',
+      'required' => false,
+      'force_activation' => false,
+      'version' => '2.5.8',
+    ],
   ];
 
   $config = [
