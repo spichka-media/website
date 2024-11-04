@@ -162,8 +162,12 @@
 .support-section {
   @include media-breakpoint-up(md) {
     .support-block-1 {
-      padding-top: 8.5rem;
+      padding-top: 17rem;
       padding-bottom: 8.5rem;
+    }
+
+    .support-block-2 {
+      padding-top: 9rem;
     }
   }
 }

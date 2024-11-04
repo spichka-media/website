@@ -1,3 +1,7 @@
+{{--
+  Template Name: О нас
+--}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -53,7 +57,7 @@
   </section>
 
   <section
-    class="program-articles-section border-top border-lg- overflow-hidden">
+    class="program-articles-section border-top border-lg-0 overflow-hidden">
     <div class="container">
       <div class="row gx-6 border-sm-start border-sm-end border-0 py-9 py-sm-0">
         <div class="offset-lg-3 col-12 col-lg-9 border-lg-start border-0">
@@ -142,7 +146,7 @@
         <div
           class="col-12 col-md-4 col-lg-3 mt-9 mt-md-0 border-md-start border-md-end border-0 fs-6">
           <div class="support-block-1">
-            <h3 class="h5">
+            <h3 class="h5 mb-3">
               {{ carbon_get_post_meta(get_the_ID(), 'support_block_1_title') }}
             </h3>
 
@@ -161,18 +165,20 @@
 
         <div
           class="col-12 col-md-4 col-lg-3 mt-sm-9 mt-md-0 border-lg-end border-0 fs-6">
-          <h3 class="h5 mt-0 mt-md-6">
-            {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_title') }}
-          </h3>
+          <div class="support-block-2">
+            <h3 class="h5 mb-3">
+              {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_title') }}
+            </h3>
 
-          {!! wpautop(carbon_get_post_meta(get_the_ID(), 'support_block_2_description')) !!}
+            {!! wpautop(carbon_get_post_meta(get_the_ID(), 'support_block_2_description')) !!}
 
-          <a
-            href="{{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_link') }}"
-            target="_blank"
-            class="mt-3 mb-sm-9 mb-md-0 mb-md-0 btn btn-outline-dark fw-bold w-md-100">
-            {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_text') }}
-          </a>
+            <a
+              href="{{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_link') }}"
+              target="_blank"
+              class="mt-3 mb-sm-9 mb-md-0 mb-md-0 btn btn-outline-dark fw-bold w-md-100">
+              {{ carbon_get_post_meta(get_the_ID(), 'support_block_2_button_text') }}
+            </a>
+          </div>
         </div>
 
         <div class="d-none d-lg-block col-lg-3 p-lg-0">

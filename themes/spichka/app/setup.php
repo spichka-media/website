@@ -48,7 +48,7 @@ add_action(
       bundle('404')->enqueue();
     }
 
-    if (is_page('about-us')) {
+    if (get_page_template_slug() === 'template-about-us.blade.php') {
       bundle('about-us')->enqueue();
     }
 
