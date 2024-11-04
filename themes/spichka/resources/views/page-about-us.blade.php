@@ -52,7 +52,8 @@
     </div>
   </section>
 
-  <section class="program-articles-section border-top border-lg-0">
+  <section
+    class="program-articles-section border-top border-lg- overflow-hidden">
     <div class="container">
       <div class="row gx-6 border-sm-start border-sm-end border-0 py-9 py-sm-0">
         <div class="offset-lg-3 col-12 col-lg-9 border-lg-start border-0">
