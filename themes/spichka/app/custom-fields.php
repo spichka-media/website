@@ -99,7 +99,7 @@ add_action(
           'support_block_1_button_link',
           'Ссылка на кнопке блок 1'
         ),
-        Field::make('rich_text', 'support_block_2_title', 'Заголовок блок 2'),
+        Field::make('text', 'support_block_2_title', 'Заголовок блок 2'),
         Field::make(
           'rich_text',
           'support_block_2_description',
