@@ -48,6 +48,10 @@ add_action(
       bundle('404')->enqueue();
     }
 
+    if (get_page_template_slug() === 'template-about-us.blade.php') {
+      bundle('about-us')->enqueue();
+    }
+
     wp_dequeue_style('modern_footnotes');
 
     if (is_singular('post')) {
@@ -120,6 +124,10 @@ add_action(
 
     register_nav_menus([
       'secondary_navigation' => __('Secondary Navigation', 'spichka'),
+    ]);
+
+    register_nav_menus([
+      'header_navigation' => __('Header Navigation', 'spichka'),
     ]);
 
     /**

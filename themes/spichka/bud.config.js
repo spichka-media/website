@@ -30,6 +30,12 @@ export default async (app) => {
       },
     })
     .entry({
+      'about-us': {
+        import: ['@scripts/about-us', '@styles/about-us'],
+        dependOn: ['app'],
+      },
+    })
+    .entry({
       404: {
         import: ['@styles/404'],
         dependOn: ['app'],
@@ -59,7 +65,15 @@ export default async (app) => {
     ])
     .setSafelist({
       ...purgeCssWordPress.safelist,
-      standard: ['img', 'iframe', 'blockquote', 'figure', 'screen-reader-text'],
+      standard: [
+        'img',
+        'iframe',
+        'blockquote',
+        'figure',
+        'screen-reader-text',
+        'ol',
+        'ul',
+      ],
       deep: [
         /^ez-toc-/,
         /^offcanvas(-.*)?$/,

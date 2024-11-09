@@ -150,7 +150,7 @@
     </div>
 
     <div class="container">
-      <div class="row row-cols-1 row-cols-lg-3 g-3 g-lg-3">
+      <div class="row row-cols-1 row-cols-lg-3 g-3">
         @foreach (carbon_get_post_meta(get_the_ID(), 'front_article_categories') as $category)
           <div class="col">
             <div class="card border-dark border-2">
