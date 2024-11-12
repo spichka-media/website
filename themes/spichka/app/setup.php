@@ -60,9 +60,14 @@ add_action(
       wp_dequeue_script('modern_footnotes');
     }
 
-    wp_enqueue_style(
+    wp_enqueue_script(
       'font-awesome',
-      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'
+      esc_url(
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js'
+      ),
+      [],
+      '6.x',
+      ['strategy' => 'defer']
     );
 
     wp_dequeue_style('wp-block-library'); // Remove WordPress core CSS
