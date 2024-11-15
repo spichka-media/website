@@ -23,7 +23,8 @@
     "lint:php": "prettier \"**/*.php\" --check",
     "lint:php:fix": "prettier \"**/*.php\" --write",
     "test": "yarn lint",
-    "postinstall": "cd ../.. && husky install"
+    "postinstall": "cd ../.. && husky install",
+    "dependencies:bump": "yarn upgrade-interactive"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "6.0.0",
