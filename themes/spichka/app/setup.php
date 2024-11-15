@@ -62,7 +62,9 @@ add_action(
 
     wp_enqueue_script(
       'font-awesome',
-      esc_url('https://kit.fontawesome.com/53084a7412.js'),
+      esc_url(
+        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js'
+      ),
       [],
       '6.x',
       ['strategy' => 'defer']

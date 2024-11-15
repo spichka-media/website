@@ -40,8 +40,8 @@
   },
   "require": {
     "php": "^8.3",
-    "log1x/sage-svg": "2.0.1",
-    "roots/acorn": "4.3.0"
+    "log1x/sage-svg": "2.0.2",
+    "roots/acorn": "4.3.1"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.7.2"
