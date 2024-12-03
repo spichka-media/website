@@ -18,12 +18,14 @@ add_action(
           Field::make('text', 'theme_social_icon', 'Иконка'),
         ]),
       Field::make('text', 'theme_telegram_channel', 'Телеграм канал'),
+      Field::make('image', 'theme_footer_image', 'Изображение по умолчанию'),
       Field::make('complex', 'theme_portraits', 'Портреты')
         ->set_layout('tabbed-vertical')
         ->add_fields([
           Field::make('file', 'static_image', 'Изображение в покое')
             ->set_type('image')
             ->set_value_type('url'),
+          Field::make('text', 'alt', 'Атрибут alt'),
           Field::make('complex', 'extra_images', 'Дополнительные изображения')
             ->set_layout('tabbed-horizontal')
             ->add_fields([
