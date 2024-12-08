@@ -71,8 +71,10 @@
 
     <div class="swiper-container position-relative container-fluid">
       @php
+        const MAX_RECENT_PROGRAM_ARTICLES = 10;
         $program_articles = get_posts([
           'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
+          'posts_per_page' => MAX_RECENT_PROGRAM_ARTICLES,
         ]);
       @endphp
 
@@ -86,7 +88,7 @@
             </div>
           @endforeach
 
-          @if (carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy'))
+          @if (count($program_articles) === MAX_RECENT_PROGRAM_ARTICLES && carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy'))
             <div class="swiper-slide">
               <div class="post-card">
                 @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
@@ -116,8 +118,9 @@
 
     <div class="swiper-container position-relative container-fluid">
       @php
+        const MAX_RECENT_POSTS = 10;
         $recent_posts = get_posts([
-          'posts_per_page' => 10,
+          'posts_per_page' => MAX_RECENT_POSTS,
         ]);
       @endphp
 
@@ -129,13 +132,15 @@
             </div>
           @endforeach
 
-          <div class="swiper-slide">
-            <div class="post-card">
-              <a href="{!! get_permalink(get_option('page_for_posts')) !!}">
-                {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
-              </a>
+          @if (count($recent_posts) === MAX_RECENT_POSTS)
+            <div class="swiper-slide">
+              <div class="post-card">
+                <a href="{!! get_permalink(get_option('page_for_posts')) !!}">
+                  {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+                </a>
+              </div>
             </div>
-          </div>
+          @endif
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -153,6 +158,7 @@
 
     <div class="swiper-container position-relative container-fluid">
       @php
+        const MAX_RECENT_NOTES = 10;
         $recent_notes = get_posts([
           'posts_per_page' => 10,
           'post_type' => 'note',
@@ -167,13 +173,15 @@
             </div>
           @endforeach
 
-          <div class="swiper-slide">
-            <div class="post-card">
-              <a href="{!! get_post_type_archive_link('note') !!}">
-                {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
-              </a>
+          @if (count($recent_notes) === MAX_RECENT_NOTES)
+            <div class="swiper-slide">
+              <div class="post-card">
+                <a href="{!! get_post_type_archive_link('note') !!}">
+                  {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+                </a>
+              </div>
             </div>
-          </div>
+          @endif
         </div>
       </div>
       <div class="swiper-pagination"></div>
