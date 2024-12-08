@@ -33,7 +33,7 @@ add_action(
     ]);
 
     Container::make('post_meta', __('Настройки поста'))
-      ->where('post_type', '=', 'post')
+      ->where('post_type', 'IN', ['post', 'note'])
       ->add_tab(__('Комментарии'), [
         Field::make(
           'checkbox',

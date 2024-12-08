@@ -70,9 +70,9 @@
     </div>
   </div>
 
-  @if (is_singular('post'))
+  @if (is_singular('post') || is_singular('note'))
     <div
-      id="single-post-progressbar"
+      id="single-article-progressbar"
       class="progress"
       role="progressbar"
       aria-valuenow="0"

@@ -22,7 +22,7 @@ add_action(
       wp_deregister_style('dashicons');
       wp_deregister_script('jquery');
 
-      if (is_singular('post')) {
+      if (is_singular('post') || is_singular('note')) {
         wp_register_script(
           'jquery',
           '/wp-includes/js/jquery/jquery.min.js',
@@ -54,8 +54,8 @@ add_action(
 
     wp_dequeue_style('modern_footnotes');
 
-    if (is_singular('post')) {
-      bundle('single-post')->enqueue();
+    if (is_singular('post') || is_singular('note')) {
+      bundle('single-article')->enqueue();
     } else {
       wp_dequeue_script('modern_footnotes');
     }
@@ -222,7 +222,51 @@ add_action('wp_default_scripts', function ($scripts) {
 });
 
 add_action('get_footer', function () {
-  if (is_singular('post')) {
+  if (is_singular('post') || is_singular('note')) {
     wp_enqueue_style('modern_footnotes');
   }
+});
+
+add_action('init', function () {
+  $args = [
+    'label' => 'Заметки',
+    'labels' => [
+      'menu_name' => 'Заметки',
+      'name_admin_bar' => 'Заметка',
+      'add_new' => 'Добавить заметку',
+      'add_new_item' => 'Добавить заметку',
+      'new_item' => 'Новая заметка',
+      'edit_item' => 'Изменить заметку',
+      'view_item' => 'Просмотр заметки',
+      'update_item' => 'Обновить заметку',
+      'all_items' => 'Все заметки',
+      'search_items' => 'Поиск заметки',
+      'parent_item_colon' => 'Родительская заметка',
+      'not_found' => 'Заметка не найдена',
+      'not_found_in_trash' => 'Заметка не найдена в корзине',
+      'name' => 'Заметки',
+      'singular_name' => 'Заметка',
+    ],
+    'public' => true,
+    'exclude_from_search' => false,
+    'publicly_queryable' => true,
+    'show_ui' => true,
+    'show_in_nav_menus' => true,
+    'show_in_admin_bar' => true,
+    'show_in_rest' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'has_archive' => true,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite_no_front' => false,
+    'show_in_menu' => true,
+    'menu_position' => 5,
+    'menu_icon' => 'dashicons-admin-page',
+    'supports' => ['title', 'editor', 'author', 'thumbnail', 'revisions'],
+    'taxonomies' => ['category', 'post_tag'],
+    'rewrite' => true,
+  ];
+
+  register_post_type('note', $args);
 });
