@@ -209,3 +209,10 @@ add_filter('rest_authentication_errors', function ($result) {
 });
 
 add_filter('xmlrpc_enabled', '__return_false');
+
+add_filter('get_the_archive_title_prefix', function ($prefix) {
+  if (is_post_type_archive()) {
+    return '';
+  }
+  return $prefix;
+});

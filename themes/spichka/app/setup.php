@@ -290,5 +290,3 @@ add_action('pre_get_posts', function ($query) {
     $query->set('post_type', ['post', 'note']);
   }
 });
-
-add_filter('get_the_archive_title_prefix', '__return_false');
