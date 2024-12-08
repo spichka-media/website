@@ -279,3 +279,14 @@ add_action('init', function () {
 
   register_post_type('note', $args);
 });
+
+add_action('pre_get_posts', function ($query) {
+  if (
+    !is_admin() &&
+    $query->is_main_query() &&
+    ($query->is_category() || $query->is_tag())
+  ) {
+    // Add your custom post type(s) to the query
+    $query->set('post_type', ['post', 'note']);
+  }
+});
