@@ -22,7 +22,7 @@ add_action(
       wp_deregister_style('dashicons');
       wp_deregister_script('jquery');
 
-      if (is_singular('post') || is_singular('note')) {
+      if (is_singular(['post', 'note'])) {
         wp_register_script(
           'jquery',
           '/wp-includes/js/jquery/jquery.min.js',
@@ -54,7 +54,7 @@ add_action(
 
     wp_dequeue_style('modern_footnotes');
 
-    if (is_singular('post') || is_singular('note')) {
+    if (is_singular(['post', 'note'])) {
       bundle('single-article')->enqueue();
     } else {
       wp_dequeue_script('modern_footnotes');
@@ -222,7 +222,7 @@ add_action('wp_default_scripts', function ($scripts) {
 });
 
 add_action('get_footer', function () {
-  if (is_singular('post') || is_singular('note')) {
+  if (is_singular(['post', 'note'])) {
     wp_enqueue_style('modern_footnotes');
   }
 });

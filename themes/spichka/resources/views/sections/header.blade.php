@@ -70,7 +70,7 @@
     </div>
   </div>
 
-  @if (is_singular('post') || is_singular('note'))
+  @if (is_singular(['post', 'note']))
     <div
       id="single-article-progressbar"
       class="progress"
