@@ -272,7 +272,9 @@ add_action('init', function () {
       'excerpt',
     ],
     'taxonomies' => ['category', 'post_tag'],
-    'rewrite' => true,
+    'rewrite' => [
+      'slug' => 'notes',
+    ],
   ];
 
   register_post_type('note', $args);
