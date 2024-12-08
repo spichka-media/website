@@ -263,7 +263,14 @@ add_action('init', function () {
     'show_in_menu' => true,
     'menu_position' => 5,
     'menu_icon' => 'dashicons-admin-page',
-    'supports' => ['title', 'editor', 'author', 'thumbnail', 'revisions'],
+    'supports' => [
+      'title',
+      'editor',
+      'author',
+      'thumbnail',
+      'revisions',
+      'excerpt',
+    ],
     'taxonomies' => ['category', 'post_tag'],
     'rewrite' => true,
   ];
