@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="container mt-10 fs-6 container-body">
+  <div class="container mt-8 fs-6 container-body">
     <div class="row justify-content-center">
       <div id="content" class="col-12 col-lg-9 col-xl-8 px-xl-6">
         @if (has_excerpt())

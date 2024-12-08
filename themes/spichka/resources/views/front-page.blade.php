@@ -142,6 +142,44 @@
     </div>
   </section>
 
+  <section class="mt-7 mt-lg-10 recent-notes-section">
+    <div class="container">
+      <h2 class="h1 mb-3 mb-lg-5">
+        <a class="link-dark" href="{!! get_post_type_archive_link('note') !!}">
+          {{ carbon_get_post_meta(get_the_ID(), 'front_recent_notes_header') }}
+        </a>
+      </h2>
+    </div>
+
+    <div class="swiper-container position-relative container-fluid">
+      @php
+        $recent_notes = get_posts([
+          'posts_per_page' => 10,
+          'post_type' => 'note',
+        ]);
+      @endphp
+
+      <div class="swiper pb-5">
+        <div class="swiper-wrapper">
+          @foreach ($recent_notes as $note)
+            <div class="swiper-slide">
+              <x-post-card :post="$note" />
+            </div>
+          @endforeach
+
+          <div class="swiper-slide">
+            <div class="post-card">
+              <a href="{!! get_post_type_archive_link('note') !!}">
+                {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
   <section class="mt-7 mt-lg-10 categories-section">
     <div class="container">
       <h2 class="h1 mb-3 mb-lg-5">
