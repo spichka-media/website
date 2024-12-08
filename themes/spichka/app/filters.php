@@ -159,7 +159,7 @@ add_filter(
 add_filter(
   'algolia_should_index_searchable_post',
   function ($should_index, $post) {
-    return $should_index && 'post' === $post->post_type;
+    return $should_index && in_array($post->post_type, ['post', 'note']);
   },
   10,
   2
@@ -209,3 +209,10 @@ add_filter('rest_authentication_errors', function ($result) {
 });
 
 add_filter('xmlrpc_enabled', '__return_false');
+
+add_filter('get_the_archive_title_prefix', function ($prefix) {
+  if (is_post_type_archive()) {
+    return '';
+  }
+  return $prefix;
+});
