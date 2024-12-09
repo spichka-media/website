@@ -32,3 +32,6 @@ jobs:
 
       - name: Запуск линтера
         run: yarn lint
+
+      - name: Тесты
+        run: yarn test --passWithNoTests
