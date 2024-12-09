@@ -28,7 +28,12 @@ add_action(
       Field::make(
         'file',
         'posts_more_image',
-        'Изображение для "Больше статей'
+        'Изображение для "Больше статей"'
+      )->set_type(['image']),
+      Field::make(
+        'file',
+        'notes_more_image',
+        'Изображение для "Больше заметок"'
       )->set_type(['image']),
     ]);
 

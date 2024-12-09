@@ -177,7 +177,7 @@
             <div class="swiper-slide">
               <div class="post-card">
                 <a href="{!! get_post_type_archive_link('note') !!}">
-                  {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
+                  {!! wp_get_attachment_image(carbon_get_theme_option('notes_more_image'), 'post-card') !!}
                 </a>
               </div>
             </div>
