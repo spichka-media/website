@@ -273,7 +273,7 @@ add_action('init', function () {
     ],
     'taxonomies' => ['category', 'post_tag'],
     'rewrite' => [
-      'slug' => 'notes',
+      'slug' => 'zametki',
     ],
   ];
 
