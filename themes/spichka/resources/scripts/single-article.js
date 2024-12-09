@@ -12,9 +12,9 @@ function scrolled() {
   const content = document.getElementById('content');
 
   const progress = document.querySelector(
-    '#single-post-progressbar .progress-bar',
+    '#single-article-progressbar .progress-bar',
   );
-  const bar = document.querySelector('#single-post-progressbar');
+  const bar = document.querySelector('#single-article-progressbar');
 
   if (!content || !progress || !bar) {
     return;

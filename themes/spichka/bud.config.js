@@ -24,8 +24,8 @@ export default async (app) => {
       },
     })
     .entry({
-      'single-post': {
-        import: ['@scripts/single-post', '@styles/single-post'],
+      'single-article': {
+        import: ['@scripts/single-article', '@styles/single-article'],
         dependOn: ['app'],
       },
     })
