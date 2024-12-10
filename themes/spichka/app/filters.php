@@ -159,7 +159,7 @@ add_filter(
 add_filter(
   'algolia_should_index_searchable_post',
   function ($should_index, $post) {
-    return $should_index && 'post' === $post->post_type;
+    return $should_index && in_array($post->post_type, ['post', 'note']);
   },
   10,
   2

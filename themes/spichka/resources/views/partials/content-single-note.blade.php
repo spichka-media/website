@@ -1,6 +1,6 @@
 @includeFirst(
   ['partials.template-single-article', 'partials.content-single'],
   [
-    'show_toc' => true,
+    'show_toc' => false,
   ]
 )
