@@ -1,7 +1,13 @@
-<footer class="py-9 bg-light">
+<footer class="py-9 bg-light" id="theme-main-footer">
   <div class="container">
     <div class="d-flex align-items-center flex-column">
-      {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100]) !!}
+      <article
+        id="theme-main-footer-image-wrapper"
+        data-bs-toggle="tooltip"
+        data-bs-title="''"
+        data-bs-custom-class="custom-headliners-tooltip">
+        {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [95, 120], false, ['id' => 'theme-main-footer-image']) !!}
+      </article>
 
       <nav>
         <ul class="social d-flex list-unstyled mt-5 mb-0">

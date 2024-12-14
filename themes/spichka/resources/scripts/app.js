@@ -1,7 +1,7 @@
 import domReady from '@roots/sage/client/dom-ready';
 import 'bootstrap/js/dist/offcanvas';
 import {searchInputHandler} from './lib/search.js';
-import {initPortraits} from './lib/portraits.js';
+import {initPortraits} from './lib/portraits';
 
 /**
  * Application entrypoint

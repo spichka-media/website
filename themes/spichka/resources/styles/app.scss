@@ -72,3 +72,52 @@ h6 {
   width: 1px;
   word-wrap: normal !important;
 }
+
+#theme-main-footer-image-wrapper {
+  z-index: 1; // Чтобы элементы тултипа не перекрывали портреты
+}
+
+.custom-headliners-tooltip {
+  background-color: $light-gray;
+  max-width: 360px;
+  padding: 12px 16px;
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    width: 15px;
+    height: 15px;
+    background-color: $light-gray;
+  }
+
+  &[data-popper-placement="right"]::before {
+    left: -15px;
+    bottom: 0;
+  }
+
+  &[data-popper-placement="top"]::before {
+    left: 50%;
+    bottom: -15px;
+  }
+
+  &::after {
+    width: 34px;
+    height: 34px;
+    background-color: #eee; // $bg-light-rgb
+    border-radius: 50%;
+  }
+
+  &[data-popper-placement="right"]::after {
+    left: -34px;
+    bottom: -2px;
+  }
+
+  &[data-popper-placement="top"]::after {
+    left: calc(50% - 18px);
+    bottom: -34px;
+  }
+}
