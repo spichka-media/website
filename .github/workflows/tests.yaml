@@ -33,5 +33,8 @@ jobs:
       - name: Запуск линтера
         run: yarn lint
 
+      - name: Установка playwright
+        run: yarn playwright install
+
       - name: Тесты
         run: yarn test --passWithNoTests
