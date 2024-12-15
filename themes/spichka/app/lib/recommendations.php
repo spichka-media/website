@@ -49,24 +49,14 @@ function get_post_recommendations(int $post_id)
   return array_merge($tag_posts, $category_posts);
 }
 
-/**
- * You can filter the list of URLs that get purged by Cloudflare after a post is
- * modified by implementing a filter for the "cloudflare_purge_by_url" hook.
- *
- * @Example:
- *
- * /**
- *  * @param array $urls A list of post related URLs
- *  * @param integer $post_id the post ID that was modified
- *  * /
- * function your_cloudflare_url_filter($urls, $post_id) {
- *   // modify urls
- *   return $urls;
- * }
- */
+// Need to purge cache for all related post to update recommendations
 add_filter(
   'cloudflare_purge_by_url',
   function ($urls, $post_id) {
+    if (get_post_type($post_id) !== 'post') {
+      return $urls;
+    }
+
     $tags = get_the_tags($post_id);
 
     if ($tags && count($tags)) {

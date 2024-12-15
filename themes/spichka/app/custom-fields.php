@@ -9,7 +9,7 @@ use Carbon_Fields\Carbon_Fields;
 add_action(
   'carbon_fields_register_fields',
   function () {
-    Container::make('theme_options', __('Настройки темы'))->add_fields([
+    Container::make('theme_options', 'Настройки темы')->add_fields([
       Field::make('text', 'theme_email', 'Email'),
       Field::make('complex', 'theme_socials', 'Социальные сети')
         ->set_layout('tabbed-horizontal')
@@ -46,30 +46,27 @@ add_action(
       Field::make(
         'file',
         'posts_more_image',
-        __('Изображение для "Больше статей')
+        'Изображение для "Больше статей"'
+      )->set_type(['image']),
+      Field::make(
+        'file',
+        'notes_more_image',
+        'Изображение для "Больше заметок"'
       )->set_type(['image']),
     ]);
 
-    Container::make('post_meta', __('Настройки поста'))
-      ->where('post_type', '=', 'post')
-      ->add_tab(__('Комментарии'), [
+    Container::make('post_meta', 'Настройки поста')
+      ->where('post_type', 'IN', ['post', 'note'])
+      ->add_tab('Комментарии', [
         Field::make(
           'checkbox',
           'post_show_comments',
           'Отображать комментарии'
         )->set_option_value('yes'),
-        Field::make(
-          'text',
-          'post_telegram_post_id',
-          __('Номер поста в Telegram')
-        ),
+        Field::make('text', 'post_telegram_post_id', 'Номер поста в Telegram'),
       ])
-      ->add_tab(__('Рекомендованные статьи'), [
-        Field::make(
-          'association',
-          'recommended_posts',
-          __('Статьи')
-        )->set_types([
+      ->add_tab('Рекомендованные статьи', [
+        Field::make('association', 'recommended_posts', 'Статьи')->set_types([
           [
             'type' => 'post',
             'post_type' => 'post',
@@ -77,29 +74,27 @@ add_action(
         ]),
       ]);
 
-    Container::make('post_meta', __('Настройки'))
+    Container::make('post_meta', 'Настройки')
       ->where('post_template', '=', 'template-about-us.blade.php')
-      ->add_tab(__('Баннер'), [
+      ->add_tab('Баннер', [
         Field::make('rich_text', 'banner_title', 'Заголовок'),
         Field::make('rich_text', 'banner_description', 'Описание'),
         Field::make('image', 'banner_image', 'Изображение'),
       ])
-      ->add_tab(__('О нас'), [
+      ->add_tab('О нас', [
         Field::make('text', 'about_title', 'Заголовок'),
         Field::make('rich_text', 'about_description', 'Описание'),
         Field::make('image', 'about_decoration', 'Изображение на мобильном'),
       ])
-      ->add_tab(__('Статьи'), [
-        Field::make('text', 'articles_title', 'Заголовок'),
-      ])
-      ->add_tab(__('Присоеденяйся'), [
+      ->add_tab('Статьи', [Field::make('text', 'articles_title', 'Заголовок')])
+      ->add_tab('Присоеденяйся', [
         Field::make('text', 'join_title', 'Заголовок'),
         Field::make('rich_text', 'join_description', 'Описание'),
         Field::make('text', 'join_button_text', 'Текст на кнопке'),
         Field::make('text', 'join_button_link', 'Ссылка на кнопке'),
         Field::make('image', 'join_decoration', 'Изображение на мобильном'),
       ])
-      ->add_tab(__('Поддержи'), [
+      ->add_tab('Поддержи', [
         Field::make('text', 'support_title', 'Заголовок'),
         Field::make('text', 'support_block_1_title', 'Заголовок блок 1'),
         Field::make(
@@ -136,27 +131,25 @@ add_action(
         Field::make('image', 'support_image', 'Изображение'),
         Field::make('image', 'support_decoration', 'Декорация на мобильном'),
       ])
-      ->add_tab(__('Футер'), [
+      ->add_tab('Футер', [
         Field::make('image', 'footer_pattern', 'Паттерн'),
         Field::make('text', 'footer_title', 'Заголовок'),
       ]);
 
-    Container::make('post_meta', __('Настройки главной страницы'))
+    Container::make('post_meta', 'Настройки главной страницы')
       ->where('post_id', '=', get_option('page_on_front'))
-      ->add_tab(__('Баннер'), [
-        Field::make('rich_text', 'front_banner_header', __('Заголовок')),
-        Field::make('text', 'front_banner_description', __('Описание')),
-        Field::make('file', 'front_banner_video', __('Видео'))->set_type([
-          'video',
-        ]),
-        Field::make('image', 'front_banner_video_poster', __('Постер к Видео')),
+      ->add_tab('Баннер', [
+        Field::make('rich_text', 'front_banner_header', 'Заголовок'),
+        Field::make('text', 'front_banner_description', 'Описание'),
+        Field::make('file', 'front_banner_video', 'Видео')->set_type(['video']),
+        Field::make('image', 'front_banner_video_poster', 'Постер к Видео'),
       ])
-      ->add_tab(__('Программные статьи'), [
-        Field::make('text', 'front_program_articles_header', __('Заголовок')),
+      ->add_tab('Программные статьи', [
+        Field::make('text', 'front_program_articles_header', 'Заголовок'),
         Field::make(
           'association',
           'front_program_articles',
-          __('Статьи')
+          'Статьи'
         )->set_types([
           [
             'type' => 'post',
@@ -166,7 +159,7 @@ add_action(
         Field::make(
           'association',
           'front_program_articles_taxonomy',
-          __('Категория для перехода')
+          'Категория для перехода'
         )
           ->set_types([
             [
@@ -177,15 +170,18 @@ add_action(
           ->set_min(1)
           ->set_max(1),
       ])
-      ->add_tab(__('Свежие статьи'), [
-        Field::make('text', 'front_recent_articles_header', __('Заголовок')),
+      ->add_tab('Свежие статьи', [
+        Field::make('text', 'front_recent_articles_header', 'Заголовок'),
       ])
-      ->add_tab(__('Рубрики'), [
-        Field::make('text', 'front_article_categories_header', __('Заголовок')),
+      ->add_tab('Свежие заметки', [
+        Field::make('text', 'front_recent_notes_header', 'Заголовок'),
+      ])
+      ->add_tab('Рубрики', [
+        Field::make('text', 'front_article_categories_header', 'Заголовок'),
         Field::make(
           'association',
           'front_article_categories',
-          __('Категории')
+          'Категории'
         )->set_types([
           [
             'type' => 'term',
@@ -193,8 +189,8 @@ add_action(
           ],
         ]),
       ])
-      ->add_tab(__('Присоединяйся'), [
-        Field::make('text', 'front_connect_header', __('Заголовок')),
+      ->add_tab('Присоединяйся', [
+        Field::make('text', 'front_connect_header', 'Заголовок'),
         Field::make('complex', 'front_connect_blocks', 'Блоки')
           ->set_layout('tabbed-horizontal')
           ->add_fields([
@@ -213,11 +209,7 @@ add_action(
               'front_connect_blocks_block_button_text',
               'Текст на кнопке'
             ),
-            Field::make(
-              'text',
-              'front_connect_blocks_block_link',
-              __('Ссылка')
-            ),
+            Field::make('text', 'front_connect_blocks_block_link', 'Ссылка'),
             Field::make(
               'color',
               'front_connect_blocks_block_background_color',
@@ -230,12 +222,12 @@ add_action(
             ),
           ]),
       ])
-      ->add_tab(__('Донать'), [
-        Field::make('text', 'front_donate_header', __('Заголовок')),
-        Field::make('text', 'front_donate_description', __('Описание')),
-        Field::make('text', 'front_donate_button_text', __('Текст на кнопке')),
+      ->add_tab('Донать', [
+        Field::make('text', 'front_donate_header', 'Заголовок'),
+        Field::make('text', 'front_donate_description', 'Описание'),
+        Field::make('text', 'front_donate_button_text', 'Текст на кнопке'),
         Field::make('text', 'front_donate_button_link', 'Ссылка'),
-        Field::make('image', 'front_donate_image', __('Изображение')),
+        Field::make('image', 'front_donate_image', 'Изображение'),
       ]);
   },
   100

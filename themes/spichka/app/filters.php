@@ -159,7 +159,7 @@ add_filter(
 add_filter(
   'algolia_should_index_searchable_post',
   function ($should_index, $post) {
-    return $should_index && 'post' === $post->post_type;
+    return $should_index && in_array($post->post_type, ['post', 'note']);
   },
   10,
   2
@@ -221,3 +221,36 @@ add_filter('rest_authentication_errors', function ($result) {
 });
 
 add_filter('xmlrpc_enabled', '__return_false');
+
+add_filter('get_the_archive_title_prefix', function ($prefix) {
+  if (is_post_type_archive()) {
+    return '';
+  }
+  return $prefix;
+});
+
+/**
+ * You can filter the list of URLs that get purged by Cloudflare after a post is
+ * modified by implementing a filter for the "cloudflare_purge_by_url" hook.
+ *
+ * @Example:
+ *
+ * /**
+ *  * @param array $urls A list of post related URLs
+ *  * @param integer $post_id the post ID that was modified
+ *  * /
+ * function your_cloudflare_url_filter($urls, $post_id) {
+ *   // modify urls
+ *   return $urls;
+ * }
+ */
+add_filter(
+  'cloudflare_purge_by_url',
+  function ($urls, $post_id) {
+    array_push($urls, get_home_url());
+
+    return $urls;
+  },
+  10,
+  2
+);
