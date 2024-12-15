@@ -22,7 +22,7 @@
     "lint:css": "./node_modules/.bin/stylelint \"resources/**/*.{css,scss,vue}\"",
     "lint:php": "prettier \"**/*.php\" --check",
     "lint:php:fix": "prettier \"**/*.php\" --write",
-    "test": "yarn lint",
+    "test": "vitest",
     "postinstall": "cd ../.. && husky install",
     "dependencies:bump": "yarn upgrade-interactive"
   },
@@ -37,11 +37,15 @@
     "@roots/bud-stylelint": "6.23.3",
     "@roots/eslint-config": "6.23.3",
     "@roots/sage": "6.23.3",
+    "@vitest/browser": "2.1.8",
     "husky": "9.1.7",
     "install-peers": "1.0.4",
+    "playwright": "1.49.0",
     "prettier": "3.4.1",
     "prettier-plugin-blade": "2.1.19",
-    "purgecss-with-wordpress": "7.0.2"
+    "purgecss-with-wordpress": "7.0.2",
+    "vite": "6.0.3",
+    "vitest": "2.1.8"
   },
   "dependencies": {
     "@popperjs/core": "2.11.8",
