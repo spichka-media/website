@@ -34,7 +34,7 @@ jobs:
         run: yarn lint
 
       - name: Установка playwright
-        run: yarn playwright install
+        run: yarn playwright install --with-deps
 
       - name: Тесты
         run: yarn test
