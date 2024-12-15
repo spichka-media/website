@@ -6,7 +6,7 @@
         data-bs-toggle="tooltip"
         data-bs-title="''"
         data-bs-custom-class="custom-headliners-tooltip">
-        {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [95, 120], false, ['id' => 'theme-main-footer-image']) !!}
+        {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100], false, ['id' => 'theme-main-footer-image']) !!}
       </article>
 
       <nav>

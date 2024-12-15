@@ -10,14 +10,15 @@ export function initPortraits() {
 
   const elementForObserve = document.querySelector('#theme-main-footer');
 
-  initDisposableIntersectionObserver(() => {
-    const headlinersData = getHeadlinersData()?.theme_portraits;
-    if (!headlinersData || headlinersData?.length === 0) return;
+  initDisposableIntersectionObserver(async () => {
+    const data = await getHeadlinersData();
+    if (!data?.theme_portraits || data?.theme_portraits?.length === 0) return;
+
+    const controller = createHeadlinerListController(data.theme_portraits);
 
     const headlinersPortraitElement = document.querySelector('#theme-main-footer-image');
     const headlinersWrapperElement = document.querySelector('#theme-main-footer-image-wrapper');
 
-    const controller = createHeadlinerListController(headlinersData);
     const tooltip = new Tooltip(headlinersWrapperElement, { placement: 'right', offset: ({ placement, popper }) => {
       const verticalOffset = placement === 'right' ? -popper.height / 2 : 0;
       return [verticalOffset, 30];
