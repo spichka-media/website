@@ -128,7 +128,7 @@ function registerSectionPaginationBulletEvents(sectionClass) {
   const section = document.querySelector('section.' + sectionClass);
   if (!section) return;
 
-  const paginationBullets = document.querySelectorAll(
+  const paginationBullets = section.querySelectorAll(
     '.swiper-pagination-bullet',
   );
 
