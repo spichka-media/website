@@ -71,7 +71,7 @@
 
     <div class="swiper-container position-relative container-fluid">
       @php
-        const MAX_RECENT_PROGRAM_ARTICLES = 4;
+        const MAX_RECENT_PROGRAM_ARTICLES = 5;
         $program_articles = get_posts([
           'include' => array_pluck(carbon_get_post_meta(get_the_ID(), 'front_program_articles'), 'id'),
           'posts_per_page' => MAX_RECENT_PROGRAM_ARTICLES,
@@ -118,7 +118,7 @@
 
     <div class="swiper-container position-relative container-fluid">
       @php
-        const MAX_RECENT_POSTS = 4;
+        const MAX_RECENT_POSTS = 5;
         $recent_posts = get_posts([
           'posts_per_page' => MAX_RECENT_POSTS,
         ]);
@@ -158,7 +158,7 @@
 
     <div class="swiper-container position-relative container-fluid">
       @php
-        const MAX_RECENT_NOTES = 4;
+        const MAX_RECENT_NOTES = 5;
         $recent_notes = get_posts([
           'posts_per_page' => MAX_RECENT_NOTES,
           'post_type' => 'note',
