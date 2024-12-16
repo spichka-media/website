@@ -1,7 +1,18 @@
 <footer class="py-9 bg-light">
   <div class="container">
     <div class="d-flex align-items-center flex-column">
-      {!! wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100]) !!}
+      <div class="img-container">
+        {!!
+          wp_get_attachment_image(carbon_get_theme_option('theme_footer_image'), [80, 100], false, [
+            'id' => 'footer-image',
+            'data-bs-toggle' => 'tooltip',
+            'data-bs-placement' => 'right',
+            'data-bs-title' => "''",
+            'data-bs-offset' => '0,20',
+            'data-bs-custom-class' => 'portraits-tooltip',
+          ])
+        !!}
+      </div>
 
       <nav>
         <ul class="social d-flex list-unstyled mt-5 mb-0">

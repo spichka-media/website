@@ -4,4 +4,7 @@ module.exports = {
   rules: {
     'func-style': ['error', 'declaration'],
   },
+  globals: {
+    globalThis: 'readonly',
+  },
 };

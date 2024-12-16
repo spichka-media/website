@@ -70,4 +70,18 @@ footer {
         color 0.3s;
     }
   }
+
+  .img-container {
+    height: 6.25rem;
+  }
+}
+
+.portraits-tooltip {
+  --#{$prefix}tooltip-max-width: 20rem;
+  --#{$prefix}tooltip-bg: #dadada;
+  --#{$prefix}tooltip-color: $body;
+  --#{$prefix}tooltip-padding-x: 1rem;
+  --#{$prefix}tooltip-padding-y: 0.75rem;
+  --#{$prefix}body-font-weight: 500;
+  --#{$prefix}tooltip-opacity: 1;
 }
