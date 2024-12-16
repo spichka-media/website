@@ -79,7 +79,7 @@ footer {
 .portraits-tooltip {
   --#{$prefix}tooltip-max-width: 20rem;
   --#{$prefix}tooltip-bg: #dadada;
-  --#{$prefix}tooltip-color: $body;
+  --#{$prefix}tooltip-color: #{$body-color};
   --#{$prefix}tooltip-padding-x: 1rem;
   --#{$prefix}tooltip-padding-y: 0.75rem;
   --#{$prefix}body-font-weight: 500;
