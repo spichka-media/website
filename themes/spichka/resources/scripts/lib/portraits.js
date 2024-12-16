@@ -1,8 +1,7 @@
 // @ts-check
 
 import * as bootstrap from 'bootstrap';
-import {isDeviceHoverable} from './utils.js';
-import {shuffle} from 'lodash-es';
+import {isDeviceHoverable, shuffle} from './utils.js';
 
 /**
  * @typedef {import('./portraits.d.ts').ThemeOptionsResponse} ThemeOptionsResponse

@@ -4,12 +4,8 @@ import {isDeviceHoverable} from '../lib/utils.js';
 
 // Mock dependencies
 vi.mock('../lib/utils.js', () => ({
-  isDeviceHoverable: vi.fn(),
-}));
-
-vi.mock('lodash-es', () => ({
-  ...vi.importActual('lodash-es'),
   shuffle: vi.fn((arr) => arr),
+  isDeviceHoverable: vi.fn(),
 }));
 
 const tooltipMock = {

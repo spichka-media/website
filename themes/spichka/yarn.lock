@@ -10975,7 +10975,6 @@ __metadata:
     bootstrap: "npm:5.3.3"
     husky: "npm:9.1.7"
     install-peers: "npm:1.0.4"
-    lodash-es: "npm:4.17.21"
     playwright: "npm:1.49.1"
     prettier: "npm:3.4.2"
     prettier-plugin-blade: "npm:2.1.19"
