@@ -1,4 +1,3 @@
-/* global gtag */
 import domReady from '@roots/sage/client/dom-ready';
 
 import {Swiper} from 'swiper';
@@ -11,14 +10,6 @@ domReady(async () => {
   initSliders();
   initBannerTransform();
   initFloatingImage();
-
-  [
-    'program-articles-section',
-    'recent-articles-section',
-    'recent-notes-section',
-  ].forEach((sectionClass) =>
-    registerSectionPaginationBulletEvents(sectionClass),
-  );
 });
 
 function initBannerTransform() {
@@ -118,26 +109,4 @@ function checkVisible(elm) {
     window.innerHeight,
   );
   return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
-}
-
-function registerSectionPaginationBulletEvents(sectionClass) {
-  if (typeof gtag !== 'function') {
-    return;
-  }
-
-  const section = document.querySelector('section.' + sectionClass);
-  if (!section) return;
-
-  const paginationBullets = section.querySelectorAll(
-    '.swiper-pagination-bullet',
-  );
-
-  paginationBullets.forEach((bullet) => {
-    bullet.addEventListener('click', function () {
-      gtag('event', 'pagination_bullet_click', {
-        event_category: 'Pagination bullet',
-        event_label: sectionClass,
-      });
-    });
-  });
 }
