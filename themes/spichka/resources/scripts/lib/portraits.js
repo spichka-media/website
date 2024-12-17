@@ -2,7 +2,7 @@
 
 import * as bootstrap from 'bootstrap';
 import {isDeviceHoverable, preloadImages} from './utils.js';
-import {shuffle} from 'lodash-es';
+import {delay, shuffle} from 'lodash-es';
 
 /**
  * @typedef {import('./portraits.d.ts').ThemeOptionsResponse} ThemeOptionsResponse
@@ -55,7 +55,10 @@ async function setupPortraitLogic(footerImage, tooltip) {
     footerImage.src = staticImage;
     footerImage.alt = alt;
 
+    let blinkingPaused = false;
+
     footerImage.addEventListener('mouseenter', () => {
+      blinkingPaused = true;
       const {extraImage, quote} = combinations[index];
 
       footerImage.src = extraImage;
@@ -66,6 +69,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
     });
 
     footerImage.addEventListener('mouseleave', () => {
+      blinkingPaused = false;
+
       const {staticImage} = combinations[index];
 
       footerImage.src = staticImage;
@@ -90,7 +95,9 @@ async function setupPortraitLogic(footerImage, tooltip) {
         footerImage.src = staticImage;
 
         tooltip.hide();
+        blinkingPaused = false;
       } else {
+        blinkingPaused = true;
         const {extraImage, quote} = combinations[index];
 
         footerImage.src = extraImage;
@@ -106,6 +113,20 @@ async function setupPortraitLogic(footerImage, tooltip) {
         changePortraitOnClick = !changePortraitOnClick;
       }
     });
+
+    setInterval(() => {
+      if (blinkingPaused) {
+        return;
+      }
+
+      const {staticImage, extraImage} = combinations[index];
+
+      footerImage.src = extraImage;
+
+      delay(() => {
+        footerImage.src = staticImage;
+      }, 500);
+    }, 4000);
   } catch (err) {
     console.error('Error initializing portraits:', err);
     return;
