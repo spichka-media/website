@@ -151,7 +151,7 @@ async function setupPortraitLogic(footerImage, tooltip) {
   }
 }
 function initBlink(footerImage, staticImage, extraImage) {
-  blink(footerImage, staticImage, extraImage);
+  setTimeout(() => blink(footerImage, staticImage, extraImage), 1500);
 
   const handle = setInterval(
     () => blink(footerImage, staticImage, extraImage),
