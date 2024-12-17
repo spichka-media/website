@@ -83,6 +83,7 @@ export default async (app) => {
         /^pp-multiple-authors-/,
         /^article/,
         /^tooltip/,
+        /^tooltip-arrow/,
       ],
     });
 

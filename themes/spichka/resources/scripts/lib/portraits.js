@@ -25,7 +25,7 @@ export async function initPortraits() {
         observer.disconnect();
       }
     },
-    {root: null, threshold: 0.1},
+    {root: null, rootMargin: '0px 0px 500px 0px'},
   );
 
   await observer.observe(footerImage);
