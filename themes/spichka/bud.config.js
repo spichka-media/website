@@ -43,7 +43,7 @@ export default async (app) => {
     })
     .entry({
       archive: {
-        import: ['@styles/archive'],
+        import: ['@scripts/archive', '@styles/archive'],
         dependOn: ['app'],
       },
     })
