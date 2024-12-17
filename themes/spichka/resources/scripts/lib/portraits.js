@@ -1,7 +1,7 @@
 // @ts-check
 
 import * as bootstrap from 'bootstrap';
-import {isDeviceHoverable} from './utils.js';
+import {isDeviceHoverable, preloadImages} from './utils.js';
 import {shuffle} from 'lodash-es';
 
 /**
@@ -50,6 +50,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
     let index = 0;
     const {staticImage, alt} = combinations[index];
 
+    preloadCombinationImages(combinations, index);
+
     footerImage.src = staticImage;
     footerImage.alt = alt;
 
@@ -81,6 +83,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
           index++;
         }
 
+        preloadCombinationImages(combinations, index);
+
         const {staticImage} = combinations[index];
 
         footerImage.src = staticImage;
@@ -105,6 +109,24 @@ async function setupPortraitLogic(footerImage, tooltip) {
   } catch (err) {
     console.error('Error initializing portraits:', err);
     return;
+  }
+}
+
+/**
+ * @param {Combination[]} combinations
+ * @param {number} index
+ * @param {?number} extraCombinationAmount
+ */
+function preloadCombinationImages(
+  combinations,
+  index,
+  extraCombinationAmount = 1,
+) {
+  for (let i = 0; i <= extraCombinationAmount; i++) {
+    const currentIndex = (index + i) % combinations.length;
+
+    const combination = combinations[currentIndex];
+    preloadImages([combination.staticImage, combination.extraImage]);
   }
 }
 
