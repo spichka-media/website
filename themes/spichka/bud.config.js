@@ -1,3 +1,5 @@
+import purgeCssWordPress from 'purgecss-with-wordpress';
+
 /**
  * Compiler configuration
  *
@@ -54,6 +56,35 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.setPublicPath}
    */
   app.setPublicPath('/app/themes/sage/public/');
+
+  app.purge
+    .setContent([
+      app.path(`resources/views/**`),
+      app.path(`index.php`),
+      app.path(`app/lib/pagination.php`),
+    ])
+    .setSafelist({
+      ...purgeCssWordPress.safelist,
+      standard: [
+        'img',
+        'iframe',
+        'blockquote',
+        'figure',
+        'screen-reader-text',
+        'ol',
+        'ul',
+      ],
+      deep: [
+        /^ez-toc-/,
+        /^offcanvas(-.*)?$/,
+        /^nav-/,
+        /^modern-footnotes-/,
+        /^swiper-/,
+        /^pp-multiple-authors-/,
+        /^article/,
+        /tooltip(-.*)?$/,
+      ],
+    });
 
   /**
    * Development server settings
