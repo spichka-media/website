@@ -3,6 +3,7 @@
 import * as bootstrap from 'bootstrap';
 import {isDeviceHoverable, preloadImages} from './utils.js';
 import {shuffle} from 'lodash-es';
+import {emitGtagEvent} from './gtag.js';
 
 /**
  * @typedef {import('./portraits.d.ts').ThemeOptionsResponse} ThemeOptionsResponse
@@ -72,6 +73,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
       tooltip.setContent({
         '.tooltip-inner': quote,
       });
+
+      emitGtagEvent('portrait_combination_change');
     });
 
     footerImage.addEventListener('mouseleave', () => {
@@ -105,6 +108,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
         footerImage.src = staticImage;
 
         tooltip.hide();
+
+        emitGtagEvent('portrait_change');
       } else {
         const {extraImage, quote} =
           portraits[portraitIndex].combinations[combinationIndex];
@@ -121,6 +126,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
           (combinationIndex + 1) % portraits[portraitIndex].combinations.length;
 
         preloadCombinationImages(portraits[portraitIndex], combinationIndex);
+
+        emitGtagEvent('portrait_combination_change');
       }
 
       if (!isDeviceHoverable()) {
