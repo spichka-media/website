@@ -2,22 +2,20 @@ import {describe, it, vi, expect, beforeEach, afterEach} from 'vitest';
 import {initPortraits} from '../lib/portraits.js';
 import {isDeviceHoverable} from '../lib/utils.js';
 
-// Mock dependencies
 vi.mock('../lib/utils.js', async () => {
-  const actual = await vi.importActual('../lib/utils.js');
   return {
-    ...actual,
+    ...(await vi.importActual('../lib/utils.js')),
     isDeviceHoverable: vi.fn(),
   };
 });
 
 vi.mock('lodash-es', async () => {
-  const actual = await vi.importActual('lodash-es');
   return {
-    ...actual,
+    ...(await vi.importActual('lodash-es')),
     shuffle: vi.fn((arr) => arr),
   };
 });
+
 const tooltipMock = {
   setContent: vi.fn(),
   show: vi.fn(),
@@ -28,28 +26,11 @@ vi.mock('bootstrap', () => ({
   Tooltip: vi.fn(() => tooltipMock),
 }));
 
-const mockData = {
-  theme_portraits: [
-    {
-      static_image: 'static.jpg',
-      extra_images: [{extra_image: 'extra.jpg'}],
-      quotes: [{quote: 'Test quote'}],
-      alt: 'Alt text',
-    },
-    {
-      static_image: 'static1.jpg',
-      extra_images: [{extra_image: 'extra1.jpg'}],
-      quotes: [{quote: 'Test quote1'}],
-      alt: 'Alt text1',
-    },
-  ],
-};
-
 describe('initPortraits', () => {
   let footerImage;
 
   beforeEach(() => {
-    document.body.innerHTML = ''; // Reset DOM
+    document.body.innerHTML = '';
     footerImage = document.createElement('img');
     footerImage.id = 'footer-image';
     footerImage.src = 'initial.jpg';
@@ -57,7 +38,26 @@ describe('initPortraits', () => {
     globalThis.fetch = vi.fn();
 
     globalThis.fetch.mockResolvedValueOnce({
-      json: () => Promise.resolve(mockData),
+      json: () =>
+        Promise.resolve({
+          theme_portraits: [
+            {
+              static_image: 'static.jpg',
+              alt: 'Alt text',
+              extra_images: [
+                {extra_image: 'extra.jpg'},
+                {extra_image: 'extra1.jpg'},
+              ],
+              quotes: [{quote: 'Test quote'}, {quote: 'Test quote1'}],
+            },
+            {
+              static_image: 'static1.jpg',
+              alt: 'Alt text1',
+              extra_images: [{extra_image: 'extra2.jpg'}],
+              quotes: [{quote: 'Test quote'}, {quote: 'Test quote2'}],
+            },
+          ],
+        }),
     });
 
     globalThis.IntersectionObserver = vi.fn((callback) => {
@@ -93,6 +93,28 @@ describe('initPortraits', () => {
     footerImage.dispatchEvent(new Event('mouseenter'));
 
     expect(footerImage.src).toContain('extra.jpg');
+
+    expect(tooltipMock.setContent).toHaveBeenCalledWith({
+      '.tooltip-inner': 'Test quote',
+    });
+
+    footerImage.dispatchEvent(new Event('mouseleave'));
+    expect(footerImage.src).toContain('static.jpg');
+
+    footerImage.dispatchEvent(new Event('mouseenter'));
+
+    expect(footerImage.src).toContain('extra.jpg');
+
+    expect(tooltipMock.setContent).toHaveBeenCalledWith({
+      '.tooltip-inner': 'Test quote1',
+    });
+
+    footerImage.dispatchEvent(new Event('mouseleave'));
+    expect(footerImage.src).toContain('static.jpg');
+
+    footerImage.dispatchEvent(new Event('mouseenter'));
+
+    expect(footerImage.src).toContain('extra1.jpg');
 
     expect(tooltipMock.setContent).toHaveBeenCalledWith({
       '.tooltip-inner': 'Test quote',

@@ -8,8 +8,12 @@ export type ThemeOptionsResponse = {
 };
 
 export type Combination = {
-  staticImage: string;
   extraImage: string;
   quote: string;
+};
+
+export type Portrait = {
+  staticImage: string;
   alt: string;
+  combinations: Combination[];
 };

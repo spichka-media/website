@@ -2,11 +2,12 @@
 
 import * as bootstrap from 'bootstrap';
 import {isDeviceHoverable, preloadImages} from './utils.js';
-import {delay, shuffle} from 'lodash-es';
+import {shuffle} from 'lodash-es';
 
 /**
  * @typedef {import('./portraits.d.ts').ThemeOptionsResponse} ThemeOptionsResponse
  * @typedef {import('./portraits.d.ts').Combination} Combination
+ * @typedef {import('./portraits.d.ts').Portrait} Portrait
  */
 
 export async function initPortraits() {
@@ -45,21 +46,26 @@ async function setupPortraitLogic(footerImage, tooltip) {
       return;
     }
 
-    const combinations = generateCombinations(data);
+    const portraits = getPortraits(data);
 
-    let index = 0;
-    const {staticImage, alt} = combinations[index];
+    let portraitIndex = 0;
+    let combinationIndex = 0;
+    const {staticImage, alt} = portraits[portraitIndex];
+    let blinkStop;
 
-    preloadCombinationImages(combinations, index);
+    preloadPortraitImages(portraits, portraitIndex);
+    preloadCombinationImages(portraits[portraitIndex], combinationIndex);
 
     footerImage.src = staticImage;
     footerImage.alt = alt;
 
-    let blinkingPaused = false;
-
     footerImage.addEventListener('mouseenter', () => {
-      blinkingPaused = true;
-      const {extraImage, quote} = combinations[index];
+      if (blinkStop) {
+        blinkStop();
+      }
+
+      const {extraImage, quote} =
+        portraits[portraitIndex].combinations[combinationIndex];
 
       footerImage.src = extraImage;
 
@@ -69,36 +75,39 @@ async function setupPortraitLogic(footerImage, tooltip) {
     });
 
     footerImage.addEventListener('mouseleave', () => {
-      blinkingPaused = false;
-
-      const {staticImage} = combinations[index];
+      const {staticImage} = portraits[portraitIndex];
 
       footerImage.src = staticImage;
+
+      combinationIndex =
+        (combinationIndex + 1) % portraits[portraitIndex].combinations.length;
+
+      preloadCombinationImages(portraits[portraitIndex], combinationIndex);
     });
 
     let changePortraitOnClick = false;
 
     footerImage.addEventListener('click', () => {
+      if (blinkStop) {
+        blinkStop();
+      }
+
       const changePortrait = isDeviceHoverable() || changePortraitOnClick;
 
       if (changePortrait) {
-        if (index + 1 >= combinations.length) {
-          index = 0;
-        } else {
-          index++;
-        }
+        portraitIndex = (portraitIndex + 1) % portraits.length;
 
-        preloadCombinationImages(combinations, index);
+        preloadPortraitImages(portraits, portraitIndex);
+        preloadCombinationImages(portraits[portraitIndex], combinationIndex);
 
-        const {staticImage} = combinations[index];
+        const {staticImage} = portraits[portraitIndex];
 
         footerImage.src = staticImage;
 
         tooltip.hide();
-        blinkingPaused = false;
       } else {
-        blinkingPaused = true;
-        const {extraImage, quote} = combinations[index];
+        const {extraImage, quote} =
+          portraits[portraitIndex].combinations[combinationIndex];
 
         footerImage.src = extraImage;
 
@@ -107,6 +116,11 @@ async function setupPortraitLogic(footerImage, tooltip) {
         });
 
         tooltip.show();
+
+        combinationIndex =
+          (combinationIndex + 1) % portraits[portraitIndex].combinations.length;
+
+        preloadCombinationImages(portraits[portraitIndex], combinationIndex);
       }
 
       if (!isDeviceHoverable()) {
@@ -114,64 +128,111 @@ async function setupPortraitLogic(footerImage, tooltip) {
       }
     });
 
-    setInterval(() => {
-      if (blinkingPaused) {
-        return;
-      }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          blinkStop = initBlink(
+            footerImage,
+            portraits[portraitIndex].staticImage,
+            portraits[portraitIndex].combinations[combinationIndex].extraImage,
+          );
 
-      const {staticImage, extraImage} = combinations[index];
+          observer.disconnect();
+        }
+      },
+      {root: null, threshold: 1},
+    );
 
-      footerImage.src = extraImage;
-
-      delay(() => {
-        footerImage.src = staticImage;
-      }, 500);
-    }, 4000);
+    await observer.observe(footerImage);
   } catch (err) {
     console.error('Error initializing portraits:', err);
     return;
   }
 }
+function initBlink(footerImage, staticImage, extraImage) {
+  blink(footerImage, staticImage, extraImage);
+
+  const handle = setInterval(
+    () => blink(footerImage, staticImage, extraImage),
+    3500,
+  );
+
+  return () => {
+    clearInterval(handle);
+  };
+}
+function blink(footerImage, staticImage, extraImage) {
+  footerImage.src = extraImage;
+
+  setTimeout(() => {
+    footerImage.src = staticImage;
+  }, 500);
+}
 
 /**
- * @param {Combination[]} combinations
- * @param {number} index
+ * @param {Portrait[]} portraits
+ * @param {number} portraitIndex
+ * @param {?number} extraPortraitsAmount
+ */
+function preloadPortraitImages(
+  portraits,
+  portraitIndex,
+  extraPortraitsAmount = 1,
+) {
+  for (let i = 0; i <= extraPortraitsAmount; i++) {
+    const currentPortraitIndex = (portraitIndex + i) % portraits.length;
+
+    const portrait = portraits[currentPortraitIndex];
+    preloadImages([portrait.staticImage]);
+  }
+}
+
+/**
+ * @param {Portrait} portrait
+ * @param {number} combinationIndex
  * @param {?number} extraCombinationAmount
  */
 function preloadCombinationImages(
-  combinations,
-  index,
+  portrait,
+  combinationIndex,
   extraCombinationAmount = 1,
 ) {
   for (let i = 0; i <= extraCombinationAmount; i++) {
-    const currentIndex = (index + i) % combinations.length;
+    const currentCombinationIndex =
+      (combinationIndex + i) % portrait.combinations.length;
 
-    const combination = combinations[currentIndex];
-    preloadImages([combination.staticImage, combination.extraImage]);
+    const combination = portrait.combinations[currentCombinationIndex];
+    preloadImages([combination.extraImage]);
   }
 }
 
 /**
  * @param {ThemeOptionsResponse} data
- * @return {Combination[]}
+ * @return {Portrait[]}
  */
-function generateCombinations(data) {
-  const combinations = [];
+function getPortraits(data) {
+  /** @type {Portrait[]} */
+  const portraits = data.theme_portraits.map(
+    ({static_image, extra_images, quotes, alt}) => {
+      const combinations = [];
 
-  data.theme_portraits.forEach((portrait) => {
-    const {static_image, extra_images, quotes, alt} = portrait;
-
-    extra_images.forEach((img) => {
-      quotes.forEach((quote) => {
-        combinations.push({
-          staticImage: static_image,
-          extraImage: img.extra_image,
-          quote: quote.quote,
-          alt,
+      extra_images.forEach((img) => {
+        quotes.forEach((quote) => {
+          combinations.push({
+            extraImage: img.extra_image,
+            quote: quote.quote,
+          });
         });
       });
-    });
-  });
 
-  return shuffle(combinations);
+      return {
+        staticImage: static_image,
+        alt,
+        combinations: shuffle(combinations),
+      };
+    },
+  );
+
+  return shuffle(portraits);
 }
