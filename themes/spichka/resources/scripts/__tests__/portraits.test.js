@@ -3,15 +3,21 @@ import {initPortraits} from '../lib/portraits.js';
 import {isDeviceHoverable} from '../lib/utils.js';
 
 // Mock dependencies
-vi.mock('../lib/utils.js', () => ({
-  isDeviceHoverable: vi.fn(),
-}));
+vi.mock('../lib/utils.js', async () => {
+  const actual = await vi.importActual('../lib/utils.js');
+  return {
+    ...actual,
+    isDeviceHoverable: vi.fn(),
+  };
+});
 
-vi.mock('lodash-es', () => ({
-  ...vi.importActual('lodash-es'),
-  shuffle: vi.fn((arr) => arr),
-}));
-
+vi.mock('lodash-es', async () => {
+  const actual = await vi.importActual('lodash-es');
+  return {
+    ...actual,
+    shuffle: vi.fn((arr) => arr),
+  };
+});
 const tooltipMock = {
   setContent: vi.fn(),
   show: vi.fn(),
