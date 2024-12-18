@@ -7,7 +7,7 @@
             'id' => 'footer-image',
             'data-bs-toggle' => 'tooltip',
             'data-bs-placement' => 'right',
-            'data-bs-title' => 'Только на кладбище осуществимо полное тождество взглядов',
+            'data-bs-title' => carbon_get_theme_option('theme_footer_image_quote'),
             'data-bs-offset' => '0,20',
             'data-bs-custom-class' => 'portraits-tooltip',
           ])

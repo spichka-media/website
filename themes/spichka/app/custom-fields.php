@@ -19,6 +19,11 @@ add_action(
         ]),
       Field::make('text', 'theme_telegram_channel', 'Телеграм канал'),
       Field::make('image', 'theme_footer_image', 'Изображение по умолчанию'),
+      Field::make(
+        'image',
+        'theme_footer_image_quote',
+        'Текст к изображению по умолчанию'
+      ),
       Field::make('complex', 'theme_portraits', 'Портреты')
         ->set_layout('tabbed-vertical')
         ->add_fields([
