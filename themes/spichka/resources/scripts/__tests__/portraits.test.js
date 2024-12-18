@@ -142,7 +142,7 @@ describe('initPortraits', () => {
     expect(footerImage.src).toContain('static1.jpg');
   });
 
-  it('should change portrait to next combination on second click on touch screens', async () => {
+  it('check login on touch screens', async () => {
     vi.mocked(isDeviceHoverable).mockReturnValue(false);
 
     await initPortraits();
@@ -150,7 +150,28 @@ describe('initPortraits', () => {
     footerImage.dispatchEvent(new Event('click'));
     expect(footerImage.src).toContain('extra.jpg');
 
+    expect(tooltipMock.setContent).toHaveBeenCalledWith({
+      '.tooltip-inner': 'Test quote',
+    });
+
     footerImage.dispatchEvent(new Event('click'));
-    expect(footerImage.src).toContain('static1.jpg');
+    expect(footerImage.src).toContain('static.jpg');
+
+    footerImage.dispatchEvent(new Event('click'));
+    expect(footerImage.src).toContain('extra.jpg');
+
+    expect(tooltipMock.setContent).toHaveBeenCalledWith({
+      '.tooltip-inner': 'Test quote1',
+    });
+
+    footerImage.dispatchEvent(new Event('click'));
+    expect(footerImage.src).toContain('static.jpg');
+
+    footerImage.dispatchEvent(new Event('click'));
+    expect(footerImage.src).toContain('extra1.jpg');
+
+    expect(tooltipMock.setContent).toHaveBeenCalledWith({
+      '.tooltip-inner': 'Test quote',
+    });
   });
 });

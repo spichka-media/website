@@ -88,16 +88,14 @@ async function setupPortraitLogic(footerImage, tooltip) {
       preloadCombinationImages(portraits[portraitIndex], combinationIndex);
     });
 
-    let changePortraitOnClick = false;
+    let changeCombination = true;
 
     footerImage.addEventListener('click', () => {
       if (blinkStop) {
         blinkStop();
       }
 
-      const changePortrait = isDeviceHoverable() || changePortraitOnClick;
-
-      if (changePortrait) {
+      if (isDeviceHoverable()) {
         portraitIndex = (portraitIndex + 1) % portraits.length;
         combinationIndex = 0;
 
@@ -111,29 +109,44 @@ async function setupPortraitLogic(footerImage, tooltip) {
         tooltip.hide();
 
         emitGtagEvent('portrait_change');
-      } else {
-        const {extraImage, quote} =
-          portraits[portraitIndex].combinations[combinationIndex];
 
-        footerImage.src = extraImage;
+        return;
+      }
 
-        tooltip.setContent({
-          '.tooltip-inner': quote,
-        });
+      changeCombination = !changeCombination;
 
-        tooltip.show();
-
+      if (changeCombination) {
         combinationIndex =
           (combinationIndex + 1) % portraits[portraitIndex].combinations.length;
 
+        if (combinationIndex === 0) {
+          portraitIndex = (portraitIndex + 1) % portraits.length;
+          emitGtagEvent('portrait_change');
+        }
+
+        preloadPortraitImages(portraits, portraitIndex);
         preloadCombinationImages(portraits[portraitIndex], combinationIndex);
 
+        const {staticImage} = portraits[portraitIndex];
+
+        footerImage.src = staticImage;
+
+        tooltip.hide();
         emitGtagEvent('portrait_combination_change');
+
+        return;
       }
 
-      if (!isDeviceHoverable()) {
-        changePortraitOnClick = !changePortraitOnClick;
-      }
+      const {extraImage, quote} =
+        portraits[portraitIndex].combinations[combinationIndex];
+
+      footerImage.src = extraImage;
+
+      tooltip.setContent({
+        '.tooltip-inner': quote,
+      });
+
+      tooltip.show();
     });
 
     const observer = new IntersectionObserver(
