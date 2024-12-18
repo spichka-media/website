@@ -20,7 +20,7 @@ add_action(
       Field::make('text', 'theme_telegram_channel', 'Телеграм канал'),
       Field::make('image', 'theme_footer_image', 'Изображение по умолчанию'),
       Field::make(
-        'image',
+        'text',
         'theme_footer_image_quote',
         'Текст к изображению по умолчанию'
       ),
