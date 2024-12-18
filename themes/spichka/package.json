@@ -50,6 +50,7 @@
   "dependencies": {
     "@popperjs/core": "2.11.8",
     "bootstrap": "5.3.3",
+    "lodash-es": "4.17.21",
     "swiper": "11.1.15"
   },
   "packageManager": "yarn@4.3.1"
