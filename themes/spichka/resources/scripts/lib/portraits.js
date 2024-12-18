@@ -99,6 +99,7 @@ async function setupPortraitLogic(footerImage, tooltip) {
 
       if (changePortrait) {
         portraitIndex = (portraitIndex + 1) % portraits.length;
+        combinationIndex = 0;
 
         preloadPortraitImages(portraits, portraitIndex);
         preloadCombinationImages(portraits[portraitIndex], combinationIndex);
