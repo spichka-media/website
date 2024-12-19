@@ -59,6 +59,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
 
     footerImage.src = staticImage;
     footerImage.alt = alt;
+    footerImage.removeAttribute('width');
+    footerImage.removeAttribute('height');
 
     footerImage.addEventListener('mouseenter', () => {
       if (blinkStop) {
