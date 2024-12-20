@@ -63,6 +63,10 @@ async function setupPortraitLogic(footerImage, tooltip) {
         blinkStop();
       }
 
+      if (!isDeviceHoverable()) {
+        return;
+      }
+
       const {extraImage} = portraits[portraitIndex];
       const quote = portraits[portraitIndex].quotes[quoteIndex];
 
@@ -76,6 +80,10 @@ async function setupPortraitLogic(footerImage, tooltip) {
     });
 
     footerImage.addEventListener('mouseleave', () => {
+      if (!isDeviceHoverable()) {
+        return;
+      }
+
       const {staticImage} = portraits[portraitIndex];
 
       footerImage.src = staticImage;
