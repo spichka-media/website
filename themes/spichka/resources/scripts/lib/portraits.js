@@ -24,7 +24,7 @@ export async function initPortraits() {
         observer.disconnect();
       }
     },
-    {root: null, rootMargin: '0px 0px 200px 0px'},
+    {root: null, rootMargin: '0px 0px 1000px 0px'},
   );
 
   await observer.observe(footerImage);
@@ -80,13 +80,13 @@ async function setupPortraitLogic(footerImage, tooltip) {
     });
 
     footerImage.addEventListener('mouseleave', () => {
-      if (!isDeviceHoverable()) {
-        return;
-      }
-
       const {staticImage} = portraits[portraitIndex];
 
       footerImage.src = staticImage;
+
+      if (!isDeviceHoverable()) {
+        return;
+      }
 
       quoteIndex = (quoteIndex + 1) % portraits[portraitIndex].quotes.length;
     });
