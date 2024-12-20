@@ -225,7 +225,3 @@ function getPortraits(data) {
 
   return shuffle(portraits);
 }
-
-// shuffle on every portrait change
-// change portrait on every click
-// make additional image only 1
