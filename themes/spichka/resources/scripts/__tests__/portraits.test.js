@@ -44,17 +44,14 @@ describe('initPortraits', () => {
             {
               static_image: 'static.jpg',
               alt: 'Alt text',
-              extra_images: [
-                {extra_image: 'extra.jpg'},
-                {extra_image: 'extra1.jpg'},
-              ],
+              extra_image: 'extra.jpg',
               quotes: [{quote: 'Test quote'}, {quote: 'Test quote1'}],
             },
             {
               static_image: 'static1.jpg',
               alt: 'Alt text1',
-              extra_images: [{extra_image: 'extra2.jpg'}],
-              quotes: [{quote: 'Test quote'}, {quote: 'Test quote2'}],
+              extra_image: 'extra2.jpg',
+              quotes: [{quote: 'Test quote2'}, {quote: 'Test quote3'}],
             },
           ],
         }),
@@ -114,7 +111,7 @@ describe('initPortraits', () => {
 
     footerImage.dispatchEvent(new Event('mouseenter'));
 
-    expect(footerImage.src).toContain('extra1.jpg');
+    expect(footerImage.src).toContain('extra.jpg');
 
     expect(tooltipMock.setContent).toHaveBeenCalledWith({
       '.tooltip-inner': 'Test quote',
@@ -142,7 +139,7 @@ describe('initPortraits', () => {
     expect(footerImage.src).toContain('static1.jpg');
   });
 
-  it('check login on touch screens', async () => {
+  it('check logic on touch screens', async () => {
     vi.mocked(isDeviceHoverable).mockReturnValue(false);
 
     await initPortraits();
@@ -155,6 +152,16 @@ describe('initPortraits', () => {
     });
 
     footerImage.dispatchEvent(new Event('click'));
+    expect(footerImage.src).toContain('static1.jpg');
+
+    footerImage.dispatchEvent(new Event('click'));
+    expect(footerImage.src).toContain('extra2.jpg');
+
+    expect(tooltipMock.setContent).toHaveBeenCalledWith({
+      '.tooltip-inner': 'Test quote2',
+    });
+
+    footerImage.dispatchEvent(new Event('click'));
     expect(footerImage.src).toContain('static.jpg');
 
     footerImage.dispatchEvent(new Event('click'));
@@ -162,16 +169,6 @@ describe('initPortraits', () => {
 
     expect(tooltipMock.setContent).toHaveBeenCalledWith({
       '.tooltip-inner': 'Test quote1',
-    });
-
-    footerImage.dispatchEvent(new Event('click'));
-    expect(footerImage.src).toContain('static.jpg');
-
-    footerImage.dispatchEvent(new Event('click'));
-    expect(footerImage.src).toContain('extra1.jpg');
-
-    expect(tooltipMock.setContent).toHaveBeenCalledWith({
-      '.tooltip-inner': 'Test quote',
     });
   });
 });

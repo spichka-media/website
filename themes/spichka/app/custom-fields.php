@@ -31,16 +31,13 @@ add_action(
             ->set_type('image')
             ->set_value_type('url'),
           Field::make('text', 'alt', 'Атрибут alt'),
-          Field::make('complex', 'extra_images', 'Дополнительные изображения')
-            ->set_layout('tabbed-horizontal')
-            ->add_fields([
-              Field::make('file', 'extra_image', 'Изображение')
-                ->set_type('image')
-                ->set_value_type('url'),
-            ]),
+          Field::make('file', 'extra_image', 'Дополнительное изображение')
+            ->set_type('image')
+            ->set_value_type('url'),
           Field::make('complex', 'quotes', 'Цитаты')
             ->set_layout('tabbed-horizontal')
-            ->add_fields([Field::make('text', 'quote', 'Цитата')]),
+            ->add_fields([Field::make('text', 'quote', 'Цитата')])
+            ->set_max(3),
         ]),
       Field::make('rich_text', 'theme_footer_text', 'Текст в футере'),
       Field::make(

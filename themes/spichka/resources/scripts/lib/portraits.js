@@ -7,7 +7,6 @@ import {emitGtagEvent} from './gtag.js';
 
 /**
  * @typedef {import('./portraits.d.ts').ThemeOptionsResponse} ThemeOptionsResponse
- * @typedef {import('./portraits.d.ts').Combination} Combination
  * @typedef {import('./portraits.d.ts').Portrait} Portrait
  */
 
@@ -47,15 +46,14 @@ async function setupPortraitLogic(footerImage, tooltip) {
       return;
     }
 
-    const portraits = getPortraits(data);
+    let portraits = getPortraits(data);
 
     let portraitIndex = 0;
-    let combinationIndex = 0;
+    let quoteIndex = 0;
     const {staticImage, alt} = portraits[portraitIndex];
     let blinkStop;
 
     preloadPortraitImages(portraits, portraitIndex);
-    preloadCombinationImages(portraits[portraitIndex], combinationIndex);
 
     footerImage.src = staticImage;
     footerImage.alt = alt;
@@ -67,8 +65,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
         blinkStop();
       }
 
-      const {extraImage, quote} =
-        portraits[portraitIndex].combinations[combinationIndex];
+      const {extraImage} = portraits[portraitIndex];
+      const quote = portraits[portraitIndex].quotes[quoteIndex];
 
       footerImage.src = extraImage;
 
@@ -76,7 +74,7 @@ async function setupPortraitLogic(footerImage, tooltip) {
         '.tooltip-inner': quote,
       });
 
-      emitGtagEvent('portrait_combination_change');
+      emitGtagEvent('portrait_quote_change');
     });
 
     footerImage.addEventListener('mouseleave', () => {
@@ -84,13 +82,10 @@ async function setupPortraitLogic(footerImage, tooltip) {
 
       footerImage.src = staticImage;
 
-      combinationIndex =
-        (combinationIndex + 1) % portraits[portraitIndex].combinations.length;
-
-      preloadCombinationImages(portraits[portraitIndex], combinationIndex);
+      quoteIndex = (quoteIndex + 1) % portraits[portraitIndex].quotes.length;
     });
 
-    let changeCombination = true;
+    let changePortrait = true;
 
     footerImage.addEventListener('click', () => {
       if (blinkStop) {
@@ -99,10 +94,9 @@ async function setupPortraitLogic(footerImage, tooltip) {
 
       if (isDeviceHoverable()) {
         portraitIndex = (portraitIndex + 1) % portraits.length;
-        combinationIndex = 0;
+        quoteIndex = 0;
 
         preloadPortraitImages(portraits, portraitIndex);
-        preloadCombinationImages(portraits[portraitIndex], combinationIndex);
 
         const {staticImage} = portraits[portraitIndex];
 
@@ -115,32 +109,31 @@ async function setupPortraitLogic(footerImage, tooltip) {
         return;
       }
 
-      changeCombination = !changeCombination;
+      changePortrait = !changePortrait;
 
-      if (changeCombination) {
-        combinationIndex =
-          (combinationIndex + 1) % portraits[portraitIndex].combinations.length;
-
-        if (combinationIndex === 0) {
-          portraitIndex = (portraitIndex + 1) % portraits.length;
-          emitGtagEvent('portrait_change');
-        }
+      if (changePortrait) {
+        portraitIndex = (portraitIndex + 1) % portraits.length;
 
         preloadPortraitImages(portraits, portraitIndex);
-        preloadCombinationImages(portraits[portraitIndex], combinationIndex);
+
+        if (portraitIndex === 0) {
+          portraits = shuffle(portraits);
+
+          quoteIndex =
+            (quoteIndex + 1) % portraits[portraitIndex].quotes.length;
+        }
 
         const {staticImage} = portraits[portraitIndex];
 
         footerImage.src = staticImage;
 
         tooltip.hide();
-        emitGtagEvent('portrait_combination_change');
-
+        emitGtagEvent('portrait_change');
         return;
       }
 
-      const {extraImage, quote} =
-        portraits[portraitIndex].combinations[combinationIndex];
+      const {extraImage} = portraits[portraitIndex];
+      const quote = portraits[portraitIndex].quotes[quoteIndex];
 
       footerImage.src = extraImage;
 
@@ -149,6 +142,8 @@ async function setupPortraitLogic(footerImage, tooltip) {
       });
 
       tooltip.show();
+
+      emitGtagEvent('portrait_quote_change');
     });
 
     const observer = new IntersectionObserver(
@@ -158,7 +153,7 @@ async function setupPortraitLogic(footerImage, tooltip) {
           blinkStop = initBlink(
             footerImage,
             portraits[portraitIndex].staticImage,
-            portraits[portraitIndex].combinations[combinationIndex].extraImage,
+            portraits[portraitIndex].extraImage,
           );
 
           observer.disconnect();
@@ -207,26 +202,7 @@ function preloadPortraitImages(
     const currentPortraitIndex = (portraitIndex + i) % portraits.length;
 
     const portrait = portraits[currentPortraitIndex];
-    preloadImages([portrait.staticImage]);
-  }
-}
-
-/**
- * @param {Portrait} portrait
- * @param {number} combinationIndex
- * @param {?number} extraCombinationAmount
- */
-function preloadCombinationImages(
-  portrait,
-  combinationIndex,
-  extraCombinationAmount = 1,
-) {
-  for (let i = 0; i <= extraCombinationAmount; i++) {
-    const currentCombinationIndex =
-      (combinationIndex + i) % portrait.combinations.length;
-
-    const combination = portrait.combinations[currentCombinationIndex];
-    preloadImages([combination.extraImage]);
+    preloadImages([portrait.staticImage, portrait.extraImage]);
   }
 }
 
@@ -237,25 +213,19 @@ function preloadCombinationImages(
 function getPortraits(data) {
   /** @type {Portrait[]} */
   const portraits = data.theme_portraits.map(
-    ({static_image, extra_images, quotes, alt}) => {
-      const combinations = [];
-
-      extra_images.forEach((img) => {
-        quotes.forEach((quote) => {
-          combinations.push({
-            extraImage: img.extra_image,
-            quote: quote.quote,
-          });
-        });
-      });
-
+    ({static_image, extra_image, quotes, alt}) => {
       return {
         staticImage: static_image,
         alt,
-        combinations: shuffle(combinations),
+        extraImage: extra_image,
+        quotes: shuffle(quotes.map(({quote}) => quote)),
       };
     },
   );
 
   return shuffle(portraits);
 }
+
+// shuffle on every portrait change
+// change portrait on every click
+// make additional image only 1
