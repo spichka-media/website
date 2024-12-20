@@ -1,9 +1,7 @@
-// @ts-check
-
-import * as bootstrap from 'bootstrap';
 import {isDeviceHoverable, preloadImages} from './utils.js';
 import {shuffle} from 'lodash-es';
 import {emitGtagEvent} from './gtag.js';
+import Tooltip from 'bootstrap/js/dist/tooltip';
 
 /**
  * @typedef {import('./portraits.d.ts').ThemeOptionsResponse} ThemeOptionsResponse
@@ -17,7 +15,7 @@ export async function initPortraits() {
     return;
   }
 
-  const tooltip = new bootstrap.Tooltip(footerImage);
+  const tooltip = new Tooltip(footerImage);
   const observer = new IntersectionObserver(
     (entries) => {
       const entry = entries[0];

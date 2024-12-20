@@ -22,9 +22,9 @@ const tooltipMock = {
   hide: vi.fn(),
 };
 
-vi.mock('bootstrap', () => ({
-  Tooltip: vi.fn(() => tooltipMock),
-}));
+vi.mock('bootstrap/js/dist/tooltip', () => {
+  return vi.fn(() => tooltipMock);
+});
 
 describe('initPortraits', () => {
   let footerImage;
