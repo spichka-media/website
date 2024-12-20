@@ -37,7 +37,9 @@ add_action(
           Field::make('complex', 'quotes', 'Цитаты')
             ->set_layout('tabbed-horizontal')
             ->add_fields([Field::make('text', 'quote', 'Цитата')])
-            ->set_max(3),
+            ->set_help_text(
+              'Важно иметь у всех портретов одинаковое количество цитат (особенности реализации)'
+            ),
         ]),
       Field::make('rich_text', 'theme_footer_text', 'Текст в футере'),
       Field::make(
