@@ -193,6 +193,18 @@ add_filter('rest_authentication_errors', function ($result) {
     return $result;
   }
 
+  $excluded_routes = ['/wp-json/custom-fields/theme_options'];
+
+  $current_route = isset($_SERVER['REQUEST_URI'])
+    ? $_SERVER['REQUEST_URI']
+    : '';
+
+  foreach ($excluded_routes as $excluded_route) {
+    if (strpos($current_route, $excluded_route) !== false) {
+      return $result;
+    }
+  }
+
   // No authentication has been performed yet.
   // Return an error if user is not logged in.
   if (!is_user_logged_in()) {

@@ -18,7 +18,29 @@ add_action(
           Field::make('text', 'theme_social_icon', 'Иконка'),
         ]),
       Field::make('text', 'theme_telegram_channel', 'Телеграм канал'),
-      Field::make('image', 'theme_footer_image', 'Изображение'),
+      Field::make('image', 'theme_footer_image', 'Изображение по умолчанию'),
+      Field::make(
+        'text',
+        'theme_footer_image_quote',
+        'Текст к изображению по умолчанию'
+      ),
+      Field::make('complex', 'theme_portraits', 'Портреты')
+        ->set_layout('tabbed-vertical')
+        ->add_fields([
+          Field::make('file', 'static_image', 'Изображение в покое')
+            ->set_type('image')
+            ->set_value_type('url'),
+          Field::make('text', 'alt', 'Атрибут alt'),
+          Field::make('file', 'extra_image', 'Дополнительное изображение')
+            ->set_type('image')
+            ->set_value_type('url'),
+          Field::make('complex', 'quotes', 'Цитаты')
+            ->set_layout('tabbed-horizontal')
+            ->add_fields([Field::make('text', 'quote', 'Цитата')])
+            ->set_help_text(
+              'Важно иметь у всех портретов одинаковое количество цитат (особенности реализации)'
+            ),
+        ]),
       Field::make('rich_text', 'theme_footer_text', 'Текст в футере'),
       Field::make(
         'text',
@@ -218,3 +240,18 @@ add_action(
 if (class_exists('Carbon_Fields\Carbon_Fields')) {
   Carbon_Fields::boot();
 }
+
+add_action('rest_api_init', function () {
+  register_rest_route('custom-fields/', 'theme_options', [
+    'methods' => 'GET',
+    'callback' => function () {
+      $theme_options = [
+        'theme_portraits' => carbon_get_theme_option('theme_portraits'),
+      ];
+
+      $response = rest_ensure_response($theme_options);
+
+      return $response;
+    },
+  ]);
+});
