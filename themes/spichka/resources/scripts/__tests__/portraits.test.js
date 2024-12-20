@@ -9,10 +9,9 @@ vi.mock('../lib/utils.js', async () => {
   };
 });
 
-vi.mock('lodash-es', async () => {
+vi.mock('lodash-es/shuffle.js', async () => {
   return {
-    ...(await vi.importActual('lodash-es')),
-    shuffle: vi.fn((arr) => arr),
+    default: vi.fn((arr) => arr),
   };
 });
 

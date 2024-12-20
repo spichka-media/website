@@ -1,5 +1,5 @@
 import {isDeviceHoverable, preloadImages} from './utils.js';
-import {shuffle} from 'lodash-es';
+import shuffle from 'lodash-es/shuffle.js';
 import {emitGtagEvent} from './gtag.js';
 import Tooltip from 'bootstrap/js/dist/tooltip';
 
