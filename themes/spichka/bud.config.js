@@ -82,6 +82,7 @@ export default async (app) => {
         /^swiper-/,
         /^pp-multiple-authors-/,
         /^article/,
+        /tooltip(-.*)?$/,
       ],
     });
 
