@@ -104,9 +104,10 @@ async function setupPortraitLogic(footerImage, tooltip) {
 
         preloadPortraitImages(portraits, portraitIndex);
 
-        const {staticImage} = portraits[portraitIndex];
+        const {staticImage, alt} = portraits[portraitIndex];
 
         footerImage.src = staticImage;
+        footerImage.alt = alt;
 
         tooltip.hide();
 
@@ -129,9 +130,10 @@ async function setupPortraitLogic(footerImage, tooltip) {
             (quoteIndex + 1) % portraits[portraitIndex].quotes.length;
         }
 
-        const {staticImage} = portraits[portraitIndex];
+        const {staticImage, alt} = portraits[portraitIndex];
 
         footerImage.src = staticImage;
+        footerImage.alt = alt;
 
         tooltip.hide();
         emitGtagEvent('portrait_change');
