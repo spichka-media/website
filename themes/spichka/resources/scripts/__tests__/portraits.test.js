@@ -136,6 +136,7 @@ describe('initPortraits', () => {
 
     footerImage.dispatchEvent(new Event('click'));
     expect(footerImage.src).toContain('static1.jpg');
+    expect(footerImage.alt).toContain('Alt text1');
   });
 
   it('check logic on touch screens', async () => {
@@ -152,6 +153,7 @@ describe('initPortraits', () => {
 
     footerImage.dispatchEvent(new Event('click'));
     expect(footerImage.src).toContain('static1.jpg');
+    expect(footerImage.alt).toContain('Alt text1');
 
     footerImage.dispatchEvent(new Event('click'));
     expect(footerImage.src).toContain('extra2.jpg');
