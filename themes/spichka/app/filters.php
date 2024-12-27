@@ -108,7 +108,11 @@ add_filter('the_content', function ($content) {
 });
 
 add_filter('wp_calculate_image_sizes', function ($sizes) {
-  $sizes = '(max-width: 767px) 500px, (min-width: 768px) 900px'; // @TODO: play and find optimal values
+  /** Browser selects  ~1000px images for high density and ~600px on low density screens on < 768px with this setup,
+   * that gives good quality for images, when it is needed
+   * */
+  $sizes =
+    '(max-width: 767px) 300px, (min-width: 768px) and (max-width: 1399px) 1000px';
 
   return $sizes;
 });
