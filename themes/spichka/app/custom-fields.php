@@ -242,7 +242,7 @@ if (class_exists('Carbon_Fields\Carbon_Fields')) {
 }
 
 add_action('rest_api_init', function () {
-  register_rest_route('custom-fields/', 'theme_options', [
+  register_rest_route('custom-fields', 'theme_options', [
     'methods' => 'GET',
     'callback' => function () {
       $theme_options = [
@@ -252,6 +252,9 @@ add_action('rest_api_init', function () {
       $response = rest_ensure_response($theme_options);
 
       return $response;
+    },
+    'permission_callback' => function () {
+      return 'public_allowed';
     },
   ]);
 });
