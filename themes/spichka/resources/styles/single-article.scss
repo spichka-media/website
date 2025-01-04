@@ -18,6 +18,11 @@ article {
     scroll-margin-top: $spacer * 5;
   }
 
+  p {
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
   h2,
   p {
     margin-bottom: map.get($spacers, 5);
