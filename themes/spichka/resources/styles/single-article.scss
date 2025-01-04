@@ -28,6 +28,7 @@ article {
   h4,
   h5,
   h6 {
+    // https://getbootstrap.com/docs/5.3/utilities/text/#word-break
     word-wrap: break-word !important;
     word-break: break-word !important;
   }
