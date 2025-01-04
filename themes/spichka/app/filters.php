@@ -108,9 +108,11 @@ add_filter('the_content', function ($content) {
 });
 
 add_filter('wp_calculate_image_sizes', function ($sizes) {
-  /** Browser selects  ~1000px images for high density and ~600px on low density screens on < 768px with this setup,
-   * that gives good quality for images, when it is needed
-   * */
+  /**
+   * With this setup, the browser selects ~1000px images for high-density screens
+   * and ~600px images for low-density screens on viewports smaller than 768px.
+   * This ensures good image quality where needed.
+   */
   $sizes =
     '(max-width: 767px) 300px, (min-width: 768px) and (max-width: 1399px) 1000px';
 
