@@ -65,7 +65,7 @@
               class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
               <video class="video h-100 w-100" autoplay muted playsinline loop>
                 <source
-                  src="https://dev.spichka.media/wp-content/uploads/2024/06/спички.webm"
+                  src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
                   type="video/webm" />
               </video>
             </div>
@@ -90,6 +90,7 @@
                   <img
                     height="24"
                     width="24"
+                    alt="button_icon"
                     src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
                     class="me-2 fs-4" />
                   {{ $callToActionSettings['button_text'] }}
