@@ -86,7 +86,7 @@
                   href="{{ $callToActionSettings['button_url'] }}"
                   target="_blank"
                   data-gtag-event="called_to_action"
-                  class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center">
+                  class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center justify-content-center">
                   <img
                     {{--
   fix tricky bug when image is replaced with svg plugin
