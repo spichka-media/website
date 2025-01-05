@@ -63,7 +63,7 @@
           <div class="call-to-action position-relative text-white bg-dark p-6">
             <div
               class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
-              <video class="video h-100" autoplay muted playsinline loop>
+              <video class="video h-100 w-100" autoplay muted playsinline loop>
                 <source
                   src="https://dev.spichka.media/wp-content/uploads/2024/06/спички.webm"
                   type="video/webm" />
@@ -88,16 +88,10 @@
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center justify-content-center">
                   <img
-                    {{--
-  fix tricky bug when image is replaced with svg plugin
-  it does it on frontend after page loaded
-  therefore before js applies changes - there is an image bigger than expected
-  as workaround we hide ugly image, so it can be replaced with pretty svg
---}}
-                    height="16"
-                    width="16"
+                    height="24"
+                    width="24"
                     src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
-                    class="style-svg me-2 fs-4" />
+                    class="me-2 fs-4" />
                   {{ $callToActionSettings['button_text'] }}
                 </a>
               </div>
