@@ -88,6 +88,14 @@
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center">
                   <img
+                    {{--
+  fix tricky bug when image is replaced with svg plugin
+  it does it on frontend after page loaded
+  therefore before js applies changes - there is an image bigger than expected
+  as workaround we hide ugly image, so it can be replaced with pretty svg
+--}}
+                    height="16"
+                    width="16"
                     src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
                     class="style-svg me-2 fs-4" />
                   {{ $callToActionSettings['button_text'] }}

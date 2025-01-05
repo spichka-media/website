@@ -184,11 +184,6 @@ article {
       @include media-breakpoint-down(md) {
         margin-top: 14rem;
       }
-
-      img {
-        height: 1px !important;
-        width: 1px !important;
-      }
     }
   }
 }
