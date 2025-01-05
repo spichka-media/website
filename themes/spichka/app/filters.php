@@ -122,8 +122,13 @@ add_filter('the_content', function ($content) {
 });
 
 add_filter('wp_calculate_image_sizes', function ($sizes) {
+  /**
+   * With this setup, the browser selects ~1000px images for high-density screens
+   * and ~600px images for low-density screens on viewports smaller than 768px.
+   * This ensures good image quality where needed.
+   */
   $sizes =
-    '(max-width: 576px) 200px, (min-width: 577px) and (max-width: 767px) 500px, (min-width: 768px) 900px';
+    '(max-width: 767px) 300px, (min-width: 768px) and (max-width: 1399px) 1000px';
 
   return $sizes;
 });
