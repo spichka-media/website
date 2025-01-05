@@ -173,6 +173,11 @@ article {
       clip-path: circle(
         var(--clip-path-size) at var(--clip-path-x) var(--clip-path-y)
       );
+
+      .video {
+        width: 80%;
+        object-fit: cover;
+      }
     }
 
     .btn {

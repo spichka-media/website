@@ -61,16 +61,14 @@
       @if ($callToActionSettings)
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
           <div class="call-to-action position-relative text-white bg-dark p-6">
-            <video
-              class="media position-absolute z-0 top-0 bottom-0 object-fit-cover w-100 h-100"
-              autoplay
-              muted
-              playsinline
-              loop>
-              <source
-                src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
-                type="video/webm" />
-            </video>
+            <div
+              class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
+              <video class="video h-100" autoplay muted playsinline loop>
+                <source
+                  src="https://dev.spichka.media/wp-content/uploads/2024/06/спички.webm"
+                  type="video/webm" />
+              </video>
+            </div>
 
             <div class="row align-items-center position-relative z-2">
               <div class="col-md-7 col-xxl-8">
@@ -88,10 +86,10 @@
                   href="{{ $callToActionSettings['button_url'] }}"
                   target="_blank"
                   data-gtag-event="called_to_action"
-                  class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100">
+                  class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center">
                   <img
                     src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
-                    class="style-svg me-1 fs-4" />
+                    class="style-svg me-2 fs-4" />
                   {{ $callToActionSettings['button_text'] }}
                 </a>
               </div>
