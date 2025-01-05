@@ -114,22 +114,22 @@ article {
   }
 
   .call-to-action {
-    --cp-size: 45%;
-    --cp-x: 85%;
-    --cp-y: 50%;
+    --clip-path-size: 45%;
+    --clip-path-x: 85%;
+    --clip-path-y: 50%;
 
     @include media-breakpoint-up(md) {
       &:hover {
-        --cp-size: 65%;
-        --cp-x: 85%;
-        --cp-y: 50%;
+        --clip-path-size: 65%;
+        --clip-path-x: 85%;
+        --clip-path-y: 50%;
       }
     }
 
     @include media-breakpoint-down(md) {
-      --cp-size: 45%;
-      --cp-x: 80%;
-      --cp-y: 80%;
+      --clip-path-size: 45%;
+      --clip-path-x: 80%;
+      --clip-path-y: 80%;
     }
 
     .media {
@@ -142,7 +142,9 @@ article {
       transition-property: clip-path;
       transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
       opacity: 0.4;
-      clip-path: circle(var(--cp-size) at var(--cp-x) var(--cp-y));
+      clip-path: circle(
+        var(--clip-path-size) at var(--clip-path-x) var(--clip-path-y)
+      );
     }
 
     .btn {

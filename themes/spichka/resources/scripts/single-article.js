@@ -68,7 +68,10 @@ function callToActionCircle() {
 
       // applying percent only to the diff between min and max
       // so resulting value is always between min and max
-      element.style.setProperty('--cp-size', min + percent * range + '%');
+      element.style.setProperty(
+        '--clip-path-size',
+        min + percent * range + '%',
+      );
     }
   });
 }
