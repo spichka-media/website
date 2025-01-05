@@ -115,6 +115,7 @@ article {
 
   .call-to-action {
     overflow: hidden;
+
     --clip-path-size: 45%;
     --clip-path-x: 75%;
     --clip-path-y: 50%;
@@ -124,6 +125,7 @@ article {
     @include media-breakpoint-up(md) {
       &:hover {
         --clip-path-size: 65%;
+
         &:hover {
           .media {
             left: calc((var(--shift) - var(--slide)));
