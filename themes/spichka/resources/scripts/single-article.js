@@ -62,9 +62,10 @@ function callToActionCircle() {
       const viewHeightHalf = viewHeight / 2;
 
       // shift of the center of the block relatively to center of the screen
-      const shift = Math.abs(rect.top + rect.height / 2 - viewHeightHalf);
+      const shift = rect.top + rect.height / 2 - viewHeightHalf;
 
-      const percent = (viewHeightHalf - shift) / viewHeightHalf;
+      // if passed center - lock on 100% size
+      const percent = shift > 0 ? (viewHeightHalf - shift) / viewHeightHalf : 1;
 
       // applying percent only to the diff between min and max
       // so resulting value is always between min and max
