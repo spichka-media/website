@@ -30,18 +30,3 @@ export function checkVisible(elm) {
   );
   return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
 }
-
-/**
- * Checks whether all element visible
- * @param Element
- * @returns boolean
- */
-export function checkAllVisible(elm) {
-  const rect = elm.getBoundingClientRect();
-  const viewHeight = Math.max(
-    document.documentElement.clientHeight,
-    window.innerHeight,
-  );
-
-  return rect.top + rect.height < viewHeight && rect.top > 0;
-}

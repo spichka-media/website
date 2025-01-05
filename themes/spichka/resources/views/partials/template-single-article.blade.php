@@ -102,9 +102,7 @@
       @php($callToActionSettings = empty($callToActions) ? null : $callToActions[0])
       @if ($callToActionSettings)
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
-          <div
-            class="call-to-action position-relative text-white bg-dark p-6"
-            style="margin-bottom: 500px">
+          <div class="call-to-action position-relative text-white bg-dark p-6">
             <video
               class="media position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
               autoplay
