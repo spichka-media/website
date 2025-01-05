@@ -73,7 +73,7 @@
             </video>
 
             <div class="row align-items-center position-relative z-2">
-              <div class="col-md-8">
+              <div class="col-md-7 col-xxl-8">
                 <div class="h3 mt-0 fw-bold">
                   {{ $callToActionSettings['title'] }}
                 </div>
@@ -83,14 +83,14 @@
                 </p>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-md-5 col-xxl-4">
                 <a
                   href="{{ $callToActionSettings['button_url'] }}"
                   target="_blank"
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100">
-                  <i
-                    class="{{ $callToActionSettings['button_icon'] }} me-1"></i>
+                  {!! wp_get_attachment_image($callToActionSettings['button_icon'], 'full', true, ['class' => 'style-svg me-1 fs-4']) !!}
+
                   {{ $callToActionSettings['button_text'] }}
                 </a>
               </div>

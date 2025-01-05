@@ -65,7 +65,9 @@ add_action(
           Field::make('file', 'video', 'Видео')->set_type('video'),
           Field::make('text', 'button_text', 'Текст кнопки'),
           Field::make('text', 'button_url', 'Ссылка кнопки'),
-          Field::make('text', 'button_icon', 'Иконка кнопки'),
+          Field::make('file', 'button_icon', 'Иконка кнопки')->set_type(
+            'image'
+          ),
         ]),
     ]);
 
