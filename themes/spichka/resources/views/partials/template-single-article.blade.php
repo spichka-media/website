@@ -89,8 +89,9 @@
                   target="_blank"
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100">
-                  {!! wp_get_attachment_image($callToActionSettings['button_icon'], 'full', true, ['class' => 'style-svg me-1 fs-4']) !!}
-
+                  <img
+                    src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
+                    class="style-svg me-1 fs-4" />
                   {{ $callToActionSettings['button_text'] }}
                 </a>
               </div>
