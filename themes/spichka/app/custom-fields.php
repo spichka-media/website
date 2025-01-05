@@ -62,9 +62,7 @@ add_action(
         ->add_fields([
           Field::make('text', 'title', 'Заголовок'),
           Field::make('text', 'description', 'Описание'),
-          Field::make('file', 'video', 'Видео')
-            ->set_type('video')
-            ->set_value_type('url'),
+          Field::make('file', 'video', 'Видео')->set_type('video'),
           Field::make('text', 'button_text', 'Текст кнопки'),
           Field::make('text', 'button_url', 'Ссылка кнопки'),
           Field::make('text', 'button_icon', 'Иконка кнопки'),
