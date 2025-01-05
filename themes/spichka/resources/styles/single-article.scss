@@ -184,6 +184,10 @@ article {
       @include media-breakpoint-down(md) {
         margin-top: 14rem;
       }
+      img {
+        height: 1px;
+        width: 1px;
+      }
     }
   }
 }
