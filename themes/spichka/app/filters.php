@@ -104,6 +104,20 @@ add_filter('the_content', function ($content) {
     $content
   );
 
+  $content = str_replace(
+    '<figure class="wp-block-table">',
+    '<figure class="wp-block-table table-responsive">',
+    $content
+  );
+
+  $content = str_replace(
+    '<table>',
+    '<table class="table table-bordered table-striped">',
+    $content
+  );
+
+  $content = str_replace('<thead>', '<thead class="table-dark">', $content);
+
   return $content;
 });
 
