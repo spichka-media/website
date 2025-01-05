@@ -2,6 +2,7 @@ import domReady from '@roots/sage/client/dom-ready';
 import 'bootstrap/js/dist/offcanvas';
 import {searchInputHandler} from './lib/search.js';
 import {initPortraits} from './lib/portraits';
+import {setupGtagAttributeListener} from './lib/gtag.js';
 
 /**
  * Application entrypoint
@@ -9,6 +10,7 @@ import {initPortraits} from './lib/portraits';
 domReady(async () => {
   searchInputHandler();
   initPortraits();
+  setupGtagAttributeListener();
 });
 
 /**

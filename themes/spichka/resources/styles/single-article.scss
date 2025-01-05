@@ -112,4 +112,43 @@ article {
       }
     }
   }
+
+  .call-to-action {
+    --cp-size: 45%;
+    --cp-x: 85%;
+    --cp-y: 50%;
+
+    @include media-breakpoint-up(md) {
+      &:hover {
+        --cp-size: 65%;
+        --cp-x: 85%;
+        --cp-y: 50%;
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      --cp-size: 45%;
+      --cp-x: 80%;
+      --cp-y: 80%;
+    }
+
+    .media {
+      transition-duration: 0.6s;
+
+      @include media-breakpoint-down(md) {
+        transition-duration: 0.1s;
+      }
+
+      transition-property: clip-path;
+      transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+      opacity: 0.4;
+      clip-path: circle(var(--cp-size) at var(--cp-x) var(--cp-y));
+    }
+
+    .btn {
+      @include media-breakpoint-down(md) {
+        margin-top: 14rem;
+      }
+    }
+  }
 }

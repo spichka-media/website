@@ -98,6 +98,49 @@
         </div>
       @endif
 
+      @php($callToActions = carbon_get_theme_option('theme_call_to_action'))
+      @php($callToActionSettings = empty($callToActions) ? null : $callToActions[0])
+      @if ($callToActionSettings)
+        <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
+          <div
+            class="call-to-action position-relative text-white bg-dark p-6"
+            style="margin-bottom: 500px">
+            <video
+              class="media position-absolute z-0 top-0 start-0 bottom-0 end-0 object-fit-cover w-100 h-100"
+              autoplay
+              muted
+              playsinline
+              loop>
+              <source src="{{ $callToActionSettings['video'] }}" />
+            </video>
+
+            <div class="row align-items-center position-relative z-2">
+              <div class="col-md-8">
+                <div class="h3 mt-0 fw-bold">
+                  {{ $callToActionSettings['title'] }}
+                </div>
+
+                <p class="sf-6">
+                  {{ $callToActionSettings['description'] }}
+                </p>
+              </div>
+
+              <div class="col-md-4">
+                <a
+                  href="{{ $callToActionSettings['button_url'] }}"
+                  target="_blank"
+                  data-gtag-event="called_to_action"
+                  class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100">
+                  <i
+                    class="{{ $callToActionSettings['button_icon'] }} me-1"></i>
+                  {{ $callToActionSettings['button_text'] }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
+
       @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && carbon_get_theme_option('theme_telegram_channel'))
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
           <script

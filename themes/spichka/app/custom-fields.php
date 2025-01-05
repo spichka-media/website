@@ -57,6 +57,18 @@ add_action(
         'notes_more_image',
         'Изображение для "Больше заметок"'
       )->set_type(['image']),
+      Field::make('complex', 'theme_call_to_action', 'Настройки call-to-action')
+        ->set_layout('tabbed-vertical')
+        ->add_fields([
+          Field::make('text', 'title', 'Заголовок'),
+          Field::make('text', 'description', 'Описание'),
+          Field::make('file', 'video', 'Видео')
+            ->set_type('video')
+            ->set_value_type('url'),
+          Field::make('text', 'button_text', 'Текст кнопки'),
+          Field::make('text', 'button_url', 'Ссылка кнопки'),
+          Field::make('text', 'button_icon', 'Иконка кнопки'),
+        ]),
     ]);
 
     Container::make('post_meta', 'Настройки поста')
