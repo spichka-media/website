@@ -88,8 +88,6 @@
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center justify-content-center">
                   <img
-                    height="18"
-                    width="18"
                     alt="button_icon"
                     src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
                     class="me-2 fs-4" />
