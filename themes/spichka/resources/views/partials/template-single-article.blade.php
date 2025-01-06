@@ -66,7 +66,7 @@
               <video class="video h-100 w-100" playsinline autoplay muted loop>
                 <source
                   src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
-                  type="video/webm" />
+                  type="video/mp4" />
               </video>
             </div>
 
