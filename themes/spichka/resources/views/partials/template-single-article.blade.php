@@ -70,7 +70,8 @@
               </video>
             </div>
 
-            <div class="row align-items-center position-relative z-2">
+            <div
+              class="row align-items-center justify-content-between position-relative z-2">
               <div class="col-md-6">
                 <div class="h3 mt-0 fw-bold">
                   {{ $callToActionSettings['title'] }}
@@ -81,7 +82,7 @@
                 </p>
               </div>
 
-              <div class="col-md-4 ms-auto">
+              <div class="col-md-4">
                 <a
                   href="{{ $callToActionSettings['button_url'] }}"
                   target="_blank"
