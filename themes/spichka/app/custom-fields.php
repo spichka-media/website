@@ -258,3 +258,13 @@ add_action('rest_api_init', function () {
     },
   ]);
 });
+
+add_action('carbon_fields_theme_options_container_saved', function () {
+  if (!class_exists('\CF\WordPress\Plugin')) {
+    return;
+  }
+
+  $cf = new \CF\WordPress\Plugin();
+
+  $result = $cf->purgeCacheEverything();
+});
