@@ -63,7 +63,7 @@
           <div class="call-to-action position-relative text-white bg-dark p-6">
             <div
               class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
-              <video class="video h-100 w-100" autoplay muted playsinline loop>
+              <video class="video h-100 w-100" playsinline autoplay muted loop>
                 <source
                   src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
                   type="video/webm" />
