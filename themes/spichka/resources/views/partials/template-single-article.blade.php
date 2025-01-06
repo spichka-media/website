@@ -71,7 +71,7 @@
             </div>
 
             <div class="row align-items-center position-relative z-2">
-              <div class="col-md-7 col-xxl-8">
+              <div class="col-md-6">
                 <div class="h3 mt-0 fw-bold">
                   {{ $callToActionSettings['title'] }}
                 </div>
@@ -81,7 +81,7 @@
                 </p>
               </div>
 
-              <div class="col-md-5 col-xxl-4">
+              <div class="col-md-4 ms-auto">
                 <a
                   href="{{ $callToActionSettings['button_url'] }}"
                   target="_blank"
