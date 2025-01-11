@@ -127,4 +127,68 @@ article {
       }
     }
   }
+
+  .call-to-action {
+    overflow: hidden;
+
+    --clip-path-size: 45%;
+    --clip-path-x: 75%;
+    --clip-path-y: 50%;
+    --shift: 10%;
+    --slide: 40px;
+
+    @include media-breakpoint-up(md) {
+      &:hover {
+        --clip-path-size: 65%;
+
+        &:hover {
+          .media {
+            left: calc((var(--shift) - var(--slide)));
+            right: calc((var(--shift) - var(--slide)) * -1);
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-down(md) {
+      --clip-path-size: 45%;
+      --clip-path-x: 80%;
+      --clip-path-y: 80%;
+    }
+
+    .media {
+      right: calc(var(--shift) * -1);
+      left: calc(var(--shift));
+      transition-duration: 0.6s;
+
+      @include media-breakpoint-down(md) {
+        transition-duration: 0.1s;
+      }
+
+      transition-property:
+        clip-path right,
+        left;
+      transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+      opacity: 0.4;
+      clip-path: circle(
+        var(--clip-path-size) at var(--clip-path-x) var(--clip-path-y)
+      );
+
+      .video {
+        object-fit: cover;
+      }
+    }
+
+    .btn {
+      @include media-breakpoint-down(md) {
+        margin-top: 14rem;
+      }
+
+      &:hover {
+        img {
+          filter: brightness(0%);
+        }
+      }
+    }
+  }
 }
