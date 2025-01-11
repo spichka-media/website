@@ -272,11 +272,10 @@ add_action('rest_api_init', function () {
 });
 
 add_action('carbon_fields_theme_options_container_saved', function () {
-  if (!class_exists('\CF\WordPress\Plugin')) {
+  if (!class_exists('CF\WordPress\Hooks')) {
     return;
   }
 
-  $cf = new \CF\WordPress\Plugin();
-
-  $result = $cf->purgeCacheEverything();
+  $cf_hooks = new CF\WordPress\Hooks();
+  $cf_hooks->purgeCacheEverything();
 });
