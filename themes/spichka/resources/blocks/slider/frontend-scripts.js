@@ -15,6 +15,7 @@ function initSliders() {
       loop: false,
       grabCursor: true,
       centeredSlides: true,
+      centeredSlidesBounds: true,
       spaceBetween: 20,
       pagination: {
         el: container.querySelector('.swiper-pagination'),
