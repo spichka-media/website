@@ -56,6 +56,7 @@ add_action(
 
     if (is_singular(['post', 'note'])) {
       bundle('single-article')->enqueue();
+      bundle('slider-block')->enqueue();
     } else {
       wp_dequeue_script('modern_footnotes');
     }
@@ -278,6 +279,8 @@ add_action('init', function () {
   ];
 
   register_post_type('note', $args);
+
+  register_block_type_from_metadata(__DIR__ . '/resources/blocks/slider');
 });
 
 add_action('pre_get_posts', function ($query) {
@@ -290,3 +293,16 @@ add_action('pre_get_posts', function ($query) {
     $query->set('post_type', ['post', 'note']);
   }
 });
+
+add_filter(
+  'render_block',
+  function ($block_content, $block) {
+    if ($block['blockName'] === 'spichka/slider') {
+      return view('blocks/slider', $block['attrs']);
+    }
+
+    return $block_content;
+  },
+  10,
+  2
+);

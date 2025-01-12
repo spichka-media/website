@@ -31,6 +31,7 @@
     "@prettier/plugin-php": "0.22.2",
     "@roots/bud": "6.24.0",
     "@roots/bud-eslint": "6.24.0",
+    "@roots/bud-preset-wordpress": "6.24.0",
     "@roots/bud-prettier": "6.24.0",
     "@roots/bud-purgecss": "6.24.0",
     "@roots/bud-sass": "6.24.0",

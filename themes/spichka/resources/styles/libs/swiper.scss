@@ -14,12 +14,12 @@
 
     --swiper-pagination-bullet-width: 0.75rem;
     --swiper-pagination-bullet-height: 0.75rem;
-    --swiper-pagination-bullet-inactive-color: #{$tertiary};
+    --swiper-pagination-bullet-inactive-color: #adadad;
     --swiper-pagination-bullet-inactive-opacity: 1;
   }
 
   .swiper-pagination-bullet-active {
-    background: #{$body-color};
+    background: #333;
   }
 
   // to compensate swiper navigation height
