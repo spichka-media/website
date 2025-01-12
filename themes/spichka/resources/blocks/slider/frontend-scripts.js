@@ -16,7 +16,7 @@ function initSliders() {
       grabCursor: true,
       spaceBetween: 20,
       pagination: {
-        el: '.swiper-pagination',
+        el: container.querySelector('.swiper-pagination'),
         type: 'fraction',
         renderFraction: function (currentClass, totalClass) {
           return `<span class="${currentClass}"></span>/<span class="${totalClass}"></span>`;
@@ -24,8 +24,8 @@ function initSliders() {
       },
       slidesPerView: 'auto',
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: container.querySelector('.swiper-button-next'),
+        prevEl: container.querySelector('.swiper-button-prev'),
       },
 
       modules: [Navigation, Pagination],
