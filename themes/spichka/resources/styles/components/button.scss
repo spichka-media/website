@@ -1,0 +1,23 @@
+.btn.btn-nav {
+  --btn-nav-size: 3rem;
+
+  width: var(--btn-nav-size);
+  height: var(--btn-nav-size);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8.4px 0 #00000040;
+
+  --bs-btn-bg: rgba(255, 255, 255, 100%);
+  --bs-btn-hover-bg: rgba(255, 255, 255, 90%);
+  --bs-btn-hover-color: rgba(0, 0, 0, 90%);
+  --bs-btn-border-width: 0;
+  --bs-btn-active-bg: rgba(255, 255, 255, 90%);
+  --bs-btn-active-color: rgba(0, 0, 0, 90%);
+  --bs-btn-border-radius: 100px;
+
+  .fa* {
+    padding-top: 0.4rem;
+  }
+}
