@@ -21,5 +21,6 @@
     <i class="fa-solid fa-angle-right"></i>
   </button>
 
-  <div class="swiper-pagination"></div>
+  <div class="swiper-pagination-bullets"></div>
+  {{-- <div class="swiper-pagination-fractions"></div> --}}
 </div>

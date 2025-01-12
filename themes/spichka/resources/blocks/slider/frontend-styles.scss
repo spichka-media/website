@@ -1,5 +1,6 @@
 @import '~swiper/scss';
 @import '~swiper/scss/effect-fade';
+@import '~swiper/scss/pagination';
 @import '../../styles/app';
 
 .slider-block {
@@ -61,5 +62,23 @@
 
   .swiper-button-next {
     right: calc(var(--btn-nav-size) / 2 * -1);
+  }
+
+  .swiper-pagination-bullets {
+    text-align: center;
+  }
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: unset;
+    top: unset;
+
+    --swiper-pagination-bullet-width: 0.75rem;
+    --swiper-pagination-bullet-height: 0.75rem;
+    --swiper-pagination-bullet-inactive-color: #adadad;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #333;
   }
 }

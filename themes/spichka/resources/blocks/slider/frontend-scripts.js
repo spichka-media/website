@@ -17,12 +17,17 @@ function initSliders() {
       centeredSlides: true,
       centeredSlidesBounds: true,
       spaceBetween: 20,
+      // pagination: {
+      //   el: container.querySelector('.swiper-pagination-fraction'),
+      //   type: 'fraction',
+      //   renderFraction: function (currentClass, totalClass) {
+      //     return `<span class="${currentClass}"></span>/<span class="${totalClass}"></span>`;
+      //   },
+      // },
       pagination: {
-        el: container.querySelector('.swiper-pagination'),
-        type: 'fraction',
-        renderFraction: function (currentClass, totalClass) {
-          return `<span class="${currentClass}"></span>/<span class="${totalClass}"></span>`;
-        },
+        el: container.querySelector('.swiper-pagination-bullets'),
+        type: 'bullets',
+        clickable: true,
       },
       slidesPerView: 'auto',
       navigation: {
