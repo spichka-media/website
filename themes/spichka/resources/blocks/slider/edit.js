@@ -1,10 +1,16 @@
-import {TextControl, PanelBody, PanelRow, Button} from '@wordpress/components';
+import {
+  TextControl,
+  PanelBody,
+  PanelRow,
+  Button,
+  TextareaControl,
+} from '@wordpress/components';
 import {useBlockProps, InspectorControls} from '@wordpress/block-editor';
 
 export default function edit({attributes, setAttributes}) {
   const blockProps = useBlockProps();
 
-  const {slides = []} = attributes;
+  const {slides = [], caption = ''} = attributes;
 
   const updateSlide = (index, key, value) => {
     const updatedSlides = [...slides];
@@ -14,7 +20,7 @@ export default function edit({attributes, setAttributes}) {
 
   const addSlide = () => {
     setAttributes({
-      slides: [...slides, {attachment_id: '', caption: ''}],
+      slides: [...slides, {attachment_id: ''}],
     });
   };
 
@@ -27,6 +33,14 @@ export default function edit({attributes, setAttributes}) {
     <div {...blockProps}>
       <InspectorControls>
         <PanelBody title="Настройки" initialOpen={true}>
+          <PanelRow>
+            <TextareaControl
+              label="Подпись"
+              value={caption}
+              onChange={(value) => setAttributes({caption: value})}
+              help="Добавьте общий текст для всех слайдов."
+            />
+          </PanelRow>
           {slides.map((slide, index) => (
             <PanelRow key={index}>
               <fieldset>
@@ -36,11 +50,6 @@ export default function edit({attributes, setAttributes}) {
                   onChange={(value) =>
                     updateSlide(index, 'attachment_id', value)
                   }
-                />
-                <TextControl
-                  label={`Подпись ${index + 1}`}
-                  value={slide.caption}
-                  onChange={(value) => updateSlide(index, 'caption', value)}
                 />
                 <Button
                   variant="secondary"

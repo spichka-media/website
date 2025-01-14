@@ -3,9 +3,9 @@
   "apiVersion": 3,
   "name": "spichka/slider",
   "version": "0.1.0",
-  "title": "Slider",
+  "title": "Слайдер",
   "category": "widgets",
-  "icon": "smiley",
+  "icon": "slides",
   "description": "Слайдер в статьях",
   "example": {},
   "textdomain": "slider",
@@ -19,10 +19,10 @@
       "items": {
         "type": "object",
         "properties": {
-          "attachment_id": {"type": "string"},
-          "caption": {"type": "string"}
+          "attachment_id": {"type": "string"}
         }
       }
-    }
+    },
+    "caption": {"type": "string"}
   }
 }
