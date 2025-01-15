@@ -57,6 +57,18 @@ add_action(
         'notes_more_image',
         'Изображение для "Больше заметок"'
       )->set_type(['image']),
+      Field::make('complex', 'theme_call_to_action', 'Настройки call-to-action')
+        ->set_layout('tabbed-vertical')
+        ->add_fields([
+          Field::make('text', 'title', 'Заголовок'),
+          Field::make('text', 'description', 'Описание'),
+          Field::make('file', 'video', 'Видео')->set_type('video'),
+          Field::make('text', 'button_text', 'Текст кнопки'),
+          Field::make('text', 'button_url', 'Ссылка кнопки'),
+          Field::make('file', 'button_icon', 'Иконка кнопки')->set_type(
+            'image'
+          ),
+        ]),
     ]);
 
     Container::make('post_meta', 'Настройки поста')
@@ -257,4 +269,13 @@ add_action('rest_api_init', function () {
       return 'public_allowed';
     },
   ]);
+});
+
+add_action('carbon_fields_theme_options_container_saved', function () {
+  if (!class_exists('CF\WordPress\Hooks')) {
+    return;
+  }
+
+  $cf_hooks = new CF\WordPress\Hooks();
+  $cf_hooks->purgeCacheEverything();
 });

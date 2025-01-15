@@ -57,6 +57,50 @@
         @php(the_content())
       </div>
 
+      @php($callToActions = carbon_get_theme_option('theme_call_to_action'))
+      @php($callToActionSettings = empty($callToActions) ? null : $callToActions[0])
+      @if ($callToActionSettings)
+        <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
+          <div class="call-to-action position-relative text-white bg-dark p-6">
+            <div
+              class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
+              <video class="video h-100 w-100" playsinline autoplay muted loop>
+                <source
+                  src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
+                  type="video/mp4" />
+              </video>
+            </div>
+
+            <div
+              class="row align-items-center justify-content-between position-relative z-2">
+              <div class="col-md-6">
+                <div class="h3 mt-0 fw-bold">
+                  {{ $callToActionSettings['title'] }}
+                </div>
+
+                <p class="sf-6 mb-0">
+                  {{ $callToActionSettings['description'] }}
+                </p>
+              </div>
+
+              <div class="col-md-4">
+                <a
+                  href="{{ $callToActionSettings['button_url'] }}"
+                  target="_blank"
+                  data-gtag-event="called_to_action"
+                  class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center justify-content-center">
+                  <img
+                    alt="button_icon"
+                    src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
+                    class="me-2 fs-4" />
+                  {{ $callToActionSettings['button_text'] }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      @endif
+
       @php($recommended_posts = get_post_recommendations(get_the_ID()))
       @if (count($recommended_posts))
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
