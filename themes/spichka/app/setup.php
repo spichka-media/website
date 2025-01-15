@@ -56,7 +56,6 @@ add_action(
 
     if (is_singular(['post', 'note'])) {
       bundle('single-article')->enqueue();
-      bundle('slider-block')->enqueue();
     } else {
       wp_dequeue_script('modern_footnotes');
     }
@@ -298,6 +297,10 @@ add_filter(
   'render_block',
   function ($block_content, $block) {
     if ($block['blockName'] === 'spichka/slider') {
+      if (!is_admin()) {
+        bundle('slider-block')->enqueue();
+      }
+
       return view('blocks/slider', $block['attrs']);
     }
 
