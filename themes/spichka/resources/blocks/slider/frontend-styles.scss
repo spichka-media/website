@@ -11,10 +11,6 @@
     width: 90%;
   }
 
-  figure {
-    margin: 0;
-  }
-
   .swiper.swiper-initialized {
     @include media-breakpoint-down(md) {
       overflow: visible;
@@ -27,7 +23,7 @@
     top: 15px;
     left: 15px;
     border-radius: 100px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 50%);
     color: white;
     font-size: 0.9rem;
     font-weight: 600;

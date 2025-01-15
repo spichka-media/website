@@ -18,7 +18,7 @@ export default async (app) => {
   app
     .entry('app', ['@scripts/app'])
     .alias({
-      '@blocks': app.path('@src/blocks'), // Adjust the path to your blocks folder
+      '@blocks': app.path('@src/blocks'),
     })
     .entry({
       'front-page': {

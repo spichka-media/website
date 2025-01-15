@@ -4,7 +4,7 @@
       <div class="swiper-wrapper">
         @foreach ($slides as $slide)
           <div class="swiper-slide">
-            <figure>
+            <figure class="m-0">
               {!! wp_get_attachment_image($slide['attachment_id'], 'full') !!}
             </figure>
           </div>
