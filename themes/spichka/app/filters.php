@@ -5,6 +5,7 @@
  */
 
 namespace App;
+use function Roots\bundle;
 
 /**
  * Add "… Continued" to the excerpt.
