@@ -278,6 +278,8 @@ add_action('init', function () {
   ];
 
   register_post_type('note', $args);
+
+  register_block_type_from_metadata(__DIR__ . '/resources/blocks/slider');
 });
 
 add_action('pre_get_posts', function ($query) {

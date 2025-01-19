@@ -1,0 +1,61 @@
+@import '~swiper/scss';
+@import '~swiper/scss/effect-fade';
+@import '../../styles/app';
+
+.slider-block {
+  position: relative;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+
+  .swiper-slide {
+    width: 90%;
+  }
+
+  .swiper.swiper-initialized {
+    @include media-breakpoint-down(md) {
+      overflow: visible;
+    }
+  }
+
+  .swiper-pagination-fractions {
+    z-index: 1;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 50%);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 2px 12px;
+  }
+
+  .swiper-button {
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      opacity 0.3s,
+      visibility 0.3s;
+
+    &.swiper-button-disabled {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .swiper-button-prev {
+    left: calc(var(--btn-nav-size) / 2 * -1);
+  }
+
+  .swiper-button-next {
+    right: calc(var(--btn-nav-size) / 2 * -1);
+  }
+}

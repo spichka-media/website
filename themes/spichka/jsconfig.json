@@ -12,6 +12,7 @@
       "@fonts/*": ["fonts/*"],
       "@images/*": ["images/*"],
       "@scripts/*": ["scripts/*"],
+      "@blocks/*": ["blocks/*"],
       "@styles/*": ["styles/*"]
     },
     /**
