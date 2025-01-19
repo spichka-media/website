@@ -34,7 +34,7 @@
     </div>
     <div class="d-flex justify-content-center pt-3 mt-auto pb-5">
       <a
-        class="link-to-content text-body fs-3 lh-1 bg-white d-flex align-items-center justify-content-center rounded-circle text-decoration-none z-1"
+        class="btn btn-nav link-to-content text-body fs-3 lh-1 bg-white d-flex align-items-center justify-content-center rounded-circle text-decoration-none z-1"
         href="#start">
         <i class="fa-solid fa-angle-down"></i>
       </a>

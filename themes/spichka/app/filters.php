@@ -5,6 +5,7 @@
  */
 
 namespace App;
+use function Roots\bundle;
 
 /**
  * Add "… Continued" to the excerpt.
@@ -269,6 +270,23 @@ add_filter(
     array_push($urls, get_home_url());
 
     return $urls;
+  },
+  10,
+  2
+);
+
+add_filter(
+  'render_block',
+  function ($block_content, $block) {
+    if ($block['blockName'] === 'spichka/slider') {
+      if (!is_admin()) {
+        bundle('slider-block')->enqueue();
+      }
+
+      return view('blocks/slider', $block['attrs']);
+    }
+
+    return $block_content;
   },
   10,
   2

@@ -3,6 +3,7 @@ module.exports = {
   rules: {
     'import-notation': null,
     'no-empty-source': null,
+    'color-function-notation': null,
   },
   overrides: [
     {
