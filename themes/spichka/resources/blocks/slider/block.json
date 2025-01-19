@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "spichka/slider",
+  "version": "0.1.0",
+  "title": "Слайдер",
+  "category": "widgets",
+  "icon": "slides",
+  "description": "Слайдер в статьях",
+  "example": {},
+  "textdomain": "slider",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "slides": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "attachment_id": {"type": "string"}
+        }
+      }
+    },
+    "caption": {"type": "string"}
+  }
+}

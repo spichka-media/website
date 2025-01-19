@@ -17,6 +17,9 @@ export default async (app) => {
    */
   app
     .entry('app', ['@scripts/app'])
+    .alias({
+      '@blocks': app.path('@src/blocks'),
+    })
     .entry({
       'front-page': {
         import: ['@scripts/front-page', '@styles/front-page'],
@@ -48,6 +51,10 @@ export default async (app) => {
       },
     })
     .entry('editor', ['@scripts/editor', '@styles/editor'])
+    .entry('slider-block', [
+      '@blocks/slider/frontend-scripts',
+      '@blocks/slider/frontend-styles',
+    ])
     .assets(['images', 'fonts']);
 
   /**

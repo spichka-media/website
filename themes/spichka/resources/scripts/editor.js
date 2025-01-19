@@ -3,6 +3,8 @@
  */
 roots.register.filters('@scripts/filters');
 
+roots.register.blocks('../blocks/');
+
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}
  */
