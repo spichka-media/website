@@ -67,7 +67,7 @@
         </div>
 
         <div class="offset-lg-3 col border-lg-start border-0">
-          <div class="mt-4 mb-8 swiper-container position-relative">
+          <div class="mt-4 mb-8 swiper-block">
             @php
               $program_articles = get_posts([
                 'tax_query' => [
@@ -100,7 +100,15 @@
                 </div>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
+
+            <button class="btn btn-nav swiper-button swiper-button-prev">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="btn btn-nav swiper-button swiper-button-next">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+
+            <div class="swiper-pagination-bullets"></div>
           </div>
         </div>
       </div>

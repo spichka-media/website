@@ -59,16 +59,6 @@
   .post-card {
     max-width: 18.125rem;
   }
-
-  @include media-breakpoint-up(lg) {
-    .swiper-pagination {
-      position: absolute;
-      top: -55px !important;
-      right: 0;
-      width: fit-content;
-      left: unset;
-    }
-  }
 }
 
 @include media-breakpoint-down(sm) {
@@ -115,9 +105,16 @@
   }
 }
 
-.swiper {
+.swiper-block {
+  .swiper-slide {
+    width: fit-content;
+  }
+
   margin-left: -16px;
-  padding-left: 16px;
+
+  .swiper {
+    padding-left: 16px;
+  }
 
   --mr: calc((100vw - var(--container-width)) / 2 * -1 - 27px);
   --container-width: 0px;
@@ -150,6 +147,20 @@
   }
 
   margin-right: var(--mr);
+
+  @include media-breakpoint-up(lg) {
+    .swiper-pagination-bullets {
+      position: absolute;
+      top: -55px !important;
+      right: calc(var(--mr) * -1);
+      width: fit-content;
+      left: unset;
+    }
+  }
+
+  .swiper-button-next {
+    right: 5px;
+  }
 }
 
 .footer-section {
