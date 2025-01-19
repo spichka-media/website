@@ -14,7 +14,7 @@
 
 ## Инструкция по разворачиванию локального окружения в первый раз (без доступов)
 
-- Выполни `docker-compose up -d --build`.
+- Выполни `docker compose up -d --build`.
 - Выполни `docker exec -it spichka_website sh -c "cd /var/www/html/wp-content/themes/spichka && composer install"`.
 - Перейди в папку с темой `themes/spichka`.
 - Выполни `yarn`.
@@ -24,13 +24,13 @@
 
 - Скачай бэкап, используя Duplicator.
 - Положи бэкап в папку `backup`.
-- В `docker-compose.yaml` для сервиса `wordpress` добавь volume'ы с бэкапом по примеру, закоментируй остальные volume'ы, кроме uploads (!).
-- Выполни `docker-compose up -d --build` or `docker compose up -d --build` ubuntu.
+- В `docker compose.yaml` для сервиса `wordpress` добавь volume'ы с бэкапом по примеру, закоментируй остальные volume'ы, кроме uploads (!).
+- Выполни `docker compose up -d --build` or `docker compose up -d --build` ubuntu.
 - Выполни `docker exec -it spichka_website sh -c "chown www-data:www-data /var/www/html/installer.php"`.
 - Выполни `docker exec -it spichka_website sh -c "chown www-data:www-data /var/www/html/[название архива.zip]"`.
 - Перейди на `localhost:8000/installer.php`.
 - Для подключения к базе данных в инсталлере используй адрес сервиса `db` (spichka_website_db:3306).
-- Задокументируй обратно `backup` в `docker-compose.yaml` и раскоментируй файлы темы.
+- Задокументируй обратно `backup` в `docker compose.yaml` и раскоментируй файлы темы.
 - Выполни `docker exec -it spichka_website sh -c "cd /var/www/html/wp-content/themes/spichka && composer install"`.
 - Перейди в папку с темой `themes/spichka`.
 - Выполни `yarn`.
@@ -38,6 +38,6 @@
 
 ## Инструкция по запуску локального окружения
 
-- Запусти контейнеры `docker-compose up -d --build`
+- Запусти контейнеры `docker compose up -d --build`
 - Выполни `yarn dev` в папке с темой `themes/spichka`
 - Переходи на `localhost:8001`
