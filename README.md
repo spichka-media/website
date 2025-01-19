@@ -25,7 +25,7 @@
 - Скачай бэкап, используя Duplicator.
 - Положи бэкап в папку `backup`.
 - В `docker-compose.yaml` для сервиса `wordpress` добавь volume'ы с бэкапом по примеру, закоментируй остальные volume'ы, кроме uploads (!).
-- Выполни `docker-compose up -d --build`.
+- Выполни `docker-compose up -d --build` or `docker compose up -d --build` ubuntu.
 - Выполни `docker exec -it spichka_website sh -c "chown www-data:www-data /var/www/html/installer.php"`.
 - Выполни `docker exec -it spichka_website sh -c "chown www-data:www-data /var/www/html/[название архива.zip]"`.
 - Перейди на `localhost:8000/installer.php`.
