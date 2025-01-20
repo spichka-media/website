@@ -85,7 +85,8 @@ article {
     margin-top: map.get($spacers, 5);
     margin-bottom: map.get($spacers, 5);
 
-    &.wp-block-image {
+    &.wp-block-image,
+    &.wp-block-video {
       @include media-breakpoint-down(md) {
         margin-right: -$container-padding-x * 0.5;
         margin-left: -$container-padding-x * 0.5;
