@@ -70,7 +70,7 @@
     </div>
 
     <div class="container-fluid">
-      <div class="swiper-block position-relative">
+      <div class="swiper-block position-relative" data-swiper-type="articles">
         @php
           const MAX_RECENT_PROGRAM_ARTICLES = 10;
           $program_articles = get_posts([
@@ -79,7 +79,7 @@
           ]);
         @endphp
 
-        <div class="swiper pb-5">
+        <div class="swiper">
           <!-- Additional required wrapper -->
           <div class="swiper-wrapper">
             <!-- Slides -->
@@ -101,16 +101,15 @@
               </div>
             @endif
           </div>
+          <button class="btn btn-nav swiper-button swiper-button-prev">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="btn btn-nav swiper-button swiper-button-next">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
         </div>
 
-        <button class="btn btn-nav swiper-button swiper-button-prev">
-          <i class="fa-solid fa-angle-left"></i>
-        </button>
-        <button class="btn btn-nav swiper-button swiper-button-next">
-          <i class="fa-solid fa-angle-right"></i>
-        </button>
-
-        <div class="swiper-pagination-bullets"></div>
+        <div class="swiper-pagination-bullets mt-2"></div>
       </div>
     </div>
   </section>
@@ -127,7 +126,7 @@
     </div>
 
     <div class="container-fluid">
-      <div class="swiper-block position-relative">
+      <div class="swiper-block position-relative" data-swiper-type="articles">
         @php
           const MAX_RECENT_POSTS = 10;
           $recent_posts = get_posts([
@@ -135,7 +134,7 @@
           ]);
         @endphp
 
-        <div class="swiper pb-5">
+        <div class="swiper">
           <div class="swiper-wrapper">
             @foreach ($recent_posts as $post)
               <div class="swiper-slide">
@@ -154,16 +153,15 @@
               </div>
             @endif
           </div>
+          <button class="btn btn-nav swiper-button swiper-button-prev">
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <button class="btn btn-nav swiper-button swiper-button-next">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
         </div>
 
-        <button class="btn btn-nav swiper-button swiper-button-prev">
-          <i class="fa-solid fa-angle-left"></i>
-        </button>
-        <button class="btn btn-nav swiper-button swiper-button-next">
-          <i class="fa-solid fa-angle-right"></i>
-        </button>
-
-        <div class="swiper-pagination-bullets"></div>
+        <div class="swiper-pagination-bullets mt-2"></div>
       </div>
     </div>
   </section>
@@ -178,7 +176,7 @@
     </div>
 
     <div class="container-fluid">
-      <div class="swiper-block position-relative">
+      <div class="swiper-block position-relative" data-swiper-type="articles">
         @php
           const MAX_RECENT_NOTES = 10;
           $recent_notes = get_posts([
@@ -187,7 +185,7 @@
           ]);
         @endphp
 
-        <div class="swiper pb-5">
+        <div class="swiper">
           <div class="swiper-wrapper">
             @foreach ($recent_notes as $note)
               <div class="swiper-slide">
@@ -214,7 +212,7 @@
           <i class="fa-solid fa-angle-right"></i>
         </button>
 
-        <div class="swiper-pagination-bullets"></div>
+        <div class="swiper-pagination-bullets mt-2"></div>
       </div>
     </div>
   </section>

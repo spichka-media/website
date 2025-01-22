@@ -110,10 +110,18 @@
     width: fit-content;
   }
 
-  margin-left: -16px;
+  @include media-breakpoint-up(sm) {
+    margin-left: -16px;
 
-  .swiper {
-    padding-left: 16px;
+    .swiper {
+      padding-left: 16px;
+    }
+  }
+
+  .swiper.swiper-initialized {
+    @include media-breakpoint-down(sm) {
+      overflow: visible;
+    }
   }
 
   --mr: calc((100vw - var(--container-width)) / 2 * -1 - 27px);
@@ -140,10 +148,7 @@
   }
 
   @include media-breakpoint-down(sm) {
-    --mr: -26px;
-
-    margin-left: -26px;
-    padding-left: 26px;
+    --mr: 0px;
   }
 
   margin-right: var(--mr);
@@ -159,7 +164,11 @@
   }
 
   .swiper-button-next {
-    right: 5px;
+    right: 15px;
+  }
+
+  .swiper-button-prev {
+    left: 3px;
   }
 }
 

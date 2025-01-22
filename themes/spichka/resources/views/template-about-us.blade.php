@@ -81,7 +81,7 @@
               ]);
             @endphp
 
-            <div class="swiper pb-5">
+            <div class="swiper">
               <div class="swiper-wrapper">
                 @foreach ($program_articles as $post)
                   <div class="swiper-slide">
@@ -108,7 +108,7 @@
               <i class="fa-solid fa-angle-right"></i>
             </button>
 
-            <div class="swiper-pagination-bullets"></div>
+            <div class="swiper-pagination-bullets mt-2"></div>
           </div>
         </div>
       </div>

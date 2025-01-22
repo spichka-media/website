@@ -5,7 +5,30 @@ import {initSliders} from './lib/swiper.js';
  * Application entrypoint
  */
 domReady(async () => {
-  initSliders();
+  initSliders(
+    {
+      breakpoints: {
+        0: {
+          slidesPerGroup: 1,
+          centeredSlides: true,
+        },
+        576: {
+          slidesPerGroup: 2,
+          centeredSlides: false,
+        },
+        768: {
+          slidesPerGroup: 3,
+        },
+        992: {
+          slidesPerGroup: 4,
+        },
+        1200: {
+          slidesPerGroup: 5,
+        },
+      },
+    },
+    '[data-swiper-type="articles"]',
+  );
   initBannerTransform();
   initFloatingImage();
 });

@@ -1,8 +1,10 @@
 import {Swiper} from 'swiper';
 import {Navigation, Pagination} from 'swiper/modules';
 
-export const initSliders = () => {
-  const sliders = document.querySelectorAll('.swiper-block');
+export const initSliders = (options, targetSelector) => {
+  const sliders = document.querySelectorAll(
+    '.swiper-block' + (targetSelector || ''),
+  );
 
   for (const container of sliders) {
     const paginationBulletsNode = container.querySelector(
@@ -47,18 +49,20 @@ export const initSliders = () => {
     if (pagination) modules.push(Pagination);
 
     const conf = {
-      direction: 'horizontal',
-      loop: false,
-      grabCursor: true,
       centeredSlides:
         container.getAttribute('data-swiper-centered-slides') === 'true',
       centeredSlidesBounds:
         container.getAttribute('data-swiper-centered-slides-bounds') === 'true',
-      spaceBetween: 20,
-      slidesPerView: 'auto',
       navigation: navigation,
       pagination: pagination,
       modules: modules,
+
+      direction: 'horizontal',
+      loop: false,
+      grabCursor: true,
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      ...options,
     };
 
     new Swiper(container.querySelector('.swiper'), conf);

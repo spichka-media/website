@@ -7,12 +7,6 @@
 .swiper-block {
   position: relative;
 
-  .swiper.swiper-initialized {
-    // @include media-breakpoint-down(md) {
-    //   overflow: visible;
-    // }
-  }
-
   .swiper-pagination-fractions {
     z-index: 1;
     position: absolute;
@@ -44,6 +38,10 @@
     .swiper-pagination-bullet-active {
       background: #333;
     }
+  }
+
+  .swiper {
+    position: relative;
   }
 
   .swiper-button {
