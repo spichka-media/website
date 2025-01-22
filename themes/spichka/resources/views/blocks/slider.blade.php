@@ -1,8 +1,5 @@
 <figure>
-  <div
-    class="swiper-block slider-block"
-    data-swiper-centered-slides="true"
-    data-swiper-centered-slides-bounds="true">
+  <div class="swiper-block slider-block">
     <div class="swiper">
       <div class="swiper-wrapper">
         @foreach ($slides as $slide)

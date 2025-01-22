@@ -49,10 +49,6 @@ export const initSliders = (options, targetSelector) => {
     if (pagination) modules.push(Pagination);
 
     const conf = {
-      centeredSlides:
-        container.getAttribute('data-swiper-centered-slides') === 'true',
-      centeredSlidesBounds:
-        container.getAttribute('data-swiper-centered-slides-bounds') === 'true',
       navigation: navigation,
       pagination: pagination,
       modules: modules,
