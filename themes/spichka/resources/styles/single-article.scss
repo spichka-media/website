@@ -85,8 +85,10 @@ article {
     margin-top: map.get($spacers, 5);
     margin-bottom: map.get($spacers, 5);
 
-    img,
-    video {
+    // https://stackoverflow.com/questions/74206132/scss-select-where-no-parent-has-class
+    // assigning this selector on last element in selector is important, as other options dont work
+    img:not(.swiper *),
+    video:not(.swiper *) {
       @include media-breakpoint-down(sm) {
         display: block;
         width: calc(100% + $container-padding-x);
