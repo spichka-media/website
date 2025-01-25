@@ -94,6 +94,10 @@ section {
     padding-right: calc(var(--bs-gutter-x) * 0.5);
   }
 
+  .swiper-button {
+    top: calc(50% - 2rem);
+  }
+
   .swiper-button-prev {
     left: calc(var(--bs-gutter-x) * 0.5);
   }
