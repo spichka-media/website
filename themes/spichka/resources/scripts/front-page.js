@@ -19,12 +19,6 @@ domReady(async () => {
         768: {
           slidesPerGroup: 3,
         },
-        992: {
-          slidesPerGroup: 4,
-        },
-        1200: {
-          slidesPerGroup: 5,
-        },
       },
     },
     '[data-swiper-type="articles"]',

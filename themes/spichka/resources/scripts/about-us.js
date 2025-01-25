@@ -15,9 +15,6 @@ domReady(async () => {
       768: {
         slidesPerGroup: 3,
       },
-      992: {
-        slidesPerGroup: 4,
-      },
     },
   });
 });

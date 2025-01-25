@@ -83,7 +83,7 @@ section {
 
 .swiper-block {
   .swiper-slide {
-    width: fit-content;
+    width: auto;
   }
 
   margin-left: calc(var(--bs-gutter-x) * -1 * 0.5);
