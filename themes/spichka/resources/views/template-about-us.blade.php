@@ -89,15 +89,15 @@
                   </div>
                 @endforeach
 
-                <div class="swiper-slide">
-                  <div class="post-card">
-                    @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+                @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+                  <div class="swiper-slide">
+                    <div class="post-card">
                       <a href="{!! $program_term_link !!}">
                         {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
                       </a>
-                    @endif
+                    </div>
                   </div>
-                </div>
+                @endif
               </div>
             </div>
 

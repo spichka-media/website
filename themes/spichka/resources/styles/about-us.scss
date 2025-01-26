@@ -107,7 +107,7 @@
 
 .swiper-block {
   .swiper-slide {
-    width: fit-content;
+    width: auto;
   }
 
   @include media-breakpoint-up(sm) {
@@ -161,6 +161,10 @@
       width: fit-content;
       left: unset;
     }
+  }
+
+  .swiper-button {
+    top: calc(50% - 2rem);
   }
 
   .swiper-button-next {

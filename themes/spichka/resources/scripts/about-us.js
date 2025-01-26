@@ -7,10 +7,12 @@ domReady(async () => {
       0: {
         slidesPerGroup: 1,
         centeredSlides: true,
+        centeredSlidesBounds: true,
       },
       576: {
         slidesPerGroup: 2,
         centeredSlides: false,
+        centeredSlidesBounds: false,
       },
       768: {
         slidesPerGroup: 3,
