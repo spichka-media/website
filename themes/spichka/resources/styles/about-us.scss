@@ -124,7 +124,7 @@
     }
   }
 
-  --mr: calc((100vw - var(--container-width)) / 2 * -1 - 27px);
+  --mr: calc((100vw - var(--container-width)) / 2 * -1 - 10px);
   --container-width: 0px;
 
   @include media-breakpoint-up(sm) {
@@ -168,7 +168,7 @@
   }
 
   .swiper-button-next {
-    right: 32px;
+    right: 26px;
   }
 
   .swiper-button-prev {
