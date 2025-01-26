@@ -1,13 +1,30 @@
 import domReady from '@roots/sage/client/dom-ready';
-
-import {Swiper} from 'swiper';
-import {Pagination} from 'swiper/modules';
+import {initSliders} from './lib/swiper.js';
 
 /**
  * Application entrypoint
  */
 domReady(async () => {
-  initSliders();
+  initSliders(
+    {
+      breakpoints: {
+        0: {
+          slidesPerGroup: 1,
+          centeredSlides: true,
+          centeredSlidesBounds: true,
+        },
+        576: {
+          slidesPerGroup: 2,
+          centeredSlides: false,
+          centeredSlidesBounds: false,
+        },
+        768: {
+          slidesPerGroup: 3,
+        },
+      },
+    },
+    '[data-swiper-type="articles"]',
+  );
   initBannerTransform();
   initFloatingImage();
 });
@@ -78,27 +95,6 @@ function initFloatingImage() {
 
     // Apply transform with push and 3D slope effect
     image.style.transform = `translate(${pushX}px, ${pushY}px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-  });
-}
-
-function initSliders() {
-  const sliders = document.querySelectorAll('.swiper-container');
-  sliders.forEach((container) => {
-    const conf = {
-      direction: 'horizontal',
-      loop: false,
-      grabCursor: true,
-      spaceBetween: 16,
-      slidesPerView: 'auto',
-      pagination: {
-        el: container.querySelector('.swiper-pagination'),
-        clickable: true,
-      },
-
-      modules: [Pagination],
-    };
-
-    new Swiper(container.querySelector('.swiper'), conf);
   });
 }
 

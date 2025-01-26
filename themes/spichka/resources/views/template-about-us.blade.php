@@ -67,7 +67,7 @@
         </div>
 
         <div class="offset-lg-3 col border-lg-start border-0">
-          <div class="mt-4 mb-8 swiper-container position-relative">
+          <div class="mt-4 mb-8 swiper-block">
             @php
               $program_articles = get_posts([
                 'tax_query' => [
@@ -81,7 +81,7 @@
               ]);
             @endphp
 
-            <div class="swiper pb-5">
+            <div class="swiper">
               <div class="swiper-wrapper">
                 @foreach ($program_articles as $post)
                   <div class="swiper-slide">
@@ -89,18 +89,26 @@
                   </div>
                 @endforeach
 
-                <div class="swiper-slide">
-                  <div class="post-card">
-                    @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+                @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+                  <div class="swiper-slide">
+                    <div class="post-card">
                       <a href="{!! $program_term_link !!}">
                         {!! wp_get_attachment_image(carbon_get_theme_option('posts_more_image'), 'post-card') !!}
                       </a>
-                    @endif
+                    </div>
                   </div>
-                </div>
+                @endif
               </div>
             </div>
-            <div class="swiper-pagination"></div>
+
+            <button class="btn btn-nav swiper-button swiper-button-prev">
+              <i class="fa-solid fa-angle-left"></i>
+            </button>
+            <button class="btn btn-nav swiper-button swiper-button-next">
+              <i class="fa-solid fa-angle-right"></i>
+            </button>
+
+            <div class="swiper-pagination-bullets mt-2"></div>
           </div>
         </div>
       </div>
