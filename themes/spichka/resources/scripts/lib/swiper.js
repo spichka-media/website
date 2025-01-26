@@ -36,17 +36,25 @@ export const initSliders = (options, targetSelector) => {
 
     let navigation = null;
     if (navigationNextNode) {
-      if (!navigation) navigation = {};
+      if (!navigation) {
+        navigation = {};
+      }
       navigation.nextEl = navigationNextNode;
     }
     if (navigationPrevNode) {
-      if (!navigation) navigation = {};
+      if (!navigation) {
+        navigation = {};
+      }
       navigation.prevEl = navigationPrevNode;
     }
 
     const modules = [];
-    if (navigation) modules.push(Navigation);
-    if (pagination) modules.push(Pagination);
+    if (navigation) {
+      modules.push(Navigation);
+    }
+    if (pagination) {
+      modules.push(Pagination);
+    }
 
     const conf = {
       navigation: navigation,
