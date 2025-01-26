@@ -51,7 +51,10 @@ function callToActionCircle() {
 
   document.addEventListener('scroll', () => {
     for (const element of elementsList) {
-      if (!checkVisible(element)) return;
+      if (!checkVisible(element)) {
+        return;
+      }
+
       const rect = element.getBoundingClientRect();
 
       const viewHeight = Math.max(
