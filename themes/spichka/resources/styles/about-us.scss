@@ -59,16 +59,6 @@
   .post-card {
     max-width: 18.125rem;
   }
-
-  @include media-breakpoint-up(lg) {
-    .swiper-pagination {
-      position: absolute;
-      top: -55px !important;
-      right: 0;
-      width: fit-content;
-      left: unset;
-    }
-  }
 }
 
 @include media-breakpoint-down(sm) {
@@ -115,11 +105,26 @@
   }
 }
 
-.swiper {
-  margin-left: -16px;
-  padding-left: 16px;
+.swiper-block {
+  .swiper-slide {
+    width: auto;
+  }
 
-  --mr: calc((100vw - var(--container-width)) / 2 * -1 - 27px);
+  @include media-breakpoint-up(sm) {
+    margin-left: -16px;
+
+    .swiper {
+      padding-left: 16px;
+    }
+  }
+
+  .swiper.swiper-initialized {
+    @include media-breakpoint-down(sm) {
+      overflow: visible;
+    }
+  }
+
+  --mr: calc((100vw - var(--container-width)) / 2 * -1 - 10px);
   --container-width: 0px;
 
   @include media-breakpoint-up(sm) {
@@ -143,13 +148,32 @@
   }
 
   @include media-breakpoint-down(sm) {
-    --mr: -26px;
-
-    margin-left: -26px;
-    padding-left: 26px;
+    --mr: 0px;
   }
 
   margin-right: var(--mr);
+
+  @include media-breakpoint-up(lg) {
+    .swiper-pagination-bullets {
+      position: absolute;
+      top: -55px !important;
+      right: calc(var(--mr) * -1);
+      width: fit-content;
+      left: unset;
+    }
+  }
+
+  .swiper-button {
+    top: calc(50% - 2rem);
+  }
+
+  .swiper-button-next {
+    right: 26px;
+  }
+
+  .swiper-button-prev {
+    left: -8px;
+  }
 }
 
 .footer-section {
