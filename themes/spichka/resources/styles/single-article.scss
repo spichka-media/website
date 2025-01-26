@@ -139,6 +139,13 @@ article {
     }
   }
 
+  @include media-breakpoint-down(sm) {
+    .featured {
+      width: calc(100% + $container-padding-x);
+      max-width: unset;
+    }
+  }
+
   .call-to-action {
     overflow: hidden;
 
