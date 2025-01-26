@@ -1,7 +1,9 @@
 module.exports = {
   root: true,
   extends: ['@roots/eslint-config/sage'],
-  rules: {},
+  rules: {
+    curly: 'error',
+  },
   globals: {
     globalThis: 'readonly',
   },
