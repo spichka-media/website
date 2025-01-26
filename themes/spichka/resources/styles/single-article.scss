@@ -86,7 +86,8 @@ article {
     margin-bottom: map.get($spacers, 5);
 
     // https://stackoverflow.com/questions/74206132/scss-select-where-no-parent-has-class
-    // assigning this selector on last element in selector is important, as other options dont work
+    // Не применять этот стиль только на картинки не в свайпере.
+    // Важно привязывать отрицание на последний элемент селектора.
     img:not(.swiper *),
     video:not(.swiper *) {
       @include media-breakpoint-down(sm) {
