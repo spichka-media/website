@@ -141,8 +141,11 @@ article {
 
   @include media-breakpoint-down(sm) {
     .featured {
+      display: block;
       width: calc(100% + $container-padding-x);
       max-width: unset;
+      margin-right: -$container-padding-x * 0.5 !important;
+      margin-left: -$container-padding-x * 0.5 !important;
     }
   }
 
