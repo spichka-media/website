@@ -85,8 +85,11 @@ article {
     margin-top: map.get($spacers, 5);
     margin-bottom: map.get($spacers, 5);
 
-    img,
-    video {
+    // https://stackoverflow.com/questions/74206132/scss-select-where-no-parent-has-class
+    // Не применять этот стиль только на картинки не в свайпере.
+    // Важно привязывать отрицание на последний элемент селектора.
+    img:not(.swiper *),
+    video:not(.swiper *) {
       @include media-breakpoint-down(sm) {
         display: block;
         width: calc(100% + $container-padding-x);
