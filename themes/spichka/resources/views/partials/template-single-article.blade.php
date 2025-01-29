@@ -2,7 +2,7 @@
 <article class="my-sm-6 overflow-hidden">
   <div class="container">
     <div class="row justify-content-center gx-md-7 gy-3 gy-md-0">
-      <div class="col-md-6 col-xl-5 mt-0">
+      <div class="col-md-6 col-xl-5">
         @php(the_post_thumbnail('xs', ['data-no-lazy' => '1', 'decoding' => 'auto', 'class' => 'featured']))
       </div>
       <div class="col-md-6 col-xl-5 d-flex flex-column row-gap-5">
