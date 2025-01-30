@@ -31,9 +31,6 @@ function progress() {
   if (top > 0) {
     progress.style.width = `0%`;
 
-    bar.style.width = `100%`;
-    bar.style.position = `absolute`;
-
     bar.setAttribute('aria-valuenow', `0%`);
 
     return;
