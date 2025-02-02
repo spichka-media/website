@@ -1,5 +1,5 @@
 {{-- overflow-hidden - fixes horizontal scroll for the slider on mobile. --}}
-<article class="my-lg-6 overflow-hidden">
+<article class="mt-md-4 mb-4 mt-lg-6 mb-lg-6 overflow-hidden">
   <div class="container">
     <div class="row justify-content-center gx-md-7 gy-3 gy-md-0">
       <div class="col-md-6 col-xl-5">
