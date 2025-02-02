@@ -154,7 +154,7 @@ article {
   }
 
   @include media-breakpoint-down(sm) {
-    .featured {
+    .wp-post-image {
       display: block;
       width: calc(100% + $container-padding-x);
       max-width: unset;
