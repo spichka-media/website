@@ -9,6 +9,17 @@
 @import './plugins/publishpress-authors';
 @import './plugins/footnotes';
 
+header {
+  .progress {
+    @include media-breakpoint-down(sm) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+    }
+  }
+}
+
 article {
   .fa-fw {
     min-width: 1.25em;
@@ -139,6 +150,16 @@ article {
       .wp-post-image {
         transform: scale(1.1);
       }
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .wp-post-image {
+      display: block;
+      width: calc(100% + $container-padding-x);
+      max-width: unset;
+      margin-right: -$container-padding-x * 0.5 !important;
+      margin-left: -$container-padding-x * 0.5 !important;
     }
   }
 

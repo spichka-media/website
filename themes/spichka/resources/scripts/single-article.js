@@ -19,6 +19,7 @@ function progress() {
   const progress = document.querySelector(
     '#single-article-progressbar .progress-bar',
   );
+
   const bar = document.querySelector('#single-article-progressbar');
 
   if (!content || !progress || !bar) {
@@ -29,6 +30,7 @@ function progress() {
 
   if (top > 0) {
     progress.style.width = `0%`;
+
     bar.setAttribute('aria-valuenow', `0%`);
 
     return;
