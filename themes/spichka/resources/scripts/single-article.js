@@ -11,6 +11,10 @@ domReady(async () => {
   if (!isDeviceHoverable()) {
     callToActionCircle();
   }
+
+  const elements = document.querySelectorAll('.pp-author-boxes-name');
+  console.log(`elements`, elements.length);
+  elements.forEach((element) => element.setAttribute('itemprop', 'author'));
 });
 
 function progress() {
