@@ -68,12 +68,10 @@
               aria-expanded="false"
               aria-controls="collapseExample">
               <span class="text-collapsed">
-                {{ carbon_get_theme_option('theme_summary_text_collapsed') }}Лень
-                читать? ↓
+                {{ carbon_get_theme_option('theme_summary_text_collapsed') }}
               </span>
               <span class="text-expanded">
                 {{ carbon_get_theme_option('theme_summary_text_expanded') }}
-                Свернуть ↑
               </span>
             </button>
           </div>
