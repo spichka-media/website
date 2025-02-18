@@ -3,17 +3,6 @@
 @import './app';
 @import './libs/swiper';
 
-.description {
-  p,
-  ol,
-  ul,
-  dl {
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
 .hero-section {
   h1 {
     @include font-size(4.75rem);

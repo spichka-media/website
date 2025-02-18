@@ -54,6 +54,39 @@
           <p class="fs-4">{!! strip_tags(get_the_excerpt()) !!}</p>
         @endif
 
+        @php($summary = carbon_get_post_meta(get_the_ID(), 'article_summary'))
+
+        @if (! empty($summary))
+          <hr />
+
+          <div class="d-flex justify-content-center">
+            <button
+              class="btn btn-light w-50 btn-summary"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample">
+              <span class="text-collapsed">
+                {{ carbon_get_theme_option('theme_summary_text_collapsed') }}Лень
+                читать? ↓
+              </span>
+              <span class="text-expanded">
+                {{ carbon_get_theme_option('theme_summary_text_expanded') }}
+                Свернуть ↑
+              </span>
+            </button>
+          </div>
+
+          <div class="collapse mt-4" id="collapseExample">
+            <div class="card card-body border-0 last-mb-0">
+              {!! wpautop($summary) !!}
+            </div>
+          </div>
+
+          <hr />
+        @endif
+
         @php(the_content())
       </div>
 

@@ -10,6 +10,16 @@ add_action(
   'carbon_fields_register_fields',
   function () {
     Container::make('theme_options', 'Настройки темы')->add_fields([
+      Field::make(
+        'text',
+        'theme_summary_text_collapsed',
+        'Текст на кнопке со сводкой, сводка свёрнута'
+      ),
+      Field::make(
+        'text',
+        'theme_summary_text_expanded',
+        'Текст на кнопке со сводкой, сводка развёрнута'
+      ),
       Field::make('text', 'theme_email', 'Email'),
       Field::make('complex', 'theme_socials', 'Социальные сети')
         ->set_layout('tabbed-horizontal')
@@ -73,6 +83,9 @@ add_action(
 
     Container::make('post_meta', 'Настройки поста')
       ->where('post_type', 'IN', ['post', 'note'])
+      ->add_tab('Общее', [
+        Field::make('rich_text', 'article_summary', 'Сводка'),
+      ])
       ->add_tab('Комментарии', [
         Field::make(
           'checkbox',

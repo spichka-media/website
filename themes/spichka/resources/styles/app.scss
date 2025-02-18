@@ -73,3 +73,14 @@ h6 {
   width: 1px;
   word-wrap: normal !important;
 }
+
+.last-mb-0 {
+  p,
+  ol,
+  ul,
+  dl {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

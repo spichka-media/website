@@ -21,6 +21,26 @@ header {
 }
 
 article {
+  .btn-summary {
+    .text-collapsed {
+      display: inline;
+    }
+
+    .text-expanded {
+      display: none;
+    }
+
+    &[aria-expanded='true'] {
+      .text-collapsed {
+        display: none;
+      }
+
+      .text-expanded {
+        display: inline;
+      }
+    }
+  }
+
   .fa-fw {
     min-width: 1.25em;
   }
