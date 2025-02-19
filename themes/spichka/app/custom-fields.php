@@ -10,6 +10,7 @@ add_action(
   'carbon_fields_register_fields',
   function () {
     Container::make('theme_options', 'Настройки темы')->add_fields([
+      Field::make('text', 'theme_summary_header', 'Заголовок сводки'),
       Field::make(
         'text',
         'theme_summary_text_collapsed',

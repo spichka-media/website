@@ -21,22 +21,31 @@ header {
 }
 
 article {
-  .btn-summary {
-    .text-collapsed {
-      display: inline;
+  .summary {
+    border-radius: 2rem;
+    border: 0.7px solid $tertiary;
+
+    .header {
+      font-size: 1.375rem;
     }
 
-    .text-expanded {
-      display: none;
-    }
-
-    &[aria-expanded='true'] {
+    .btn-summary {
       .text-collapsed {
-        display: none;
+        display: inline;
       }
 
       .text-expanded {
-        display: inline;
+        display: none;
+      }
+
+      &[aria-expanded='true'] {
+        .text-collapsed {
+          display: none;
+        }
+
+        .text-expanded {
+          display: inline;
+        }
       }
     }
   }
