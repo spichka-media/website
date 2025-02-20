@@ -21,31 +21,26 @@ header {
 }
 
 article {
-  .summary {
-    border-radius: 2rem;
-    border: 0.7px solid $tertiary;
+  #summary-accordion {
+    --bs-accordion-btn-padding-x: 1.5rem;
+    --bs-accordion-body-padding-x: 1.5rem;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-active-bg: #{$light};
+    --bs-accordion-active-color: #{$body};
+    --bs-accordion-border-radius: 2rem;
+    --bs-accordion-transition: color 0.15s ease-in-out,
+      background-color 0s ease-in-out, border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out, border-radius 0s ease;
+    --bs-accordion-border-color: #{$tertiary};
+    --bs-accordion-border-width: 0.7px;
 
-    .header {
-      font-size: 1.375rem;
-    }
-
-    .btn-summary {
-      .text-collapsed {
-        display: inline;
+    .accordion-item {
+      .header {
+        font-size: 1.375rem;
       }
 
-      .text-expanded {
-        display: none;
-      }
-
-      &[aria-expanded='true'] {
-        .text-collapsed {
-          display: none;
-        }
-
-        .text-expanded {
-          display: inline;
-        }
+      .accordion-button:not(.collapsed) {
+        border-radius: 2rem 2rem 0 0 !important;
       }
     }
   }

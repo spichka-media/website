@@ -57,38 +57,67 @@
         @php($summary = carbon_get_post_meta(get_the_ID(), 'article_summary'))
 
         @if (! empty($summary))
-          <div class="summary border p-3 ps-5 mb-6">
-            <div class="row">
-              <div
-                class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start align-items-center">
-                <span class="fw-bold header">
-                  {{ carbon_get_theme_option('theme_summary_header') }}
-                </span>
-              </div>
-
-              <div class="col-12 col-sm-6 text-sm-end text-center">
+          <div class="accordion my-6" id="summary-accordion">
+            <div class="accordion-item">
+              <span class="accordion-header">
                 <button
-                  class="btn btn-light btn-summary rounded-pill mt-2 mt-sm-0"
+                  class="accordion-button collapsed rounded-pill"
                   type="button"
                   data-bs-toggle="collapse"
-                  data-bs-target="#collapseSummary"
+                  data-bs-target="#summary"
                   aria-expanded="false"
-                  aria-controls="collapseSummary">
-                  <span class="text-collapsed">
-                    {{ carbon_get_theme_option('theme_summary_text_collapsed') }}
-                  </span>
-                  <span class="text-expanded">
-                    {{ carbon_get_theme_option('theme_summary_text_expanded') }}
+                  aria-controls="summary">
+                  <span class="header fw-bold">
+                    {{ carbon_get_theme_option('theme_summary_header') }}
                   </span>
                 </button>
-              </div>
-            </div>
-            <div class="collapse mt-3" id="collapseSummary">
-              <div class="last-mb-0">
-                {!! wpautop($summary) !!}
+              </span>
+
+              <div
+                id="summary"
+                class="accordion-collapse collapse"
+                data-bs-parent="#summary-accordion">
+                <div class="accordion-body last-mb-0">
+                  {!! wpautop($summary) !!}
+                </div>
               </div>
             </div>
           </div>
+
+          {{--
+            <div class="summary border p-3 ps-5 mb-6">
+            <div class="row">
+            <div
+            class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start align-items-center">
+            <span class="fw-bold header">
+            {{ carbon_get_theme_option('theme_summary_header') }}
+            </span>
+            </div>
+            
+            <div class="col-12 col-sm-6 text-sm-end text-center">
+            <button
+            class="btn btn-light btn-summary rounded-pill mt-2 mt-sm-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSummary"
+            aria-expanded="false"
+            aria-controls="collapseSummary">
+            <span class="text-collapsed">
+            {{ carbon_get_theme_option('theme_summary_text_collapsed') }}
+            </span>
+            <span class="text-expanded">
+            {{ carbon_get_theme_option('theme_summary_text_expanded') }}
+            </span>
+            </button>
+            </div>
+            </div>
+            <div class="collapse mt-3" id="collapseSummary">
+            <div class="last-mb-0">
+            {!! wpautop($summary) !!}
+            </div>
+            </div>
+            </div>
+          --}}
         @endif
 
         @php(the_content())

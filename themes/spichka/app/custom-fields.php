@@ -11,16 +11,6 @@ add_action(
   function () {
     Container::make('theme_options', 'Настройки темы')->add_fields([
       Field::make('text', 'theme_summary_header', 'Заголовок сводки'),
-      Field::make(
-        'text',
-        'theme_summary_text_collapsed',
-        'Текст на кнопке со сводкой, сводка свёрнута'
-      ),
-      Field::make(
-        'text',
-        'theme_summary_text_expanded',
-        'Текст на кнопке со сводкой, сводка развёрнута'
-      ),
       Field::make('text', 'theme_email', 'Email'),
       Field::make('complex', 'theme_socials', 'Социальные сети')
         ->set_layout('tabbed-horizontal')
