@@ -21,7 +21,7 @@ header {
 }
 
 article {
-  #summary-accordion {
+  .accordion {
     --bs-accordion-btn-padding-x: 1.5rem;
     --bs-accordion-body-padding-x: 1.5rem;
     --bs-accordion-btn-focus-box-shadow: none;
@@ -31,8 +31,6 @@ article {
     --bs-accordion-transition: color 0.15s ease-in-out,
       background-color 0s ease-in-out, border-color 0.15s ease-in-out,
       box-shadow 0.15s ease-in-out, border-radius 0s ease;
-    --bs-accordion-border-color: #{$tertiary};
-    --bs-accordion-border-width: 0.7px;
 
     .accordion-item {
       .header {
