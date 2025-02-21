@@ -22,8 +22,8 @@ header {
 
 article {
   .accordion {
-    --bs-accordion-btn-padding-x: 1.5rem;
-    --bs-accordion-body-padding-x: 1.5rem;
+    --bs-accordion-body-padding-x: 1.75rem;
+    --bs-accordion-body-padding-y: 1.25rem;
     --bs-accordion-btn-focus-box-shadow: none;
     --bs-accordion-active-bg: #{$light};
     --bs-accordion-active-color: #{$body};
@@ -41,8 +41,13 @@ article {
         }
       }
 
-      .accordion-button:not(.collapsed) {
-        border-radius: 2rem 2rem 0 0 !important;
+      .accordion-button {
+        --bs-accordion-btn-padding-y: 1.25rem;
+        --bs-accordion-btn-padding-x: 1.75rem;
+
+        &:hover {
+          background-color: #e4e4e4;
+        }
       }
     }
   }

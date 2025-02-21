@@ -58,20 +58,18 @@
 
         @if (! empty($summary))
           <div class="accordion my-6" id="summary-accordion">
-            <div class="accordion-item">
-              <span class="accordion-header">
-                <button
-                  class="accordion-button collapsed rounded-pill"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#summary"
-                  aria-expanded="false"
-                  aria-controls="summary">
-                  <span class="header fw-bold">
-                    {{ carbon_get_theme_option('theme_summary_header') }}
-                  </span>
-                </button>
-              </span>
+            <div class="accordion-item overflow-hidden">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#summary"
+                aria-expanded="false"
+                aria-controls="summary">
+                <span class="header fw-bold">
+                  {{ carbon_get_theme_option('theme_summary_header') }}
+                </span>
+              </button>
 
               <div
                 id="summary"
