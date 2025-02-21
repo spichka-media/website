@@ -83,41 +83,6 @@
               </div>
             </div>
           </div>
-
-          {{--
-            <div class="summary border p-3 ps-5 mb-6">
-            <div class="row">
-            <div
-            class="col-12 col-sm-6 d-flex justify-content-center justify-content-sm-start align-items-center">
-            <span class="fw-bold header">
-            {{ carbon_get_theme_option('theme_summary_header') }}
-            </span>
-            </div>
-            
-            <div class="col-12 col-sm-6 text-sm-end text-center">
-            <button
-            class="btn btn-light btn-summary rounded-pill mt-2 mt-sm-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseSummary"
-            aria-expanded="false"
-            aria-controls="collapseSummary">
-            <span class="text-collapsed">
-            {{ carbon_get_theme_option('theme_summary_text_collapsed') }}
-            </span>
-            <span class="text-expanded">
-            {{ carbon_get_theme_option('theme_summary_text_expanded') }}
-            </span>
-            </button>
-            </div>
-            </div>
-            <div class="collapse mt-3" id="collapseSummary">
-            <div class="last-mb-0">
-            {!! wpautop($summary) !!}
-            </div>
-            </div>
-            </div>
-          --}}
         @endif
 
         @php(the_content())
