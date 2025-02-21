@@ -37,6 +37,10 @@ article {
     .accordion-item {
       .header {
         font-size: 1.375rem;
+
+        @include media-breakpoint-only(xs) {
+          font-size: 1.125rem;
+        }
       }
 
       .accordion-button:not(.collapsed) {
