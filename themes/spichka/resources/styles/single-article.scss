@@ -55,6 +55,10 @@ article {
         &:active {
           background-color: #{$light};
         }
+
+        &:not(.collapsed):active {
+          background-color: #e4e4e4;
+        }
       }
     }
   }
