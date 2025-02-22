@@ -42,12 +42,14 @@ article {
         --bs-accordion-btn-padding-y: 1.25rem;
         --bs-accordion-btn-padding-x: 1.75rem;
 
-        &:hover {
-          background-color: #eee;
-        }
+        @media (hover: hover) {
+          &:hover {
+            background-color: #{$light};
+          }
 
-        &:not(.collapsed):hover {
-          background-color: #e4e4e4;
+          &:not(.collapsed):hover {
+            background-color: #e4e4e4;
+          }
         }
       }
     }
