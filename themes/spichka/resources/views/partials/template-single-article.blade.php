@@ -54,35 +54,6 @@
           <p class="fs-4">{!! strip_tags(get_the_excerpt()) !!}</p>
         @endif
 
-        @php($summary = carbon_get_post_meta(get_the_ID(), 'article_summary'))
-
-        @if (! empty($summary))
-          <div class="accordion my-6" id="summary-accordion">
-            <div class="accordion-item overflow-hidden">
-              <button
-                class="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#summary"
-                aria-expanded="false"
-                aria-controls="summary">
-                <span class="header fw-bold">
-                  {{ carbon_get_theme_option('theme_summary_header') }}
-                </span>
-              </button>
-
-              <div
-                id="summary"
-                class="accordion-collapse collapse"
-                data-bs-parent="#summary-accordion">
-                <div class="accordion-body last-mb-0">
-                  {!! wpautop($summary) !!}
-                </div>
-              </div>
-            </div>
-          </div>
-        @endif
-
         @php(the_content())
       </div>
 

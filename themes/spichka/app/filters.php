@@ -286,6 +286,18 @@ add_filter(
       return view('blocks/slider', $block['attrs']);
     }
 
+    if ($block['blockName'] === 'core/details') {
+      preg_match('/<summary>(.*?)<\/summary>/s', $block_content, $header);
+      preg_match('/<\/summary>(.*?)<\/details>/s', $block_content, $body);
+
+      return view('blocks/details', [
+        'header' => $header[1],
+        'body' => $body[1],
+        'accordionId' => rand(),
+        'accordionContentId' => rand(),
+      ]);
+    }
+
     return $block_content;
   },
   10,

@@ -10,7 +10,6 @@ add_action(
   'carbon_fields_register_fields',
   function () {
     Container::make('theme_options', 'Настройки темы')->add_fields([
-      Field::make('text', 'theme_summary_header', 'Заголовок сводки'),
       Field::make('text', 'theme_email', 'Email'),
       Field::make('complex', 'theme_socials', 'Социальные сети')
         ->set_layout('tabbed-horizontal')
