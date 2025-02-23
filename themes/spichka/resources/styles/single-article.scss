@@ -54,9 +54,12 @@ article {
           }
         }
 
-        &:active,
+        &:active {
+          background-color: #f7f7f7;
+        }
+
         &:not(.collapsed):active {
-          background-color: #fafafa;
+          background-color: #e9e9e9;
         }
       }
     }
