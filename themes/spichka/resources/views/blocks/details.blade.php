@@ -16,7 +16,7 @@
       id="{{ $accordionContentId }}"
       class="accordion-collapse collapse"
       data-bs-parent="#accordion-{{ $accordionId }}">
-      <div class="accordion-body last-mb-0">
+      <div class="accordion-body pb-5 last-mb-0">
         {!! wpautop($body) !!}
       </div>
     </div>

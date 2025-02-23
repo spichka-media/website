@@ -27,7 +27,7 @@ article {
     --bs-accordion-btn-focus-box-shadow: none;
     --bs-accordion-active-bg: #{$light};
     --bs-accordion-active-color: #{$body};
-    --bs-accordion-border-radius: 2.2rem;
+    --bs-accordion-border-radius: 2rem;
     --bs-accordion-btn-color: #{$body};
     --bs-accordion-btn-active-icon: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27none%27 stroke=%27rgb%2833, 33, 33%29%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpath d=%27M2 5L8 11L14 5%27/%3e%3c/svg%3e');
 
@@ -39,6 +39,8 @@ article {
       }
 
       .accordion-button {
+        line-height: 1.5rem;
+
         --bs-accordion-btn-padding-y: 1.25rem;
         --bs-accordion-btn-padding-x: 1.75rem;
 
@@ -52,12 +54,9 @@ article {
           }
         }
 
-        &:active {
-          background-color: #fafafa;
-        }
-
+        &:active,
         &:not(.collapsed):active {
-          background-color: #e4e4e4;
+          background-color: #fafafa;
         }
       }
     }
