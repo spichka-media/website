@@ -23,7 +23,7 @@
             </div>
 
             <div
-              class="col-12 offset-lg-4 col-lg-8 description pb-9 pt-4 py-lg-14 fs-6">
+              class="col-12 offset-lg-4 col-lg-8 description pb-9 pt-4 py-lg-14 fs-6 last-mb-0">
               {!! wpautop(carbon_get_post_meta(get_the_ID(), 'banner_description')) !!}
             </div>
           </div>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-12 col-md-8 col-lg-5 border-md-start">
-          <div class="description pt-md-14 mb-sm-9 mb-md-6 fs-6">
+          <div class="description pt-md-14 mb-sm-9 mb-md-6 fs-6 last-mb-0">
             {!! wpautop(carbon_get_post_meta(get_the_ID(), 'about_description')) !!}
           </div>
         </div>
@@ -125,7 +125,7 @@
         </div>
 
         <div class="col-12 col-md-8 col-lg-5 border-md-start">
-          <div class="description py-md-14 fs-6">
+          <div class="description py-md-14 fs-6 last-mb-0">
             {!! wpautop(carbon_get_post_meta(get_the_ID(), 'join_description')) !!}
 
             <a
