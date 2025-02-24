@@ -1,5 +1,6 @@
 import domReady from '@roots/sage/client/dom-ready';
 import {checkVisible, isDeviceHoverable} from './lib/utils.js';
+import 'bootstrap/js/dist/collapse';
 
 /**
  * Application entrypoint
