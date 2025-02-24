@@ -73,9 +73,6 @@ add_action(
 
     Container::make('post_meta', 'Настройки поста')
       ->where('post_type', 'IN', ['post', 'note'])
-      ->add_tab('Общее', [
-        Field::make('rich_text', 'article_summary', 'Сводка'),
-      ])
       ->add_tab('Комментарии', [
         Field::make(
           'checkbox',
