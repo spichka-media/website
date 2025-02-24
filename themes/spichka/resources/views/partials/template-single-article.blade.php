@@ -57,9 +57,13 @@
         @php(the_content())
       </div>
 
+      @php($telegramChannel = carbon_get_theme_option('theme_telegram_channel'))
+      @php($telegramPostId = carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id'))
       @php($callToActions = carbon_get_theme_option('theme_call_to_action'))
+      {{-- Подразумевалось, что блоков может быть несколько в будущем. --}}
       @php($callToActionSettings = empty($callToActions) ? null : $callToActions[0])
-      @if ($callToActionSettings)
+
+      @if ($callToActionSettings && $telegramPostId && $telegramChannel)
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
           <div class="call-to-action position-relative text-white bg-dark p-6">
             <div
@@ -85,7 +89,7 @@
 
               <div class="col-md-4">
                 <a
-                  href="{{ $callToActionSettings['button_url'] }}"
+                  href="{{ 'https://t.me/' . $telegramChannel . '/' . $telegramPostId }}"
                   target="_blank"
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center justify-content-center">
@@ -143,12 +147,12 @@
         </div>
       @endif
 
-      @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && carbon_get_theme_option('theme_telegram_channel'))
+      @if (carbon_get_post_meta(get_the_ID(), 'post_show_comments') && $telegramChannel && $telegramPostId)
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
           <script
             async
             src="https://telegram.org/js/telegram-widget.js?22"
-            data-telegram-discussion="{{ carbon_get_theme_option('theme_telegram_channel') }}{{ carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id') ? '/' . carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id') : '' }}"
+            data-telegram-discussion="{{ $telegramChannel . '/' . $telegramPostId }}"
             data-comments-limit="5"
             data-color="343638"
             data-dark-color="FFFFFF"></script>
