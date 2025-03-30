@@ -1,41 +1,60 @@
-version: "3"
-
 services:
   db:
-    platform: linux/amd64
-    image: percona:5.7.23
+    image: mysql:8.4.4
     container_name: spichka_website_db
+    restart: unless-stopped
     ports:
       - "3307:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: wordpress
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: wordpress
+    volumes:
+      - db_data:/var/lib/mysql
+
+  node:
+    image: node:22.14
+    container_name: spichka_website_node
+    restart: unless-stopped
+    working_dir: /var/www/html
+    volumes:
+      - ./themes/spichka:/var/www/html
+    command: >
+      sh -c "
+        yarn &&
+        yarn dev --no-browserslist-update
+      "
 
   wordpress:
+    build: ./docker/wordpress/
+    container_name: spichka_website
+    restart: unless-stopped
     depends_on:
       - db
-    build: .
-    container_name: spichka_website
+      - node
     ports:
       - "8000:80"
-    restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DEBUG: 1
-    working_dir: /var/www/html
     volumes:
       - ./themes/spichka:/var/www/html/wp-content/themes/spichka
-      - ./wp-content/plugins:/var/www/html/wp-content/plugins
-      - ./wp-content/uploads:/var/www/html/wp-content/uploads
+      - ./docker/apache2/default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./log/wordpress:/var/www/html/wp-content/log
+      - ./log/apache2:/var/log/apache2/
+      # Вспомогательные файлы для бэкапов:
+      #- ./wp-content/plugins:/var/www/html/wp-content/plugins
+      #- ./wp-content/uploads:/var/www/html/wp-content/uploads
       # - ./backup/20240402_spichkamedia_5dc61a8b8eee5d784880_20240402130244_archive.zip:/var/www/html/20240402_spichkamedia_5dc61a8b8eee5d784880_20240402130244_archive.zip
       # - ./backup/installer.php:/var/www/html/installer.php
+    command: >
+      sh -c "
+        composer install -d /var/www/html/wp-content/themes/spichka &&
+        docker-entrypoint.sh apache2-foreground
+      "
 
 volumes:
   db_data:
