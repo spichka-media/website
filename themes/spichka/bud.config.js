@@ -103,7 +103,7 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.watch}
    */
   app
-    .setUrl('http://0.0.0.0:8000')
-    .setProxyUrl('http://wordpress:8000')
+    .setUrl('http://0.0.0.0:8001')
+    .setProxyUrl('http://localhost:8000')
     .watch('resources', 'app');
 };

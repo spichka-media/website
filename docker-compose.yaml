@@ -18,6 +18,8 @@ services:
     container_name: spichka_website_node
     restart: unless-stopped
     working_dir: /var/www/html
+    ports:
+      - "8001:8001"
     volumes:
       - ./themes/spichka:/var/www/html
     command: >
@@ -43,7 +45,6 @@ services:
     volumes:
       - ./themes/spichka:/var/www/html/wp-content/themes/spichka
       - ./docker/apache2/default.conf:/etc/apache2/sites-available/000-default.conf
-      - ./log/wordpress:/var/www/html/wp-content/log
       - ./log/apache2:/var/log/apache2/
       # Хранение установленных плагинов на случай удаления контейнера:
       - ./wp-content/plugins:/var/www/html/wp-content/plugins
@@ -53,7 +54,10 @@ services:
       # - ./backup/installer.php:/var/www/html/installer.php
     command: >
       sh -c "
-        composer install -d /var/www/html/wp-content/themes/spichka &&
+        if ! composer install -d /var/www/html/wp-content/themes/spichka; then
+          echo 'Вероятно, composer.json имеет изменения, попытка обновить lock файл...';
+          composer update -d /var/www/html/wp-content/themes/spichka;
+        fi;
         docker-entrypoint.sh apache2-foreground
       "
 
