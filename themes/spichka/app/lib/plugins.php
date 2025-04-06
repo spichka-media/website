@@ -36,13 +36,6 @@ function my_theme_register_required_plugins()
       'force_activation' => true,
     ],
     [
-      'name' => 'Carbon fields',
-      'slug' => 'carbon-fields',
-      'source' => get_stylesheet_directory() . '/plugins/carbon-fields.zip',
-      'required' => true,
-      'force_activation' => true,
-    ],
-    [
       'name' => 'Simple History',
       'slug' => 'simple-history',
       'required' => false,
