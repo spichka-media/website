@@ -60,20 +60,23 @@
       @php($telegramChannel = carbon_get_theme_option('theme_telegram_channel'))
       @php($telegramPostId = carbon_get_post_meta(get_the_ID(), 'post_telegram_post_id'))
       @php($callToActions = carbon_get_theme_option('theme_call_to_action'))
-      {{-- Подразумевалось, что блоков может быть несколько в будущем. --}}
-      @php($callToActionSettings = empty($callToActions) ? null : $callToActions[0])
 
-      @if ($callToActionSettings && $telegramPostId && $telegramChannel)
+      {{-- В настройках массив по порядку, с постом, потом без  --}}
+      @php($callToActionSettings = $callToActions[$telegramPostId ? 0 : 1] ?? [])
+
+      @if ($callToActionSettings && $telegramChannel)
         <div class="col-12 col-lg-9 col-xl-8 px-xl-6">
           <div class="call-to-action position-relative text-white bg-dark p-6">
-            <div
-              class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
-              <video class="video h-100 w-100" playsinline autoplay muted loop>
-                <source
-                  src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
-                  type="video/mp4" />
-              </video>
-            </div>
+            @if (!empty($callToActionSettings['video']))
+              <div
+                class="media position-absolute z-0 top-0 bottom-0 object-fit-cover d-flex justify-content-end">
+                <video class="video h-100 w-100" playsinline autoplay muted loop>
+                  <source
+                    src="{{ wp_get_attachment_url($callToActionSettings['video']) }}"
+                    type="video/mp4"/>
+                </video>
+              </div>
+            @endif
 
             <div
               class="row align-items-center justify-content-between position-relative z-2">
@@ -89,14 +92,16 @@
 
               <div class="col-md-4">
                 <a
-                  href="{{ 'https://t.me/' . $telegramChannel . '/' . $telegramPostId }}"
+                  href="{{ "https://t.me/$telegramChannel" . ($telegramPostId ? "/$telegramPostId" : '') }}"
                   target="_blank"
                   data-gtag-event="called_to_action"
                   class="btn btn-outline-light fw-bold border-2 text-decoration-none w-100 d-flex align-items-center justify-content-center">
-                  <img
-                    alt="button_icon"
-                    src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
-                    class="me-2 fs-4" />
+                  @if (!empty($callToActionSettings['button_icon']))
+                    <img
+                      alt="button_icon"
+                      src="{{ wp_get_attachment_url($callToActionSettings['button_icon']) }}"
+                      class="me-2 fs-4"/>
+                  @endif
                   {{ $callToActionSettings['button_text'] }}
                 </a>
               </div>
