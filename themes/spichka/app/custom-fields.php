@@ -57,8 +57,13 @@ add_action(
         'notes_more_image',
         'Изображение для "Больше заметок"'
       )->set_type(['image']),
-      Field::make('complex', 'theme_call_to_action', 'Настройки call-to-action')
+      Field::make(
+        'complex',
+        'theme_call_to_action',
+        'Telegram-блок под статьей (Добавьте два элемента)'
+      )
         ->set_layout('tabbed-vertical')
+        ->set_max(2)
         ->add_fields([
           Field::make('text', 'title', 'Заголовок'),
           Field::make('text', 'description', 'Описание'),
@@ -67,7 +72,13 @@ add_action(
           Field::make('file', 'button_icon', 'Иконка кнопки')->set_type(
             'image'
           ),
-        ]),
+        ])->set_header_template('
+          <% if ($_index) { %>
+              Без номера поста
+          <% } else { %>
+              С номером поста Telegram в статье
+          <% } %>
+        '),
     ]);
 
     Container::make('post_meta', 'Настройки поста')
