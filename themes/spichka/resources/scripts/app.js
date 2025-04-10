@@ -3,6 +3,7 @@ import 'bootstrap/js/dist/offcanvas';
 import {searchInputHandler} from './lib/search.js';
 import {initPortraits} from './lib/portraits';
 import {setupGtagAttributeListener} from './lib/gtag.js';
+import {toTopButton} from './toTop.js';
 
 /**
  * Application entrypoint
@@ -11,6 +12,7 @@ domReady(async () => {
   searchInputHandler();
   initPortraits();
   setupGtagAttributeListener();
+  toTopButton();
 });
 
 /**
