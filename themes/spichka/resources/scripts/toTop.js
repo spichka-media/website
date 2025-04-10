@@ -1,36 +1,57 @@
-export const toTopButton = async () => {
-    var footer = document.getElementsByTagName('footer')[0];
-    var toTop = document.createElement('button');
-    toTop.style.visibility = 'hidden';
-    toTop.setAttribute('id', 'scroll-to-top')
-    toTop.classList.add('btn', 'btn-nav', 'hide')
-    var arrow = document.createElement('i');
-    arrow.classList.add('fa-solid', 'fa-angle-up')
-    toTop.appendChild(arrow);
-    toTop.addEventListener('click', toTopClick);
-    footer.appendChild(toTop);
-    document.addEventListener('scroll', toTopVisibility);
-    document.addEventListener('DOMContentLoaded', toTopActivate);
-  };
-  
-  function toTopActivate(){
-    const toTop = document.getElementById('scroll-to-top');
-    if (!toTop) {
+const TOP_DOCUMENT_POSITION = {left: 0, top: 0, behavior: 'smooth'};
+
+export class ScrollButton {
+  constructor() {
+    this.prevIsHide = this.checkHide();
+    this.button = document.createElement('button');
+    this.button.id = 'scroll-to-top';
+    this.button.classList.add('btn', 'btn-nav', 'hide');
+
+    const arrow = document.createElement('i');
+    arrow.classList.add('fa-solid', 'fa-angle-up');
+    this.button.appendChild(arrow);
+
+    const footer = document.getElementsByTagName('footer')[0];
+    footer.appendChild(this.button);
+
+    this.button.addEventListener('click', this.onClick.bind(this));
+    document.addEventListener('scroll', this.onDocumentScroll.bind(this));
+  }
+
+  onClick() {
+    window.scrollTo(TOP_DOCUMENT_POSITION);
+  }
+
+  onDocumentScroll() {
+    const isHide = this.checkHide();
+
+    if (this.prevIsHide === isHide) {
       return;
     }
-    toTop.style.visibility = 'visible';
-  }
-  function toTopVisibility(){
-    const toTop = document.getElementById('scroll-to-top');
-    if (!toTop) {
+
+    this.prevIsHide = isHide;
+
+    if (isHide) {
+      this.showButton();
       return;
     }
-    const visible = document.documentElement.scrollTop > 200;
-    toTop.classList.toggle('show', visible);
-    toTop.classList.toggle('hide', !visible);
+
+    this.hideButton();
   }
-  function toTopClick(){
-    window.scrollTo({left: 0, top: 0, behavior: 'smooth'});
+
+  checkHide() {
+    return document.documentElement.scrollTop > 200;
   }
-  
-import.meta.webpackHot?.accept(toTopButton);
+
+  showButton() {
+    this.button.classList.remove('hide');
+    this.button.classList.toggle('show');
+  }
+
+  hideButton() {
+    this.button.classList.remove('show');
+    this.button.classList.toggle('hide');
+  }
+}
+
+import.meta.webpackHot?.accept(ScrollButton);
