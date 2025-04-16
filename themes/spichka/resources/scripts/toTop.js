@@ -4,7 +4,7 @@ export class ScrollButton {
   constructor() {
     this.prevIsHide = this.checkHide();
     this.button = document.createElement('button');
-    this.button.id = 'scroll-to-top';
+    this.button.id = 'nav-scroll-to-top';
     this.button.classList.add('btn', 'btn-nav', 'hide');
 
     const arrow = document.createElement('i');
