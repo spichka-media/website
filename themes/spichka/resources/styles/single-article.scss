@@ -4,10 +4,12 @@
 @import './app';
 
 // Plugins
+@import './plugins/pullquote.scss';
 @import './plugins/mistape';
 @import './plugins/table-of-contents';
 @import './plugins/publishpress-authors';
 @import './plugins/footnotes';
+
 
 header {
   .progress {
@@ -21,6 +23,7 @@ header {
 }
 
 article {
+  
   .fa-fw {
     min-width: 1.25em;
   }
