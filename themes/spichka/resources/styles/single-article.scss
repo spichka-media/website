@@ -10,7 +10,6 @@
 @import './plugins/publishpress-authors';
 @import './plugins/footnotes';
 
-
 header {
   .progress {
     @include media-breakpoint-down(sm) {
@@ -23,7 +22,6 @@ header {
 }
 
 article {
-  
   .fa-fw {
     min-width: 1.25em;
   }
