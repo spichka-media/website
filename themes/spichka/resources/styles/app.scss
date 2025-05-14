@@ -11,6 +11,14 @@
 body {
   font-family: Montserrat, sans-serif;
   color: $body-color;
+
+  &::selection {
+    background: $primary;
+  }
+
+  a::selection{
+    color: white
+  }
 }
 
 img {
