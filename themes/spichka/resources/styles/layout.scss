@@ -94,16 +94,18 @@ footer {
     cursor: pointer;
     font-size: 24px;
     z-index: 99;
-    transition: transform 0.3s ease-out, opacity 0.3s ease-in-out;
+    transition:
+      transform 0.3s ease-out,
+      opacity 0.3s ease-in-out;
 
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       inset: -10px;
       transition: inherit;
     }
 
-    &:hover{
+    &:hover {
       transform: translateY(-8px);
     }
 
