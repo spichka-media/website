@@ -2,7 +2,7 @@ const TOP_DOCUMENT_POSITION = {left: 0, top: 0, behavior: 'smooth'};
 
 export class ScrollButton {
   constructor() {
-    this.prevIsHide = this.checkHide();
+    this.prevIsHide = false;
     this.button = document.createElement('button');
     this.button.id = 'nav-scroll-to-top';
     this.button.classList.add('btn', 'btn-nav', 'hide');

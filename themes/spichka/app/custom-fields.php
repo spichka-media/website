@@ -79,6 +79,11 @@ add_action(
               С номером поста Telegram в статье
           <% } %>
         '),
+      Field::make(
+        'text',
+        'author_foreign_agent_prevention_text',
+        'Текст пометки иноагента'
+      ),
     ]);
 
     Container::make('post_meta', 'Настройки поста')
