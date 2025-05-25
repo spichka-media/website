@@ -103,6 +103,14 @@ add_action(
             'post_type' => 'post',
           ],
         ]),
+      ])
+      ->add_tab('Переводы статьи', [
+         Field::make('association', 'translated_posts', 'Статьи')->set_types([
+             [
+                 'type' => 'post',
+                 'post_type' => 'post',
+             ],
+         ])
       ]);
 
     Container::make('post_meta', 'Настройки')
