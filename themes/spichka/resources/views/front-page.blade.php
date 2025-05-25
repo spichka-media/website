@@ -131,6 +131,19 @@
           const MAX_RECENT_POSTS = 10;
           $recent_posts = get_posts([
             'posts_per_page' => MAX_RECENT_POSTS,
+            'tax_query' => [
+              'relation' => 'OR',
+              [
+                'taxonomy' => 'translation_lang',
+                'field' => 'slug',
+                'terms' => 'ru',
+              ],
+              [
+                'taxonomy' => 'translation_lang',
+                'field' => 'id',
+                'operator' => 'NOT EXISTS',
+              ],
+            ],
           ]);
         @endphp
 

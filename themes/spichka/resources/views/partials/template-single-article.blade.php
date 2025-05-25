@@ -10,6 +10,20 @@
           @php(the_title())
         </h1>
 
+        @php($translated_posts = get_posts_translations(get_the_ID()))
+        @if (count($translated_posts))
+          <div class="d-flex flex-row bd-highlight mb-0">
+            <div class="pe-2 bd-highlight">Переводы:</div>
+            @foreach ($translated_posts as $lang => $translated_post)
+              <div class="ps-0 bd-highlight">
+                <a href="{{ get_the_permalink($translated_post->ID) }}">
+                  {!! $lang !!}
+                </a>
+              </div>
+            @endforeach
+          </div>
+        @endif
+
         <div class="d-flex flex-column row-gap-2">
           <div class="d-flex align-items-baseline" id="article-categories">
             <i class="fa-fw me-2 fas fa-bookmark"></i>

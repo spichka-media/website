@@ -67,8 +67,10 @@ collect(['setup', 'filters'])->each(function ($file) {
   }
 });
 
+require_once dirname(__FILE__) . '/app/lib/addition-taxonomy.php';
 require_once dirname(__FILE__) . '/app/lib/utils.php';
 require_once dirname(__FILE__) . '/app/lib/pagination.php';
 require_once dirname(__FILE__) . '/app/lib/plugins.php';
 require_once dirname(__FILE__) . '/app/custom-fields.php';
 require_once dirname(__FILE__) . '/app/lib/recommendations.php';
+require_once dirname(__FILE__) . '/app/lib/translations.php';
