@@ -134,15 +134,16 @@
             'tax_query' => [
               'relation' => 'OR',
               [
-              'taxonomy'=> 'translation_lang',
-              'field' => 'slug',
-              'terms' => 'ru'
+                'taxonomy' => 'translation_lang',
+                'field' => 'slug',
+                'terms' => 'ru',
               ],
               [
-              'taxonomy'=> 'translation_lang',
-              'field' => 'id',
-              'operator' => 'NOT EXISTS'
-              ]]
+                'taxonomy' => 'translation_lang',
+                'field' => 'id',
+                'operator' => 'NOT EXISTS',
+              ],
+            ],
           ]);
         @endphp
 
