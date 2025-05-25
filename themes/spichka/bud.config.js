@@ -86,6 +86,7 @@ export default async (app) => {
         /^offcanvas(-.*)?$/,
         /^nav-/,
         /^modern-footnotes-/,
+        /^wp-block-pullquote/,
         /^swiper-/,
         /^pp-multiple-authors-/,
         /^article/,
