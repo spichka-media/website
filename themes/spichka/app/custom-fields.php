@@ -125,7 +125,22 @@ add_action(
         Field::make('rich_text', 'about_description', 'Описание'),
         Field::make('image', 'about_decoration', 'Изображение на мобильном'),
       ])
-      ->add_tab('Статьи', [Field::make('text', 'articles_title', 'Заголовок')])
+      ->add_tab('Статьи', [
+        Field::make('text', 'articles_title', 'Заголовок'),
+        Field::make(
+          'association',
+          'front_program_articles_taxonomy',
+          'Категория для перехода'
+        )
+          ->set_types([
+            [
+              'type' => 'term',
+              'taxonomy' => 'category',
+            ],
+          ])
+          ->set_min(1)
+          ->set_max(1),
+      ])
       ->add_tab('Присоеденяйся', [
         Field::make('text', 'join_title', 'Заголовок'),
         Field::make('rich_text', 'join_description', 'Описание'),
