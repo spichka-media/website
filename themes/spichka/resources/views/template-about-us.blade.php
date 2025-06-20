@@ -69,6 +69,9 @@
         <div class="offset-lg-3 col border-lg-start border-0">
           <div class="mt-4 mb-8 swiper-block">
             @php
+              $term = carbon_get_post_meta(get_the_ID(), 'front_program_articles_taxonomy');
+              $program_term_link = ! empty($term[0]) ? get_term_link(intval($term[0]['id'])) : null;
+              const MAX_RECENT_PROGRAM_ARTICLES = 10;
               $program_articles = get_posts([
                 'tax_query' => [
                   [
@@ -77,7 +80,7 @@
                     'terms' => 'programm',
                   ],
                 ],
-                'numberposts' => -1,
+                'numberposts' => MAX_RECENT_PROGRAM_ARTICLES,
               ]);
             @endphp
 
@@ -89,7 +92,7 @@
                   </div>
                 @endforeach
 
-                @if (! empty($program_term_link) && ! is_wp_error($program_term_link))
+                @if (! empty($program_term_link) && ! is_wp_error($program_term_link) && count($program_articles) === MAX_RECENT_PROGRAM_ARTICLES)
                   <div class="swiper-slide">
                     <div class="post-card">
                       <a href="{!! $program_term_link !!}">
